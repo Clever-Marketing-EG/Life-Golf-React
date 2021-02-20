@@ -5,9 +5,66 @@
        font-size: 14px;
        color: rgba(255, 255, 255, 1);
        line-height: 24px;
+       margin-top: 16px;
 
     }
     .footer-background{
         background-color: rgba(5, 59, 108, 1);
+    }
+    .margin-top-footer{
+        margin-top: 70px;
+    }
+    .social-icons-container{
+        ul{
+            display: flex;
+            list-style: none;
+        }
+    }
+    .social-icons{
+        a{
+            height: 36px;
+            width: 36px;
+            background-color: rgba(223, 54, 105, 1);
+            border-radius: 5px;
+            display: inline-block;
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            &:hover {
+                color: rgba(223, 54, 105, 1) !important;
+                background-color: #fff;
+                transition: all 0.5s ease;
+            }
+
+        }
+      
+    }
+    h3{
+       
+       font-family: 'Poppins';
+       font-size: 20px;
+       color: rgba(255, 255, 255, 1);
+       margin-bottom: 16px;
+
+    }
+    .pages-link{
+        list-style: none;
+        padding-left: 0;
+        
+        a{
+            
+            font-family: 'Roboto';
+            font-size: 14px;
+            color: rgba(255, 255, 255, 1);
+            text-decoration: none;
+            &:hover{
+                opacity: 0.9;
+            }
+
+        }
+    }
+    .margin-right{
+        margin-right: 110px;
     }
 }
