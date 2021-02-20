@@ -10,9 +10,9 @@ export default function ContactUs() {
         <div id={'contact-us'}>
             <h1 className={'contact-title'}>We want to hear from you</h1>
             <div className={'container  margin-top-value'}>
-                <div className={'row justify-content-center'}>
-                    <div className={'col-md-5 margin-bet'}>
-                        <from>
+                <div className={'row justify-content-around'}>
+                    <div className={'col-md-5'}>
+                        <from class="p-2">
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
                                     <input type="text" class="form-control" placeholder="Name" />
@@ -43,8 +43,9 @@ export default function ContactUs() {
 
                     </div>
                     
-                    <div className={'col-md-5'}>
-                        <div className={'row'}>
+                    <div className={'col-md-5 '}>
+                        <br/>
+                        <div className={'row '}>
                             <div className={'col-md-2 square-container'}>
                                 <img src={phone} alt="" />
                             </div>
@@ -79,11 +80,12 @@ export default function ContactUs() {
                 </div>
             </div>
             <div className={'map-container'}>
-                <iframe
-                    className="location"
-                    title={"map"}
-                    src="https://www.google.com/maps?q=Life%20Chemicals%20Group%2C%20El%20Hegaz%20Street%2C%20El-Nozha%2C%20El%20Nozha%2C%20Egypt&z=14&t=&ie=UTF8&output=embed"
-                />
+               
+                <iframe 
+                className="location"
+                title={"map"}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.74863997593!2d31.324429815070793!3d30.101384381861607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581592d9955c01%3A0x766fc31e19db272f!2sLife%20Golf!5e0!3m2!1sen!2seg!4v1613831886433!5m2!1sen!2seg"></iframe>
+                <div className={'overlay'}></div>
             </div>
         </div>
     )
