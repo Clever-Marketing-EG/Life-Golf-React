@@ -3,7 +3,6 @@ import './ContactUs.scss';
 import phone from './Assets/icon_feather-phone.png';
 import mail from './Assets/icon_feather-mail.png';
 import map from './Assets/icon_feather-map-pin.png';
-import { matchPath } from 'react-router-dom';
 export default function ContactUs() {
 
     return (
