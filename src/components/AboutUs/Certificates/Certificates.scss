@@ -22,4 +22,17 @@
          
  
      }
+     .navigator{
+         margin-top: 80px;
+    }
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: #fff;
+        background-color: rgba(5, 59, 108, 1);
+
+    }
+    .nav-pills .nav-link{
+        color:rgba(5, 59, 108, 1);
+        font-family: 'Roboto';
+        font-size: 12px;
+    }
 }

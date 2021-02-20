@@ -35,4 +35,39 @@
        .border-right{
            border-right: 0.5px solid rgba(151, 159, 197, 0.2) ;
        }
+       .pic{
+        height: 205px;
+        width: 255px;
+        border-radius: 35px;
+        border: 6px solid #fff;
+        box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.1); 
+    }
+       .img-container{
+           position: relative;
+           max-width:523px;
+           height: 515px;
+           width:100%;
+           
+       }
+       .pic1{
+           position: absolute;
+           top:0;
+           left: 0;
+
+       }
+       .pic2{
+           position: absolute;
+           left: 277px;
+           top: 82px;
+       }
+       .pic3{
+        position: absolute;
+        top: 229px;
+        left: 0;
+       }
+       .pic4{
+           position: absolute;
+           top: 310px;
+           left: 277px;
+       }
 }

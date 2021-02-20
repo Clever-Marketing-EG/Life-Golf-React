@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.scss';
-import pic from './Assets/pexels-tiger-lily-4487421-2.png';
+import pic from './Assets/about-us-3.jpg';
 import pic1 from './Assets/mask_group_10.png';
 import pic2 from './Assets/mask_group_11.png';
 import pic3 from './Assets/mask_group_12.png';
@@ -11,9 +11,13 @@ export default function AboutUs() {
     return (
         <div id={'about-us'}>
             <div className={'container'}>
-                <div className={'row'}>
-                    <div className={'col-md-6'}>
-                        <img src={pic} alt=""/>
+                <div className={'row justify-content-around'}>
+                    <div className={'col-md-6 img-container'}>
+                        <img src={pic} className={'pic pic1'} alt="" />
+                        <img src={pic} className={'pic pic2'} alt="" />
+                        <img src={pic} className={'pic pic3'} alt="" />
+                        <img src={pic} className={'pic pic4'} alt="" />
+
 
                     </div>
                     <div className={'col-md-5'}>
@@ -47,7 +51,7 @@ export default function AboutUs() {
                         </div>
                     </div>
                 </div>
-                <Certifiactes/>
+                <Certifiactes />
             </div>
 
         </div>
