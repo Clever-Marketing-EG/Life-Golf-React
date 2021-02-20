@@ -10,7 +10,7 @@ export default function Intro() {
     return(
         <div id={'intro'}>
             <Nav />
-            <div className={'container intro-container d-flex flex-wrap justify-content-between'}>
+            <div className={'container intro-container d-flex flex-wrap justify-content-around'}>
                 <div className={'left-container'}>
                     <h1 className={'home-header'}>Golf Car & Utility</h1>
                     <hr className={'white-line'}/>
