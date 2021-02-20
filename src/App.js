@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Footer from "./components/Shared/Footer/Footer";
-
+import ContactUs from "./components/ContactUs/ContactUs"
 
 function App() {
 
@@ -16,6 +16,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/Contact">
+                        <ContactUs />
                     </Route>
                 </Switch>
             </Router>
