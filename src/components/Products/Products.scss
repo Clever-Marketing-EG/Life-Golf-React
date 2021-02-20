@@ -4,6 +4,9 @@
   * {
     font-family: "Poppins";
   }
+  body{
+      align-self: center;
+  }
   .product-img {
     width: 208px;
     height: 160px;
@@ -24,7 +27,7 @@
     border-radius: 20px;
   }
   .title {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 1000;
     color: rgba(3, 49, 112, 1);
     display: inline-block;
@@ -58,7 +61,7 @@
     display: inline;
   }
   .mrow {
-    --bs-gutter-x: 2.5rem;
+    --bs-gutter-x: 1.8rem;
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
