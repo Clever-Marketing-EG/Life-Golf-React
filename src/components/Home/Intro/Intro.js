@@ -1,6 +1,8 @@
 import React from "react";
 import './Intro.scss';
 import Nav from "../../Shared/Nav/Nav";
+
+import PinkSquare from '../Assets/pink-square.png';
 import Cart1 from '../Assets/cart1.png';
 
 export default function Intro() {
@@ -21,7 +23,7 @@ export default function Intro() {
                     </div>
                 </div>
                 <div className={'right-container'}>
-                    <img src={'pink-square.png'}  alt={''} className={'pink-square'}/>
+                    <img src={PinkSquare}  alt={''} className={'pink-square'}/>
                     <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
