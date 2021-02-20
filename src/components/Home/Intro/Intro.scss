@@ -45,21 +45,20 @@
 
     .right-container {
         position: relative;
-        min-height: 595px;
+        max-height: 595px;
         max-width: 592px;
         width: 100%;
         height: 100%;
 
         .pink-square {
-            height: 595px;
-            width: 592px;
-            //background-color: rgba(223, 54, 105, 1);
-            //border: 6px solid rgba(255, 255, 255, 1);
+            max-height: 574px;
+            max-width: 574px;
+            height: 100%;
+            width: 100%;
             //border-radius: 103px;
-            //box-shadow: 0 3px 60px 0 rgba(0, 0, 0, 0.16);
-            //-webkit-transform:  rotate(30deg);
-            //-ms-transform:  rotate(30deg);
-            //transform:  rotate(30deg);
+            -webkit-transform:  rotate(30deg);
+            -ms-transform:  rotate(30deg);
+            transform:  rotate(30deg);
             position: absolute;
         }
 
