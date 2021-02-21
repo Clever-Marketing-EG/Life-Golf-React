@@ -35,20 +35,35 @@ export default function FactoryVid(props) {
                     <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
                     <p className={'vid-date'}>150 view - 18 aug 2020</p>
                 </div>
-                <div className={'fact-container'}><img src={cert} class="cert-img" alt="" />
-                    <p className={'cert-name'}>Cerificate name</p>
+                <div className={'fact-container'}><iframe className={'videos-frame'} src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                    <p className={'vid-name'}>Amazing factory tour</p>
+                    <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
+                    <p className={'vid-date'}>150 view - 18 aug 2020</p>
                 </div>
-                <div className={'fact-container'}><img src={cert} class="cert-img" alt="" />
-                    <p className={'cert-name'}>Cerificate name</p>
+                <div className={'fact-container'}><iframe className={'videos-frame'} src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                    <p className={'vid-name'}>Amazing factory tour</p>
+                    <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
+                    <p className={'vid-date'}>150 view - 18 aug 2020</p>
                 </div>
-                <div className={'fact-container'}><img src={cert} class="cert-img" alt="" />
-                    <p className={'cert-name'}>Cerificate name</p>
+                <div className={'fact-container'}><iframe className={'videos-frame'} src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                    <p className={'vid-name'}>Amazing factory tour</p>
+                    <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
+                    <p className={'vid-date'}>150 view - 18 aug 2020</p>
                 </div>
-                <div className={'fact-container'}><img src={cert} class="cert-img" alt="" />
-                    <p className={'cert-name'}>Cerificate name</p>
+                <div className={'fact-container'}><iframe className={'videos-frame'} src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                    <p className={'vid-name'}>Amazing factory tour</p>
+                    <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
+                    <p className={'vid-date'}>150 view - 18 aug 2020</p>
                 </div>
-                <div className={'fact-container'}><img src={cert} class="cert-img" alt="" />
-                    <p className={'cert-name'}>Cerificate name</p>
+                <div className={'fact-container'}><iframe className={'videos-frame'} src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                    <p className={'vid-name'}>Amazing factory tour</p>
+                    <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
+                    <p className={'vid-date'}>150 view - 18 aug 2020</p>
                 </div>
             </Carousel>
 
