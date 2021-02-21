@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Footer from "./components/Shared/Footer/Footer";
 import ContactUs from "./components/ContactUs/ContactUs";
+import Product from "./components/SingleProduct/SingleProduct";
 function App() {
   return (
     <div>
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route exact path="/Products">
             <Products />
+          </Route>
+          <Route exact path="/Product">
+            <Product />
           </Route>
         </Switch>
       </Router>
