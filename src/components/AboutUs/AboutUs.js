@@ -5,7 +5,8 @@ import pic1 from './Assets/mask_group_10.png';
 import pic2 from './Assets/mask_group_11.png';
 import pic3 from './Assets/mask_group_12.png';
 import pic4 from './Assets/mask_group_13.png';
-import Certifiactes from './Certificates/Certificates'
+import Certifiactes from './Certificates/Certificates';
+import Videos from './Videos/Videos';
 export default function AboutUs() {
 
     return (
@@ -52,6 +53,7 @@ export default function AboutUs() {
                     </div>
                 </div>
                 <Certifiactes />
+                <Videos />
             </div>
 
         </div>

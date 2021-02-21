@@ -1,6 +1,8 @@
 import React from 'react';
 import './Certificates.scss';
 import ProductCar from '../ProductsCar/ProductCar'
+import VehicleCar from '../VehicleCar/VehicleCar'
+
 export default function Certifiactes() {
 
     return (
@@ -21,7 +23,9 @@ export default function Certifiactes() {
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <ProductCar />
                         </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <VehicleCar />
+                        </div>
                     </div>
                 </div>
             </div>
