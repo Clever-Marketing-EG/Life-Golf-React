@@ -38,7 +38,6 @@ export default function OurProducts() {
                     </span>
                     Golf cart & utilities
                 </button>
-
             </div>
 
         </div>
