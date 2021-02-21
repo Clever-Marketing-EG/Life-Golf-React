@@ -12,9 +12,9 @@ export default function Intro() {
             <Nav />
             <div className={'container intro-container d-flex flex-wrap justify-content-around'}>
                 <div className={'left-container'}>
-                    <h1 className={'home-header'}>Golf Car & Utility</h1>
+                    <h1 className={'intro-header'}>Golf Car & Utility</h1>
                     <hr className={'white-line'}/>
-                    <p className={'home-paragraph'}>
+                    <p className={'intro-paragraph'}>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
@@ -23,7 +23,9 @@ export default function Intro() {
                     </div>
                 </div>
                 <div className={'right-container'}>
-                    <img src={PinkSquare}  alt={''} className={'pink-square'}/>
+                    <div className={'pink-square-container'}>
+                        <img src={PinkSquare}  alt={''} className={'pink-square'}/>
+                    </div>
                     <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
