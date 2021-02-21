@@ -29,7 +29,7 @@ export default function FactoryVid(props) {
     return (
         <div id={'fact'}>
             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false}>
-                <div className={'fact-container'}><iframe className={'videos-frame'} src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                <div className={'fact-container'}><iframe className={'videos-frame'} allowfullscreen="true" src="https://www.youtube.com/embed/tgbNymZ7vqY">
                 </iframe>
                     <p className={'vid-name'}>Amazing factory tour</p>
                     <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
