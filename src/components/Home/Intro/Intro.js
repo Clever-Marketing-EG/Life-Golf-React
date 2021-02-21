@@ -30,7 +30,7 @@ export default function Intro() {
     const data = {
         'golf-carts': {
             header: 'Golf cart & utility',
-            content: 'Golf cart & utility content',
+            content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo',
             images: [
                 cart1, cart2, cart3
             ]
@@ -129,7 +129,7 @@ export default function Intro() {
                 </div>
 
             </div>
-            <div className={'category-nav d-flex justify-content-center'}>
+            <div className={'category-nav d-flex flex-wrap justify-content-center'}>
                 <button id={'golf-carts'} className={'category-button active'} onClick={handleClick}>
                     <i className="icon-golf-cart logo"/>
                     Golf cart & utility
