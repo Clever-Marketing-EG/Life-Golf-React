@@ -1,0 +1,25 @@
+#cert{
+    .cert-title{
+        font-family: 'Poppins';
+        font-weight: bold;
+        font-size: 36px;
+        color: rgba(5, 59, 108, 1);
+        text-align: center;
+        margin-top: 116px;
+        
+     }
+     .cert-title::before {
+         position: absolute;
+         content: '';
+         left: 0;
+         right: 0;
+         margin: 0 auto;
+         height: 3px;
+         width: 55px;
+         background-color: rgba(0, 27, 119, 1);
+         border-radius: 1px;
+         margin-top: 5.5rem;
+         
+ 
+     }
+}

@@ -1,0 +1,55 @@
+#about-us {
+    //position: relative;
+    min-height: 394px;
+    height: 100%;
+    margin-top: 10vw;
+
+    .left-container{
+        position: relative;
+        max-width: 530px;
+        width: 100%;
+        min-height: 395px;
+        height: 100%;
+
+        .about-image {
+            border: 7px white solid;
+            border-radius: 50px;
+            box-shadow: 0 5px 1rem -5px rgba(0, 0, 0, 0.5);
+            position: absolute;
+        }
+
+        .image-1 {
+            max-height: 191px;
+            max-width: 236px;
+            height: 100%;
+            width: 100%;
+            bottom: 0;
+            left: 73px;
+            z-index: 2;
+        }
+
+        .image-2 {
+            max-height: 253px;
+            max-width: 313px;
+            top: 0;
+            left:0;
+            z-index: 0;
+        }
+
+        .image-3 {
+            max-height: 253px;
+            height: 100%;
+            max-width: 313px;
+            width: 100%;
+            right: 0;
+            top: 60px;
+            z-index: 1;
+        }
+    }
+
+    .right-container {
+        max-width: 432px;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}

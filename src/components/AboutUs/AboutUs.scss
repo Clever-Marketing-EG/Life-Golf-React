@@ -1,3 +1,38 @@
 #about-us {
+        .about-title{  
+          font-family: 'Poppins';
+          font-size: 36px;
+          color: rgba(5, 59, 108, 1);
+          font-weight: bold;
+        }
+        hr{
+            height: 2px;
+            width: 80px;
+            color: rgba(5, 59, 108, 1);
+            opacity: 100%;
+            border-radius: 1px;
 
+        }
+        .abt-p{
+          
+            font-family: 'Roboto';
+            font-size: 16px;
+            color: rgba(151, 159, 197, 1);
+
+        }
+        .first-h{
+            font-family: 'Montserrat';
+            font-size: 24px;
+            color: rgba(5, 59, 108, 1);
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .first-p{
+            font-family: 'Montserrat';
+            font-size: 12px;
+            color: rgba(151, 159, 197, 1);
+        }
+       .border-right{
+           border-right: 0.5px solid rgba(151, 159, 197, 0.2) ;
+       }
 }

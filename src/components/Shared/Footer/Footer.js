@@ -102,6 +102,8 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+                {/* <p class="text-center"> &copy; 2021 All Rights Reserved. Life Golf Car. | Designed by <a className={'clever'}href="https://clevermarketing-eg.com/"> Clever marketing</a></p> */}
+
             </footer>
         </div >
     )

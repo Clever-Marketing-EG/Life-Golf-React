@@ -1,10 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Footer from "./components/Shared/Footer/Footer";
 import ContactUs from "./components/ContactUs/ContactUs";
-import Product from "./components/SingleProduct/SingleProduct";
+import AboutUs from "./components/AboutUs/AboutUs";
+
 function App() {
   return (
     <div>
@@ -18,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/Products">
             <Products />
+          </Route>
+          <Route exact path="/About">
+            <AboutUs />
           </Route>
           <Route exact path="/Product">
             <Product />
