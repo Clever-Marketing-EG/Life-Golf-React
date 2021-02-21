@@ -6,7 +6,7 @@ import Products from "./components/Products/Products";
 import Footer from "./components/Shared/Footer/Footer";
 import ContactUs from "./components/ContactUs/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
-
+import Product from './components/SingleProduct/SingleProduct'
 function App() {
   return (
     <div>

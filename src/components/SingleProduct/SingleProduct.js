@@ -3,6 +3,7 @@ import Config from "./Configurations/Configurations";
 import Features from "./Features/Features";
 import Specs from "./Specifications/Specifications";
 import single from "../../assets/Products/single.png";
+import SimilarProducts from "./SimalarProducts/SimilarProducts";
 import "./SingleProduct.scss";
 import ok from "../../assets/Products/ok.svg";
 export default function SingleProduct() {
@@ -13,7 +14,7 @@ export default function SingleProduct() {
     setPage(page);
   };
   useEffect(() => {
-    if (page == 0) {
+    if (page === 0) {
       setData(<Features />);
     } else if (page == 1) {
       setData(<Specs />);
@@ -90,6 +91,9 @@ export default function SingleProduct() {
         page 3
       </button>
       {data}
+      <br />
+      <br />
+      <SimilarProducts />
     </div>
   );
 }
