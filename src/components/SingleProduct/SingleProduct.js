@@ -14,7 +14,7 @@ export default function SingleProduct() {
     setPage(page);
   };
   useEffect(() => {
-    if (page == 0) {
+    if (page === 0) {
       setData(<Features />);
     } else if (page == 1) {
       setData(<Specs />);
