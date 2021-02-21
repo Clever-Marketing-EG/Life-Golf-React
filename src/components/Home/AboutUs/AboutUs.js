@@ -9,9 +9,9 @@ export default function AboutUs() {
     return(
         <div id={'about-us'} className={'container d-flex flex-wrap-reverse justify-content-around'}>
             <div className={'left-container'}>
-                <img src={AboutUs1}  alt={''} className={'image-container image-1'}/>
-                <img src={AboutUs2}  alt={''} className={'image-container image-2'}/>
-                <img src={AboutUs3}  alt={''} className={'image-container image-3'}/>
+                <img src={AboutUs2}  alt={''} className={'about-image image-1'}/>
+                <img src={AboutUs3}  alt={''} className={'about-image image-2'}/>
+                <img src={AboutUs1}  alt={''} className={'about-image image-3'}/>
 
             </div>
             <div className={'right-container'}>
