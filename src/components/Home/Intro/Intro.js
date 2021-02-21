@@ -3,13 +3,26 @@ import './Intro.scss';
 import Nav from "../../Shared/Nav/Nav";
 
 import PinkSquare from '../Assets/pink-square.png';
-import Cart1 from '../Assets/cart1.png';
 
 import bus1 from '../Assets/bus1.png';
 import bus2 from '../Assets/bus2.png';
 import bus3 from '../Assets/bus3.png';
 
-// import cart1 from
+import cart1 from '../Assets/cart1.png';
+import cart2 from '../Assets/cart2.png';
+import cart3 from '../Assets/cart3.png';
+
+import cleaning1 from '../Assets/cleaning1.png';
+import cleaning2 from '../Assets/cleaning2.png';
+import cleaning3 from '../Assets/cleaning3.png';
+
+import handling1 from '../Assets/handling1.png';
+import handling2 from '../Assets/handling2.png';
+import handling3 from '../Assets/handling3.png';
+
+import electronic1 from '../Assets/electronic1.png';
+import electronic2 from '../Assets/electronic2.png';
+import electronic3 from '../Assets/electronic3.png';
 
 export default function Intro() {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
@@ -19,7 +32,7 @@ export default function Intro() {
             header: 'Golf cart & utility',
             content: 'Golf cart & utility content',
             images: [
-                bus1, bus2, bus3
+                cart1, cart2, cart3
             ]
         },
         'electric-vehicles': {
@@ -33,14 +46,14 @@ export default function Intro() {
             header: 'Electric Cleaning Equipment',
             content: 'Electric Cleaning Equipment content',
             images: [
-                bus1, bus2, bus3
+                cleaning1, cleaning2, cleaning3
             ]
         },
         'handling-equipment': {
             header: 'Electric Handling Equipment',
             content: 'Electric Handling Equipment content',
             images: [
-                bus1, bus2, bus3
+                handling1, handling2, handling3
             ]
 
         },
@@ -48,7 +61,7 @@ export default function Intro() {
             header: 'Electronics',
             content: 'Electronics content',
             images: [
-                bus1, bus2, bus3
+                electronic1, electronic2, electronic3
             ]
         },
     }
@@ -84,14 +97,22 @@ export default function Intro() {
                     </div>
                     <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <img src={Cart1} className="d-block w-100" alt="..." />
-                            </div>
-                            {data[activeCategory].images.map(image=> (
-                                <div className="carousel-item">
-                                    <img src={image} className="d-block w-100" alt="..." />
-                                </div>
-                            ))}
+                            { data[activeCategory].images.map( (image,index) => {
+                                if(index ===0 ) {
+                                    return (
+                                        <div className="carousel-item active">
+                                            <img src={image} className="d-block w-100" alt="..." />
+                                        </div>
+                                    )
+                                } else {
+                                    return (
+                                        <div className="carousel-item">
+                                            <img src={image} className="d-block w-100" alt="..." />
+                                        </div>
+                                    )
+                                }
+                            })}
+
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
                                 data-bs-slide="prev">
