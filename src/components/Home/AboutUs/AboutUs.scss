@@ -1,5 +1,4 @@
 #about-us {
-    //position: relative;
     min-height: 394px;
     height: 100%;
     margin-top: 10vw;
@@ -53,6 +52,18 @@
             right: 0;
             top: 60px;
             z-index: 1;
+        }
+
+
+        @media only screen and(max-width: 550px) {
+            .about-image {
+                position: static;
+                max-height: 253px;
+                height: 100%;
+                max-width: 313px;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
         }
     }
 
