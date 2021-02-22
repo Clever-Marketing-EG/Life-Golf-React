@@ -67,39 +67,52 @@ export default function OurProducts() {
                     <div className={'big-container'}>
                         <div className={'cart-container'}>
                             <img src={cart} alt="" className={'cart-img'} />
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
+                            <div className={'snd-cont'}>
+                                <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
+                                <button className={'btn arrow-btn'}>
+                                    <img src={rightArrow} className={'arrow-position'} />
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                     <div className={'big-container'}>
                         <div className={'cart-container'}>
                             <img src={cart} alt="" className={'cart-img'} />
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
+                            <div className={'snd-cont'}>
+                                <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
+                                <button className={'btn arrow-btn'}>
+                                    <img src={rightArrow} className={'arrow-position'} />
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                     <div className={'big-container'}>
                         <div className={'cart-container'}>
                             <img src={cart} alt="" className={'cart-img'} />
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
+                            <div className={'snd-cont'}>
+                                <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
+                                <button className={'btn arrow-btn'}>
+                                    <img src={rightArrow} className={'arrow-position'} />
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                     <div className={'big-container'}>
                         <div className={'cart-container'}>
                             <img src={cart} alt="" className={'cart-img'} />
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
+                            <div className={'snd-cont'}>
+                                <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
+                                <button className={'btn arrow-btn'}>
+                                    <img src={rightArrow} className={'arrow-position'} />
+                                </button>
+                            </div>
+
                         </div>
                     </div>
+
                 </Carousel>
             </div>
 
