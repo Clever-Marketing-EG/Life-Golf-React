@@ -104,6 +104,15 @@
         padding: 4px 10px;
         position: absolute;
         bottom: 0;
+        transition: 0.5s;;
+
+        &:hover {
+            background: white;
+            border: 1px solid rgba(223, 54, 105, 1);
+            i:before {
+                color: rgba(223, 54, 105, 1);
+            }
+        }
     }
 
     .cherry-button:last-child {
