@@ -6,7 +6,8 @@ import Products from "./components/Products/Products";
 import Footer from "./components/Shared/Footer/Footer";
 import ContactUs from "./components/ContactUs/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
-import Product from './components/SingleProduct/SingleProduct'
+import Product from './components/SingleProduct/SingleProduct';
+import Maintenance from './components/Maintenance/Maintenance'
 function App() {
   return (
     <div>
@@ -25,7 +26,10 @@ function App() {
             <AboutUs />
           </Route>
           <Route exact path="/Product">
-            <Products />
+            <Product />
+          </Route>
+          <Route exact path="/Maintenance">
+            <Maintenance />
           </Route>
         </Switch>
       </Router>
