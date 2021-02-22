@@ -17,7 +17,7 @@ export default function Footer() {
                                 <ul className="social-icons">
                                     <li>
                                         <a className="facebook" href="#">
-                                            <i className="icon-facebook" />
+                                            <i className="icon-facebook"/>
                                         </a>
                                     </li>
                                     <li>
@@ -27,7 +27,7 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <a className="linkedin" href="#">
-                                            <i className="icon-linkedin2"></i>
+                                            <i className="icon-linkedin"/>
                                         </a>
                                     </li>
                                     <li>
@@ -88,7 +88,7 @@ export default function Footer() {
                                 <li>
                                     <a href="#">Prochure</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                         <div className={'col-md-2 margin-top-footer'}>
@@ -97,7 +97,7 @@ export default function Footer() {
                                 <li>
                                     <a href="#">Contact Us</a>
                                 </li>
-                              
+
                             </ul>
                         </div>
                     </div>
