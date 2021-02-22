@@ -44,9 +44,11 @@
         position: relative;
     }
     .big-container{
-        height: 260px;
+        min-height: 260px;
         width: 263px;
         text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     
     .arrows{
@@ -69,6 +71,9 @@
     .cart-img{
         height: 157px;
         width: 189px;
+        position:absolute;
+        top: -30px;
+        left: 30px;
     }
     .cart-name{
         font-family: 'Roboto';
@@ -94,5 +99,9 @@
         position: absolute;
         top: 6px;
         left: 6px;
+    }
+    .snd-cont{
+        position: absolute;
+        bottom: -17px;
     }
 }
