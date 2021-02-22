@@ -100,13 +100,13 @@ export default function Intro() {
                             { data[activeCategory].images.map( (image,index) => {
                                 if(index ===0 ) {
                                     return (
-                                        <div className="carousel-item active">
+                                        <div className="carousel-item active" key={index+1}>
                                             <img src={image} className="d-block w-100" alt="..." />
                                         </div>
                                     )
                                 } else {
                                     return (
-                                        <div className="carousel-item">
+                                        <div className="carousel-item" key={index+1}>
                                             <img src={image} className="d-block w-100" alt="..." />
                                         </div>
                                     )
