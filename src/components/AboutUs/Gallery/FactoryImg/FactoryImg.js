@@ -94,6 +94,7 @@ export default function FactoryImg() {
 
                 </div>
             </Carousel>
+            
         </div>
     )
 }

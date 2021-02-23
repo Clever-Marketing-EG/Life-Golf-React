@@ -33,6 +33,9 @@ function App() {
           <Route exact path="/Terms">
             <Terms />
           </Route>
+          <Route exact path="/Maintenance">
+            <Maintenance/>
+          </Route>
         </Switch>
       </Router>
       <Footer />
