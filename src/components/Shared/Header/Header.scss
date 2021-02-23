@@ -1,0 +1,26 @@
+#header {
+    background: url('../Assets/header-background.png') bottom;
+    background-size: cover;
+    width: 100%;
+    min-height: 25.2vw;
+    height: 100%;
+    position: relative;
+
+
+    .title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.6vh;
+        color: rgba(255, 255, 255, 1);
+        position: absolute;
+        text-align: center;
+    }
+
+    @media only screen and(max-width: 992px) {
+        background-position: top;
+        background-size: auto;
+
+        .title {
+            //top: 50px !important;
+        }
+    }
+}
