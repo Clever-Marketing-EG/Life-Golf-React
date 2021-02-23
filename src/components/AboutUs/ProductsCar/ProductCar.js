@@ -6,7 +6,7 @@ import arrow1 from './Assets/arrow1.png';
 import arrow2 from './Assets/arrow2.png';
 export default function ProductCar(props) {
     function myArrow({ type, onClick, isEdge }) {
-        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position'}/> : <img src={arrow2} className={'img-position'}/>
+        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position'} alt={'...'}/> : <img src={arrow2} className={'img-position'} alt={'...'}/>
         return (
           <button className={'arrows btn'} onClick={onClick} disabled={isEdge}>
             {pointer}
@@ -14,7 +14,7 @@ export default function ProductCar(props) {
         )
       }
 
-     
+
         const breakPoints = [
           { width: 1, itemsToShow: 1 },
           { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -23,26 +23,26 @@ export default function ProductCar(props) {
           { width: 1450, itemsToShow: 5 },
           { width: 1750, itemsToShow: 6 },
         ]
-      
+
     return (
         <div id={'prod'}>
-            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false}>
-                <div className={'cert-container'}><img src={cert} class="cert-img" alt="" />
+            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
+                <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
-                <div className={'cert-container'}><img src={cert} class="cert-img" alt="" />
+                <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
-                <div className={'cert-container'}><img src={cert} class="cert-img" alt="" />
+                <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
-                <div className={'cert-container'}><img src={cert} class="cert-img" alt="" />
+                <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
-                <div className={'cert-container'}><img src={cert} class="cert-img" alt="" />
+                <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
-                <div className={'cert-container'}><img src={cert} class="cert-img" alt="" />
+                <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
             </Carousel>

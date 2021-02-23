@@ -1,14 +1,13 @@
 import React from 'react';
 import './Factory.scss';
 import Carousel, { consts } from 'react-elastic-carousel';
-import cert from './Assets/cert.png';
 import arrow1 from './Assets/arrow1.png';
 import arrow2 from './Assets/arrow2.png';
 import Truncate from 'react-truncate';
 
 export default function FactoryVid(props) {
     function myArrow({ type, onClick, isEdge }) {
-        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position'} /> : <img src={arrow2} className={'img-position'} />
+        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position'}  alt={'...'}/> : <img src={arrow2} className={'img-position'} alt={'...'} />
         return (
             <button className={'arrows btn'} onClick={onClick} disabled={isEdge}>
                 {pointer}
@@ -28,8 +27,8 @@ export default function FactoryVid(props) {
 
     return (
         <div id={'fact'}>
-            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false}>
-                <div className={'fact-container'}><iframe className={'videos-frame'} allowfullscreen="true" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
+                <div className={'fact-container'}><iframe className={'videos-frame'} allowFullScreen={true} src="https://www.youtube.com/embed/tgbNymZ7vqY">
                 </iframe>
                     <p className={'vid-name'}>Amazing factory tour</p>
                     <p className={'vid-body'}><Truncate lines={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </Truncate> </p>
