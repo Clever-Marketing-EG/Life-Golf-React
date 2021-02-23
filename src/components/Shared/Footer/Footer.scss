@@ -1,6 +1,6 @@
 #footer {
     .footer-desc{
-       
+
        font-family: 'Tajawal';
        font-size: 14px;
        color: rgba(255, 255, 255, 1);
@@ -34,6 +34,7 @@
             text-align: center;
             line-height: 40px;
             color: #fff;
+            text-decoration: none;
             &:hover {
                 color: rgba(223, 54, 105, 1) !important;
                 background-color: #fff;
@@ -41,10 +42,10 @@
             }
 
         }
-      
+
     }
     h3{
-       
+
        font-family: 'Poppins';
        font-size: 20px;
        color: rgba(255, 255, 255, 1);
@@ -54,9 +55,9 @@
     .pages-link{
         list-style: none;
         padding-left: 0;
-        
+
         a{
-            
+
             font-family: 'Roboto';
             font-size: 14px;
             color: rgba(255, 255, 255, 1);
@@ -81,7 +82,7 @@
     .clever:hover{
         color:rgba(223, 54, 105, 1);
         opacity: 1;
-        
+
     }
     p a{
         text-decoration: none;
