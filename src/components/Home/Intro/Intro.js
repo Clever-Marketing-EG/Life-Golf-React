@@ -79,7 +79,7 @@ export default function Intro() {
     return(
         <div id={'intro'}>
             <Nav />
-            <div className={'container intro-container d-flex flex-wrap justify-content-around'}>
+            <div className={'container intro-container d-flex flex-xxl-nowrap flex-xl-nowrap flex-lg-nowrap flex-wrap justify-content-around'}>
                 <div className={'left-container'}>
                     <h1 className={'intro-header'}>{data[activeCategory].header}</h1>
                     <hr className={'white-line'}/>
@@ -95,7 +95,7 @@ export default function Intro() {
                     <div className={'pink-square-container'}>
                         <img src={PinkSquare}  alt={''} className={'pink-square'}/>
                     </div>
-                    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div id="FadeCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             { data[activeCategory].images.map( (image,index) => {
                                 if(index ===0 ) {
@@ -114,12 +114,12 @@ export default function Intro() {
                             })}
 
                         </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                        <button className="carousel-control-prev" type="button" data-bs-target="#FadeCarousel"
                                 data-bs-slide="prev">
                             <span className="carousel-control-prev-icon" aria-hidden="true"/>
                             <span className="visually-hidden">Previous</span>
                         </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                        <button className="carousel-control-next" type="button" data-bs-target="#FadeCarousel"
                                 data-bs-slide="next">
                             <span className="carousel-control-next-icon" aria-hidden="true"/>
                             <span className="visually-hidden">Next</span>
