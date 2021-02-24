@@ -9,6 +9,8 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Product from './components/SingleProduct/SingleProduct';
 import Maintenance from './components/Support/Maintenance/Maintenance';
 import Terms from './components/Support/Terms/Terms';
+import News from './components/News/News';
+import Post from './components/News/Post/Post';
 
 function App() {
   return (
@@ -35,6 +37,12 @@ function App() {
           </Route>
           <Route exact path="/Maintenance">
             <Maintenance/>
+          </Route>
+          <Route exact path="/News">
+            <News/>
+          </Route>
+          <Route exact path="/Post">
+            <Post/>
           </Route>
         </Switch>
       </Router>
