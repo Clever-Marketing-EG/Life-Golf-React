@@ -1,7 +1,6 @@
 import React from 'react';
 import './OurServices.scss';
 
-import ConnectElements from 'react-connect-elements';
 import cart from '../Assets/our-services.png';
 import GreySquare from '../Assets/grey-square.jpg'
 
@@ -64,13 +63,6 @@ export default function OurServices() {
                     </div>
                 </div>
             </div>
-            {/*<ConnectElements*/}
-            {/*    selector=".image-container"*/}
-            {/*    elements={[{ from: '.tag', to: '.image-container img' }]}*/}
-            {/*    overlay={5}*/}
-            {/*    color={'#000'}*/}
-            {/*    strokeWidth={5}*/}
-            {/*/>*/}
         </div>
     )
 }
