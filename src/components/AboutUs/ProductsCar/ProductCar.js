@@ -26,7 +26,7 @@ export default function ProductCar(props) {
 
     return (
         <div id={'prod'}>
-            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
+             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                 <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
@@ -43,7 +43,7 @@ export default function ProductCar(props) {
                     <p className={'cert-name'}>Cerificate name</p>
                 </div>
                 <div className={'cert-container'}><img src={cert} className="cert-img" alt="" />
-                    <p className={'cert-name'}>Cerificate name</p>
+                    <p className={'cert-name'}>Cerificate name </p>
                 </div>
             </Carousel>
 
