@@ -1,28 +1,32 @@
 #footer {
     .footer-desc{
 
-       font-family: 'Tajawal';
+        font-family: 'Tajawal', sans-serif;
        font-size: 14px;
        color: rgba(255, 255, 255, 1);
        line-height: 24px;
        margin-top: 16px;
 
     }
+
     .footer-background{
-        background: url('./Assets/group_100.png');
+        background: url('./Assets/group_100.png') bottom;
         background-size: cover;
         width: 100%;
         margin-top: 6rem;
     }
+
     .margin-top-footer{
         margin-top: 70px;
     }
+
     .social-icons-container{
         ul{
             display: flex;
             list-style: none;
         }
     }
+
     .social-icons{
         a{
             height: 36px;
