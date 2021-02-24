@@ -36,6 +36,11 @@
 
     .intro-container {
         margin-top: 4vw;
+        padding-bottom: 18vh;
+
+        @media only screen and(max-width:790px)  {
+            padding-bottom: 40vh;
+        }
     }
 
     .left-container {
@@ -86,10 +91,6 @@
         max-width: 592px;
         width: 100%;
         height: 100%;
-
-        @media only screen and(max-width:790px)  {
-            margin-bottom: 55vh;
-        }
 
         .pink-square-container {
             max-height: 100%;
