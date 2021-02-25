@@ -7,7 +7,11 @@ import Footer from "./components/Shared/Footer/Footer";
 import ContactUs from "./components/ContactUs/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Product from './components/SingleProduct/SingleProduct';
-import Maintenance from './components/Maintenance/Maintenance'
+import Maintenance from './components/Support/Maintenance/Maintenance';
+import Terms from './components/Support/Terms/Terms';
+import News from './components/News/News';
+import Post from './components/News/Post/Post';
+
 function App() {
   return (
     <div>
@@ -28,8 +32,17 @@ function App() {
           <Route exact path="/Product">
             <Product />
           </Route>
+          <Route exact path="/Terms">
+            <Terms />
+          </Route>
           <Route exact path="/Maintenance">
-            <Maintenance />
+            <Maintenance/>
+          </Route>
+          <Route exact path="/News">
+            <News/>
+          </Route>
+          <Route exact path="/Post">
+            <Post/>
           </Route>
         </Switch>
       </Router>

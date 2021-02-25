@@ -1,0 +1,47 @@
+#news {
+    .filters {
+        height: 61px;
+        width: 253px;
+        border-radius: 15px;
+        position: relative;
+        margin-bottom: 30px;
+    }
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: rgba(5, 59, 108, 1);
+    }
+    .nav-pills .nav-link {
+        color: rgba(5, 59, 108, 1);
+        font-family: "Roboto";
+        font-size: 12px;
+        background-color: rgba(3, 49, 112, 0.05);
+    }
+    .filter-name {
+        font-family: "Roboto";
+        font-size: 13px;
+        text-align: center;
+        margin-left: 45px;
+        margin-top: 16px;
+    }
+    .white-box {
+        height: 43px;
+        width: 43px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 9px;
+        left: 10px;
+        text-align: center;
+    }
+    .filter-img {
+        margin-top: 10px;
+    }
+    @media only screen and(max-width:790px){
+        .nav{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}

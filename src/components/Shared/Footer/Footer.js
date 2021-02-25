@@ -39,7 +39,7 @@ export default function Footer() {
                                 <br />
                             </div>
                         </div>
-                        <div className={'col-md-2 margin-top-footer'}>
+                        <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>About us</h3>
                             <ul className={'pages-link'}>
                                 <li>
@@ -59,7 +59,7 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className={'col-md-2 margin-top-footer'}>
+                        <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>Products</h3>
                             <ul className={'pages-link'}>
                                 <li>
@@ -76,7 +76,7 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className={'col-md-2 margin-top-footer'}>
+                        <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>Support</h3>
                             <ul className={'pages-link'}>
                                 <li>
@@ -91,7 +91,7 @@ export default function Footer() {
 
                             </ul>
                         </div>
-                        <div className={'col-md-2 margin-top-footer'}>
+                        <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>Contact</h3>
                             <ul className={'pages-link'}>
                                 <li>

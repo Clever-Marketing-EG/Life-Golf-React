@@ -1,76 +1,82 @@
 #about-us {
-        .about-title{  
-          font-family: 'Poppins';
-          font-size: 36px;
-          color: rgba(5, 59, 108, 1);
-          font-weight: bold;
-        }
-        hr{
-            height: 2px;
-            width: 80px;
-            color: rgba(5, 59, 108, 1);
-            opacity: 100%;
-            border-radius: 1px;
+    .left-container {
+        max-width: 532px;
+        width: 100%;
+        min-height: 515px;
+        height: 100%;
+    }
 
-        }
-        .abt-p{
-          
-            font-family: 'Roboto';
-            font-size: 16px;
-            color: rgba(151, 159, 197, 1);
+    .pic-col {
+        max-height: 435px;
+    }
 
-        }
-        .first-h{
-            font-family: 'Montserrat';
-            font-size: 24px;
-            color: rgba(5, 59, 108, 1);
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .first-p{
-            font-family: 'Montserrat';
-            font-size: 12px;
-            color: rgba(151, 159, 197, 1);
-        }
-       .border-right{
-           border-right: 0.5px solid rgba(151, 159, 197, 0.2) ;
-       }
-       .pic{
+    .about-title {
+        font-family: "Poppins";
+        font-size: 36px;
+        color: rgba(5, 59, 108, 1);
+        font-weight: bold;
+    }
+    hr {
+        height: 2px;
+        width: 80px;
+        color: rgba(5, 59, 108, 1);
+        opacity: 100%;
+        border-radius: 1px;
+    }
+    .abt-p {
+        font-family: "Roboto";
+        font-size: 16px;
+        color: rgba(151, 159, 197, 1);
+    }
+    .first-h {
+        font-family: "Montserrat";
+        font-size: 24px;
+        color: rgba(5, 59, 108, 1);
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .first-p {
+        font-family: "Montserrat";
+        font-size: 12px;
+        color: rgba(151, 159, 197, 1);
+    }
+    .border-right {
+        border-right: 0.5px solid rgba(151, 159, 197, 0.2);
+    }
+    .pic {
         max-height: 205px;
         max-width: 255px;
-        height:100%;
+        height: 100%;
         width: 100%;
         border-radius: 35px;
         border: 6px solid #fff;
-        box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.1); 
+        box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
     }
-       .img-container{
-           position: relative;
-           max-width:523px;
-           width:100%;
-           height: 515px;
-           
-           
-       }
-       .pic1{
-           position: absolute;
-           top:0;
-           left: 0;
-
-       }
-       .pic2{
-           position: absolute;
-           left: 277px;
-           top: 82px;
-       }
-       .pic3{
+    .img-container {
+        position: relative;
+        max-width: 523px;
+        width: 100%;
+        height: 515px;
+    }
+    .pic1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .pic2 {
+        position: absolute;
+        left: 277px;
+        top: 82px;
+    }
+    .pic3 {
         position: absolute;
         top: 229px;
         left: 0;
-       }
-       .pic4{
-           position: absolute;
-           top: 310px;
-           left: 277px;
-       }
+    }
+    .pic4 {
+        position: absolute;
+        top: 310px;
+        left: 277px;
+    }
 }

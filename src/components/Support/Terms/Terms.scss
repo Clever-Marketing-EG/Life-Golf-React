@@ -1,0 +1,58 @@
+#terms{
+    .terms-title {
+        font-family: 'Poppins';
+        font-weight: bold;
+        font-size: 36px;
+        color: #053b6c;
+        text-align: center;
+    }
+    .terms-title::before{
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 3px;
+        width: 55px;
+        background-color: #001b77;
+        border-radius: 1px;
+        margin-top: 5.5rem;
+        margin-bottom: 5rem;
+    }
+    .mrg-top{
+        margin-top: 6rem;
+
+    }
+    .small-circle{
+        height: 8px;
+        width: 8px;
+        background-color: rgba(223, 54, 105, 1);
+        border-radius: 50%;
+        margin-right: 24px;
+    }
+    span{
+        font-family: 'Poppins';
+        font-size: 18px;
+        color: rgba(5, 59, 108, 1);
+        font-weight: bold;
+    }
+    .accordion-item{
+        margin-bottom: 31px;
+    }
+    .accordion-body{
+        font-family: 'Open Sans';
+        font-size: 16px;
+        color: rgba(151, 159, 197, 1);
+    }
+    .accordion-button,.accordion-collapse{
+        border: none;
+    }
+    .accordion-button{
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 10px;
+        box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.05);
+    }
+    .accordion-button::after{
+        background-image: url('./Assets/arrow1.png');
+    }
+}
