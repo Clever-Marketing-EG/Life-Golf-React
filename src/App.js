@@ -12,6 +12,8 @@ import Terms from './components/Support/Terms/Terms';
 import News from './components/News/News';
 import Post from './components/News/Post/Post';
 import Electronics from './components/Electronics/Electronics';
+import Customize from './components/Electronics/Customize/Customize';
+
 function App() {
   return (
     <div>
@@ -46,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/Electronics">
             <Electronics />
+          </Route>
+          <Route exact path="/Customize">
+            <Customize />
           </Route>
         </Switch>
       </Router>

@@ -110,7 +110,7 @@ export default function LeftForm() {
 
                                         }
                                     }}>-</button>
-                                    <input id={'counter'} className={'input-fi'} type="number" value={count} />
+                                    <input id={'counter'} className={'input-fi'} type="" value={count} />
                                     <button id={'add'} class="plus" onClick={(e) => {
                                         e.preventDefault()
                                         setCount(count + 1);
@@ -129,7 +129,10 @@ export default function LeftForm() {
                         </div>
                     </div>
                 </div>
+                <div className={'row justify-content-center mt-5'}>
+                    <button className={'btn send-btn'} type="submit">Send</button>
 
+                </div>
             </form>
 
         </div>

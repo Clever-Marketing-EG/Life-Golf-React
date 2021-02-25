@@ -40,11 +40,11 @@
         font-size: 22px;
         font-family: "Open Sans";
     }
-    .minus{
+    .minus {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
     }
-    .plus{
+    .plus {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
     }
@@ -64,4 +64,17 @@
         font-size: 16px;
         color: #979fc5;
     }
+    option {
+        color: #053b6c;
+        background-color: #fff;
+    }
+    .send-btn {
+        background-color: rgba(5, 59, 108, 1);
+        border-radius: 5px;
+        font-size: 16px;
+        color: #fff;
+        font-family: "Source Sans Pro";
+        width: 200px;
+    }
+   
 }
