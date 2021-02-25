@@ -3,28 +3,18 @@ import Config from "./Configurations/Configurations";
 import Features from "./Features/Features";
 import Specs from "./Specifications/Specifications";
 import single from "../../assets/Products/single.png";
-import SimilarProducts from "./SimalarProducts/SimilarProducts";
+import Products from "../Home/OurProducts/OurProducts";
 import "./SingleProduct.scss";
 import ok from "../../assets/Products/ok.svg";
+import Header from '../Shared/Header/Header'
+import Images from './images'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
 export default function SingleProduct() {
-  const [page, setPage] = useState(0);
-  const [data, setData] = useState(<Features />);
-  const pageswitch = (e) => {
-    const page = e.target.name;
-    setPage(page);
-  };
-  useEffect(() => {
-    if (page === 0) {
-      setData(<Features />);
-    } else if (page == 1) {
-      setData(<Specs />);
-    } else if (page == 2) {
-      setData(<Config />);
-    }
-  }, [pageswitch]);
-
+  
   return (
     <div id={"single-product"}>
+              <Header className="header" title={'Product'}  />
       <div className="container">
         <br />
         <br />
@@ -38,14 +28,15 @@ export default function SingleProduct() {
             <br />
             <div className="product">
               <div className="pinkbg"></div>
-              <img className="s-product" src={single} />
+              <img className="s-product" src={single} /><br /><br /><br /><br /><br />
+              <Images />
             </div>
           </div>
           <div className="col">
             <br />
             <br />
             <br />
-            <h2 className="title">Electric Shuttle Bus DN-11</h2>
+            <h2 className="ptitle">Electric Shuttle Bus DN-11</h2>
             <hr className="underline" />
             <ul className="myul">
               <li>
@@ -78,22 +69,25 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
+      <br/>
+<div className="container">
+<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+<Tab eventKey="home" title="Features">
+<Features />
+  </Tab>
+  <Tab eventKey="profile" title="Config">
+  <Config />
+  </Tab>
+  <Tab eventKey="contact" title="Specification">
+  <Specs />
+  </Tab>
+</Tabs>
+</div>
+
+<br />
+<Products />
       <br />
       <br />
-      <br />
-      <button onClick={pageswitch} name="0" className="btn primarybtn">
-        page 1
-      </button>
-      <button onClick={pageswitch} name="1" className="btn primarybtn">
-        page 2
-      </button>
-      <button onClick={pageswitch} name="2" className="btn primarybtn">
-        page 3
-      </button>
-      {data}
-      <br />
-      <br />
-      <SimilarProducts />
     </div>
   );
 }

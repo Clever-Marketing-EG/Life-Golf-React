@@ -12,6 +12,7 @@ export default function Products() {
   return (
       <div id={"products"}>
         <Header title={'Products'} />
+        <center>
         <div className="container">
           <div className="row">
             <div className="col ">
@@ -472,6 +473,7 @@ export default function Products() {
             </div>
           </div>
         </div>
+        </center>
       </div>
   );
 }
