@@ -1,5 +1,13 @@
 #single-product {
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+  .title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.6vh;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-weight: 1000;
+  }
   .product {
     height: 395px;
     width: 467px;
@@ -25,7 +33,7 @@
     -ms-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
-  .title {
+  .ptitle {
     color: #053b6c;
     font-family: "Poppins";
     font-weight: 1000;
