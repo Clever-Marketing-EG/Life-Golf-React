@@ -11,7 +11,7 @@ export default function ContactUs() {
             <div className={'container  margin-top-value'}>
                 <div className={'row justify-content-around'}>
                     <div className={'col-md-5'}>
-                        <from class="p-2">
+                        <from className="p-2">
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
                                     <input type="text" class="form-control" placeholder="Name" />

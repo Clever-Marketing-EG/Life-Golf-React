@@ -11,7 +11,7 @@ import Maintenance from './components/Support/Maintenance/Maintenance';
 import Terms from './components/Support/Terms/Terms';
 import News from './components/News/News';
 import Post from './components/News/Post/Post';
-
+import Electronics from './components/Electronics/Electronics';
 function App() {
   return (
     <div>
@@ -36,13 +36,16 @@ function App() {
             <Terms />
           </Route>
           <Route exact path="/Maintenance">
-            <Maintenance/>
+            <Maintenance />
           </Route>
           <Route exact path="/News">
-            <News/>
+            <News />
           </Route>
           <Route exact path="/Post">
-            <Post/>
+            <Post />
+          </Route>
+          <Route exact path="/Electronics">
+            <Electronics />
           </Route>
         </Switch>
       </Router>

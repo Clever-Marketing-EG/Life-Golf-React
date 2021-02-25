@@ -97,7 +97,7 @@ export default function FactoryVid(props) {
                                     type="video/mp4"></source>
 
                             </video> */}
-                                                            <iframe className={'video'} src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe className={'video'}  src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                         </div>
 
