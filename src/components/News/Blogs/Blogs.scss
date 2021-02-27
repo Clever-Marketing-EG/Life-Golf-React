@@ -6,12 +6,21 @@
         border-radius: 25px;
         box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.05);
         margin-left: 27px;
-        position:relative;
+        position: relative;
+    }
+    @media only screen and(max-width:998px) {
+        .blog-container {
+            max-width: 811px;
+            width: 100%;
+            margin-left: 5px;
+
+        
+        }
     }
     .blog-img {
         height: 235px;
         max-width: 270px;
-        width:100%;
+        width: 100%;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
         object-fit: cover;
@@ -21,48 +30,46 @@
         font-size: 24px;
         color: rgba(5, 59, 108, 1);
         margin-left: 24px;
-        margin-bottom:9px;
+        margin-bottom: 9px;
         margin-top: 21px;
     }
-    p{
-        font-family: 'Open Sans';
+    p {
+        font-family: "Open Sans";
         font-size: 14px;
         color: rgba(151, 159, 197, 1);
         margin-left: 24px;
-        margin-bottom:12px;
+        margin-bottom: 12px;
     }
-    .read{
-        font-family: 'Roboto';
+    .read {
+        font-family: "Roboto";
         font-size: 14px;
         color: rgba(223, 54, 105, 1);
         margin-left: 24px;
         // margin-bottom:22px;
         text-decoration: none;
     }
-    .read:hover{
+    .read:hover {
         padding-left: 5px;
         color: rgba(5, 59, 108, 1);
     }
-    .arrow{
+    .arrow {
         margin-left: 5px;
-
     }
-    .pink{
+    .pink {
         height: 109px;
-        width: 109px;
+        max-width: 109px;
+        width: 100%;
         background-color: rgba(223, 54, 105, 0.1);
         border-radius: 25px;
-        position: absolute;
-        position: absolute;
-        right: 51px;
-        bottom: 63px;
+        margin: auto;
+        margin-top: 50px;
     }
-    h3{
-        font-family: 'Roboto';
-        font-size: 23px;
+    h3 {
+        font-family: "Roboto";
+        font-size: 1.5rem;
         color: rgba(223, 54, 105, 1);
         text-align: center;
-        margin: 24px 35px 24px 23px;
-        
+        margin: 24px 23px 24px 23px;
+        padding-top: 20px;
     }
 }

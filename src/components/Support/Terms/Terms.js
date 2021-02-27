@@ -1,10 +1,13 @@
 import React from 'react';
 import './Terms.scss';
 import Truncate from 'react-truncate';
+import Header from '../../Shared/Header/Header';
 export default function Terms() {
 
     return (
         <div id={'terms'}>
+            <Header className="header" title={'Terms and conditions'} />
+
             <h1 class="terms-title">Get to know our terms</h1>
             <div className={'container mrg-top'}>
                 <div class="accordion" id="accordionExample">

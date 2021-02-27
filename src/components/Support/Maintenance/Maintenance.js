@@ -5,11 +5,13 @@ import two from './Assets/path_148.png';
 import three from './Assets/path_150.png';
 import pic from './Assets/about-us-3.jpg';
 import Truncate from 'react-truncate';
+import Header from '../../Shared/Header/Header';
 export default function Maintenance() {
 
     return (
         <div id={'maintenance'}>
-            <br /><br /><br /><br /><br /><br /><br />
+            <Header className="header" title={'Maintenance'} />
+
             <div className={'container'}>
                 <div className={'row justify-content-around mrg-btm'}>
                     <div className={'col-md-5 marg-bottom'}>

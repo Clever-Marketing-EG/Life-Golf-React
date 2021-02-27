@@ -13,7 +13,7 @@ import News from './components/News/News';
 import Post from './components/News/Post/Post';
 import Electronics from './components/Electronics/Electronics';
 import Customize from './components/Electronics/Customize/Customize';
-
+import Prod from './components/Products/Product/Product';
 function App() {
   return (
       <div>
@@ -51,6 +51,9 @@ function App() {
             </Route>
             <Route exact path="/Customize">
               <Customize />
+            </Route>
+            <Route exact path="/Prod">
+              <Prod />
             </Route>
           </Switch>
         </Router>

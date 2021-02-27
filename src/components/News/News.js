@@ -7,12 +7,14 @@ import fork from './Assets/forklift.png';
 import outline from './Assets/outline.png';
 import vehicle from './Assets/electric-vehicle.png';
 import Blogs from './Blogs/Blogs';
+import Header from '../Shared/Header/Header'
 export default function News() {
 
     return (
         <div id={'news'}>
-            <div className={'container'}>
-                <br /><br />
+            <Header className="header" title={'News'} />
+
+            <div className={'container x'}>
                 <div class="d-flex flex-wrap align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button class="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">

@@ -8,11 +8,13 @@ import pic4 from './Assets/mask_group_13.png';
 import Certifiactes from './Certificates/Certificates';
 import Videos from './Videos/Videos';
 import Gallery from './Gallery/Gallery';
+import Header from '../Shared/Header/Header';
 
 export default function AboutUs() {
 
     return (
         <div id={'about-us'}>
+            <Header className="header" title={'About Us'} />
             <div className={'container d-flex flex-wrap justify-content-around'}>
                 <div className={'d-flex left-container'}>
                     <div className={'d-flex flex-column pic-col justify-content-between me-2'}>

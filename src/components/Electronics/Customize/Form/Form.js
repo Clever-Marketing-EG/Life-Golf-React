@@ -26,9 +26,14 @@ export default function Form() {
     const [data, setData] = useState({
         "data": []
     })
-
+    const [option, setOption] = useState(false);
     const handleChange = (e) => {
-        setData({data: categories[e.target.value]});
+        setData({ data: categories[e.target.value] });
+    }
+    const hadnleOption = () => {
+        setOption(true);
+        console.log(option);
+
     }
 
     return (
@@ -72,9 +77,9 @@ export default function Form() {
                                 {
                                     data.data.map(item => {
                                         return (
-                                            <div className={'col-sm-6'}>
-                                                <input className="form-check-input" type="radio" name="flexRadioDefault"
-                                                       id="flexRadioDefault1" />
+                                            <div className={'col-sm-6 justify-content-around'}>
+                                                <input className="form-check-input" onClick={hadnleOption} type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault1" />
                                                 <label className="form-check-label" htmlFor="flexRadioDefault1">
                                                     {item.name}
                                                 </label>
@@ -83,7 +88,127 @@ export default function Form() {
                                     })
                                 }
                             </div>
+
                         </div>
+
+                        <div className={'col-md-6'}>
+                            {
+                                option ? <div className={'container'}>
+                                    <h1>Number Of seats:</h1>
+
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="no4"
+                                                id="one" />
+                                            <label className="form-check-label" htmlFor="one">
+                                                4 seats
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="no4"
+                                                id="two" />
+                                            <label className="form-check-label" htmlFor="two">
+                                                6 seats
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Color:</h1>
+
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="black"
+                                                id="two" />
+                                            <label className="form-check-label" htmlFor="two">
+                                                Black
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="black"
+                                                id="three" />
+                                            <label className="form-check-label" htmlFor="three">
+                                                White
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Brand:</h1>
+
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="Brand"
+                                                id="four" />
+                                            <label className="form-check-label" htmlFor="four">
+                                                Brand1
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="Brand"
+                                                id="five" />
+                                            <label className="form-check-label" htmlFor="five">
+                                                Brand2
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Number Of seats:</h1>
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="no6"
+                                                id="six" />
+                                            <label className="form-check-label" htmlFor="six">
+                                                4 seats
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="no6"
+                                                id="seven" />
+                                            <label className="form-check-label" htmlFor="seven">
+                                                6 seats
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Color:</h1>
+
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="white"
+                                                id="eight" />
+                                            <label className="form-check-label" htmlFor="eight">
+                                                Black
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="white"
+                                                id="nine" />
+                                            <label className="form-check-label" htmlFor="nine">
+                                                White
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Brand:</h1>
+
+                                    <div className={'row my-3 '}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="br"
+                                                id="ten" />
+                                            <label className="form-check-label" htmlFor="ten">
+                                                Brand1
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" onClick={hadnleOption} type="radio" name="br"
+                                                id="eleven" />
+                                            <label className="form-check-label" htmlFor="eleven">
+                                                Brand2
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                    : <div></div>
+                            }
+                        </div>
+
+
                     </div>
                 </div>
             </form>

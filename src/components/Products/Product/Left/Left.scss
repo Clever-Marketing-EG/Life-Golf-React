@@ -1,0 +1,49 @@
+#left-prod {
+    .product-container {
+        height: 395px;
+        max-width: 467px;
+        background-color: rgba(229, 234, 240, 1);
+        border-radius: 35px;
+        box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        text-align: center;
+        margin-bottom: 94px;
+    }
+    .prod-img {
+        height: 302px;
+        max-width: 393px;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        margin-top: 56px;
+    }
+    .pink-container {
+        height: 428px;
+        max-width: 450px;
+        width: 100%;
+        background-color: #df3669;
+        border-radius: 25px;
+        transform: rotate(-15deg);
+        z-index: -1;
+        position: absolute;
+        top: 0;
+    }
+    @media screen and(max-width:790px) {
+        .pink-container {
+            max-width: 320px;
+        }
+    }
+    .rec-slider-container {
+        background-color: rgba(229, 234, 240, 0) !important;
+        box-shadow: none !important;
+    }
+    .car-im {
+        height: 60px;
+        width: 80px;
+    }
+    .img-position {
+        position: absolute;
+        top: 8px;
+        left: -8px;
+    }
+}

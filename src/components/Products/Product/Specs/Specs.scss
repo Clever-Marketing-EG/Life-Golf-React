@@ -1,0 +1,31 @@
+#specs {
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+        background-color: #fff;
+        font-family: "Roboto";
+        font-size: 18px;
+        color: rgba(5, 59, 108, 1);
+        font-weight: bold;
+        border-bottom: 2px solid rgba(5, 59, 108, 1);
+        border-radius: 0%;
+    }
+    .snd-ul{
+        list-style: none;
+    }
+    .snd-list {
+        margin-top: 100px;
+        margin-right: 60px;
+        font-family: "Roboto";
+        font-size: 18px;
+        color: rgba(5, 59, 108, 1);
+    }
+    @media only screen and(max-width:790px){
+        .snd-list{
+            margin-right: 10px;
+        }
+        .list-btn{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

@@ -6,10 +6,13 @@ import search from './Assets/search.png';
 import calendar from './Assets/calendar.png';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
+import Header from '../../Shared/Header/Header';
 export default function Posts() {
     return (
         <div id={'post'}>
-            <div className={'container mt-5'}>
+            <Header className="header" title={'Single Post'} />
+
+            <div className={'container x'}>
                 <div className={'row'}>
                     <div className={'col-md-4 left-container'}>
                         <div class="search-container">
@@ -52,11 +55,11 @@ export default function Posts() {
                         </div>
                         <h1 className={"tags"}>Tags</h1>
                         <div className={"row m-left"}>
-                            <Link className={"col-md-2 tag-container"}>tag</Link>
-                            <Link className={"col-md-2 tag-container"}>tag</Link>
-                            <Link className={"col-md-2 tag-container"}>tag</Link>
-                            <Link className={"col-md-2 tag-container"}>tag</Link>
-                            <Link className={"col-md-2 tag-container"}>tag</Link>
+                            <Link className={"col-md-3 tag-container"}>tag</Link>
+                            <Link className={"col-md-3 tag-container"}>tag</Link>
+                            <Link className={"col-md-3 tag-container"}>tag</Link>
+                            <Link className={"col-md-3 tag-container"}>tag</Link>
+                            <Link className={"col-md-3 tag-container"}>tag</Link>
 
                         </div>
 
@@ -69,10 +72,10 @@ export default function Posts() {
                         </Carousel>
                         <h1 className={"main-title"}>Huge number of carts created at 2020</h1>
                         <div className={"row test-margin"}>
-                            <div className={"col-md-2 new-width"}>
+                            <div className={" new-width"}>
                                 <img src={calendar} alt="" />
                             </div>
-                            <div className={"col-md  new-padding"}>
+                            <div className={"col-md-2 new-padding"}>
                                 <p className={"date-user"}>19 augs,2020</p>
                             </div>
 
