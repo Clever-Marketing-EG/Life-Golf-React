@@ -16,46 +16,46 @@ import Customize from './components/Electronics/Customize/Customize';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/Contact">
-            <ContactUs />
-          </Route>
-          <Route exact path="/Products">
-            <Products />
-          </Route>
-          <Route exact path="/About">
-            <AboutUs />
-          </Route>
-          <Route exact path="/Product">
-            <Product />
-          </Route>
-          <Route exact path="/Terms">
-            <Terms />
-          </Route>
-          <Route exact path="/Maintenance">
-            <Maintenance />
-          </Route>
-          <Route exact path="/News">
-            <News />
-          </Route>
-          <Route exact path="/Post">
-            <Post />
-          </Route>
-          <Route exact path="/Electronics">
-            <Electronics />
-          </Route>
-          <Route exact path="/Customize">
-            <Customize />
-          </Route>
-        </Switch>
-      </Router>
-      <Footer />
-    </div>
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/Contact">
+              <ContactUs />
+            </Route>
+            <Route exact path="/Products">
+              <Products />
+            </Route>
+            <Route exact path="/About">
+              <AboutUs />
+            </Route>
+            <Route exact path="/Product">
+              <Product />
+            </Route>
+            <Route exact path="/Terms">
+              <Terms />
+            </Route>
+            <Route exact path="/Maintenance">
+              <Maintenance />
+            </Route>
+            <Route exact path="/News">
+              <News />
+            </Route>
+            <Route exact path="/Post">
+              <Post />
+            </Route>
+            <Route exact path="/Electronics">
+              <Electronics />
+            </Route>
+            <Route exact path="/Customize">
+              <Customize />
+            </Route>
+          </Switch>
+        </Router>
+        <Footer />
+      </div>
   );
 }
 
