@@ -3,11 +3,11 @@ import './Nav.scss';
 
 export default function Nav() {
 
-    return(
+    return (
         <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'}>
             <div className="container">
                 <a className="navbar-brand" href="#">
-                    <img src={'logo.png'} className={'nav-logo'}  alt={''}/>
+                    <img src={'logo.png'} className={'nav-logo'} alt={''} />
                 </a>
                 <button
                     className="navbar-toggler"
@@ -36,6 +36,11 @@ export default function Nav() {
                             </a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link" href="/Services">
+                                Services
+                            </a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link" href="/Products">
                                 Products
                             </a>
@@ -45,10 +50,33 @@ export default function Nav() {
                                 News
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/Support">
+
+                        <li className="nav-item dropdown">
+                            <a
+                                className="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
                                 Support
                             </a>
+                            <ul
+                                className="dropdown-menu bg-dark"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a className="nav-link" href="/Terms">
+                                        Terms & conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="nav-link" href="Maintenance">
+                                        Maintenance
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/Contact">
@@ -64,7 +92,7 @@ export default function Nav() {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                <i className="icon-sphere"/> Language
+                                <i className="icon-sphere" /> Language
                             </a>
                             <ul
                                 className="dropdown-menu bg-dark"
