@@ -1,6 +1,8 @@
 import React from 'react';
 import './Specs.scss';
 import Features from './Features/Features';
+import Specifications from './Specifications/Specifications';
+import Configurations from './Configurations/Configurations';
 export default function Specs() {
     return (
         <div id={'specs'}>
@@ -17,8 +19,8 @@ export default function Specs() {
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><Features /></div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Specifications /></div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><Configurations /></div>
             </div>
         </div>
     );

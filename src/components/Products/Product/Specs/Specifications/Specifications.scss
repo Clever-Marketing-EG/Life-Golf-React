@@ -1,0 +1,31 @@
+#specifications {
+    table,
+    th {
+        background-color: rgba(255, 255, 255, 1);
+        border: 1px solid rgba(233, 237, 255, 1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 50px;
+    }
+    th {
+        height: 53px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .special,
+    .not {
+        font-family: "Roboto";
+        font-size: 14px;
+        color: rgba(5, 59, 108, 1);
+        font-weight: 400;
+    }
+    .special {
+        font-weight: bold;
+    }
+    .specs-table{
+        overflow-x:auto;
+    }    
+}
