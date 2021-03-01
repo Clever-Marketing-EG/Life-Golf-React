@@ -7,8 +7,7 @@ import arrow2 from '../../Home/Assets/arrow2.png';
 import circle from './Assets/circle.png';
 import Truncate from 'react-truncate';
 import rightArrow from '../../Home/Assets/arrow-right.png';
-import cart from '../../Home/Assets/cart1.png';
-import { Link } from 'react-router-dom';
+import warning from './Assets/warning.png';
 import Similar from '../Similar/Similar';
 import Left from './Left/Left';
 import Specs from './Specs/Specs';
@@ -124,6 +123,7 @@ export default function Product() {
                                     </div>
                                     <br />
                                     <div className={'pink'}>
+                                        <img src={warning} alt="" className={'warn mb-3'}/>
                                         <span>One of our employee will get in touch with you soon</span>
                                     </div>
                                 </from>

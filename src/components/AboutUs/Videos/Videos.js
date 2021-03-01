@@ -7,7 +7,7 @@ export default function Videos() {
     return (
         <div id={'videos'}>
             <div className={'container'}>
-                <h1 className={'vid-title'}>Video presentation</h1>
+                <h1 className={'vid-title '}>Video presentation</h1>
                 <div className={'navigator'}>
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">

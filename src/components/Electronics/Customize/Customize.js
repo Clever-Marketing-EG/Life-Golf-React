@@ -3,10 +3,13 @@ import Truncate from 'react-truncate';
 import './Customize.scss';
 import pic from '../../AboutUs/Assets/about-us-3.jpg';
 import Form from './Form/Form';
+import Header from '../../Shared/Header/Header';
 export default function Customize() {
     return (
         <div id={'custom'}>
-            <div className={'container mt-5'}>
+            <Header className="header" title={'Customize your Order'} />
+
+            <div className={'container mt'}>
                 <div className={'row'}>
                     <div className={'col-md-5'}>
                         <img className={'custom-img'} src={pic} alt="" />

@@ -72,4 +72,16 @@
         margin: 24px 23px 24px 23px;
         padding-top: 20px;
     }
+    @media only screen and(max-width: 790px){
+        .pink{
+            height: 238px;
+            position: absolute;
+            bottom: 12.3rem;
+            width: 75px;
+            right: 15px;
+            border-radius: 0px;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+    }
 }

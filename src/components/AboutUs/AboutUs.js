@@ -34,24 +34,24 @@ export default function AboutUs() {
                     <br />
                     <p className={'abt-p'}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor </p>
                     <div className={'row'}>
-                        <div className={'col-md-3 border-right'}>
+                        <div className={'col-3 col-md-3'}>
                             <img src={pic1} alt="" />
                             <h1 className={'first-h'}>125</h1>
                             <p className={'first-p'}>Happy clients</p>
                         </div>
-                        <div className={'col-md-3 border-right'}>
+                        <div className={'col-3 col-md-3'}>
                             <img src={pic2} alt="" />
                             <h1 className={'first-h'}>125</h1>
                             <p className={'first-p'}>Years of Experience</p>
                         </div>
-                        <div className={'col-md-3 border-right'}>
+                        <div className={'col-3 col-md-3'}>
                             <img src={pic3} alt="" />
                             <h1 className={'first-h'}>125</h1>
                             <p className={'first-p'}>Engineers</p>
                         </div>
-                        <div className={'col-md-3'}>
+                        <div className={'col-3 col-md-3'}>
                             <img src={pic4} alt="" />
-                            <h1 className={'first-h'}>125</h1>
+                            <h1 className={'first'}>125</h1>
                             <p className={'first-p'}>Vehicle sold</p>
                         </div>
 

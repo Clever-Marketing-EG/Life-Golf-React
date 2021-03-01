@@ -42,7 +42,7 @@ export default function Rental() {
                 </div>
                 <div className={'row'}>
 
-                    <div className={'col-md-6'}>
+                    <div className={'col-md-6 order-last order-md-first'}>
                         <h1>Requirments for rental sercice</h1>
                         <hr />
                         <ul className={'list'}>

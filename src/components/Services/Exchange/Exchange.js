@@ -42,7 +42,7 @@ export default function Exchange() {
                 </div>
                 <div className={'row'}>
 
-                    <div className={'col-md-6'}>
+                    <div className={'col-md-6 order-last order-md-first'}>
                         <h1>How to exchange your car with new one</h1>
                         <hr />
                         <ul className={'list'}>

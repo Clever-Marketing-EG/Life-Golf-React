@@ -3,10 +3,13 @@ import Truncate from 'react-truncate';
 import './Electronics.scss';
 import pic from '../AboutUs/Assets/about-us-3.jpg';
 import LeftForm from './LeftForm/LeftForm';
+import Header from '../Shared/Header/Header';
 export default function Electronics() {
     return (
         <div id={'electronics'}>
-            <div className={'container mt-5'}>
+            <Header className="header" title={'Electronics order'} />
+
+            <div className={'container mt'}>
                 <div className={'row'}>
                     <div className={'col-md-5'}>
                         <img className={'electronic-img'} src={pic} alt="" />
@@ -22,7 +25,7 @@ export default function Electronics() {
                         </p>
                     </div>
                 </div>
-             
+
                 <LeftForm />
             </div>
         </div>

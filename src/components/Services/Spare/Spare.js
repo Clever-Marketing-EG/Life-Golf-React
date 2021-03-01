@@ -42,7 +42,7 @@ export default function Spare() {
                 </div>
                 <div className={'row'}>
 
-                    <div className={'col-md-6'}>
+                    <div className={'col-md-6 order-last order-md-first'}>
                         <h1>How to order your needed spare parts</h1>
                         <hr />
                         <ul className={'list'}>
