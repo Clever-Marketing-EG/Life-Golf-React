@@ -1,6 +1,7 @@
 {
   "name": "life-golf-frontend",
   "version": "0.1.0",
+  "homepage": "http://life-golf-cart.cloveregypt.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
