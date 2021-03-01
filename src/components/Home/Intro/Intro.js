@@ -20,6 +20,10 @@ import handling1 from '../Assets/handling1.png';
 import handling2 from '../Assets/handling2.png';
 import handling3 from '../Assets/handling3.png';
 
+import order1 from '../Assets/electronic1.png';
+import order2 from '../Assets/electronic2.png';
+import order3 from '../Assets/electronic3.png';
+
 import electronic1 from '../Assets/electronic1.png';
 import electronic2 from '../Assets/electronic2.png';
 import electronic3 from '../Assets/electronic3.png';
@@ -57,6 +61,13 @@ export default function Intro() {
             ]
 
         },
+        'orders': {
+            header: 'By Order',
+            content: 'Orders content',
+            images: [
+                order1, order2, order3
+            ]
+        },
         'electrics': {
             header: 'Electronics',
             content: 'Electronics content',
@@ -87,7 +98,7 @@ export default function Intro() {
                         {data[activeCategory].content}
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
-                        <a className={'pink-button'} href={'#'}>Customize your vehicle</a>
+                        <a className={'pink-button'} href={'/Customize'}>Customize your vehicle</a>
                         <a className={'pink-button'} href={'#'}>Our Products</a>
                     </div>
                 </div>
@@ -145,6 +156,10 @@ export default function Intro() {
                 <button id={'handling-equipment'} className={'category-button'} onClick={handleClick}>
                     <i className="icon-forklift logo"/>
                     Electric handling equipment
+                </button>
+                <button id={'orders'} className={'category-button'} onClick={handleClick} >
+                    <i className="icon-electric_plug logo"/>
+                    By Order
                 </button>
                 <button id={'electrics'} className={'category-button'} onClick={handleClick} >
                     <i className="icon-electric_plug logo"/>

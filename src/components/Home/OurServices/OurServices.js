@@ -8,7 +8,7 @@ import GreySquare from '../Assets/grey-square.jpg'
 export default function OurServices() {
 
 
-    return(
+    return (
         <div id={'our-services'} className={'container'}>
             <h1 className={'home-header'}>Our Services</h1>
             <hr className={'blue-line'} />
@@ -19,47 +19,47 @@ export default function OurServices() {
                 </div>
                 <div className={'tags-container justify-content-around flex-wrap'}>
                     <div className={'inner-container d-flex justify-content-around'}>
-                        <button className={'tag left top-0 d-flex'}>
+                        <a className={'tag left top-0 d-flex'}>
                             Competitive pricing
                             <span className={'ms-3 logo-container'}>
-                        <i className="icon-electric-vehicle"/>
-                    </span>
-                        </button>
-                        <button className={'tag right top-0 d-flex'}>
-                    <span className={'me-3 logo-container'}>
-                        <i className="icon-electric-vehicle"/>
-                    </span>
+                                <i className="icon-electric-vehicle" />
+                            </span>
+                        </a>
+                        <a className={'tag right top-0 d-flex'}>
+                            <span className={'me-3 logo-container'}>
+                                <i className="icon-electric-vehicle" />
+                            </span>
                             Customer Service
-                        </button>
+                        </a>
                     </div>
                     <div className={'inner-container d-flex justify-content-around'}>
-                        <button className={'tag left top-50 translate-middle-y d-flex'}>
+                        <a href="/Payment" className={'tag left top-50 translate-middle-y d-flex'}>
                             Most Flexiable Payment Plan
                             <div className={'ms-3 logo-container'}>
-                                <i className="icon-electric-vehicle"/>
+                                <i className="icon-electric-vehicle" />
                             </div>
-                        </button>
-                        <button className={'tag right top-50 translate-middle-y d-flex'}>
-                    <span className={'me-3 logo-container'}>
-                        <i className="icon-electric-vehicle"/>
-                    </span>
+                        </a>
+                        <a href={'/Rental'} className={'tag right top-50 translate-middle-y d-flex'}>
+                            <span className={'me-3 logo-container'}>
+                                <i className="icon-electric-vehicle" />
+                            </span>
                             Rental Plans
-                        </button>
+                        </a>
                     </div>
 
                     <div className={'inner-container d-flex justify-content-around'}>
-                        <button className={'tag left bottom-0 d-flex'}>
+                        <a href="/Spare" className={'tag left bottom-0 d-flex'}>
                             Spare Parts
                             <span className={'ms-3 logo-container'}>
-                        <i className="icon-electric-vehicle"/>
-                    </span>
-                        </button>
-                        <button className={'tag right bottom-0 d-flex'}>
-                    <span className={'me-3 logo-container'}>
-                        <i className="icon-electric-vehicle"/>
-                    </span>
+                                <i className="icon-electric-vehicle" />
+                            </span>
+                        </a>
+                        <a className={'tag right bottom-0 d-flex'}>
+                            <span className={'me-3 logo-container'}>
+                                <i className="icon-electric-vehicle" />
+                            </span>
                             Products Variety
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
