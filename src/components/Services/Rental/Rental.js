@@ -3,10 +3,10 @@ import './Rental.scss';
 import pic from '../../AboutUs/Assets/about-us-3.jpg';
 import Header from '../../Shared/Header/Header';
 import Truncate from 'react-truncate';
-export default function Rental() {
+export default function Rental({meta,changelang}) {
     return (
         <div id={'rental'}>
-            <Header className="header" title={'Rental Service'} />
+            <Header changelang={changelang} className="header" title={'Rental Service'} />
 
             <div className={'container margin-t'}>
                 <div className={'row'}>
@@ -14,7 +14,7 @@ export default function Rental() {
                         <img src={pic} className={'img-one'} alt="" />
                     </div>
                     <div className={'col-md-6'}>
-                        <h1>Get to know our rental service terms & conditions</h1>
+                        <h1>Rental Get to know our rental service terms & conditions</h1>
                         <hr />
                         <ul className={'list'}>
                             <li className={'list-item'}>
@@ -43,7 +43,7 @@ export default function Rental() {
                 <div className={'row'}>
 
                     <div className={'col-md-6 order-last order-md-first'}>
-                        <h1>Requirments for rental sercice</h1>
+                        <h1>Requirments for rental service</h1>
                         <hr />
                         <ul className={'list'}>
                             <li className={'list-item'}>

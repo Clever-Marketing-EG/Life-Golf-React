@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
@@ -19,19 +21,58 @@ import Rental from './components/Services/Rental/Rental';
 import Exchange from './components/Services/Exchange/Exchange';
 import Spare from './components/Services/Spare/Spare';
 import Payment from './components/Services/Payment/Payment';
+
+const { BASE_URL } = require('./config');
+
 function App() {
+  const [meta, setMeta] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [languages, setLanguage] = useState("");
+  const changelang = (e) => {
+    let language = e.target.lang
+    localStorage.setItem("lang", language)
+    setLanguage(language)
+  }
+  useEffect(() => {
+    let lang = localStorage.getItem("lang")              
+    axios.get(`${BASE_URL}/meta`).then(response => {
+      const dataObject = {};
+      response.data.data.forEach((data) => {
+        if (lang == "ar") {
+          dataObject[data.name] = data.content_ar;
+        } else {
+          dataObject[data.name] = data.content;
+        }
+      });
+      setMeta(dataObject);
+      console.log(dataObject);
+    });
+    axios.get(`${BASE_URL}/categories`).then(response => {
+      setCategories(response.data.data);
+    });
+    axios.get(`${BASE_URL}/products`).then(response => {
+      setProducts(response.data);
+    });
+    axios.get(`${BASE_URL}/articles`).then(response => {
+      setArticles(response.data);
+    });
+
+  }, [languages])
+
   return (
     <div>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home categories={categories} changelang={changelang} meta={meta} />
           </Route>
           <Route exact path="/Contact">
-            <ContactUs />
+            <ContactUs meta={meta} changelang={changelang} />
           </Route>
           <Route exact path="/Products">
-            <Products />
+            <Products categories={categories} />
           </Route>
           <Route exact path="/About">
             <AboutUs />
@@ -43,7 +84,7 @@ function App() {
             <Terms />
           </Route>
           <Route exact path="/Maintenance">
-            <Maintenance />
+            <Maintenance meta={meta} changelang={changelang} />
           </Route>
           <Route exact path="/News">
             <News />
@@ -61,19 +102,19 @@ function App() {
             <Prod />
           </Route>
           <Route exact path="/Services">
-            <Services />
+            <Services meta={meta} changelang={changelang} />
           </Route>
           <Route exact path="/Rental">
-            <Rental />
+            <Rental changelang={changelang} meta={meta} />
           </Route>
           <Route exact path="/Exchange">
-            <Exchange />
+            <Exchange meta={meta} changelang={changelang} />
           </Route>
           <Route exact path="/Spare">
-            <Spare />
+            <Spare meta={meta} changelang={changelang} />
           </Route>
           <Route exact path="/Payment">
-            <Payment />
+            <Payment meta={meta} changelang={changelang} />
           </Route>
         </Switch>
       </Router>

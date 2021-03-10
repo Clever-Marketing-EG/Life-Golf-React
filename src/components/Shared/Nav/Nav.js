@@ -1,7 +1,7 @@
 import React from 'react';
 import './Nav.scss';
 
-export default function Nav() {
+export default function Nav({changelang}) {
 
     return (
         <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'}>
@@ -99,12 +99,12 @@ export default function Nav() {
                                 aria-labelledby="navbarDropdown"
                             >
                                 <li>
-                                    <a className="nav-link" >
+                                    <a lang="en" onClick={changelang} className="nav-link" >
                                         English
                                     </a>
                                 </li>
                                 <li>
-                                    <a className="nav-link">
+                                    <a lang="ar" onClick={changelang} className="nav-link">
                                         العربيه
                                     </a>
                                 </li>

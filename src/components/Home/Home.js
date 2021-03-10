@@ -9,13 +9,13 @@ import OurServices from "./OurServices/OurServices";
 import OurNews from "./OurNews/OurNews";
 
 
-export default function Home() {
+export default function Home({ meta, changelang, categories }) {
 
-    return(
+    return (
         <div id={'home'} >
-            <Intro />
-            <AboutUs />
-            <OurProducts />
+            <Intro changelang={changelang} meta={meta} />
+            <AboutUs meta={meta} />
+            <OurProducts categories={categories} />
             <OurServices />
             <OurNews />
         </div>

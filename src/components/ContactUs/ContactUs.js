@@ -4,11 +4,11 @@ import phone from './Assets/icon_feather-phone.png';
 import mail from './Assets/icon_feather-mail.png';
 import map from './Assets/icon_feather-map-pin.png';
 import Header from '../Shared/Header/Header';
-export default function ContactUs() {
+export default function ContactUs({meta, changelang}) {
 
     return (
         <div id={'contact-us'}>
-            <Header className="header" title={'Contact Us'} />
+            <Header className="header" title={'Contact Us'} changelang={changelang} />
             <h1 className={'contact-title'}>We want to hear from you</h1>
             <div className={'container  margin-top-value'}>
                 <div className={'row justify-content-around'}>
@@ -52,7 +52,7 @@ export default function ContactUs() {
                             </div>
                             <div className={'col-md-5'}>
                                 <h1 className={'contact-snd-title'}>Phone</h1>
-                                <p className={'contact-info'}>+012 345 678 910</p>
+                                <p className={'contact-info'}>{meta.phone_number}</p>
                             </div>
                         </div>
                         <br />
@@ -61,8 +61,8 @@ export default function ContactUs() {
                                 <img src={mail} alt="" />
                             </div>
                             <div className={'col-md-5'}>
-                                <h1 className={'contact-snd-title'}>Email</h1>
-                                <p className={'contact-info'}>support@life-golf-car.com</p>
+                                <h1 className={'contact-snd-title'}>{meta.email}</h1>
+                                <p className={'contact-info'}>{meta.email_address}</p>
                             </div>
                         </div>
                         <br />
@@ -71,8 +71,8 @@ export default function ContactUs() {
                                 <img src={map} alt="" />
                             </div>
                             <div className={'col-md-5'}>
-                                <h1 className={'contact-snd-title'}>Address</h1>
-                                <p className={'contact-info'}>Cairo,Egypt</p>
+                                <h1 className={'contact-snd-title'}>{meta.address}</h1>
+                                <p className={'contact-info'}>{meta.co_address}</p>
                             </div>
                         </div>
                     </div>

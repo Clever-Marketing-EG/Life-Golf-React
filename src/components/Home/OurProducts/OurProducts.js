@@ -1,48 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import './OurProducts.scss';
 import Slider from './Slider';
 
-export default function OurProducts() {
+export default function OurProducts({ categories }) {
+    const [products, setProducts] = useState([]);
+    const lang = localStorage.getItem("lang")
+    if (lang == "ar") {
+        var items = categories.map(item => {
+            return (
+                <div>
+                    <li class="nav-item" role="presentation">
+                        <button class="category-button nav-link active" id={item.id} data-bs-toggle="pill" data-bs-target={item.id} type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            <span className={'logo-container me-3'}>
+                                <i className="icon-golf-cart" />
+                            </span>
+
+                            {item.name}
+                        </button>
+
+                    </li>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id={item.id} role="tabpanel" aria-labelledby={item.id}><Slider /></div>
+                    </div>
+                </div>
+            );
+
+        })
+    } else {
+        var items = categories.map(item => {
+            return (
+                <div className={'btn-center'}>
+                    <button className={'category-button'} name={item.id}>
+                        <span className={'logo-container me-3'}>
+                            <i className="icon-golf-cart" />
+                        </span>
+                        {item.name}
+                    </button>
+                </div>
+            );
+
+        })
+    }
 
 
     return (
         <div id={'our-products'} className={'container'}>
             <h1 className={'home-header'}>Our Products</h1>
             <hr className={'blue-line'} />
-            {/* <div className={'categories-container d-flex flex-wrap justify-content-around'}>
-                <button className={'category-button'}>
-                    <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities
-                </button>
-                <button className={'category-button'}>
-                    <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities
-                </button>
-                <button className={'category-button'}>
-                    <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities
-                </button>
-                <button className={'category-button'}>
-                    <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities
-                </button>
-                <button className={'category-button'}>
-                    <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities
-                </button>
-            </div> */}
-
             <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+
                 <li class="nav-item" role="presentation">
                     <button class="category-button nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"> <span className={'logo-container me-3'}>
                         <i className="icon-golf-cart" />
@@ -79,6 +85,7 @@ export default function OurProducts() {
                     Golf cart & utilities
                     </button>
                 </li>
+
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><Slider /></div>
@@ -87,9 +94,9 @@ export default function OurProducts() {
                 <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">...</div>
                 <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">...</div>
             </div>
-            <div>
-            </div>
 
+        
+                {/* {items} */}
         </div>
     )
 }

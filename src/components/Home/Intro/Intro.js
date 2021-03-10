@@ -28,51 +28,50 @@ import electronic1 from '../Assets/electronic1.png';
 import electronic2 from '../Assets/electronic2.png';
 import electronic3 from '../Assets/electronic3.png';
 
-export default function Intro() {
+export default function Intro({ meta , changelang }) {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
-
     const data = {
         'golf-carts': {
-            header: 'Golf cart & utility',
-            content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo',
+            header: meta.home_header_1,
+            content: meta.home_paragraph_1,
             images: [
-                cart1, cart2, cart3
+                meta.home_header_1_image_1, meta.home_header_1_image_2, meta.home_header_1_image_3
             ]
         },
         'electric-vehicles': {
-            header: 'Electric Vehicle',
-            content: 'Electric Vehicle content',
+            header: meta.home_header_2,
+            content: meta.home_paragraph_2,
             images: [
-                bus1, bus2, bus3
+                meta.home_header_2_image_1, meta.home_header_2_image_2, meta.home_header_2_image_3
             ]
         },
         'cleaning-equipment': {
-            header: 'Electric Cleaning Equipment',
-            content: 'Electric Cleaning Equipment content',
+            header: meta.home_header_3,
+            content: meta.home_paragraph_3,
             images: [
-                cleaning1, cleaning2, cleaning3
+                meta.home_header_3_image_1, meta.home_header_3_image_2, meta.home_header_3_image_3
             ]
         },
         'handling-equipment': {
-            header: 'Electric Handling Equipment',
-            content: 'Electric Handling Equipment content',
+            header: meta.home_header_4,
+            content: meta.home_paragraph_4,
             images: [
-                handling1, handling2, handling3
+                meta.home_header_4_image_1, meta.home_header_4_image_2, meta.home_header_4_image_3
             ]
 
         },
         'orders': {
-            header: 'By Order',
-            content: 'Orders content',
+            header: meta.home_header_5,
+            content: meta.home_paragraph_5,
             images: [
-                order1, order2, order3
+                meta.home_header_5_image_1, meta.home_header_5_image_2, meta.home_header_5_image_3
             ]
         },
         'electrics': {
-            header: 'Electronics',
-            content: 'Electronics content',
+            header: meta.home_header_6,
+            content: meta.home_paragraph_6,
             images: [
-                electronic1, electronic2, electronic3
+                meta.home_header_6_image_1, meta.home_header_6_image_2, meta.home_header_6_image_3
             ]
         },
     }
@@ -87,37 +86,37 @@ export default function Intro() {
     }
 
 
-    return(
+    return (
         <div id={'intro'}>
-            <Nav />
+            <Nav changelang={changelang} />
             <div className={'container intro-container d-flex flex-xxl-nowrap flex-xl-nowrap flex-lg-nowrap flex-wrap justify-content-around'}>
                 <div className={'left-container'}>
                     <h1 className={'intro-header'}>{data[activeCategory].header}</h1>
-                    <hr className={'white-line'}/>
+                    <hr className={'white-line'} />
                     <p className={'intro-paragraph'}>
                         {data[activeCategory].content}
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
                         <a className={'pink-button'} href={'/Customize'}>Customize your vehicle</a>
-                        <a className={'pink-button'} href={'#'}>Our Products</a>
+                        <a lang="ar" onClick={changelang} className={'pink-button'} href={'#'}>Our Products</a>
                     </div>
                 </div>
                 <div className={'right-container'}>
                     <div className={'pink-square-container'}>
-                        <img src={PinkSquare}  alt={''} className={'pink-square'}/>
+                        <img src={PinkSquare} alt={''} className={'pink-square'} />
                     </div>
                     <div id="FadeCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-inner">
-                            { data[activeCategory].images.map( (image,index) => {
-                                if(index ===0 ) {
+                            {data[activeCategory].images.map((image, index) => {
+                                if (index === 0) {
                                     return (
-                                        <div className="carousel-item active" key={index+1}>
+                                        <div className="carousel-item active" key={index + 1}>
                                             <img src={image} className="d-block w-100" alt="..." />
                                         </div>
                                     )
                                 } else {
                                     return (
-                                        <div className="carousel-item" key={index+1}>
+                                        <div className="carousel-item" key={index + 1}>
                                             <img src={image} className="d-block w-100" alt="..." />
                                         </div>
                                     )
@@ -126,13 +125,13 @@ export default function Intro() {
 
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#FadeCarousel"
-                                data-bs-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"/>
+                            data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true" />
                             <span className="visually-hidden">Previous</span>
                         </button>
                         <button className="carousel-control-next" type="button" data-bs-target="#FadeCarousel"
-                                data-bs-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"/>
+                            data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true" />
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
@@ -142,27 +141,27 @@ export default function Intro() {
             </div>
             <div className={'category-nav d-flex flex-wrap justify-content-center'}>
                 <button id={'golf-carts'} className={'category-button active'} onClick={handleClick}>
-                    <i className="icon-golf-cart logo"/>
+                    <i className="icon-golf-cart logo" />
                     Golf cart & utility
                 </button>
                 <button id={'electric-vehicles'} className={'category-button'} onClick={handleClick}>
-                    <i className="icon-electric-vehicle logo"/>
+                    <i className="icon-electric-vehicle logo" />
                     Electric vehicle
                 </button>
                 <button id={'cleaning-equipment'} className={'category-button'} onClick={handleClick}>
-                    <i className="icon-outline logo"/>
+                    <i className="icon-outline logo" />
                     Electric cleaning equipment
                 </button>
                 <button id={'handling-equipment'} className={'category-button'} onClick={handleClick}>
-                    <i className="icon-forklift logo"/>
+                    <i className="icon-forklift logo" />
                     Electric handling equipment
                 </button>
                 <button id={'orders'} className={'category-button'} onClick={handleClick} >
-                    <i className="icon-electric_plug logo"/>
+                    <i className="icon-electric_plug logo" />
                     By Order
                 </button>
                 <button id={'electrics'} className={'category-button'} onClick={handleClick} >
-                    <i className="icon-electric_plug logo"/>
+                    <i className="icon-electric_plug logo" />
                     Electronics
                 </button>
             </div>

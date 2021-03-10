@@ -6,7 +6,7 @@ import three from './Assets/path_150.png';
 import pic from './Assets/about-us-3.jpg';
 import Truncate from 'react-truncate';
 import Header from '../../Shared/Header/Header';
-export default function Maintenance() {
+export default function Maintenance({meta}) {
 
     return (
         <div id={'maintenance'}>
@@ -15,9 +15,9 @@ export default function Maintenance() {
             <div className={'container'}>
                 <div className={'row justify-content-around mrg-btm'}>
                     <div className={'col-md-5 marg-bottom'}>
-                        <h1 className={'title-one'}>Electric Vehicle</h1>
+                        <h1 className={'title-one'}>{meta.maintenance_title_1}</h1>
                         <hr />
-                        <p><Truncate lines={6}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</Truncate></p>
+                        <p><Truncate lines={6}>{meta.maintenance_desc1}</Truncate></p>
                     </div>
                     <div className={'col-md-5'}>
                         <div className={'img-container'}>
@@ -35,16 +35,16 @@ export default function Maintenance() {
                         </div>
                     </div>
                     <div className={'col-md-5 marg-bottom'}>
-                        <h1 className={'title-one'}>Battery maintenance</h1>
+                        <h1 className={'title-one'}>{meta.maintenance_title_2}</h1>
                         <hr />
-                        <p><Truncate lines={6}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</Truncate></p>
+                        <p><Truncate lines={6}>{meta.maintenance_desc2}</Truncate></p>
                     </div>
                 </div>
                 <div className={'row justify-content-around'}>
                     <div className={'col-md-5 marg-bottom'}>
-                        <h1 className={'title-one'}>Battery Care</h1>
+                        <h1 className={'title-one'}>{meta.maintenance_title_3}</h1>
                         <hr />
-                        <p><Truncate lines={6}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</Truncate></p>
+                        <p><Truncate lines={6}>{meta.maintenance_desc3}</Truncate></p>
                     </div>
                     <div className={'col-md-5'}>
                         <div className={'img-container'}>
