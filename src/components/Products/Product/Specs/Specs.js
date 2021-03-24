@@ -3,7 +3,7 @@ import './Specs.scss';
 import Features from './Features/Features';
 import Specifications from './Specifications/Specifications';
 import Configurations from './Configurations/Configurations';
-export default function Specs() {
+export default function Specs({product}) {
     return (
         <div id={'specs'}>
             <ul class="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
@@ -19,8 +19,8 @@ export default function Specs() {
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><Features /></div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Specifications /></div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><Configurations /></div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Specifications product={product} /></div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><Configurations product={product} /></div>
             </div>
         </div>
     );

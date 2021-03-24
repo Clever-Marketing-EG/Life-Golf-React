@@ -41,8 +41,8 @@ export default function Nav({changelang}) {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Products">
-                                Products
+                            <a className="nav-link" href="/Categories">
+                                Categories
                             </a>
                         </li>
                         <li className="nav-item">

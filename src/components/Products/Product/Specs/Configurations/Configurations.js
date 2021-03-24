@@ -1,58 +1,53 @@
 import React from 'react';
 import './Configurations.scss';
-export default function Configurations() {
+export default function Configurations({product}) {
     return (
         <div id={'configurations'}>
             <table>
-                <tr>
-                    <td colspan="2"className={'table-header'}>STANDARD CONFIGURATION:</td>
-
+            <tr>
+                    <th className={'special one'}>Beverage Holder</th>
+                    <th className={'not two'}>{product.beverage_holder}</th>
                 </tr>
-                <tr>
-                    <td>Description</td>
-                    <td>Minimum turnin radius(m)</td>
-                </tr>
-                <tr>
-                    <th>Body</th>
-                    <th>Fiber glass body</th>
-                </tr>
-                <tr>
-                    <th>Body</th>
-                    <th>Fiber glass body</th>
-                </tr>
-                <tr>
-                    <th>Body</th>
-                    <th>Fiber glass body</th>
-                </tr>
-                <tr>
-                    <th>Body</th>
-                    <th>Fiber glass body</th>
-                </tr>
-                <tr>
-                    <th>Body</th>
-                    <th>Fiber glass body</th>
-                </tr>
-                <tr>
-                    <th>Body</th>
-                    <th>Fiber glass body</th>
-                </tr>
-                
-                <tr>
-                    <td colspan="2"className={'table-header'}>OPTIONAL CONFIGURATION/ACCELERATORS:</td>
-
-                </tr>
-                <tr>
-                    <th colSpan="2">Trojan battery, AC electric system 48V/72V, Rear seat, Full enclosure weather curtains, Sunshade Curtain, Seat belts, Loud speaker, CD player, Solar panel on top, Aluminum rim wheels, Front disc brakes, rear wheel drum brakes, Right hand steering</th>
-                   
-                </tr>
-                <tr>
-                    <td colspan="2"className={'table-header'}>COLORS:</td>
-
-                </tr>
-                <tr>
-                    <th colSpan="2">Any colors can be customized per customers</th>
-                   
-                </tr>
+            <tr>
+                    <th className={'special one'}>Dashboard</th>
+                    <th className={'not two'}>{product.dashboard}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Light System</th>
+                    <th className={'not two'}>{product.light_system}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Roaf</th>
+                    <th className={'not two'}>{product.roaf}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Front Real Basket</th>
+                    <th className={'not two'}>{product.front_real_basket}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Steering System</th>
+                    <th className={'not two'}>{product.steering_system}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Wiper</th>
+                    <th className={'not two'}>{product.wiper}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Real View Mirror</th>
+                    <th className={'not two'}>{product.real_view_mirrir}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Speed Meter</th>
+                    <th className={'not two'}>{product.speed_meter}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Armest</th>
+                    <th className={'not two'}>{product.armest}</th>
+            </tr>
+            <tr>
+                    <th className={'special one'}>Seats</th>
+                    <th className={'not two'}>{product.seat}</th>
+            </tr>
             </table>
         </div>
     );

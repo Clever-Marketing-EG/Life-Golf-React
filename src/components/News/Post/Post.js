@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Truncate from 'react-truncate';
 import './Post.scss';
 import pic from '../Blogs/Assets/about-us-3.jpg';
@@ -7,10 +7,19 @@ import calendar from './Assets/calendar.png';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
 import Header from '../../Shared/Header/Header';
+import axios from 'axios';
+const { BASE_URL } = require('../../../config');
 export default function Posts() {
+    const [post, setArticle] = useState([]);
+    useEffect(() => {
+        let pid = localStorage.getItem("post_id")
+        axios.get(`${BASE_URL}/articles/${pid}`).then(response => {
+        setArticle(response.data.data);
+        });
+      },[])
     return (
         <div id={'post'}>
-            <Header className="header" title={'Single Post'} />
+            <Header className="header" title={post.title} />
 
             <div className={'container x'}>
                 <div className={'row'}>
@@ -62,7 +71,6 @@ export default function Posts() {
                             <Link className={"col-md-3 tag-container"}>tag</Link>
 
                         </div>
-
                     </div>
                     <div className={"col-md-7 order-first order-md-last"}>
                         <Carousel itemsToShow={1} showArrows={false}>
@@ -70,17 +78,17 @@ export default function Posts() {
                             <img className={'img-car'} src={pic} alt="" />
                             <img className={'img-car'} src={pic} alt="" />
                         </Carousel>
-                        <h1 className={"main-title"}>Huge number of carts created at 2020</h1>
+                        <h1 className={"main-title"}>{post.title}</h1>
                         <div className={"row test-margin"}>
                             <div className={" new-width"}>
                                 <img src={calendar} alt="" />
                             </div>
                             <div className={"col-md-2 new-padding"}>
-                                <p className={"date-user"}>19 augs,2020</p>
+                                <p className={"date-user"}>{post.created_at}</p>
                             </div>
 
                         </div>
-                        <p className={"main-article-content"}>Proin elementum neque nec leo finibus laoreet. Proin sit amet nibh sapien. Suspendisse hendrerit at enim eu porta. Duis egestas, est nec facilisis tincidunt, eros metus dignissim ligula, vel maximus nisi lorem in quam. Phasellus congue consequat nulla vel finibus. Morbi vitae condimentum tellus, eu consequat massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget arcu et dolor venenatis lobortis. Ut tincidunt ex risus, in pretium lectus posuere ut. Donec et metus in nulla suscipit scelerisque. Etiam dictum, massa a feugiat fermentum, felis diam dignissim orci, quis ullamcorper metus mi pharetra est. Donec commodo elementum bibendum.</p>
+                        <p className={"main-article-content"}>{post.content}</p>
                     </div>
                 </div>
             </div>
