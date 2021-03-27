@@ -13,34 +13,34 @@ export default function ContactUs({meta, changelang}) {
             <div className={'container  margin-top-value'}>
                 <div className={'row justify-content-around'}>
                     <div className={'col-md-5'}>
-                        <from className="p-2">
+                        <form className="p-2">
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" class="form-control" placeholder="Name" />
+                                    <input type="text" className="form-control p-3" placeholder="Name" />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="email" class="form-control" placeholder="Email" />
+                                    <input type="email" className="form-control p-3" placeholder="Email" />
 
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" class="form-control" placeholder="Subject" />
+                                    <input type="text" className="form-control p-3" placeholder="Subject" />
 
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <textarea
-                                    class="form-control"
+                                    className="form-control p-3"
                                     rows="6"
                                     id="comment"
                                     placeholder="Message"
-                                ></textarea>
+                                />
                             </div>
                             <div className={"btn-container"}>
-                                <button class="btn send-btn" type="submit">
+                                <button className="btn send-btn" type="submit">
                                     Send
                                 </button>
                             </div>
-                        </from>
+                        </form>
 
                     </div>
 
@@ -84,8 +84,8 @@ export default function ContactUs({meta, changelang}) {
                 <iframe
                     className="location"
                     title={"map"}
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.74863997593!2d31.324429815070793!3d30.101384381861607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581592d9955c01%3A0x766fc31e19db272f!2sLife%20Golf!5e0!3m2!1sen!2seg!4v1613831886433!5m2!1sen!2seg"></iframe>
-                <div className={'overlay'}></div>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.74863997593!2d31.324429815070793!3d30.101384381861607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581592d9955c01%3A0x766fc31e19db272f!2sLife%20Golf!5e0!3m2!1sen!2seg!4v1613831886433!5m2!1sen!2seg"/>
+                <div className={'overlay'}/>
             </div>
         </div>
     )

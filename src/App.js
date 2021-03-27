@@ -27,34 +27,40 @@ const { BASE_URL } = require('./config');
 
 function App() {
     const [meta, setMeta] = useState({});
+    const [data, setData] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [languages, setLanguage] = useState("");
+    const [currentLanguage, setLanguage] = useState("");
 
     const changelang = (e) => {
         const language = e.target.lang
-        localStorage.setItem("lang", language)
+        localStorage.setItem('lang', language)
         setLanguage(language)
     }
 
-    useEffect(() => {
-        const lang = localStorage.getItem('lang');
-
+    useEffect( () => {
         axios.get(`${BASE_URL}/meta`).then(response => {
-            const dataObject = {};
-            response.data.data.forEach((data) => {
-                if (lang === "ar") {
-                    dataObject[data.name] = data.content_ar;
-                } else {
-                    dataObject[data.name] = data.content;
-                }
-            });
-            setMeta(dataObject);
+            setData(response.data.data);
         });
 
         axios.get(`${BASE_URL}/categories`).then(response => {
             setCategories(response.data.data);
         });
-    }, [languages])
+    }, [])
+
+    useEffect( () => {
+        const lang = localStorage.getItem('lang');
+
+        const dataObject = {};
+        data.forEach((item) => {
+            if (lang === "ar") {
+                dataObject[item.name] = item.content_ar;
+            } else {
+                dataObject[item.name] = item.content;
+            }
+        });
+        console.log(dataObject);
+        setMeta(dataObject);
+    }, [currentLanguage])
 
     return (
         <div>
