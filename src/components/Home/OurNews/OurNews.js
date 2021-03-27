@@ -96,8 +96,9 @@ export default function OurNews() {
                     breakPoints={breakPoints}
                 >
                     {
-                        data.map(article => (
+                        data.map((article,index) => (
                             <Article
+                                key={index}
                                 title={article.title}
                                 content={article.content}
                                 image_url={article.image_url}
