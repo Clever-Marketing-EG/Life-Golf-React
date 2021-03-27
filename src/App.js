@@ -1,7 +1,8 @@
-import "./App.css";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import "./App.css";
+
 import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Footer from "./components/Shared/Footer/Footer";
@@ -25,22 +26,23 @@ const { BASE_URL } = require('./config');
 
 
 function App() {
-    const [meta, setMeta] = useState([]);
+    const [meta, setMeta] = useState({});
     const [categories, setCategories] = useState([]);
     const [languages, setLanguage] = useState("");
+
     const changelang = (e) => {
-        let language = e.target.lang
+        const language = e.target.lang
         localStorage.setItem("lang", language)
         setLanguage(language)
     }
 
     useEffect(() => {
-        let lang = localStorage.getItem("lang")
+        const lang = localStorage.getItem('lang');
+
         axios.get(`${BASE_URL}/meta`).then(response => {
             const dataObject = {};
-            console.log(response);
             response.data.data.forEach((data) => {
-                if (lang == "ar") {
+                if (lang === "ar") {
                     dataObject[data.name] = data.content_ar;
                 } else {
                     dataObject[data.name] = data.content;
@@ -48,84 +50,94 @@ function App() {
             });
             setMeta(dataObject);
         });
+
         axios.get(`${BASE_URL}/categories`).then(response => {
             setCategories(response.data.data);
         });
-
     }, [languages])
+
     return (
         <div>
             <Router>
                 <Switch>
-                    <Route exact path = "/">
-                        <Home categories = { categories }
-                              changelang = { changelang }
-                              meta = { meta }
+                    <Route exact path="/">
+                        <Home
+                            categories={categories}
+                            changelang={changelang}
+                            meta={meta}
                         />
                     </Route>
-                    <Route exact path = "/Categories" >
-                        <Categories categories = { categories }
-                                    changelang = { changelang }
-                                    meta = { meta }
+                    <Route exact path="/Categories">
+                        <Categories
+                            categories={categories}
+                            changelang={changelang}
+                            meta={meta}
                         />
                     </Route>
-                    <Route exact path="/Contact" >
-                        <ContactUs meta={meta}
-                                   changelang={changelang}
+                    <Route exact path="/Contact">
+                        <ContactUs
+                            meta={meta}
+                            changelang={changelang}
                         />
                     </Route>
-                    <Route exact path = "/Products" >
-                        <Products categories = { categories }/>
+                    <Route exact path="/Products">
+                        <Products categories={categories} />
                     </Route>
-                    <Route exact path = "/About" >
+                    <Route exact path="/About">
                         <AboutUs />
                     </Route>
-                    <Route exact path = "/Product" >
+                    <Route exact path="/Product">
                         <Prod />
                     </Route>
-                    <Route exact path = "/Terms" >
+                    <Route exact path="/Terms">
                         <Terms />
                     </Route>
-                    <Route exact path = "/Maintenance" >
-                        <Maintenance meta = { meta }
-                                     changelang = { changelang }
+                    <Route exact path="/Maintenance">
+                        <Maintenance
+                            meta={meta}
+                            changelang={changelang}
                         />
                     </Route>
-                    <Route exact path = "/News" >
+                    <Route exact path="/News" >
                         <News />
                     </Route>
-                    <Route exact path = "/Post" >
+                    <Route exact path="/Post">
                         <Post />
                     </Route>
-                    <Route exact path = "/Electronics" >
+                    <Route exact path="/Electronics">
                         <Electronics />
                     </Route>
-                    <Route exact path = "/Customize" >
+                    <Route exact path="/Customize">
                         <Customize />
                     </Route>
-                    <Route exact path = "/Services" >
-                        <Services meta = { meta }
-                                  changelang = { changelang }
+                    <Route exact path="/Services">
+                        <Services
+                            meta={meta}
+                            changelang={changelang}
                         />
                     </Route>
-                    <Route exact path = "/Rental" >
-                        <Rental changelang = { changelang }
-                                meta = { meta }
+                    <Route exact path="/Rental">
+                        <Rental
+                            changelang={changelang}
+                            meta={meta}
                         />
                     </Route>
-                    <Route exact path = "/Exchange" >
-                        <Exchange meta = { meta }
-                                  changelang = { changelang }
+                    <Route exact path="/Exchange">
+                        <Exchange
+                            meta={meta}
+                            changelang={changelang}
                         />
                     </Route>
                     <Route exact path = "/Spare" >
-                        <Spare meta = { meta }
-                               changelang = { changelang }
+                        <Spare
+                            meta={meta}
+                            changelang={changelang}
                         />
                     </Route>
-                    <Route exact path = "/Payment" >
-                        <Payment meta = { meta }
-                                 changelang = { changelang }
+                    <Route exact path="/Payment">
+                        <Payment
+                            meta={meta}
+                            changelang={changelang}
                         />
                     </Route>
                 </Switch>
@@ -134,4 +146,5 @@ function App() {
         </div>
     );
 }
+
 export default App;
