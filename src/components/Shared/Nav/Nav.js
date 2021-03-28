@@ -1,7 +1,13 @@
 import React from 'react';
 import './Nav.scss';
 
-export default function Nav({changelang}) {
+export default function Nav() {
+
+    const changelang = (e) => {
+        const language = e.target.lang;
+        localStorage.setItem('lang', language)
+        window.location.reload();
+    }
 
     return (
         <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'}>

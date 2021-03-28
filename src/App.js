@@ -29,22 +29,10 @@ function App() {
     const [meta, setMeta] = useState({});
 
     const [data, setData] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [currentLanguage, setLanguage] = useState('');
-
-    const changelang = (e) => {
-        const language = e.target.lang
-        localStorage.setItem('lang', language)
-        setLanguage(language)
-    }
 
     useEffect( () => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             setData(response.data.data);
-        });
-
-        axios.get(`${BASE_URL}/categories`).then(response => {
-            setCategories(response.data.data);
         });
     }, [])
 
@@ -63,7 +51,7 @@ function App() {
         }
 
         setMeta(dataObject);
-    }, [currentLanguage, data])
+    }, [data])
 
     return (
         <div>
@@ -71,26 +59,22 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <Home
-                            categories={categories}
-                            changelang={changelang}
                             meta={meta}
                         />
                     </Route>
                     <Route exact path="/Categories">
                         <Categories
-                            categories={categories}
-                            changelang={changelang}
                             meta={meta}
                         />
                     </Route>
                     <Route exact path="/Contact">
                         <ContactUs
                             meta={meta}
-                            changelang={changelang}
                         />
                     </Route>
                     <Route exact path="/Products">
-                        <Products categories={categories} />
+                        <Products
+                        />
                     </Route>
                     <Route exact path="/About">
                         <AboutUs />
@@ -104,7 +88,6 @@ function App() {
                     <Route exact path="/Maintenance">
                         <Maintenance
                             meta={meta}
-                            changelang={changelang}
                         />
                     </Route>
                     <Route exact path="/News" >
@@ -122,31 +105,26 @@ function App() {
                     <Route exact path="/Services">
                         <Services
                             meta={meta}
-                            changelang={changelang}
                         />
                     </Route>
                     <Route exact path="/Rental">
                         <Rental
-                            changelang={changelang}
                             meta={meta}
                         />
                     </Route>
                     <Route exact path="/Exchange">
                         <Exchange
                             meta={meta}
-                            changelang={changelang}
                         />
                     </Route>
                     <Route exact path = "/Spare" >
                         <Spare
                             meta={meta}
-                            changelang={changelang}
                         />
                     </Route>
                     <Route exact path="/Payment">
                         <Payment
                             meta={meta}
-                            changelang={changelang}
                         />
                     </Route>
                 </Switch>

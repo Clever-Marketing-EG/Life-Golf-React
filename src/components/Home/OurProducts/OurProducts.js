@@ -1,46 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './OurProducts.scss';
 import Slider from './Slider';
 
 export default function OurProducts({ categories }) {
+
     const [products, setProducts] = useState([]);
+    const [data, setData] = useState([]);
+
     const lang = localStorage.getItem("lang")
-    if (lang == "ar") {
-        var items = categories.map(item => {
-            return (
-                <div>
-                    <li className="nav-item" role="presentation">
-                        <button className="category-button nav-link active" id={item.id} data-bs-toggle="pill" data-bs-target={item.id} type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-                            <span className={'logo-container me-3'}>
-                                <i className="icon-golf-cart" />
-                            </span>
 
-                            {item.name}
-                        </button>
+    useEffect( () => {
+        const dataArr = [];
 
-                    </li>
-                    <div className="tab-content" id="pills-tabContent">
-                        <div className="tab-pane fade show active" id={item.id} role="tabpanel" aria-labelledby={item.id}><Slider /></div>
-                    </div>
-                </div>
-            );
-
-        })
-    } else {
-        var items = categories.map(item => {
-            return (
-                <div className={'btn-center'}>
-                    <button className={'category-button'} name={item.id}>
-                        <span className={'logo-container me-3'}>
-                            <i className="icon-golf-cart" />
-                        </span>
-                        {item.name}
-                    </button>
-                </div>
-            );
-
-        })
-    }
+        if( lang === 'ar') {
+            categories.forEach( item => {
+                const obj = {
+                    'name': item['name_ar'],
+                    'image_url': item['image_url']
+                }
+                dataArr.push(obj);
+            })
+        } else {
+            categories.forEach( item => {
+                const obj = {
+                    'name': item['name'],
+                    'image_url': item['image_url']
+                }
+                dataArr.push(obj);
+            })
+        }
+        console.log(dataArr);
+    }, [categories])
 
 
     return (

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 import './Home.scss';
 
 // Components
@@ -9,11 +10,20 @@ import OurServices from "./OurServices/OurServices";
 import OurNews from "./OurNews/OurNews";
 
 
-export default function Home({ meta, changelang, categories }) {
+const {BASE_URL} = require('../../config');
+
+export default function Home({ meta }) {
+    const [categories, setCategories] = useState([]);
+
+    useEffect( () => {
+        axios.get(`${BASE_URL}/categories`).then(response => {
+            setCategories(response.data.data);
+        });
+    }, [])
 
     return (
         <div id={'home'} >
-            <Intro changelang={changelang} meta={meta} />
+            <Intro meta={meta} />
             <AboutUs meta={meta} />
             <OurProducts categories={categories} />
             <OurServices />

@@ -5,7 +5,7 @@ import Nav from "../../Shared/Nav/Nav";
 import PinkSquare from '../Assets/pink-square.png';
 
 
-export default function Intro({ meta , changelang }) {
+export default function Intro({ meta }) {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
     // console.log(meta);
     const data = {
@@ -66,7 +66,7 @@ export default function Intro({ meta , changelang }) {
 
     return (
         <div id={'intro'}>
-            <Nav changelang={changelang} />
+            <Nav />
             <div className={'container intro-container d-flex flex-xxl-nowrap flex-xl-nowrap flex-lg-nowrap flex-wrap justify-content-around'}>
                 <div className={'left-container'}>
                     <h1 className={'intro-header'}>{data[activeCategory].header}</h1>
@@ -76,7 +76,7 @@ export default function Intro({ meta , changelang }) {
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
                         <a className={'pink-button'} href={'/Customize'}>Customize your vehicle</a>
-                        <a lang="ar" onClick={changelang} className={'pink-button'} href={'#'}>Our Products</a>
+                        <a className={'pink-button'} href={'#'}>Our Products</a>
                     </div>
                 </div>
                 <div className={'right-container'}>
