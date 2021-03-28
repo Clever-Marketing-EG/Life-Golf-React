@@ -21,117 +21,121 @@ import Exchange from './components/Services/Exchange/Exchange';
 import Spare from './components/Services/Spare/Spare';
 import Payment from './components/Services/Payment/Payment';
 import Categories from './components/Products/Categories'
+import Loader from "./components/Shared/Loader/Loader";
 
 const { BASE_URL } = require('./config');
 
 
 function App() {
     const [meta, setMeta] = useState({});
-
-    const [data, setData] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect( () => {
         axios.get(`${BASE_URL}/meta`).then(response => {
-            setData(response.data.data);
+            const data = response.data.data;
+
+            const lang = localStorage.getItem('lang');
+
+            const dataObject = {};
+            if(lang === 'ar') {
+                data.forEach( (item) => {
+                    dataObject[item.name] = item.content_ar;
+                })
+            } else {
+                data.forEach( (item) => {
+                    dataObject[item.name] = item.content;
+                })
+            }
+            setMeta(dataObject);
+            setLoaded(true);
         });
     }, [])
 
-    useEffect( () => {
-        const lang = localStorage.getItem('lang');
 
-        const dataObject = {};
-        if(lang === 'ar') {
-            data.forEach( (item) => {
-                dataObject[item.name] = item.content_ar;
-            })
-        } else {
-            data.forEach( (item) => {
-                dataObject[item.name] = item.content;
-            })
-        }
-
-        setMeta(dataObject);
-    }, [data])
-
-    return (
-        <div>
-            <Router>
-                <Switch>
-                    <Route exact path="/">
-                        <Home
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/Categories">
-                        <Categories
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/Contact">
-                        <ContactUs
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/Products">
-                        <Products
-                        />
-                    </Route>
-                    <Route exact path="/About">
-                        <AboutUs />
-                    </Route>
-                    <Route exact path="/Product">
-                        <Prod />
-                    </Route>
-                    <Route exact path="/Terms">
-                        <Terms />
-                    </Route>
-                    <Route exact path="/Maintenance">
-                        <Maintenance
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/News" >
-                        <News />
-                    </Route>
-                    <Route exact path="/Post">
-                        <Post />
-                    </Route>
-                    <Route exact path="/Electronics">
-                        <Electronics />
-                    </Route>
-                    <Route exact path="/Customize">
-                        <Customize />
-                    </Route>
-                    <Route exact path="/Services">
-                        <Services
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/Rental">
-                        <Rental
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/Exchange">
-                        <Exchange
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path = "/Spare" >
-                        <Spare
-                            meta={meta}
-                        />
-                    </Route>
-                    <Route exact path="/Payment">
-                        <Payment
-                            meta={meta}
-                        />
-                    </Route>
-                </Switch>
-            </Router>
-            <Footer />
-        </div>
-    );
+    if(!loaded) {
+        return <Loader /> ;
+    }
+    else {
+        return (
+            <div>
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/Categories">
+                            <Categories
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/Contact">
+                            <ContactUs
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/Products">
+                            <Products
+                            />
+                        </Route>
+                        <Route exact path="/About">
+                            <AboutUs />
+                        </Route>
+                        <Route exact path="/Product">
+                            <Prod />
+                        </Route>
+                        <Route exact path="/Terms">
+                            <Terms />
+                        </Route>
+                        <Route exact path="/Maintenance">
+                            <Maintenance
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/News" >
+                            <News />
+                        </Route>
+                        <Route exact path="/Post">
+                            <Post />
+                        </Route>
+                        <Route exact path="/Electronics">
+                            <Electronics />
+                        </Route>
+                        <Route exact path="/Customize">
+                            <Customize />
+                        </Route>
+                        <Route exact path="/Services">
+                            <Services
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/Rental">
+                            <Rental
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/Exchange">
+                            <Exchange
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path = "/Spare" >
+                            <Spare
+                                meta={meta}
+                            />
+                        </Route>
+                        <Route exact path="/Payment">
+                            <Payment
+                                meta={meta}
+                            />
+                        </Route>
+                    </Switch>
+                </Router>
+                <Footer />
+            </div>
+        );
+    }
 }
 
 export default App;

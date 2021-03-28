@@ -29,7 +29,7 @@ export default function OurProducts({ categories }) {
                 dataArr.push(obj);
             })
         }
-        console.log(dataArr);
+        // console.log(dataArr);
     }, [categories])
 
 
