@@ -41,7 +41,6 @@ function App() {
     useEffect( () => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             setData(response.data.data);
-            console.log(response.data.data);
         });
 
         axios.get(`${BASE_URL}/categories`).then(response => {
@@ -62,10 +61,9 @@ function App() {
                 dataObject[item.name] = item.content;
             })
         }
-        console.log(dataObject);
 
         setMeta(dataObject);
-    }, [currentLanguage])
+    }, [currentLanguage, data])
 
     return (
         <div>

@@ -99,12 +99,12 @@ export default function Nav({changelang}) {
                                 aria-labelledby="navbarDropdown"
                             >
                                 <li>
-                                    <a lang="en" onClick={changelang} className="nav-link" >
+                                    <a lang="en" onClick={changelang} className="nav-link" href={'#'}>
                                         English
                                     </a>
                                 </li>
                                 <li>
-                                    <a lang="ar" onClick={changelang} className="nav-link">
+                                    <a lang="ar" onClick={changelang} className="nav-link" href={'#'}>
                                         العربيه
                                     </a>
                                 </li>
