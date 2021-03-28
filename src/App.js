@@ -27,9 +27,10 @@ const { BASE_URL } = require('./config');
 
 function App() {
     const [meta, setMeta] = useState({});
+
     const [data, setData] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [currentLanguage, setLanguage] = useState("");
+    const [currentLanguage, setLanguage] = useState('');
 
     const changelang = (e) => {
         const language = e.target.lang
@@ -40,6 +41,7 @@ function App() {
     useEffect( () => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             setData(response.data.data);
+            console.log(response.data.data);
         });
 
         axios.get(`${BASE_URL}/categories`).then(response => {
@@ -51,14 +53,17 @@ function App() {
         const lang = localStorage.getItem('lang');
 
         const dataObject = {};
-        data.forEach((item) => {
-            if (lang === "ar") {
+        if(lang === 'ar') {
+            data.forEach( (item) => {
                 dataObject[item.name] = item.content_ar;
-            } else {
+            })
+        } else {
+            data.forEach( (item) => {
                 dataObject[item.name] = item.content;
-            }
-        });
+            })
+        }
         console.log(dataObject);
+
         setMeta(dataObject);
     }, [currentLanguage])
 

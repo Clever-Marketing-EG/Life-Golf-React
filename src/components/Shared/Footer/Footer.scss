@@ -83,10 +83,15 @@
         margin: 0 auto;
         margin-top: 1rem;
     }
-    .clever:hover{
-        color:rgba(223, 54, 105, 1);
-        opacity: 1;
 
+    .clever{
+        color: rgb(233, 45, 100);
+        opacity: 1;
+        transition: 1s;
+
+        &:hover {
+            margin-left: 2rem;
+        }
     }
     p a{
         text-decoration: none;

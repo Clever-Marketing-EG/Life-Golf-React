@@ -1,3 +1,3 @@
 module.exports = {
-    BASE_URL : 'http://life-golf.cloveregypt.com/be/public/api'
+    BASE_URL : 'http://127.0.0.1:8000/api'
 }
