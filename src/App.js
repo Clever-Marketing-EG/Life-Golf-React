@@ -38,6 +38,7 @@ export default function App() {
 
             const dataObject = {
                 'home': {},
+                'about-us': {},
                 'footer': {}
             };
             if(lang === 'ar') {
@@ -68,6 +69,11 @@ export default function App() {
                                 meta={meta['home']}
                             />
                         </Route>
+                        <Route exact path="/About">
+                            <AboutUs
+                                meta={meta['about-us']}
+                            />
+                        </Route>
                         <Route exact path="/Categories">
                             <Categories
                                 meta={meta}
@@ -81,9 +87,6 @@ export default function App() {
                         <Route exact path="/Products">
                             <Products
                             />
-                        </Route>
-                        <Route exact path="/About">
-                            <AboutUs />
                         </Route>
                         <Route exact path="/Product">
                             <Prod />
