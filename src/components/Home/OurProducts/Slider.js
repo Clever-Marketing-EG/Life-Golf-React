@@ -31,7 +31,7 @@ export default function Slider( {products} ) {
             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false}  isRTL={false}>
                 {
                     products.map( (item, index) => (
-                        <ProductCard name={item.name} image_url={item.image_url} />
+                        <ProductCard name={item.name} image_url={item.image_url} key={index} />
                     ))
                 }
             </Carousel>
