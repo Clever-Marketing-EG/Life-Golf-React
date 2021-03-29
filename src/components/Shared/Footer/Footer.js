@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss';
 import logo from './Assets/olio-02.a0d26e46-1.png';
-export default function Footer() {
+export default function Footer({meta}) {
 
     return (
         <div id={'footer'}>
@@ -11,7 +11,7 @@ export default function Footer() {
                         <div className={'col-md-3 margin-top-footer margin-right'}>
                             <img src={logo} className={'logo-img'} alt="" />
                             <p className={'footer-desc'}>
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat erat erat,
+                                {meta.content}
                             </p>
                             <div className="social-icons-container">
                                 <ul className="social-icons">
@@ -43,19 +43,13 @@ export default function Footer() {
                             <h3>About us</h3>
                             <ul className={'pages-link'}>
                                 <li>
-                                    <a href="#">pages</a>
+                                    <a href="#">Services</a>
                                 </li>
                                 <li>
-                                    <a href="#">pages</a>
+                                    <a href="#">Categories</a>
                                 </li>
                                 <li>
-                                    <a href="#">pages</a>
-                                </li>
-                                <li>
-                                    <a href="#">pages</a>
-                                </li>
-                                <li>
-                                    <a href="#">pages</a>
+                                    <a href="#">News</a>
                                 </li>
                             </ul>
                         </div>

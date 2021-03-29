@@ -26,7 +26,7 @@ import Loader from "./components/Shared/Loader/Loader";
 const { BASE_URL } = require('./config');
 
 
-function App() {
+export default function App() {
     const [meta, setMeta] = useState({});
     const [loaded, setLoaded] = useState(false);
 
@@ -37,7 +37,8 @@ function App() {
             const lang = localStorage.getItem('lang');
 
             const dataObject = {
-                'home': {}
+                'home': {},
+                'footer': {}
             };
             if(lang === 'ar') {
                 data.forEach( (item) => {
@@ -133,11 +134,10 @@ function App() {
                             />
                         </Route>
                     </Switch>
+                    <Footer meta={meta['footer']} />
                 </Router>
-                <Footer />
             </div>
         );
     }
 }
 
-export default App;
