@@ -5,7 +5,9 @@ import arrow1 from '../Assets/arrow1.png';
 import arrow2 from '../Assets/arrow2.png';
 import rightArrow from '../Assets/arrow-right.png';
 import cart from '../Assets/cart1.png';
-export default function Slider() {
+import {Card} from "react-bootstrap";
+
+export default function Slider( {products} ) {
     function myArrow({ type, onClick, isEdge }) {
         const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position1'} /> : <img src={arrow2} className={'img-position'} />
         return (
@@ -26,69 +28,31 @@ export default function Slider() {
     ]
     return (
         <div className={'cars'}>
-            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} >
-                <div className={'big-container'}>
-                    <div className={'cart-container'}>
-                        <img src={cart} alt="" className={'cart-img'} />
-                        <div className={'snd-cont'}>
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className={'big-container'}>
-                    <div className={'cart-container'}>
-                        <img src={cart} alt="" className={'cart-img'} />
-                        <div className={'snd-cont'}>
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className={'big-container'}>
-                    <div className={'cart-container'}>
-                        <img src={cart} alt="" className={'cart-img'} />
-                        <div className={'snd-cont'}>
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className={'big-container'}>
-                    <div className={'cart-container'}>
-                        <img src={cart} alt="" className={'cart-img'} />
-                        <div className={'snd-cont'}>
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className={'big-container'}>
-                    <div className={'cart-container'}>
-                        <img src={cart} alt="" className={'cart-img'} />
-                        <div className={'snd-cont'}>
-                            <p className={'cart-name'}>4 Seater Electric Golf Cart DG-C4</p>
-                            <button className={'btn arrow-btn'}>
-                                <img src={rightArrow} className={'arrow-position'} />
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-
+            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false}  isRTL={false}>
+                {
+                    products.map( (item, index) => (
+                        <ProductCard name={item.name} image_url={item.image_url} />
+                    ))
+                }
             </Carousel>
+        </div>
+    );
+}
+
+
+function ProductCard({name, image_url}) {
+    return(
+        <div className={'big-container'}>
+            <div className={'cart-container d-flex flex-column-reverse'}>
+                <img src={image_url} alt="" className={'cart-img'} />
+                <div className={'snd-cont'}>
+                    <p className={'cart-name'}>{name}</p>
+                    <button className={'btn arrow-btn'}>
+                        <img src={rightArrow} className={'arrow-position'}  alt={'...'}/>
+                    </button>
+                </div>
+
+            </div>
         </div>
     );
 }

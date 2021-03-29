@@ -15,10 +15,14 @@ const {BASE_URL} = require('../../config');
 export default function Home({ meta }) {
 
     const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect( () => {
         axios.get(`${BASE_URL}/categories`).then(response => {
             setCategories(response.data.data);
+        });
+        axios.get(`${BASE_URL}/products`).then(response => {
+            setProducts(response.data.data);
         });
     }, [])
 
@@ -26,7 +30,10 @@ export default function Home({ meta }) {
         <div id={'home'} >
             <Intro meta={meta} />
             <AboutUs meta={meta} />
-            <OurProducts categories={categories} />
+            <OurProducts
+                categories={categories}
+                products={products}
+            />
             <OurServices />
             <OurNews />
         </div>

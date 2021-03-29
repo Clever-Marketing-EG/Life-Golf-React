@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react";
 import './OurProducts.scss';
 import Slider from './Slider';
 
-export default function OurProducts({ categories }) {
+export default function OurProducts({ categories, products }) {
 
-    const [products, setProducts] = useState([]);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({
+        categories: [],
+        products: []
+    });
 
     const lang = localStorage.getItem("lang")
 
     useEffect( () => {
-        const dataArr = [];
+        const dataObj = {
+            categories: [],
+            products: [],
+        };
 
         if( lang === 'ar') {
             categories.forEach( item => {
@@ -18,7 +23,14 @@ export default function OurProducts({ categories }) {
                     'name': item['name_ar'],
                     'image_url': item['image_url']
                 }
-                dataArr.push(obj);
+                dataObj['categories'].push(obj);
+            })
+            products.forEach( item => {
+                const obj = {
+                    'name': item['name_ar'],
+                    'image_url': item['image_url']
+                }
+                dataObj['products'].push(obj);
             })
         } else {
             categories.forEach( item => {
@@ -26,11 +38,19 @@ export default function OurProducts({ categories }) {
                     'name': item['name'],
                     'image_url': item['image_url']
                 }
-                dataArr.push(obj);
+                dataObj['categories'].push(obj);
+            })
+            products.forEach( item => {
+                const obj = {
+                    'name': item['name'],
+                    'image_url': item['image_url']
+                }
+                dataObj['products'].push(obj);
             })
         }
-        setData(dataArr);
-    }, [categories])
+        console.log(dataObj);
+        setData(dataObj);
+    }, [categories, products])
 
 
     return (
@@ -39,18 +59,19 @@ export default function OurProducts({ categories }) {
             <hr className={'blue-line'} />
             <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                 {
-                    data.map( (item, index) => (
+                    data['categories'].map( (item, index) => (
                         <CategoryButton title={item.name} key={index}/>
                     ))
                 }
 
             </ul>
             <div className="tab-content" id="pills-tabContent">
-                <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><Slider /></div>
-                <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-                <div className="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">...</div>
-                <div className="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">...</div>
+                <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    {
+                        data['products'].length === 0 ? <div /> :
+                            <Slider products={data['products']} />
+                    }
+                </div>
             </div>
         </div>
     )
