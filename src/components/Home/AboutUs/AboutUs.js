@@ -2,7 +2,6 @@ import React from 'react';
 import './AboutUs.scss';
 
 export default function AboutUs({ meta }) {
-    console.log(meta);
     return (
         <div id={'about-us'} className={'container d-flex flex-wrap-reverse justify-content-around'}>
             <div className={'left-container d-flex flex-wrap justify-content-around'}>

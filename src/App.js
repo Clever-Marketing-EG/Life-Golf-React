@@ -36,14 +36,16 @@ function App() {
 
             const lang = localStorage.getItem('lang');
 
-            const dataObject = {};
+            const dataObject = {
+                'home': {}
+            };
             if(lang === 'ar') {
                 data.forEach( (item) => {
-                    dataObject[item.name] = item.content_ar;
+                    dataObject[item.page][item.name] = item.content_ar;
                 })
             } else {
                 data.forEach( (item) => {
-                    dataObject[item.name] = item.content;
+                    dataObject[item.page][item.name] = item.content;
                 })
             }
             setMeta(dataObject);
@@ -62,7 +64,7 @@ function App() {
                     <Switch>
                         <Route exact path="/">
                             <Home
-                                meta={meta}
+                                meta={meta['home']}
                             />
                         </Route>
                         <Route exact path="/Categories">

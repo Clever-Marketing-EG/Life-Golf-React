@@ -29,7 +29,7 @@ export default function OurProducts({ categories }) {
                 dataArr.push(obj);
             })
         }
-        // console.log(dataArr);
+        setData(dataArr);
     }, [categories])
 
 
@@ -38,43 +38,11 @@ export default function OurProducts({ categories }) {
             <h1 className={'home-header'}>Our Products</h1>
             <hr className={'blue-line'} />
             <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-
-                <li className="nav-item" role="presentation">
-                    <button className="category-button nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"> <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities</button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button className="category-button nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"> <span className={'logo-container me-3'}>
-                        <i className="icon-golf-cart" />
-                    </span>
-                    Golf cart & utilities</button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button className="category-button nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
-                        <span className={'logo-container me-3'}>
-                            <i className="icon-golf-cart" />
-                        </span>
-                    Golf cart & utilities
-                    </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button className="category-button nav-link" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="#pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false">
-                        <span className={'logo-container me-3'}>
-                            <i className="icon-golf-cart" />
-                        </span>
-                    Golf cart & utilities
-                    </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button className="category-button nav-link" id="pills-5-tab" data-bs-toggle="pill" data-bs-target="#pills-5" type="button" role="tab" aria-controls="pills-5" aria-selected="false">
-                        <span className={'logo-container me-3'}>
-                            <i className="icon-golf-cart" />
-                        </span>
-                    Golf cart & utilities
-                    </button>
-                </li>
+                {
+                    data.map( (item, index) => (
+                        <CategoryButton title={item.name} key={index}/>
+                    ))
+                }
 
             </ul>
             <div className="tab-content" id="pills-tabContent">
@@ -84,9 +52,19 @@ export default function OurProducts({ categories }) {
                 <div className="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">...</div>
                 <div className="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">...</div>
             </div>
-
-
-                {/* {items} */}
         </div>
+    )
+}
+
+function CategoryButton({title}) {
+    return(
+        <li className="nav-item" role="presentation">
+            <button className="category-button nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                <span className={'logo-container me-3'}>
+                    <i className="icon-golf-cart" />
+                </span>
+                {title}
+            </button>
+        </li>
     )
 }

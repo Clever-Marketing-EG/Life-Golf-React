@@ -7,7 +7,7 @@ import PinkSquare from '../Assets/pink-square.png';
 
 export default function Intro({ meta }) {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
-    // console.log(meta);
+
     const data = {
         'golf-carts': {
             header: meta.golf_carts_header,

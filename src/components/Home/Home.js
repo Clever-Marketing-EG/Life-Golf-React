@@ -13,7 +13,7 @@ import OurNews from "./OurNews/OurNews";
 const {BASE_URL} = require('../../config');
 
 export default function Home({ meta }) {
-    console.log(meta);
+
     const [categories, setCategories] = useState([]);
 
     useEffect( () => {
