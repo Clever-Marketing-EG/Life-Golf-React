@@ -7,7 +7,7 @@ import ArticleImg3 from '../Assets/about-us-3.jpg'
 
 
 
-export default function OurNews() {
+export default function OurNews({articles}) {
 
     const data = [
         {
@@ -53,8 +53,6 @@ export default function OurNews() {
             date: '5 Jul'
         },
     ]
-
-
 
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
