@@ -19,13 +19,13 @@ export default function OurServices() {
                 </div>
                 <div className={'tags-container justify-content-around flex-wrap'}>
                     <div className={'inner-container d-flex justify-content-around'}>
-                        <a className={'tag left top-0 d-flex'}>
+                        <a className={'tag left top-0 d-flex'} href={'#'}>
                             Competitive pricing
                             <span className={'ms-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
                         </a>
-                        <a className={'tag right top-0 d-flex'}>
+                        <a className={'tag right top-0 d-flex'} href={'#'}>
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
@@ -54,7 +54,7 @@ export default function OurServices() {
                                 <i className="icon-electric-vehicle" />
                             </span>
                         </a>
-                        <a className={'tag right bottom-0 d-flex'}>
+                        <a className={'tag right bottom-0 d-flex'} href={'#'}>
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
