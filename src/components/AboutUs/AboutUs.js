@@ -16,11 +16,17 @@ const {BASE_URL} = require('../../config');
 export default function AboutUs({meta}) {
 
     const [certificates, setCertificates] = useState([]);
+    const [videos, setVideos] = useState([]);
 
     useEffect( () => {
         axios.get(`${BASE_URL}/certificates`)
             .then( (response) => {
                 setCertificates(response.data.data);
+            })
+
+        axios.get(`${BASE_URL}/videos`)
+            .then( (response) => {
+                setVideos(response.data.data);
             })
     }, [])
 
@@ -72,7 +78,9 @@ export default function AboutUs({meta}) {
                 <Certifiactes
                     certificates={certificates}
                 />
-                <Videos />
+                <Videos
+                    videos={videos}
+                />
                 <Gallery />
             </div>
 

@@ -69,7 +69,6 @@ export default function Certifiactes( {certificates} ) {
                                 }
                             </Carousel>
                     }
-
                 </div>
             </div>
 
