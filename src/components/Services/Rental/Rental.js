@@ -34,12 +34,16 @@ export default function Rental({ changelang }) {
                     image_url2: response.data.data.image_url2
                 }
             }
+         
             setService(dataObject);
-
+            
+            // var test =  service.points;
+            // var x = JSON.parse(test);
+            // console.log(x);
+           
         })
-    }, [localStorage.getItem('lang')])
-    var test =  service.points;
-    console.log(test);
+    }, [])
+  
  
     return (
         <div id={'rental'}>

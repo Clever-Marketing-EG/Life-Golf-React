@@ -17,7 +17,7 @@ export default function Services({ changelang }) {
             setServices(response.data.data);
 
         });
-    }, [localStorage.getItem('lang')])
+    }, [])
     var items = services.map(item => {
         var lang = localStorage.getItem('lang');
         if (lang == 'ar') {
