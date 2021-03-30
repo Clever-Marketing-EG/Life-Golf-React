@@ -17,9 +17,6 @@ import Customize from './components/Electronics/Customize/Customize';
 import Prod from './components/Products/Product/Product';
 import Services from './components/Services/Services';
 import Rental from './components/Services/Rental/Rental';
-import Exchange from './components/Services/Exchange/Exchange';
-import Spare from './components/Services/Spare/Spare';
-import Payment from './components/Services/Payment/Payment';
 import Categories from './components/Products/Categories'
 import Loader from "./components/Shared/Loader/Loader";
 
@@ -116,26 +113,12 @@ export default function App() {
                                 meta={meta}
                             />
                         </Route>
-                        <Route exact path="/Rental">
+                        <Route exact path="/Service">
                             <Rental
                                 meta={meta}
                             />
                         </Route>
-                        <Route exact path="/Exchange">
-                            <Exchange
-                                meta={meta}
-                            />
-                        </Route>
-                        <Route exact path = "/Spare" >
-                            <Spare
-                                meta={meta}
-                            />
-                        </Route>
-                        <Route exact path="/Payment">
-                            <Payment
-                                meta={meta}
-                            />
-                        </Route>
+                       
                     </Switch>
                     <Footer meta={meta['footer']} />
                 </Router>
