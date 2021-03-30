@@ -38,8 +38,9 @@ export default function Rental({ changelang }) {
 
         })
     }, [localStorage.getItem('lang')])
-   
-
+    var test =  service.points;
+    console.log(test);
+ 
     return (
         <div id={'rental'}>
             <Header changelang={changelang} className="header" title={service.name} />
