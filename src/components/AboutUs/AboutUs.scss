@@ -1,5 +1,5 @@
 #about {
-    margin-top: 0vw;
+    margin-top: 0;
     .left-container {
         max-width: 532px;
         width: 100%;
@@ -14,7 +14,7 @@
     }
 
     .about-title {
-        font-family: "Poppins";
+        font-family: "Poppins", serif;
         font-size: 36px;
         color: rgba(5, 59, 108, 1);
         font-weight: bold;
@@ -27,30 +27,30 @@
         border-radius: 1px;
     }
     .abt-p {
-        font-family: "Roboto";
+        font-family: "Roboto", serif;
         font-size: 16px;
         color: rgba(151, 159, 197, 1);
     }
     .first-h {
-        font-family: "Montserrat";
+        font-family: "Montserrat", serif;
         font-size: 24px;
         color: rgba(5, 59, 108, 1);
         font-weight: bold;
         margin-top: 10px;
     }
     .first {
-        font-family: "Montserrat";
+        font-family: "Montserrat", serif;
         font-size: 24px;
         color: rgba(5, 59, 108, 1);
         font-weight: bold;
         margin-top: 10px;
     }
     .first-p {
-        font-family: "Montserrat";
+        font-family: "Montserrat", serif;
         font-size: 12px;
         color: rgba(151, 159, 197, 1);
     }
-   
+
     .pic {
         margin-right: 22px;
         max-height: 205px;
@@ -59,7 +59,7 @@
         width: 100%;
         border-radius: 35px;
         border: 6px solid #fff;
-        box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 3px 35px 0 rgba(0, 0, 0, 0.1);
         object-fit: cover;
     }
     .img-container {
@@ -99,13 +99,12 @@
         content: '';
         left: 0;
         right: 0;
-        margin: 0 auto;
         height: 1px;
         width: 55px;
         background-color: rgba(151, 159, 197, 0.2);
         border-radius: 1px;
         transform: rotate(90deg);
-        margin-right: -1rem;
+        margin: 0 -1rem 0 auto;
 
 
     }

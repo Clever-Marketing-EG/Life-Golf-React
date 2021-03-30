@@ -1,7 +1,7 @@
 import Carousel, {consts} from "react-elastic-carousel";
 import play from "../play.png";
 import Truncate from "react-truncate";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import './VideoCarousel.scss';
 
@@ -31,22 +31,24 @@ export default function VideoCarousel( {videos} ) {
     return(
 
         <div id={'video-carousel'}>
-            <Carousel breakPoints={breakPoints} renderArrow={myArrow}  itemsToShow={4} pagination={false} isRTL={false}>
-                {
-                    videos.length === 0? <div />
-                        : videos.map( (item, index) => (
-                            <div className={'fact-container'} key={index}>
+            {
+                videos.length === 0 ? <div />
+                : <Carousel breakPoints={breakPoints} renderArrow={myArrow}  itemsToShow={4} pagination={false} isRTL={false}>
+                        {
+                            videos.map( (item, index) => (
+                                <div className={'fact-container'} key={index}>
 
-                                <img src={item.image_url} className={'img-vid'} alt="" />
-                                <img src={play} className={'play play-btn'} data-toggle="modal" data-target="#exampleModalCenter" alt="" />
+                                    <img src={item.image_url} className={'img-vid'} alt="" />
+                                    <img src={play} className={'play play-btn'} data-toggle="modal" data-target="#exampleModalCenter" alt="" />
 
-                                <p className={'vid-name'}>{item.title}</p>
-                                <p className={'vid-body'}><Truncate lines={2}>{item.description}</Truncate> </p>
-                                <p className={'vid-date'}>{item.created_at}</p>
-                            </div>
-                        ))
-                }
-            </Carousel>
+                                    <p className={'vid-name'}>{item.title}</p>
+                                    <p className={'vid-body'}><Truncate lines={2}>{item.description}</Truncate> </p>
+                                    <p className={'vid-date'}>{item.created_at}</p>
+                                </div>
+                            ))
+                        }
+                    </Carousel>
+            }
 
             <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
