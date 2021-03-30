@@ -1,8 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Terms.scss';
 import Truncate from 'react-truncate';
 import Header from '../../Shared/Header/Header';
+import axios from 'axios';
+const { BASE_URL } = require('../../../config');
 export default function Terms() {
+    const [terms, setTerms] = useState([]);
+    useEffect(() => {
+        axios.get(`${BASE_URL}/term`).then(response => {
+            setTerms(response.data.data);
+        });
+    }, [])
+    var items = terms.map(item => {
+        var lang = localStorage.getItem('lang');
+        if (lang == 'ar') {
+            return (
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <div className={'small-circle'}></div>
+                            <span>{item.name_ar}</span>
+
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {item.desc_ar}
+                        </div>
+                    </div>
+                </div>
+
+            );
+        } else {
+            return (
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <div className={'small-circle'}></div>
+                            <span>{item.name}</span>
+
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {item.desc}
+                        </div>
+                    </div>
+                </div>
+
+            );
+
+        }
+    })
 
     return (
         <div id={'terms'}>
@@ -10,8 +59,8 @@ export default function Terms() {
 
             <h1 class="terms-title">Get to know our terms</h1>
             <div className={'container mrg-top'}>
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
+                {items}
+                {/* <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 <div className={'small-circle'}></div>
@@ -26,7 +75,6 @@ export default function Terms() {
                         </div>
                     </div>
 
-                </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -182,7 +230,7 @@ export default function Terms() {
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
         </div>
