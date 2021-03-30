@@ -8,6 +8,7 @@ export default function Videos( {videos} ) {
         factory: []
     });
 
+    const [activeVideo, setActiveVideo] = useState('src');
 
     useEffect(() => {
         const lang = localStorage.getItem('lang');
@@ -44,6 +45,11 @@ export default function Videos( {videos} ) {
         setData(dataObj);
     }, [videos])
 
+    const handleClick = (e) => {
+        setActiveVideo(e.target.id);
+    }
+
+
     return (
         <div id={'videos'}>
             <div className={'container'}>
@@ -60,11 +66,20 @@ export default function Videos( {videos} ) {
                     </ul>
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-factory" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <VideoCarousel videos={data['factory']} />
+                            <VideoCarousel videos={data['factory']} handleClick={handleClick} />
                         </div>
                         <div className="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <VideoCarousel videos={data['product']} />
+                            <VideoCarousel videos={data['product']} handleClick={handleClick} />
                         </div>
+                        <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div className="modal-dialog modal-dialog-centered" role="document">
+                                <div className="modal-content">
+                                    <iframe className={'video'} src={ activeVideo } frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen/>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
