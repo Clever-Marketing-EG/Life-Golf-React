@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Videos.scss';
-import FactoryVid from './FactoryVid/FactoryVid';
-import ProductVid from './ProductVid/ProductVid';
+import VideoCarousel from './VideoCarousel/VideoCarousel';
+
 export default function Videos( {videos} ) {
     const [data, setData] = useState({
         product: [],
@@ -22,7 +22,8 @@ export default function Videos( {videos} ) {
                     title: item.title_ar,
                     description: item.description_ar,
                     image_url: item.image_url,
-                    video_url: item.video_url
+                    video_url: item.video_url,
+                    created_at: item.created_at,
                 })
             })
         } else {
@@ -31,11 +32,13 @@ export default function Videos( {videos} ) {
                     title: item.title,
                     description: item.description,
                     image_url: item.image_url,
-                    video_url: item.video_url
+                    video_url: item.video_url,
+                    created_at: item.created_at,
                 })
             })
         }
-        console.log(dataObj);
+
+
         setData(dataObj);
     }, [videos])
 
@@ -55,10 +58,10 @@ export default function Videos( {videos} ) {
                     </ul>
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-factory" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <FactoryVid />
+                            <VideoCarousel videos={data['factory']} />
                         </div>
                         <div className="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <ProductVid />
+                            <VideoCarousel videos={data['product']} />
                         </div>
                     </div>
                 </div>
@@ -67,3 +70,5 @@ export default function Videos( {videos} ) {
         </div>
     )
 }
+
+
