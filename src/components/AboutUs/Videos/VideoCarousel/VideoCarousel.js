@@ -1,11 +1,14 @@
 import Carousel, {consts} from "react-elastic-carousel";
 import play from "../play.png";
 import Truncate from "react-truncate";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 
 import './VideoCarousel.scss';
 
 export default function VideoCarousel( {videos} ) {
+
+
+    const [activeVideo, setActiveVideo] = useState(false);
 
     function myArrow({ type, onClick, isEdge }) {
         const pointer = type === consts.PREV ?<i className="icon-icon_ionic-ios-arrow-forward-4"/> :
@@ -41,7 +44,7 @@ export default function VideoCarousel( {videos} ) {
                                     <img src={item.image_url} className={'img-vid'} alt="" />
                                     <img src={play} className={'play play-btn'} data-toggle="modal" data-target="#exampleModalCenter" alt="" />
 
-                                    <p className={'vid-name'}>{item.title}</p>
+                                    <p className={'vid-name'}><Truncate lines={1}>{item.title}</Truncate></p>
                                     <p className={'vid-body'}><Truncate lines={2}>{item.description}</Truncate> </p>
                                     <p className={'vid-date'}>{item.created_at}</p>
                                 </div>

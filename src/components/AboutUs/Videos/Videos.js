@@ -18,22 +18,24 @@ export default function Videos( {videos} ) {
 
         if(lang === 'ar') {
             videos.forEach( item => {
+                const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     title: item.title_ar,
                     description: item.description_ar,
                     image_url: item.image_url,
                     video_url: item.video_url,
-                    created_at: item.created_at,
+                    created_at: fullDate.toDateString(),
                 })
             })
         } else {
             videos.forEach( item => {
+                const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     title: item.title,
                     description: item.description,
                     image_url: item.image_url,
                     video_url: item.video_url,
-                    created_at: item.created_at,
+                    created_at: fullDate.toDateString(),
                 })
             })
         }
