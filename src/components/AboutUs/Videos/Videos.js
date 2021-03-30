@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import './Videos.scss';
-import FactoryVid from './FactoryVid/FactoryVid';
-import ProductVid from './ProductVid/ProductVid';
+import VideoCarousel from './VideoCarousel/VideoCarousel';
+
 export default function Videos( {videos} ) {
     const [data, setData] = useState({
         product: [],
         factory: []
     });
 
+    const [activeVideo, setActiveVideo] = useState('src');
 
     useEffect(() => {
         const lang = localStorage.getItem('lang');
@@ -18,26 +19,36 @@ export default function Videos( {videos} ) {
 
         if(lang === 'ar') {
             videos.forEach( item => {
+                const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     title: item.title_ar,
                     description: item.description_ar,
                     image_url: item.image_url,
-                    video_url: item.video_url
+                    video_url: item.video_url,
+                    created_at: fullDate.toDateString(),
                 })
             })
         } else {
             videos.forEach( item => {
+                const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     title: item.title,
                     description: item.description,
                     image_url: item.image_url,
-                    video_url: item.video_url
+                    video_url: item.video_url,
+                    created_at: fullDate.toDateString(),
                 })
             })
         }
-        console.log(dataObj);
+
+
         setData(dataObj);
     }, [videos])
+
+    const handleClick = (e) => {
+        setActiveVideo(e.target.id);
+    }
+
 
     return (
         <div id={'videos'}>
@@ -55,11 +66,20 @@ export default function Videos( {videos} ) {
                     </ul>
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-factory" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <FactoryVid />
+                            <VideoCarousel videos={data['factory']} handleClick={handleClick} />
                         </div>
                         <div className="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <ProductVid />
+                            <VideoCarousel videos={data['product']} handleClick={handleClick} />
                         </div>
+                        <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div className="modal-dialog modal-dialog-centered" role="document">
+                                <div className="modal-content">
+                                    <iframe className={'video'} src={ activeVideo } frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen/>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -67,3 +87,5 @@ export default function Videos( {videos} ) {
         </div>
     )
 }
+
+

@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './Certificates.scss';
-import ProductCar from '../ProductsCar/ProductCar'
-import VehicleCar from '../VehicleCar/VehicleCar'
 
 import Carousel , {consts} from 'react-elastic-carousel';
 
 import cert from './Assets/cert.png';
-import arrow1 from "../Videos/FactoryVid/Assets/arrow1.png";
-import arrow2 from "../Videos/FactoryVid/Assets/arrow2.png";
+// import arrow1 from "../Assets/arrow1.png";
+// import arrow2 from "../Assets/arrow2.png";
 
 export default function Certifiactes( {certificates} ) {
 
@@ -35,7 +33,8 @@ export default function Certifiactes( {certificates} ) {
     }, [certificates])
 
     function myArrow({ type, onClick, isEdge }) {
-        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position'} alt={'...'} /> : <img src={arrow2} className={'img-position'} alt={'...'} />
+        const pointer = type === consts.PREV ?<i className="icon-icon_ionic-ios-arrow-forward-4"/> :
+            <i className="icon-icon_ionic-ios-arrow-forward-5"/>;
         return (
             <button className={'arrows btn'} onClick={onClick} disabled={isEdge}>
                 {pointer}
@@ -62,7 +61,7 @@ export default function Certifiactes( {certificates} ) {
                             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                                 {
                                     data.map( (item, index) => (
-                                        <div className={'cert-container'}><img src={item['image_url']} className="cert-img" alt="" key={index}/>
+                                        <div className={'cert-container'} key={index}><img src={item['image_url']} className="cert-img" alt=""/>
                                             <p className={'cert-name'}>{item['name']}</p>
                                         </div>
                                     ))
