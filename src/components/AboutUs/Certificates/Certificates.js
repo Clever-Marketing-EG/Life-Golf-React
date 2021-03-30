@@ -4,8 +4,6 @@ import './Certificates.scss';
 import Carousel , {consts} from 'react-elastic-carousel';
 
 import cert from './Assets/cert.png';
-// import arrow1 from "../Assets/arrow1.png";
-// import arrow2 from "../Assets/arrow2.png";
 
 export default function Certifiactes( {certificates} ) {
 

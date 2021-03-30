@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './AboutUs.scss';
-import pic from './Assets/about-us-3.jpg';
+
 import pic1 from './Assets/mask_group_10.png';
 import pic2 from './Assets/mask_group_11.png';
 import pic3 from './Assets/mask_group_12.png';
@@ -17,6 +17,7 @@ export default function AboutUs({meta}) {
 
     const [certificates, setCertificates] = useState([]);
     const [videos, setVideos] = useState([]);
+    const [galleries, setGalleries] = useState([]);
 
     useEffect( () => {
         axios.get(`${BASE_URL}/certificates`)
@@ -27,6 +28,11 @@ export default function AboutUs({meta}) {
         axios.get(`${BASE_URL}/videos`)
             .then( (response) => {
                 setVideos(response.data.data);
+            })
+
+        axios.get(`${BASE_URL}/gallery`)
+            .then( (response) => {
+                setGalleries(response.data.date);
             })
     }, [])
 
@@ -81,7 +87,9 @@ export default function AboutUs({meta}) {
                 <Videos
                     videos={videos}
                 />
-                <Gallery />
+                <Gallery
+                    galleries={galleries}
+                />
             </div>
 
         </div >

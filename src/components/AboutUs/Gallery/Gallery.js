@@ -1,8 +1,10 @@
 import React from 'react';
 import './Gallery.scss';
-import FactoryImg from './FactoryImg/FactoryImg';
-import ProductImg from './ProductImg/ProductImg.js';
-export default function Gallery() {
+import GalleryCarousel from "./GalleryCarousel/GalleryCarousel";
+
+export default function Gallery( {galleries} ) {
+
+    console.log(galleries);
 
     return (
         <div id={'videos'}>
@@ -20,10 +22,10 @@ export default function Gallery() {
                     </ul>
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-factory-img" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <FactoryImg />
+                            <GalleryCarousel />
                         </div>
                         <div className="tab-pane fade" id="pills-product-img" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <ProductImg />
+                            <GalleryCarousel />
                         </div>
                     </div>
                 </div>
