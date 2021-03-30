@@ -4,6 +4,7 @@ import Carousel , {consts} from 'react-elastic-carousel';
 import cert from './Assets/cert.png';
 import arrow1 from './Assets/arrow1.png';
 import arrow2 from './Assets/arrow2.png';
+
 export default function ProductCar(props) {
     function myArrow({ type, onClick, isEdge }) {
         const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position'} alt={'...'}/> : <img src={arrow2} className={'img-position'} alt={'...'}/>
@@ -46,7 +47,6 @@ export default function ProductCar(props) {
                     <p className={'cert-name'}>Cerificate name </p>
                 </div>
             </Carousel>
-
         </div>
     )
 }

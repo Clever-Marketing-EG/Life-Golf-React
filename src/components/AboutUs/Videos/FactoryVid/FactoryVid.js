@@ -85,19 +85,20 @@ export default function FactoryVid(props) {
                 </div>
             </Carousel>
 
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
+            <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
 
-                        <div class="modal-body">
+                        <div className="modal-body">
                             {/* <video className={'video'} controls autoPlay loop>
-                              
+
                                 <source
                                     src="https://player.vimeo.com/video/16259135"
                                     type="video/mp4"></source>
 
                             </video> */}
-                            <iframe className={'video'}  src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe className={'video'} src="https://www.youtube.com/embed/tgbNymZ7vqY" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen/>
 
                         </div>
 
