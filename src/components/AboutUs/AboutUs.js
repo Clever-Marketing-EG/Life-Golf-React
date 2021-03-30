@@ -32,7 +32,7 @@ export default function AboutUs({meta}) {
 
         axios.get(`${BASE_URL}/gallery`)
             .then( (response) => {
-                setGalleries(response.data.date);
+                setGalleries(response.data.data);
             })
     }, [])
 
