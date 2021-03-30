@@ -12,24 +12,45 @@ export default function Terms() {
         });
     }, [])
     var items = terms.map(item => {
+        var lang = localStorage.getItem('lang');
+        if (lang == 'ar') {
+            return (
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <div className={'small-circle'}></div>
+                            <span>{item.name_ar}</span>
 
-        return (
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <div className={'small-circle'}></div>
-                        <span>{item.name}</span>
-
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {item.desc}
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {item.desc_ar}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        );
+            );
+        } else {
+            return (
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <div className={'small-circle'}></div>
+                            <span>{item.name}</span>
+
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {item.desc}
+                        </div>
+                    </div>
+                </div>
+
+            );
+
+        }
     })
 
     return (
@@ -39,7 +60,7 @@ export default function Terms() {
             <h1 class="terms-title">Get to know our terms</h1>
             <div className={'container mrg-top'}>
                 {items}
-                    {/* <div class="accordion-item">
+                {/* <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 <div className={'small-circle'}></div>
