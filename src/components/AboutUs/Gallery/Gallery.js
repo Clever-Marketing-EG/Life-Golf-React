@@ -1,10 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Gallery.scss';
 import GalleryCarousel from "./GalleryCarousel/GalleryCarousel";
 
 export default function Gallery( {galleries} ) {
 
-    console.log(galleries);
+    const [data, setData] = useState({
+        product: [],
+        factory: []
+    });
+
+    useEffect(() => {
+        const lang = localStorage.getItem('lang');
+        let dataObj = {
+            product: [],
+            factory: []
+        };
+
+        if(lang === 'ar') {
+            galleries.forEach( item => {
+                const fullDate = new Date(item.created_at);
+                dataObj[item.type].push({
+                    image_url: item.image_url,
+                    description: item.description_ar,
+                    created_at: fullDate.toDateString(),
+                })
+            })
+        } else {
+            galleries.forEach( item => {
+                const fullDate = new Date(item.created_at);
+                dataObj[item.type].push({
+                    image_url: item.image_url,
+                    description: item.description,
+                    created_at: fullDate.toDateString(),
+                })
+            })
+        }
+        setData(dataObj);
+    }, [galleries])
 
     return (
         <div id={'videos'}>
@@ -22,10 +54,10 @@ export default function Gallery( {galleries} ) {
                     </ul>
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-factory-img" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <GalleryCarousel />
+                            <GalleryCarousel gallery={data['factory']} />
                         </div>
                         <div className="tab-pane fade" id="pills-product-img" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <GalleryCarousel />
+                            <GalleryCarousel gallery={data['product']} />
                         </div>
                     </div>
                 </div>

@@ -10,9 +10,11 @@ export default function Rental({ changelang }) {
     const [service, setService] = useState([]);
     const [list, setList] = useState([]);
     const [list2, setList2] = useState([]);
+
     useEffect(() => {
         var service_id = localStorage.getItem('service_id');
         var lang = localStorage.getItem('lang');
+
         axios.get(`${BASE_URL}/services/${service_id}`).then(response => {
             setService(response.data.data);
             if (lang == 'ar') {
@@ -69,9 +71,6 @@ export default function Rental({ changelang }) {
                 );
             }
             setList2(listItem2);
-
-
-
         })
     }, [])
 

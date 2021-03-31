@@ -1,120 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import './GalleryCarousel.scss';
-import photo from '../../Assets/about-us-3.jpg';
 
 import Carousel from 'react-elastic-carousel';
 
 
-export default function GalleryCarousel() {
+export default function GalleryCarousel( { gallery }) {
 
-    // useEffect(() => {
-    //     axios.get(`${BASE_URL}/gallery/type/${type}`).then(response => {
-    //         setImages(response.data.data)
-    //         console.log(response.data.data)
-    //     });
-    //
-    // }, [type]);
-    // var items = images.map(item => {
-    //     <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-    //         <div className="after">{item.image_description} </div>
-    //
-    //     </div>
-    // });
+    const [data, setData] = useState([]);
 
+    useEffect( () => {
 
+        const arr = [];
+        for(let i=0; i<gallery.length; i+=8) {
+            arr.push(
+                gallery.slice(i, i + 8).map( (item, index) => (
+                    <ImageCard
+                        image_url={item.image_url}
+                        description={item.description}
+                        key={index}
+                    />
+                ))
+            )
+        }
+
+        setData(arr);
+    }, [gallery])
 
     return (
         <div id={'gallery-carousel'}>
-            <Carousel itemsToShow={1} showArrows={false} isRTL={false}>
-                <div className={'row'}>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-
-
-                </div>
-                <div className={'row'}>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-
-
-                </div>
-                <div className={'row'}>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-                    <div className={'col-6 col-md-3 image-container'}><img alt={'...'} src={photo} className={'photo'} />
-                        <div className="after">image description </div>
-                    </div>
-
-
-                </div>
-                <div className={'row'}>
-                    {/*{items}*/}
-                </div>
-            </Carousel>
-
+            {
+                data.length === 0 ? <div />
+                    : <Carousel itemsToShow={1} showArrows={false} isRTL={false}>
+                        {
+                            data.map( (item, index) => (
+                                <div className={'row'} key={index}>
+                                    {item}
+                                </div>
+                            ))
+                        }
+                    </Carousel>
+            }
         </div>
     )
+}
+
+
+function ImageCard( {image_url, description }) {
+    return (
+        <div className={'col-md-3 image-container'}><img alt={'...'} src={image_url} className={'photo'}/>
+            <div className="after">{description}</div>
+        </div>
+    );
 }
