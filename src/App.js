@@ -1,5 +1,5 @@
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {useEffect, useState} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./App.css";
 
@@ -27,7 +27,7 @@ export default function App() {
     const [meta, setMeta] = useState({});
     const [loaded, setLoaded] = useState(false);
 
-    useEffect( () => {
+    useEffect(() => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             const data = response.data.data;
 
@@ -38,12 +38,12 @@ export default function App() {
                 'about-us': {},
                 'footer': {}
             };
-            if(lang === 'ar') {
-                data.forEach( (item) => {
+            if (lang === 'ar') {
+                data.forEach((item) => {
                     dataObject[item.page][item.name] = item.content_ar;
                 })
             } else {
-                data.forEach( (item) => {
+                data.forEach((item) => {
                     dataObject[item.page][item.name] = item.content;
                 })
             }
@@ -53,8 +53,8 @@ export default function App() {
     }, [])
 
 
-    if(!loaded) {
-        return <Loader /> ;
+    if (!loaded) {
+        return <Loader />;
     }
     else {
         return (
@@ -71,11 +71,11 @@ export default function App() {
                                 meta={meta['about-us']}
                             />
                         </Route>
-                        <Route exact path="/Categories">
+                        {/* <Route exact path="/Categories">
                             <Categories
                                 meta={meta}
                             />
-                        </Route>
+                        </Route> */}
                         <Route exact path="/Contact">
                             <ContactUs
                                 meta={meta}
@@ -118,7 +118,7 @@ export default function App() {
                                 meta={meta}
                             />
                         </Route>
-                       
+
                     </Switch>
                     <Footer meta={meta['footer']} />
                 </Router>

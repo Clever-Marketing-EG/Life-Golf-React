@@ -46,11 +46,11 @@ export default function Nav() {
                                 Services
                             </a>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a className="nav-link" href="/Categories">
                                 Categories
                             </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <a className="nav-link" href="/News">
                                 News
