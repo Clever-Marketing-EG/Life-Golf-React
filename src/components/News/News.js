@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
-import Truncate from 'react-truncate';
+import axios from 'axios';
 import './News.scss';
 import cart from './Assets/golf-cart.png';
 import plug from './Assets/electric_plug.png';
@@ -18,33 +17,25 @@ export default function News() {
     const changeblog= (e) => {
         let mblog = e.target.name
         setBlogcat(mblog)
-        console.log(mblog);
     }
 
     const [blogcat, setBlogcat] = useState("golf-car");
+
     const [data, setData] = useState({
-        1: [],
-        2: [],
-        3: [],
-        4: [],
-        5: []
+        1: [], 2: [], 3: [], 4: [], 5: []
     });
 
     useEffect(() => {
         axios.get(`${BASE_URL}/articles`).then(response => {
             let dataObj = {
-                1: [],
-                2: [],
-                3: [],
-                4: [],
-                5: []
+                1: [], 2: [], 3: [], 4: [], 5: []
             };
             response.data.data.forEach( item => {
                 dataObj[item.category_id].push(item);
             })
             setData(dataObj);
         });
-    },[blogcat])
+    },[])
 
     return (
         <div>

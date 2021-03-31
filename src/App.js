@@ -17,7 +17,6 @@ import Customize from './components/Electronics/Customize/Customize';
 import Prod from './components/Products/Product/Product';
 import Services from './components/Services/Services';
 import Rental from './components/Services/Rental/Rental';
-import Categories from './components/Products/Categories'
 import Loader from "./components/Shared/Loader/Loader";
 
 const { BASE_URL } = require('./config');
@@ -72,11 +71,6 @@ export default function App() {
                                 meta={meta['about-us']}
                             />
                         </Route>
-                        {/* <Route exact path="/Categories">
-                            <Categories
-                                meta={meta}
-                            />
-                        </Route> */}
                         <Route exact path="/Contact">
                             <ContactUs
                                 meta={meta}
