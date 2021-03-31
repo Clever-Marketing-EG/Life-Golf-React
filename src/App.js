@@ -36,7 +36,8 @@ export default function App() {
             const dataObject = {
                 'home': {},
                 'about-us': {},
-                'footer': {}
+                'footer': {},
+                'maintenance': {}
             };
             if (lang === 'ar') {
                 data.forEach((item) => {
@@ -93,7 +94,7 @@ export default function App() {
                         </Route>
                         <Route exact path="/Maintenance">
                             <Maintenance
-                                meta={meta}
+                                meta={meta['maintenance']}
                             />
                         </Route>
                         <Route exact path="/News" >

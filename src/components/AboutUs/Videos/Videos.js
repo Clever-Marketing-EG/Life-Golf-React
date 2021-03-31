@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Videos.scss';
 import VideoCarousel from './VideoCarousel/VideoCarousel';
 
-export default function Videos( {videos} ) {
+export default function Videos({ videos, meta }) {
     const [data, setData] = useState({
         product: [],
         factory: []
@@ -17,8 +17,8 @@ export default function Videos( {videos} ) {
             factory: []
         };
 
-        if(lang === 'ar') {
-            videos.forEach( item => {
+        if (lang === 'ar') {
+            videos.forEach(item => {
                 const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     title: item.title_ar,
@@ -29,7 +29,7 @@ export default function Videos( {videos} ) {
                 })
             })
         } else {
-            videos.forEach( item => {
+            videos.forEach(item => {
                 const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     title: item.title,
@@ -53,7 +53,7 @@ export default function Videos( {videos} ) {
     return (
         <div id={'videos'}>
             <div className={'container'}>
-                <h1 className={'vid-title '}>Video presentation</h1>
+                <h1 className={'vid-title '}>{meta.video_header}</h1>
                 <div className={'navigator'}>
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">
@@ -74,8 +74,8 @@ export default function Videos( {videos} ) {
                         <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div className="modal-dialog modal-dialog-centered" role="document">
                                 <div className="modal-content">
-                                    <iframe className={'video'} src={ activeVideo } frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen/>
+                                    <iframe className={'video'} src={activeVideo} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen />
                                 </div>
                             </div>
                         </div>

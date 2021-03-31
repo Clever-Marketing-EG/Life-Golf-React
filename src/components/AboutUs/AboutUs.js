@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './AboutUs.scss';
 
 import pic1 from './Assets/mask_group_10.png';
@@ -11,27 +11,27 @@ import Gallery from './Gallery/Gallery';
 import Header from '../Shared/Header/Header';
 import axios from "axios";
 
-const {BASE_URL} = require('../../config');
+const { BASE_URL } = require('../../config');
 
-export default function AboutUs({meta}) {
+export default function AboutUs({ meta }) {
 
     const [certificates, setCertificates] = useState([]);
     const [videos, setVideos] = useState([]);
     const [galleries, setGalleries] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         axios.get(`${BASE_URL}/certificates`)
-            .then( (response) => {
+            .then((response) => {
                 setCertificates(response.data.data);
             })
 
         axios.get(`${BASE_URL}/videos`)
-            .then( (response) => {
+            .then((response) => {
                 setVideos(response.data.data);
             })
 
         axios.get(`${BASE_URL}/gallery`)
-            .then( (response) => {
+            .then((response) => {
                 setGalleries(response.data.data);
             })
     }, [])
@@ -52,29 +52,29 @@ export default function AboutUs({meta}) {
 
                 </div>
                 <div className={'right-container'}>
-                    <h1 className={'about-title'}>Get to know us better</h1>
+                    <h1 className={'about-title'}>{meta.header}</h1>
                     <hr />
                     <p className={'abt-p'}>{meta.content}</p>
                     <div className={'row'}>
                         <div className={'col-3 col-md-3'}>
                             <img src={pic1} alt="" />
                             <h1 className={'first-h'}>{meta.number_of_clients}</h1>
-                            <p className={'first-p'}>Happy clients</p>
+                            <p className={'first-p'}>{meta.name_of_clients}</p>
                         </div>
                         <div className={'col-3 col-md-3'}>
                             <img src={pic2} alt="" />
                             <h1 className={'first-h'}>{meta.years_of_experience}</h1>
-                            <p className={'first-p'}>Years of Experience</p>
+                            <p className={'first-p'}>{meta.name_of_experience}</p>
                         </div>
                         <div className={'col-3 col-md-3'}>
                             <img src={pic3} alt="" />
                             <h1 className={'first-h'}>{meta.number_of_engineers}</h1>
-                            <p className={'first-p'}>Engineers</p>
+                            <p className={'first-p'}>{meta.name_of_engineers}</p>
                         </div>
                         <div className={'col-3 col-md-3'}>
                             <img src={pic4} alt="" />
                             <h1 className={'first'}>{meta.number_of_sold_vehicles}</h1>
-                            <p className={'first-p'}>Vehicle sold</p>
+                            <p className={'first-p'}>{meta.name_of_sold_vehicles}</p>
                         </div>
 
                     </div>
@@ -82,12 +82,15 @@ export default function AboutUs({meta}) {
             </div>
             <div className={'container'}>
                 <Certifiactes
+                    meta={meta}
                     certificates={certificates}
                 />
                 <Videos
+                    meta={meta}
                     videos={videos}
                 />
                 <Gallery
+                    meta={meta}
                     galleries={galleries}
                 />
             </div>

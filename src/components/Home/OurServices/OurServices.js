@@ -5,12 +5,12 @@ import cart from '../Assets/our-services.png';
 import GreySquare from '../Assets/grey-square.jpg'
 
 
-export default function OurServices() {
+export default function OurServices({meta}) {
 
 
     return (
         <div id={'our-services'} className={'container'}>
-            <h1 className={'home-header'}>Our Services</h1>
+            <h1 className={'home-header'}>{meta.services_header}</h1>
             <hr className={'blue-line'} />
             <div className={'center-container'}>
                 <div className={'image-container'}>
