@@ -76,10 +76,7 @@ function Service({name, description, id, image_url}) {
                 <div className={'service-body'}>
                     <h1><Truncate lines={1}>{name}</Truncate></h1>
                     <p><Truncate lines={3}>{description}</Truncate></p>
-                    <Link className={'read'} to="/Service"
-                          onClick={() => {
-                              localStorage.setItem("service_id", id);
-                          }} >
+                    <Link className={'read'} to={'/Services/'+id}>
                         Read More
                         <img className={'arrow'} src={arrow} alt="" />
                     </Link>
