@@ -10,8 +10,6 @@ export default function GalleryCarousel( { gallery }) {
 
     useEffect( () => {
 
-        console.log(gallery);
-
         const arr = [];
         for(let i=0; i<gallery.length; i+=8) {
             arr.push(
@@ -27,8 +25,6 @@ export default function GalleryCarousel( { gallery }) {
 
         setData(arr);
     }, [gallery])
-
-
 
     return (
         <div id={'gallery-carousel'}>
