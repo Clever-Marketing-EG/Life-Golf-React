@@ -1,26 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Certificates.scss';
 
-import Carousel , {consts} from 'react-elastic-carousel';
+import Carousel, { consts } from 'react-elastic-carousel';
 
 import cert from './Assets/cert.png';
 
-export default function Certifiactes( {certificates} ) {
+export default function Certifiactes({ certificates, meta }) {
 
     const [data, setData] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         const lang = localStorage.getItem('lang');
         let dataArr = [];
-        if(lang === 'ar') {
-            certificates.forEach( item => {
+        if (lang === 'ar') {
+            certificates.forEach(item => {
                 dataArr.push({
                     name: item['name_ar'],
                     image_url: item['image_url']
                 })
             })
         } else {
-            certificates.forEach( item => {
+            certificates.forEach(item => {
                 dataArr.push({
                     name: item['name'],
                     image_url: item['image_url']
@@ -31,8 +31,8 @@ export default function Certifiactes( {certificates} ) {
     }, [certificates])
 
     function myArrow({ type, onClick, isEdge }) {
-        const pointer = type === consts.PREV ?<i className="icon-icon_ionic-ios-arrow-forward-4"/> :
-            <i className="icon-icon_ionic-ios-arrow-forward-5"/>;
+        const pointer = type === consts.PREV ? <i className="icon-icon_ionic-ios-arrow-forward-4" /> :
+            <i className="icon-icon_ionic-ios-arrow-forward-5" />;
         return (
             <button className={'arrows btn'} onClick={onClick} disabled={isEdge}>
                 {pointer}
@@ -52,14 +52,14 @@ export default function Certifiactes( {certificates} ) {
     return (
         <div id={'cert'}>
             <div className={'container'}>
-                <h1 className={'cert-title'}>Our honors and certificate</h1>
+                <h1 className={'cert-title'}>{meta.certificates_header}</h1>
                 <div className={'navigator'}>
                     {
                         data.length === 0 ? <div /> :
                             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                                 {
-                                    data.map( (item, index) => (
-                                        <div className={'cert-container'} key={index}><img src={item['image_url']} className="cert-img" alt=""/>
+                                    data.map((item, index) => (
+                                        <div className={'cert-container'} key={index}><img src={item['image_url']} className="cert-img" alt="" />
                                             <p className={'cert-name'}>{item['name']}</p>
                                         </div>
                                     ))

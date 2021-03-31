@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Gallery.scss';
 import GalleryCarousel from "./GalleryCarousel/GalleryCarousel";
 
-export default function Gallery( {galleries} ) {
+export default function Gallery({ galleries, meta }) {
 
     const [data, setData] = useState({
         product: [],
@@ -16,8 +16,8 @@ export default function Gallery( {galleries} ) {
             factory: []
         };
 
-        if(lang === 'ar') {
-            galleries.forEach( item => {
+        if (lang === 'ar') {
+            galleries.forEach(item => {
                 const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     image_url: item.image_url,
@@ -26,7 +26,7 @@ export default function Gallery( {galleries} ) {
                 })
             })
         } else {
-            galleries.forEach( item => {
+            galleries.forEach(item => {
                 const fullDate = new Date(item.created_at);
                 dataObj[item.type].push({
                     image_url: item.image_url,
@@ -41,7 +41,7 @@ export default function Gallery( {galleries} ) {
     return (
         <div id={'videos'}>
             <div className={'container'}>
-                <h1 className={'vid-title'}>Our gallery</h1>
+                <h1 className={'vid-title'}>{meta.gallery_header}</h1>
                 <div className={'navigator'}>
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">

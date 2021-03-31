@@ -7,7 +7,7 @@ import ArticleImg3 from '../Assets/about-us-3.jpg'
 import Truncate from 'react-truncate';
 
 
-export default function OurNews({ articles }) {
+export default function OurNews({ articles, meta }) {
 
 
     const [Articles, setArticles] = useState([]);
@@ -49,11 +49,11 @@ export default function OurNews({ articles }) {
         <div id={'our-news'} className={'container d-flex flex-wrap'}>
             <div className={'left-container'}>
                 <h1 className={'home-header'}>
-                    Our News
+                   {meta.news_header}
                 </h1>
                 <hr className={'blue-line'} />
                 <p className={'home-paragraph'}>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    {meta.news_content}
                 </p>
             </div>
             <div className={'right-container'}>

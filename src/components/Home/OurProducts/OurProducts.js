@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './OurProducts.scss';
 import Slider from './Slider';
 
-export default function OurProducts({ categories, products }) {
+export default function OurProducts({ categories, products, meta }) {
 
     const [activeCategory, setActiveCategory] = useState(1);
     const [activeProducts, setActiveProducts] = useState([]);
@@ -71,7 +71,7 @@ export default function OurProducts({ categories, products }) {
 
     return (
         <div id={'our-products'} className={'container'}>
-            <h1 className={'home-header'}>Our Products</h1>
+            <h1 className={'home-header'}>{meta.products_header}</h1>
             <hr className={'blue-line'} />
             <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                 {
