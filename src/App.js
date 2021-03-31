@@ -37,7 +37,8 @@ export default function App() {
                 'home': {},
                 'about-us': {},
                 'footer': {},
-                'maintenance': {}
+                'maintenance': {},
+                'contact': {}
             };
             if (lang === 'ar') {
                 data.forEach((item) => {
@@ -79,7 +80,7 @@ export default function App() {
                         </Route> */}
                         <Route exact path="/Contact">
                             <ContactUs
-                                meta={meta}
+                                meta={meta['contact']}
                             />
                         </Route>
                         <Route exact path="/Products">
