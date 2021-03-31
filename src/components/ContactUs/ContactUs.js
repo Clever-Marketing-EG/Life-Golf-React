@@ -51,8 +51,8 @@ export default function ContactUs({meta, changelang}) {
                                 <img src={phone} alt="" />
                             </div>
                             <div className={'col-md-5'}>
-                                <h1 className={'contact-snd-title'}>Phone</h1>
-                                <p className={'contact-info'}>{meta.phone_number}</p>
+                                <h1 className={'contact-snd-title'}>{meta.contact_phone}</h1>
+                                <p className={'contact-info'}>{meta.contact_number}</p>
                             </div>
                         </div>
                         <br />
@@ -61,8 +61,8 @@ export default function ContactUs({meta, changelang}) {
                                 <img src={mail} alt="" />
                             </div>
                             <div className={'col-md-5'}>
-                                <h1 className={'contact-snd-title'}>{meta.email}</h1>
-                                <p className={'contact-info'}>{meta.email_address}</p>
+                                <h1 className={'contact-snd-title'}>{meta.contact_email}</h1>
+                                <p className={'contact-info'}>{meta.contact_mail}</p>
                             </div>
                         </div>
                         <br />
@@ -71,8 +71,8 @@ export default function ContactUs({meta, changelang}) {
                                 <img src={map} alt="" />
                             </div>
                             <div className={'col-md-5'}>
-                                <h1 className={'contact-snd-title'}>{meta.address}</h1>
-                                <p className={'contact-info'}>{meta.co_address}</p>
+                                <h1 className={'contact-snd-title'}>{meta.contact_address}</h1>
+                                <p className={'contact-info'}>{meta.contact_location}</p>
                             </div>
                         </div>
                     </div>
