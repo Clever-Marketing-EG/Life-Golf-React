@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useParams} from 'react-router-dom';
 import './Rental.scss';
-import pic from '../../AboutUs/Assets/about-us-3.jpg';
 import Header from '../../Shared/Header/Header';
 import Truncate from 'react-truncate';
 import axios from 'axios';
 const { BASE_URL } = require('../../../config');
 
-export default function Rental({ changelang }) {
+export default function Rental() {
     const [service, setService] = useState([]);
     const [list, setList] = useState([]);
     const [list2, setList2] = useState([]);
+    const params = useParams();
 
     useEffect(() => {
-        var service_id = localStorage.getItem('service_id');
-        var lang = localStorage.getItem('lang');
+        const service_id = params.id;
+        const lang = localStorage.getItem('lang');
 
         axios.get(`${BASE_URL}/services/${service_id}`).then(response => {
-            setService(response.data.data);
-            if (lang == 'ar') {
+            setService(response.data.data)
+            if (lang === 'ar') {
                 var test = response.data.data.points_ar;
                 var snd = response.data.data.points_2_ar;
 
@@ -42,14 +43,14 @@ export default function Rental({ changelang }) {
 
             setService(dataObject);
 
-            var x = JSON.parse(test);
-            var listItem = [];
+            const x = JSON.parse(test);
+            const listItem = [];
             console.log(x);
             for (let i = 0; i < x.length; i++) {
                 console.log(x[i]);
                 listItem.push(
                     <li className={'list-item'} key={i}>
-                        <div className={'small-circle'}></div>
+                        <div className={'small-circle'}/>
 
                         <Truncate lines={1}>{x[i]}</Truncate>
                     </li>
@@ -64,7 +65,7 @@ export default function Rental({ changelang }) {
                 console.log(y[i]);
                 listItem2.push(
                     <li className={'list-item'} key={i}>
-                        <div className={'small-circle'}></div>
+                        <div className={'small-circle'}/>
 
                         <Truncate lines={1}>{y[i]}</Truncate>
                     </li>
@@ -76,7 +77,7 @@ export default function Rental({ changelang }) {
 
     return (
         <div id={'rental'}>
-            <Header changelang={changelang} className="header" title={service.name} />
+            <Header className="header" title={service.name} />
 
             <div className={'container margin-t'}>
                 <div className={'row'}>

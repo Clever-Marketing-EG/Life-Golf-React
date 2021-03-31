@@ -113,12 +113,12 @@ export default function App() {
                                 meta={meta}
                             />
                         </Route>
-                        <Route exact path="/Service">
+                        <Route exact path="/Services/:id">
                             <Rental
                                 meta={meta}
                             />
                         </Route>
-                       
+
                     </Switch>
                     <Footer meta={meta['footer']} />
                 </Router>

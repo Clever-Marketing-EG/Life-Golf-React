@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.scss';
+import logo from '../Assets/logo.png';
 
 export default function Nav() {
 
@@ -13,7 +14,7 @@ export default function Nav() {
         <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'}>
             <div className="container">
                 <a className="navbar-brand" href="#">
-                    <img src={'logo.png'} className={'nav-logo'} alt={''} />
+                    <img src={logo} className={'nav-logo'} alt={''} />
                 </a>
                 <button
                     className="navbar-toggler"
