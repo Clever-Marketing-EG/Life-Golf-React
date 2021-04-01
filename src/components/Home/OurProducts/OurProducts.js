@@ -56,9 +56,8 @@ export default function OurProducts({ categories, products, meta }) {
         setData(dataObj);
     }, [categories, products])
 
-    function handlClick(e) {
-        console.log(e.target.value);
-        setActiveCategory(e.target.value);
+    function handlClick(id) {
+        setActiveCategory(id);
     }
 
     return (
@@ -90,7 +89,7 @@ export default function OurProducts({ categories, products, meta }) {
 function CategoryButton({ id, title, handlClick }) {
     return(
         <li className="nav-item" role="presentation">
-            <button value={id} onClick={handlClick} className="category-button nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+            <button onClick={() => handlClick(id)} className="category-button nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                 <span className={'logo-container me-3'}>
                     <i className="icon-golf-cart" />
                 </span>
