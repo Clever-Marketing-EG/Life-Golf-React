@@ -8,7 +8,7 @@ export default function Blogs({articles}) {
     const [data, setData] = useState([]);
 
     useEffect( () => {
-        let dataArr = [];
+        let dataArr;
         const lang = localStorage.getItem('lang');
 
         if(lang === 'ar') {
@@ -37,6 +37,7 @@ export default function Blogs({articles}) {
         console.log(dataArr);
         setData(dataArr);
     }, [articles])
+
     return (
         <div id={'blogs'}>
             {
@@ -70,8 +71,9 @@ function Article({id, title, content, date, image_url}) {
                     <p><Truncate lines={5}>
                         {content}
                     </Truncate></p>
-                    <Link className={'read'} to={'/'}>
+                    <Link className={'read'} to={'/News/'+id}>
                         Read More
+                        {/*TODO*/}
                         <img className={'arrow'} src={arrow} alt="" />
                     </Link>
                 </div>
@@ -81,7 +83,7 @@ function Article({id, title, content, date, image_url}) {
                     </div>
                 </div>
             </div>
-            <br />
+            <br/><br/>
         </div>
     );
 }
