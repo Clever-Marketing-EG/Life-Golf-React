@@ -1,37 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
+import './Left.scss'
 import forward from '../Assets/forward.png';
 import backward from '../Assets/backward.png';
 import Carousel, { consts } from 'react-elastic-carousel';
-import prod from '../Assets/44.png';
-import './Left.scss'
-import Loader from "../../../Shared/Loader/Loader";
+
+
 export default function Left( {images} ) {
 
-    console.log(images)
+    const [activeImage, setActiveImage] = useState(0);
+
     function myArrows({ type, onClick, isEdge }) {
-        const pointer = type === consts.PREV ? <img src={backward} className={'img-position1'} /> : <img src={forward} className={'img-position'} />
+        const pointer = type === consts.PREV ? <img src={backward} className={'img-position1'}  alt={'...'}/> : <img src={forward} className={'img-position'} alt={'...'} />
         return (
             <button className={'arrow btn'} onClick={onClick} disabled={isEdge}>
                 {pointer}
             </button>
         )
     }
-    const breakPoints = [
-        { width: 1, itemsToShow: 1 },
-        { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-        { width: 850, itemsToShow: 3 },
-        { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-        { width: 1450, itemsToShow: 5 },
-        { width: 1750, itemsToShow: 6 },
-    ]
+
+
+    const handleClick = (e) => {
+        setActiveImage(e.target.id);
+    }
+
+    const items = images.map( (item, index) => (
+        <button className='btn' key={index} onClick={handleClick} >
+            <img className={'car-im'} src={item.url} key={index}  alt={'...'} id={index}/>
+        </button>
+    ))
 
     return (
         <div id={'left-prod'}>
             <div className={'product-container'}>
-                {
-                    images.length === 0? <div />
-                    : <img src={images[0].url} className={'prod-img'} alt={'...'}/>
-                }
+                <img src={images[activeImage].url} className={'prod-img'} alt={'...'}/>
                 <div className={'pink-container'}/>
             </div>
             <Carousel
@@ -41,14 +42,8 @@ export default function Left( {images} ) {
                 itemPadding={[10, 45]}
                 itemsToShow={4}
                 isRTL={false}
-                // children={}
-            >
-                <img className={'car-im'} src={prod}  alt={'...'}/>
-                <img className={'car-im'} src={prod}  alt={'...'}/>
-                <img className={'car-im'} src={prod}  alt={'...'}/>
-                <img className={'car-im'} src={prod}  alt={'...'}/>
-            </Carousel>
-
+                children={items}
+            />
         </div>
     );
 }

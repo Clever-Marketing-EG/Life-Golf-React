@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Product.scss';
 import Header from '../../Shared/Header/Header';
-import Carousel, { consts } from 'react-elastic-carousel';
-import arrow1 from '../../Home/Assets/arrow1.png';
-import arrow2 from '../../Home/Assets/arrow2.png';
 import circle from './Assets/circle.png';
 import Truncate from 'react-truncate';
-import rightArrow from '../../Home/Assets/arrow-right.png';
 import warning from './Assets/warning.png';
 import Similar from '../Similar/Similar';
 import Left from './Left/Left';
@@ -62,7 +58,10 @@ export default function Product() {
                 <div>
                     <div className={'row mg-top'}>
                         <div className={'col-md-6'}>
-                            <Left images={data.images} />
+                            {
+                                data.images.length === 0? <div />
+                                : <Left images={data.images} />
+                            }
                         </div>
                         <div className={'col-md-6'}>
                             <h1>{data.name}</h1>
