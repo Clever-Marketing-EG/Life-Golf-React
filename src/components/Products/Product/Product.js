@@ -79,7 +79,7 @@ export default function Product() {
                             <button className="btn order-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
                         </div>
                     </div>
-                    <Specs product={data} />
+                    <Specs data={data} />
                     <Similar />
                 </div>
                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
