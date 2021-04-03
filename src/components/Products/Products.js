@@ -61,7 +61,7 @@ export default function Products() {
 
 function ProductCard( {item} ) {
     return (
-        <div className="col">
+        <div>
             <div className="card col-card">
                 <div className="head-div position-relative">
                     <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p>

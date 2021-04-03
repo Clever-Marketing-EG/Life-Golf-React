@@ -12,85 +12,109 @@ import Similar from '../Similar/Similar';
 import Left from './Left/Left';
 import Specs from './Specs/Specs';
 import axios from 'axios';
+import {useParams} from "react-router-dom";
 const { BASE_URL } = require('../../../config');
+
+
 export default function Product() {
-    const [product, setProduct] = useState([]);
+    const { id } = useParams();
+
+    const [data, setData] = useState({
+        points: [],
+        images: []
+    });
+
     useEffect(() => {
-        let pid = localStorage.getItem("product_id")
-        axios.get(`${BASE_URL}/products/${pid}`).then(response => {
-        setProduct(response.data.data);
+        let lang = localStorage.getItem('lang')
+
+        axios.get(`${BASE_URL}/products/${id}`).then( response => {
+
+            let dataObj = {
+                image_url: response.data.data.image_url,
+                images: response.data.data.images,
+            }
+
+            if(lang === 'ar') {
+                dataObj = {...{
+                        name: response.data.data.name_ar,
+                        points: response.data.data.points_ar.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
+                        description: response.data.data.description_ar,
+                        features: response.data.data.features_ar
+                    }, ...dataObj}
+            } else {
+                dataObj = {...{
+                        name: response.data.data.name,
+                        points: response.data.data.points.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
+                        description: response.data.data.description,
+                        features: response.data.data.features
+                    }, ...dataObj}
+            }
+            setData(dataObj);
         });
-      },[])
+    },[])
+
     return (
         <div id={'Single'}>
-            <Header className="header" title={product.name} />
+            <Header className="header" title={data.name} />
             <div className={'container cars-position'}>
             </div>
             <div className={'container'}>
-                
-                    <div>
-
-                        <div className={'row mg-top'}>
-                            <div className={'col-md-6'}>
-                                <Left />
-
-                            </div>
-                            <div className={'col-md-6'}>
-                                <h1>{product.name}</h1>
-                                <hr />
-                                <ul className={'about-list'}>
-                                    <li className={'list-item'}>
-                                        <img className={'circle'} src={circle} /> Smart steering system
-                                    </li>
-                                    <li className={'list-item'}>
-                                        <img className={'circle'} src={circle} /> Rustproof body structure
-                                    </li>
-                                    <li className={'list-item'}>
-                                        <img className={'circle'} src={circle} /> Consistent and efficient electric drive-train
-                                    </li>
-                                    <li className={'list-item'}>
-                                        <img className={'circle'} src={circle} /> Brochure Sightseeing Bus
-                                     </li>
-                                </ul>
-                                <p><Truncate lines={6}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</Truncate></p>
-                                <button className="btn order-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
-                            </div>
+                <div>
+                    <div className={'row mg-top'}>
+                        <div className={'col-md-6'}>
+                            <Left images={data.images} />
                         </div>
-                        <Specs product={product} />
-                        <Similar />
+                        <div className={'col-md-6'}>
+                            <h1>{data.name}</h1>
+                            <hr />
+                            <ul className={'about-list'}>
+                                {
+                                    data.points.map( (item, index) => (
+                                        <li className={'list-item'} key={index}>
+                                            <img className={'circle'} src={circle}  alt={'...'}/>{item}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <p><Truncate lines={6}>{data.description}</Truncate></p>
+                            <button className="btn order-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
+                        </div>
                     </div>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header justify-content-center">
-                                <h5 class="modal-title" id="exampleModalLabel">Order now</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <Specs product={data} />
+                    <Similar />
+                </div>
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header justify-content-center">
+                                <h5 className="modal-title" id="exampleModalLabel">Order now</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <from >
                                     <div className={'row'}>
                                         <div className={'col-sm-6'}>
-                                            <input type="text" class="form-control" placeholder="Name" />
+                                            <input type="text" className="form-control" placeholder="Name" />
                                         </div>
                                         <div className={'col-sm-6'}>
-                                            <input type="email" class="form-control" placeholder="Email" />
+                                            <input type="email" className="form-control" placeholder="Email" />
 
                                         </div>
                                         <div className={'col-sm-12'}>
-                                            <input type="text" class="form-control" placeholder="Subject" />
+                                            <input type="text" className="form-control" placeholder="Subject" />
 
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <textarea
-                                            class="form-control"
+                                            className="form-control"
                                             rows="6"
                                             id="comment"
                                             placeholder="Message"
-                                        ></textarea>
+                                        />
                                     </div>
                                     <div className={"btn-container"}>
-                                        <button class="btn send-btn" type="submit">
+                                        <button className="btn send-btn" type="submit">
                                             Send
                                         </button>
                                     </div>
