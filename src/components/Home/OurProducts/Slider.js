@@ -4,8 +4,6 @@ import Carousel, { consts } from 'react-elastic-carousel';
 import arrow1 from '../Assets/arrow1.png';
 import arrow2 from '../Assets/arrow2.png';
 import rightArrow from '../Assets/arrow-right.png';
-import cart from '../Assets/cart1.png';
-import {Card} from "react-bootstrap";
 
 export default function Slider( {products} ) {
     const [data, setData] = useState([]);

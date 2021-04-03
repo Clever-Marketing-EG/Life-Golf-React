@@ -3,6 +3,7 @@ import "./Products.scss";
 import Header from "../Shared/Header/Header";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Truncate from "react-truncate";
 
 
 const { BASE_URL } = require('../../config');
@@ -14,14 +15,13 @@ export default function Products() {
 
     useEffect(() => {
         axios.get(`${BASE_URL}/products`).then(response => {
-            console.log(response.data.data);
             const lang = localStorage.getItem('lang');
             let dataArr;
             if (lang === 'ar') {
                 dataArr = response.data.data.map( item => ({
                     id: item.id,
                     name: item.name_ar,
-                    features: item.features_ar,
+                    description: item.description_ar,
                     year: new Date(item.created_at).getFullYear(),
                     image_url: item.images[0] ? item.images[0].url : ''
                 }))
@@ -29,7 +29,7 @@ export default function Products() {
                 dataArr = response.data.data.map( item => ({
                     id: item.id,
                     name: item.name,
-                    features: item.features,
+                    description: item.description,
                     year: new Date(item.created_at).getFullYear(),
                     image_url: item.images[0] ? item.images[0].url : ''
                 }))
@@ -70,7 +70,9 @@ function ProductCard( {item} ) {
                 <div className="card-body">
                     <h5 className="title">{item.name}</h5>
                     <p>
-                        {item.features}
+                        <Truncate lines={3}>
+                            {item.description}
+                        </Truncate>
                     </p>
                     <br />
                     <br />
