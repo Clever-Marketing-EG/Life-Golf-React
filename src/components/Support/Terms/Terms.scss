@@ -55,5 +55,6 @@
     }
     .accordion-button::after{
         background-image: url('./Assets/arrow1.png');
+        transform: rotate(-0deg);
     }
 }
