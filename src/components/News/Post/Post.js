@@ -45,7 +45,7 @@ export default function Posts() {
     }, [])
     return (
         <div id={'post'}>
-            <Header className="header" title={post.title} />
+            <Header className="header" title={'Article'} />
 
             <div className={'container x'}>
                 <div className={'row'}>

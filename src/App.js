@@ -37,7 +37,8 @@ export default function App() {
                 'about-us': {},
                 'footer': {},
                 'maintenance': {},
-                'contact': {}
+                'contact': {},
+                'electronics': {}
             };
             if (lang === 'ar') {
                 data.forEach((item) => {
@@ -102,7 +103,7 @@ export default function App() {
                             <Post />
                         </Route>
                         <Route exact path="/Electronics">
-                            <Electronics />
+                            <Electronics  meta={meta['electronics']}/>
                         </Route>
                         <Route exact path="/Customize">
                             <Customize />
