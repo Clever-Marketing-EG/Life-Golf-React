@@ -18,7 +18,9 @@
         "golf-carts-and-utilities": "سيارات الجولف ومُستلزماتها",
         "electric-vehicles": "وسائل نقل كهربائية",
         "electric-cleaning-equipments": "أدوات تنظيف كهربائية",
-        "electric-handling-equipments": "أدوات رفع كهربائية"
+        "electric-handling-equipments": "أدوات رفع كهربائية",
+        "by-order" :"بالطلب",
+        "electronics" :"إلكترونيات"
     },
     "utils": {
         "customize-your-Order": "خصص طلبك",
