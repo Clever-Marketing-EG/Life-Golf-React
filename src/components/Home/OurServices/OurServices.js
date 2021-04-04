@@ -3,7 +3,6 @@ import './OurServices.scss';
 
 import cart from '../Assets/our-services.png';
 import GreySquare from '../Assets/grey-square.jpg';
-import { Link } from 'react-router-dom';
 import axios from "axios";
 import Loader from "../../Shared/Loader/Loader";
 

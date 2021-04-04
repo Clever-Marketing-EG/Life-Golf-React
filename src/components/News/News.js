@@ -38,7 +38,7 @@ export default function News() {
         <div>
             <Header className="header" title={t('nav.news')} />
             <div id={'news'} className={'container'}>
-                <div className="d-flex flex-wrap align-items-start">
+                <div className="d-flex flex-wrap align-items-start justify-content-around">
                     <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <div className={'white-box'}>
