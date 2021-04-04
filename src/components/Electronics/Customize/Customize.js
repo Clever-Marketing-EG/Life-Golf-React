@@ -4,10 +4,15 @@ import './Customize.scss';
 import pic from '../../AboutUs/Assets/about-us-3.jpg';
 import Form from './Form/Form';
 import Header from '../../Shared/Header/Header';
+import {useTranslation} from "react-i18next";
+
 export default function Customize({ meta }) {
+
+    const {t} = useTranslation();
+
     return (
         <div id={'custom'}>
-            <Header className="header" title={'Customize your Order'} />
+            <Header className="header" title={t('utils.customize-your-Order')} />
 
             <div className={'container mt'}>
                 <div className={'row'}>

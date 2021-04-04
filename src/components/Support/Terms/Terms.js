@@ -3,8 +3,13 @@ import './Terms.scss';
 import Truncate from 'react-truncate';
 import Header from '../../Shared/Header/Header';
 import axios from 'axios';
+import {useTranslation} from "react-i18next";
+
 const { BASE_URL } = require('../../../config');
+
 export default function Terms() {
+
+    const {t} = useTranslation();
     const [terms, setTerms] = useState([]);
     useEffect(() => {
         axios.get(`${BASE_URL}/term`).then(response => {
@@ -53,7 +58,7 @@ export default function Terms() {
 
     return (
         <div id={'terms'}>
-            <Header className="header" title={'Terms and conditions'} />
+            <Header className="header" title={t('nav.terms-and-conditions')} />
 
             <h1 class="terms-title">Get to know our terms</h1>
             <div className={'container mrg-top'}>

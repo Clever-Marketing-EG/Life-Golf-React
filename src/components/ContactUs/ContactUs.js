@@ -5,12 +5,14 @@ import mail from './Assets/icon_feather-mail.png';
 import map from './Assets/icon_feather-map-pin.png';
 import Header from '../Shared/Header/Header';
 import axios from "axios";
+import {useTranslation} from "react-i18next";
 
 const {BASE_URL} = require('../../config');
 
 export default function ContactUs({meta}) {
+    
+    const {t} = useTranslation();
     const [data, setData] = useState({});
-
     const handleChange = (e) => {
         const newData = {
             [e.target.name]: e.target.value
@@ -29,7 +31,7 @@ export default function ContactUs({meta}) {
 
     return (
         <div id={'contact-us'}>
-            <Header className="header" title={'Contact Us'} />
+            <Header className="header" title={t('nav.contact-us')} />
             <h1 className={'contact-title'}>We want to hear from you</h1>
             <div className={'container  margin-top-value'}>
                 <div className={'row justify-content-around'}>

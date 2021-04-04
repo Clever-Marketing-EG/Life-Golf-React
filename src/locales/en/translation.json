@@ -17,5 +17,9 @@
     "categories": {
         "golf-carts-and-utilities": "Golf Carts and Utilities",
         "electric-vehicles": "Electric Vehicles"
+    },
+    "utils": {
+        "customize-your-Order": "Customize your Order",
+        "electronics-order": "Electronics order"
     }
 }

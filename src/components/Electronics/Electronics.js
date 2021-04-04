@@ -4,10 +4,14 @@ import './Electronics.scss';
 import pic from '../AboutUs/Assets/about-us-3.jpg';
 import LeftForm from './LeftForm/LeftForm';
 import Header from '../Shared/Header/Header';
+import {useTranslation} from "react-i18next";
+
 export default function Electronics({meta}) {
+    const {t} = useTranslation();
+
     return (
         <div id={'electronics'}>
-            <Header className="header" title={'Electronics order'} />
+            <Header className="header" title={t('utils.electronics-order')} />
 
             <div className={'container mt'}>
                 <div className={'row'}>

@@ -8,12 +8,14 @@ import outline from './Assets/outline.png';
 import vehicle from './Assets/electric-vehicle.png';
 import Blogs from './Blogs/Blogs';
 import Header from '../Shared/Header/Header'
+import {useTranslation} from "react-i18next";
 
 const { BASE_URL } = require('../../config');
 
 
 export default function News() {
 
+    const {t} = useTranslation();
     const changeblog= (e) => {
         let mblog = e.target.name
         setBlogcat(mblog)
@@ -39,7 +41,7 @@ export default function News() {
 
     return (
         <div>
-            <Header className="header" title={'News'} />
+            <Header className="header" title={t('nav.news')} />
             <div id={'news'} className={'container'}>
                 <div className="d-flex flex-wrap align-items-start">
                     <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
