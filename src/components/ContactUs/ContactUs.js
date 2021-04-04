@@ -22,7 +22,7 @@ export default function ContactUs({ meta }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post(`${BASE_URL}/contact-us`, data)
+        await axios.post(`${BASE_URL}/mail/contact-us`, data)
             .then((response) => {
                 alert(response.data.data);
                 setData({});
