@@ -4,12 +4,14 @@ import Truncate from 'react-truncate';
 import pic from './Assets/about-us-3.jpg';
 import arrow from './Assets/arrow.png';
 import { Link } from 'react-router-dom';
-export default function Blogs({articles}) {
+export default function Blogs({ articles }) {
+
     return (
         <div id={'blogs'}>
-            {articles.map(item=>{
-                return (<div onClick={()=>{
-                    localStorage.setItem("post_id",item.id)
+            {articles.map(item => {
+                return (<div onClick={() => {
+                    localStorage.setItem("post_id", item.id)
+                
                 }} className={'blog-container'}>
                     <div className={'row'}>
                         <div className={'col-md-4'}>
