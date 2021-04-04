@@ -16,11 +16,30 @@ export default function Posts() {
     let { id } = useParams();
 
     useEffect(() => {
-        // let pid = localStorage.getItem("post_id")
+        const lang = localStorage.getItem('lang');
         axios.get(`${BASE_URL}/articles/${id}`).then(response => {
             const date = new Date(response.data.data.created_at);
-            setTime(date.toLocaleDateString('default', { month: 'short', day: 'numeric' , year:'numeric'}));
+            setTime(date.toLocaleDateString('default', { month: 'long', day: 'numeric', year: 'numeric'}));
             setArticle(response.data.data);
+            if (lang === 'ar') {
+
+                var dataObject = {
+                    title: response.data.data.title_ar,
+                    content: response.data.data.content_ar,
+                    image_url: response.data.data.image_url
+                }
+            } else {
+              
+                var dataObject = {
+                    title: response.data.data.title,
+                    content: response.data.data.content,
+                    image_url: response.data.data.image_url
+
+                }
+            }
+            setArticle(dataObject);
+
+
 
         });
     }, [])
@@ -80,11 +99,12 @@ export default function Posts() {
                         </div>
                     </div>
                     <div className={"col-md-7 order-first order-md-last"}>
-                        <Carousel itemsToShow={1} showArrows={false}>
-                            <img className={'img-car'} src={pic} alt="" />
-                            <img className={'img-car'} src={pic} alt="" />
-                            <img className={'img-car'} src={pic} alt="" />
-                        </Carousel>
+                        {/* <Carousel itemsToShow={1} showArrows={false}>
+                            {/* <img className={'img-car'} src={pic} alt="" />
+                            <img className={'img-car'} src={pic} alt="" /> */} 
+                        {/* </Carousel> */}
+                        <img className={'img-car'} src={post.image_url} alt="" />
+
                         <h1 className={"main-title"}>{post.title}</h1>
                         <div className={"row test-margin"}>
                             <div className={" new-width"}>
