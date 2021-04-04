@@ -27,8 +27,8 @@ export default function Blogs({articles}) {
                 const date = new Date(item.created_at);
                 return {
                     id: item.id,
-                    title: item.title_ar,
-                    content: item.content_ar,
+                    title: item.title,
+                    content: item.content,
                     date: date.toLocaleDateString('default', {month: 'short', day: 'numeric'}),
                     image_url: item.image_url
                 }
@@ -44,7 +44,7 @@ export default function Blogs({articles}) {
                 data.map( item => (
                     <Article
                         id={item.id}
-                        item={item.title}
+                        title={item.title}
                         content={item.content}
                         image_url={item.image_url}
                         date={item.date}
@@ -66,7 +66,7 @@ function Article({id, title, content, date, image_url}) {
                 </div>
                 <div className={'col-md-5'}>
                     <h1>
-                        {title}
+                        <Truncate lines={1}>{title}</Truncate>
                     </h1>
                     <p><Truncate lines={5}>
                         {content}
@@ -83,7 +83,6 @@ function Article({id, title, content, date, image_url}) {
                     </div>
                 </div>
             </div>
-            <br/><br/>
         </div>
     );
 }

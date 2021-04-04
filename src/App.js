@@ -41,7 +41,9 @@ export default function App() {
                 'about-us': {},
                 'footer': {},
                 'maintenance': {},
-                'contact': {}
+                'contact': {},
+                'electronics': {},
+                'customize':{}
             };
             if (lang === 'ar') {
                 data.forEach((item) => {
@@ -99,14 +101,17 @@ export default function App() {
                         <Route exact path="/News" >
                             <News />
                         </Route>
+                        <Route exact path="/News/:id" >
+                            <Post />
+                        </Route>
                         <Route exact path="/Post">
                             <Post />
                         </Route>
                         <Route exact path="/Electronics">
-                            <Electronics />
+                            <Electronics  meta={meta['electronics']}/>
                         </Route>
                         <Route exact path="/Customize">
-                            <Customize />
+                            <Customize meta={meta['customize']} />
                         </Route>
                         <Route exact path="/Services">
                             <Services

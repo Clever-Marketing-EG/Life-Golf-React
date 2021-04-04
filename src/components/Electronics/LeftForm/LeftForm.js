@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './LeftForm.scss';
-export default function LeftForm() {
+export default function LeftForm({meta}) {
     // window.onload = function () {
     //     let btnAdd = document.querySelector('#add');
     //     let btnSubtract = document.querySelector('#subtract');
@@ -22,7 +22,7 @@ export default function LeftForm() {
                 <div className={'container'}>
                     <div className={'row'}>
                         <div className={'col-md-6'}>
-                            <h1>Personal details</h1>
+                            <h1>{meta.electronic_personal}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
@@ -38,7 +38,7 @@ export default function LeftForm() {
                                 </div>
                             </div>
                             <br />
-                            <h1>Shipping address</h1>
+                            <h1>{meta.electronic_shipping}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-12'}>
@@ -78,7 +78,7 @@ export default function LeftForm() {
 
                         </div>
                         <div className={'col-md-6'}>
-                            <h1>Payment details</h1>
+                            <h1>{meta.electronic_payment}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-12'}>
@@ -95,7 +95,7 @@ export default function LeftForm() {
 
                             </div>
                             <br />
-                            <h1>Product details</h1>
+                            <h1>{meta.electronic_product}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div class="number">
