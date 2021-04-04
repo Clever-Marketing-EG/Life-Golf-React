@@ -34,7 +34,6 @@ export default function Products() {
                     image_url: item.images[0] ? item.images[0].url : ''
                 }))
             }
-            console.log(dataArr);
             setProducts(dataArr);
         });
     },[])
