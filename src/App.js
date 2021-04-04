@@ -38,7 +38,8 @@ export default function App() {
                 'footer': {},
                 'maintenance': {},
                 'contact': {},
-                'electronics': {}
+                'electronics': {},
+                'customize':{}
             };
             if (lang === 'ar') {
                 data.forEach((item) => {
@@ -106,7 +107,7 @@ export default function App() {
                             <Electronics  meta={meta['electronics']}/>
                         </Route>
                         <Route exact path="/Customize">
-                            <Customize />
+                            <Customize meta={meta['customize']} />
                         </Route>
                         <Route exact path="/Services">
                             <Services
