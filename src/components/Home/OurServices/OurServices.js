@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 export default function OurServices({ meta }) {
 
-
     return (
         <div id={'our-services'} className={'container'}>
             <h1 className={'home-header'}>{meta.services_header}</h1>
