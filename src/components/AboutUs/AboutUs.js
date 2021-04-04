@@ -10,11 +10,13 @@ import Videos from './Videos/Videos';
 import Gallery from './Gallery/Gallery';
 import Header from '../Shared/Header/Header';
 import axios from "axios";
+import {useTranslation} from "react-i18next";
 
 const { BASE_URL } = require('../../config');
 
 export default function AboutUs({ meta }) {
 
+    const {t} = useTranslation();
     const [certificates, setCertificates] = useState([]);
     const [videos, setVideos] = useState([]);
     const [galleries, setGalleries] = useState([]);
@@ -38,7 +40,7 @@ export default function AboutUs({ meta }) {
 
     return (
         <div id={'about'}>
-            <Header className="header" title={'About Us'} />
+            <Header className="header" title={t('nav.about')} />
             <div className={'container d-flex flex-wrap justify-content-around xs'}>
                 <div className={'d-flex left-container'}>
                     <div className={'d-flex flex-column pic-col justify-content-between me-2'}>
