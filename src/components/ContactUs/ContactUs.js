@@ -1,29 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './ContactUs.scss';
 import phone from './Assets/icon_feather-phone.png';
 import mail from './Assets/icon_feather-mail.png';
 import map from './Assets/icon_feather-map-pin.png';
 import Header from '../Shared/Header/Header';
 import axios from "axios";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
-const {BASE_URL} = require('../../config');
+const { BASE_URL } = require('../../config');
 
-export default function ContactUs({meta}) {
-    
-    const {t} = useTranslation();
+export default function ContactUs({ meta }) {
+
+    const { t } = useTranslation();
     const [data, setData] = useState({});
     const handleChange = (e) => {
         const newData = {
             [e.target.name]: e.target.value
         }
-        setData({...data, ...newData});
+        setData({ ...data, ...newData });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios.post(`${BASE_URL}/contact-us`, data)
-            .then( (response) => {
+            .then((response) => {
                 alert(response.data.data);
                 setData({});
             })
@@ -42,10 +42,10 @@ export default function ContactUs({meta}) {
                                     <input type="text" className="form-control p-3" placeholder={t('utils.name')} name={'name'} onChange={handleChange} />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')}  name={'email'} onChange={handleChange} />
+                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')} name={'email'} onChange={handleChange} />
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')}  name={'subject'} onChange={handleChange} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')} name={'subject'} onChange={handleChange} />
                                 </div>
                             </div>
                             <div className="form-group">
@@ -107,8 +107,8 @@ export default function ContactUs({meta}) {
                 <iframe
                     className="location"
                     title={"map"}
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.74863997593!2d31.324429815070793!3d30.101384381861607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581592d9955c01%3A0x766fc31e19db272f!2sLife%20Golf!5e0!3m2!1sen!2seg!4v1613831886433!5m2!1sen!2seg"/>
-                <div className={'overlay'}/>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.74863997593!2d31.324429815070793!3d30.101384381861607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581592d9955c01%3A0x766fc31e19db272f!2sLife%20Golf!5e0!3m2!1sen!2seg!4v1613831886433!5m2!1sen!2seg" />
+                <div className={'overlay'} />
             </div>
         </div>
     )
