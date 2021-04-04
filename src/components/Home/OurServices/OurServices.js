@@ -2,10 +2,11 @@ import React from 'react';
 import './OurServices.scss';
 
 import cart from '../Assets/our-services.png';
-import GreySquare from '../Assets/grey-square.jpg'
+import GreySquare from '../Assets/grey-square.jpg';
+import { Link } from 'react-router-dom';
 
 
-export default function OurServices({meta}) {
+export default function OurServices({ meta }) {
 
 
     return (
@@ -48,12 +49,12 @@ export default function OurServices({meta}) {
                     </div>
 
                     <div className={'inner-container d-flex justify-content-around'}>
-                        <a href="/Spare" className={'tag left bottom-0 d-flex'}>
+                        <Link to={`Services/${1}`} className={'tag left bottom-0 d-flex'}>
                             Spare Parts
                             <span className={'ms-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
-                        </a>
+                        </Link>
                         <a className={'tag right bottom-0 d-flex'} href={'#'}>
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />

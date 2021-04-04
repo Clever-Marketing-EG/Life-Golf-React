@@ -43,7 +43,7 @@ export default function App() {
                 'maintenance': {},
                 'contact': {},
                 'electronics': {},
-                'customize':{}
+                'customize': {}
             };
             
             if (lang === 'ar') {
@@ -109,7 +109,7 @@ export default function App() {
                             <Post />
                         </Route>
                         <Route exact path="/Electronics">
-                            <Electronics  meta={meta['electronics']}/>
+                            <Electronics meta={meta['electronics']} />
                         </Route>
                         <Route exact path="/Customize">
                             <Customize meta={meta['customize']} />
@@ -124,6 +124,12 @@ export default function App() {
                                 meta={meta}
                             />
                         </Route>
+                        <Route exact path="/Services/:name">
+                            <Rental
+                                meta={meta}
+                            />
+                        </Route>
+
 
                     </Switch>
                     <Footer meta={meta['footer']} />
