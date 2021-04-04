@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Rental.scss';
 import Header from '../../Shared/Header/Header';
 import Truncate from 'react-truncate';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 const { BASE_URL } = require('../../../config');
 
 export default function Rental() {
     const [service, setService] = useState([]);
     const [list, setList] = useState([]);
     const [list2, setList2] = useState([]);
+    const [btn, setBtn] =useState([]);
     const params = useParams();
 
     useEffect(() => {
         const service_id = params.id;
+        const service_name = params.name;
         const lang = localStorage.getItem('lang');
 
         axios.get(`${BASE_URL}/services/${service_id}`).then(response => {
             setService(response.data.data)
+            console.log(service);
             if (lang === 'ar') {
                 var test = response.data.data.points_ar;
                 var snd = response.data.data.points_2_ar;
@@ -26,8 +30,8 @@ export default function Rental() {
                     name: response.data.data.name_ar,
                     title1: response.data.data.title1_ar,
                     title2: response.data.data.title2_ar,
-                    image_url1: response.data.data.image_url1,
-                    image_url2: response.data.data.image_url2
+                    image_url1: response.data.data.image_url_2,
+                    image_url2: response.data.data.image_url_3
                 }
             } else {
                 var test = response.data.data.points;
@@ -36,13 +40,20 @@ export default function Rental() {
                     name: response.data.data.name,
                     title1: response.data.data.title1,
                     title2: response.data.data.title2,
-                    image_url1: response.data.data.image_url1,
-                    image_url2: response.data.data.image_url2
+                    image_url1: response.data.data.image_url_2,
+                    image_url2: response.data.data.image_url_3
                 }
             }
 
             setService(dataObject);
+            const buttonRender = [];
 
+            if (response.data.data.name === 'Spare Parts') {
+                buttonRender.push(
+                    <Link to="/Electronics" class="btn send-btn" type="submit">Order</Link>
+                )
+            }
+            setBtn(buttonRender);
             const x = JSON.parse(test);
             const listItem = [];
             console.log(x);
@@ -50,7 +61,7 @@ export default function Rental() {
                 console.log(x[i]);
                 listItem.push(
                     <li className={'list-item'} key={i}>
-                        <div className={'small-circle'}/>
+                        <div className={'small-circle'} />
 
                         <Truncate lines={1}>{x[i]}</Truncate>
                     </li>
@@ -65,7 +76,7 @@ export default function Rental() {
                 console.log(y[i]);
                 listItem2.push(
                     <li className={'list-item'} key={i}>
-                        <div className={'small-circle'}/>
+                        <div className={'small-circle'} />
 
                         <Truncate lines={1}>{y[i]}</Truncate>
                     </li>
@@ -105,6 +116,10 @@ export default function Rental() {
                         <img src={service.image_url2} className={'img-one'} alt="" />
                     </div>
                 </div>
+
+            </div>
+            <div class="row justify-content-center mt-5">
+                {btn}
             </div>
         </div>
     );
