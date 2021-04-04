@@ -13,5 +13,8 @@
         "maintenance": "Maintenance",
         "contact-us": "Contact Us",
         "language": "Language"
+    },
+    "categories": {
+        "golf-carts-and-utilities": "Golf Carts and Utilities"
     }
 }

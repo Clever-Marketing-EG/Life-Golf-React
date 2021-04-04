@@ -3,7 +3,7 @@ import './Header.scss';
 import Nav from "../Nav/Nav";
 
 
-export default function Header({title , changelang}) {
+export default function Header({title}) {
     return(
         <div id={'header'}>
             <Nav />

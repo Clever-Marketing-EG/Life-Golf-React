@@ -1,10 +1,14 @@
 import React from 'react';
 import './Footer.scss';
 import logo from './Assets/olio-02.a0d26e46-1.png';
+import { useTranslation } from "react-i18next";
+import {Link} from "react-router-dom";
+
 export default function Footer({meta}) {
+    const {t} = useTranslation();
 
     return (
-        <div id={'footer'}>
+        <div id={'footer'} dir={t('dir')}>
             <footer className={'footer-background'}>
                 <div className={'container'}>
                     <div className={'row '}>
@@ -40,21 +44,21 @@ export default function Footer({meta}) {
                             </div>
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
-                            <h3>About us</h3>
+                            <h3>{t('nav.about')}</h3>
                             <ul className={'pages-link'}>
                                 <li>
-                                    <a href="#">Services</a>
+                                    <a href={'/services'}>{t('nav.services')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Categories</a>
+                                    <a href={'/products'}>{t('nav.categories')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">News</a>
+                                    <a href="/news">{t('nav.news')}</a>
                                 </li>
                             </ul>
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
-                            <h3>Products</h3>
+                            <h3>{t('nav.products')}</h3>
                             <ul className={'pages-link'}>
                                 <li>
                                     <a href="#">Golf cart & utilities</a>
