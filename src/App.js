@@ -95,6 +95,9 @@ export default function App() {
                         <Route exact path="/News" >
                             <News />
                         </Route>
+                        <Route exact path="/News/:id" >
+                            <Post />
+                        </Route>
                         <Route exact path="/Post">
                             <Post />
                         </Route>

@@ -8,15 +8,22 @@ import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
 import Header from '../../Shared/Header/Header';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 const { BASE_URL } = require('../../../config');
 export default function Posts() {
     const [post, setArticle] = useState([]);
+    const [time, setTime] = useState([]);
+    let { id } = useParams();
+
     useEffect(() => {
-        let pid = localStorage.getItem("post_id")
-        axios.get(`${BASE_URL}/articles/${pid}`).then(response => {
-        setArticle(response.data.data);
+        // let pid = localStorage.getItem("post_id")
+        axios.get(`${BASE_URL}/articles/${id}`).then(response => {
+            const date = new Date(response.data.data.created_at);
+            setTime(date.toLocaleDateString('default', { month: 'short', day: 'numeric' , year:'numeric'}));
+            setArticle(response.data.data);
+
         });
-      },[])
+    }, [])
     return (
         <div id={'post'}>
             <Header className="header" title={post.title} />
@@ -84,7 +91,7 @@ export default function Posts() {
                                 <img src={calendar} alt="" />
                             </div>
                             <div className={"col-md-2 new-padding"}>
-                                <p className={"date-user"}>{post.created_at}</p>
+                                <p className={"date-user"}>{time}</p>
                             </div>
 
                         </div>
