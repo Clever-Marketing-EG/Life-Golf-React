@@ -57,7 +57,7 @@ export default function Terms() {
     })
 
     return (
-        <div id={'terms'}>
+        <div id={'terms'} >
             <Header className="header" title={t('nav.terms-and-conditions')} />
 
             <h1 class="terms-title">Get to know our terms</h1>

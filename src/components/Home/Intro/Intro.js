@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import './Intro.scss';
 import Nav from "../../Shared/Nav/Nav";
+import { useTranslation } from "react-i18next";
 
 import PinkSquare from '../Assets/pink-square.png';
 
 
 export default function Intro({ meta }) {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
+    const { t } = useTranslation();
 
     const data = {
         'golf-carts': {
@@ -117,30 +119,30 @@ export default function Intro({ meta }) {
                 </div>
 
             </div>
-            <div className={'category-nav d-flex flex-wrap justify-content-center'}>
+            <div className={'category-nav d-flex flex-wrap justify-content-center'} dir={t('dir')}>
                 <button id={'golf-carts'} className={'category-button active'} onClick={handleClick}>
                     <i className="icon-golf-cart logo" />
-                    Golf cart & utility
+                    {t('categories.golf-carts-and-utilities')}
                 </button>
                 <button id={'electric-vehicles'} className={'category-button'} onClick={handleClick}>
                     <i className="icon-electric-vehicle logo" />
-                    Electric vehicle
+                    {t('categories.electric-vehicles')}
                 </button>
                 <button id={'cleaning-equipment'} className={'category-button'} onClick={handleClick}>
                     <i className="icon-outline logo" />
-                    Electric cleaning equipment
+                    {t('categories.electric-cleaning-equipments')}
                 </button>
                 <button id={'handling-equipment'} className={'category-button'} onClick={handleClick}>
                     <i className="icon-forklift logo" />
-                    Electric handling equipment
+                    {t('categories.electric-handling-equipments')}
                 </button>
                 <button id={'orders'} className={'category-button'} onClick={handleClick} >
                     <i className="icon-electric_plug logo" />
-                    By Order
+                    {t('categories.by-order')}
                 </button>
                 <button id={'electronics'} className={'category-button'} onClick={handleClick} >
                     <i className="icon-electric_plug logo" />
-                    Electronics
+                    {t('categories.electronics')}
                 </button>
             </div>
         </div>
