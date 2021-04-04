@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Videos.scss';
 import VideoCarousel from './VideoCarousel/VideoCarousel';
+import {useTranslation} from "react-i18next";
 
 export default function Videos({ videos, meta }) {
+
+    const {t} = useTranslation();
     const [data, setData] = useState({
         product: [],
         factory: []
@@ -55,10 +58,10 @@ export default function Videos({ videos, meta }) {
                 <div className={'navigator'}>
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">
-                            <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Factory videos</button>
+                            <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.factory-videos')}</button>
                         </li>
                         <li className="nav-item" role="presentation">
-                            <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Product videos</button>
+                            <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.product-videos')}</button>
                         </li>
 
                     </ul>

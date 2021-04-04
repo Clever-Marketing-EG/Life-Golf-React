@@ -16,12 +16,18 @@
     },
     "categories": {
         "golf-carts-and-utilities": "سيارات الجولف ومُستلزماتها",
-        "electric-vehicles": "وسائل نقل كهربائية"
+        "electric-vehicles": "وسائل نقل كهربائية",
+        "electric-cleaning-equipments": "أدوات تنظيف كهربائية",
+        "electric-handling-equipments": "أدوات رفع كهربائية"
     },
     "utils": {
         "customize-your-Order": "خصص طلبك",
-        "electronics-order": "طلبات الكترونية"
+        "electronics-order": "طلبات الكترونية",
+        "factory-videos" : "فيديوات المصنع",
+        "product-videos": "فيديوات المنتجات",
+        "factory-images" : "صور المصنع",
+        "product-images": "صور المنتجات"
+
+
     }
 }
-
-

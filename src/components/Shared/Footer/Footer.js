@@ -67,33 +67,31 @@ export default function Footer({meta}) {
                                     <a href="#">{t('categories.electric-vehicles')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Electric cleaning equipment</a>
+                                    <a href="#">{t('categories.electric-cleaning-equipments')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Electric handling equipment</a>
+                                    <a href="#">{t('categories.electric-handling-equipments')}</a>
                                 </li>
                             </ul>
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
-                            <h3>Support</h3>
+                            <h3>{t('nav.support')}</h3>
                             <ul className={'pages-link'}>
                                 <li>
-                                    <a href="#">Terms</a>
+                                    <a href="/terms">{t('nav.terms-and-conditions')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Maintainance</a>
-                                </li>
-                                <li>
-                                    <a href="#">Prochure</a>
+                                    <a href="/maintenance">{t('nav.maintenance')}</a>
                                 </li>
 
                             </ul>
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
-                            <h3>Contact</h3>
                             <ul className={'pages-link'}>
                                 <li>
-                                    <a href="#">Contact Us</a>
+                                    <h1>
+                                        <a href="/contact">{t('nav.contact-us')}</a>
+                                    </h1>
                                 </li>
 
                             </ul>
