@@ -22,6 +22,12 @@
     },
     "utils": {
         "customize-your-Order": "خصص طلبك",
-        "electronics-order": "طلبات الكترونية"
+        "electronics-order": "طلبات الكترونية",
+        "factory-videos" : "فيديوات المصنع",
+        "product-videos": "فيديوات المنتجات",
+        "factory-images" : "صور المصنع",
+        "product-images": "صور المنتجات"
+
+
     }
 }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Gallery.scss';
 import GalleryCarousel from "./GalleryCarousel/GalleryCarousel";
+import {useTranslation} from "react-i18next";
 
 export default function Gallery({ galleries, meta }) {
 
+    const {t} = useTranslation();
     const [data, setData] = useState({
         product: [],
         factory: []
@@ -45,10 +47,10 @@ export default function Gallery({ galleries, meta }) {
                 <div className={'navigator'}>
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">
-                            <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory-img" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Factory images</button>
+                            <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory-img" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.factory-images')}</button>
                         </li>
                         <li className="nav-item" role="presentation">
-                            <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-product-img" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Product images</button>
+                            <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-product-img" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.product-images')}</button>
                         </li>
 
                     </ul>
