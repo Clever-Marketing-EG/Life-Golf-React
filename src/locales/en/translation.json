@@ -20,6 +20,10 @@
     },
     "utils": {
         "customize-your-Order": "Customize your Order",
-        "electronics-order": "Electronics order"
+        "electronics-order": "Electronics order",
+        "factory-videos": "Factory videos",
+        "product-videos": "Product videos",
+        "factory-images": "Factory images",
+        "product-images": "Product images"
     }
 }
