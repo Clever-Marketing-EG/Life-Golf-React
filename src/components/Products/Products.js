@@ -4,13 +4,15 @@ import Header from "../Shared/Header/Header";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import Truncate from "react-truncate";
+import {useTranslation} from "react-i18next";
 
 
 const { BASE_URL } = require('../../config');
 
 
 export default function Products() {
-
+    
+    const {t} = useTranslation();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -41,7 +43,7 @@ export default function Products() {
 
     return (
         <div>
-            <Header title={'Products'} />
+            <Header title={t('nav.products')} />
             <div>
                 <div id={"products"} className="container">
                     <div className="d-flex flex-wrap justify-content-around align-items-center">

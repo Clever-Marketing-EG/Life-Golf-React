@@ -6,11 +6,14 @@ import three from './Assets/path_150.png';
 import pic from './Assets/about-us-3.jpg';
 import Truncate from 'react-truncate';
 import Header from '../../Shared/Header/Header';
+import {useTranslation} from "react-i18next";
+
 export default function Maintenance({meta}) {
+    const {t} = useTranslation();
 
     return (
         <div id={'maintenance'}>
-            <Header className="header" title={'Maintenance'} />
+            <Header className="header" title={t('nav.maintenance')} />
 
             <div className={'container'}>
                 <div className={'row justify-content-around mrg-btm'}>

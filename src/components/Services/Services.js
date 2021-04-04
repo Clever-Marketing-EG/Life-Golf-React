@@ -6,10 +6,14 @@ import Truncate from 'react-truncate';
 import arrow from '../News/Blogs/Assets/arrow.png';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
+
 const { BASE_URL } = require('../../config');
 
 
 export default function Services({ changelang }) {
+    
+    const {t} = useTranslation();
     const [services, setServices] = useState([]);
 
     useEffect(() => {
@@ -47,7 +51,7 @@ export default function Services({ changelang }) {
 
     return (
         <div id={'services'}>
-            <Header className="header" title={'Services'} changelang={changelang} />
+            <Header className="header" title={t('nav.services')} changelang={changelang} />
             <div className={'container margin-cont'}>
                 <div className={'row'}>
                     {

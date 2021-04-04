@@ -19,5 +19,9 @@
         "electric-vehicles": "Electric Vehicles",
         "electric-cleaning-equipments": "Electric Cleaning Equipments",
         "electric-handling-equipments": "Electric Handling Equipments"
+    },
+    "utils": {
+        "customize-your-Order": "Customize your Order",
+        "electronics-order": "Electronics order"
     }
 }

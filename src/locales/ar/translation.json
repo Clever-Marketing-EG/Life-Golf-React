@@ -19,7 +19,9 @@
         "electric-vehicles": "وسائل نقل كهربائية",
         "electric-cleaning-equipments": "أدوات تنظيف كهربائية",
         "electric-handling-equipments": "أدوات رفع كهربائية"
+    },
+    "utils": {
+        "customize-your-Order": "خصص طلبك",
+        "electronics-order": "طلبات الكترونية"
     }
 }
-
-

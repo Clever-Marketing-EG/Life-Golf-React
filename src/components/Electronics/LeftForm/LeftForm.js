@@ -81,7 +81,7 @@ export default function LeftForm({meta}) {
                             <h1>{meta.electronic_payment}</h1>
                             <hr />
                             <div className={'row'}>
-                                <div className={'col-sm-12'}>
+                                {/* <div className={'col-sm-12'}>
                                     <input type="text" class="form-control" placeholder="Card number" />
 
                                 </div>
@@ -91,7 +91,7 @@ export default function LeftForm({meta}) {
                                 <div className={'col-sm-6'}>
                                     <input type="text" class="form-control" placeholder="CVV" />
 
-                                </div>
+                                </div> */}
 
                             </div>
                             <br />
