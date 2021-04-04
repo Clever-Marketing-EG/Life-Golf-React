@@ -11,37 +11,35 @@ export default function Terms() {
             setTerms(response.data.data);
         });
     }, [])
-    var items = terms.map(item => {
+    var items = terms.map((item, index) => {
         var lang = localStorage.getItem('lang');
         if (lang == 'ar') {
             return (
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <div className={'small-circle'}></div>
-                            <span>{item.name_ar}</span>
-
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            {item.desc_ar}
-                        </div>
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-toggle="collapse"  data-target={"#collapseOne"+index}>
+                        <div className={'small-circle'}/>
+                        <span>{item.name_ar}</span>
+                    </button>
+                </h2>
+                <div id={"collapseOne"+index} class="collapse" >
+                    <div class="accordion-body">
+                        {item.desc_ar}
                     </div>
                 </div>
+            </div>
 
             );
         } else {
             return (
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <div className={'small-circle'}></div>
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" data-toggle="collapse"  data-target={"#collapseOne"+index}>
+                            <div className={'small-circle'}/>
                             <span>{item.name}</span>
-
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id={"collapseOne"+index} class="collapse" >
                         <div class="accordion-body">
                             {item.desc}
                         </div>
