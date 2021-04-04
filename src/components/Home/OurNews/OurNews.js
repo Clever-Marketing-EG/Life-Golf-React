@@ -14,13 +14,13 @@ export default function OurNews({ articles, meta }) {
 
     useEffect(() => {
         let lang = localStorage.getItem("lang");
-        if (lang == "ar") {
-            setArticles(articles.map(article => (
-                < Article title={article.title_ar} content={article.content_ar} image={article.image_url} date={article.created_at} />
+        if (lang === "ar") {
+            setArticles(articles.map((article, index) => (
+                <Article key={index} title={article.title_ar} content={article.content_ar} image={article.image_url} date={article.created_at} />
             )))
         } else {
-            setArticles(articles.map(article => (
-                <Article title={article.title} content={article.content} image={article.image_url} date={article.created_at} />
+            setArticles(articles.map((article, index) => (
+                <Article key={index} title={article.title} content={article.content} image={article.image_url} date={article.created_at} />
             )))
         }
 
@@ -81,7 +81,6 @@ function Article({ title, content, image, date }) {
     var fullDate = new Date(date);
     var day = fullDate.getDate();
     var month = fullDate.toLocaleString('default', { month: 'short' });
-    console.log(month);
 
     return (
         <div className="article card" style={{ width: '18rem' }}>

@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './OurProducts.scss';
 import Carousel, { consts } from 'react-elastic-carousel';
 import arrow1 from '../Assets/arrow1.png';
 import arrow2 from '../Assets/arrow2.png';
 import rightArrow from '../Assets/arrow-right.png';
-import cart from '../Assets/cart1.png';
-import {Card} from "react-bootstrap";
 
 export default function Slider( {products} ) {
+    const [data, setData] = useState([]);
+
+    useEffect( () => {
+        setData(products);
+    }, [products])
+
     function myArrow({ type, onClick, isEdge }) {
-        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position1'} /> : <img src={arrow2} className={'img-position'} />
+        const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position1'}  alt={'...'}/>
+            :<img src={arrow2} className={'img-position'}  alt={'...'}/>
         return (
             <button className={'arrows btn'} onClick={onClick} disabled={isEdge}>
                 {pointer}
@@ -28,13 +33,16 @@ export default function Slider( {products} ) {
     ]
     return (
         <div className={'cars'}>
-            <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false}  isRTL={false}>
-                {
-                    products.map( (item, index) => (
-                        <ProductCard name={item.name} image_url={item.image_url} key={index} />
-                    ))
-                }
-            </Carousel>
+            {
+                data.length === 0 ? <div />
+                    :<Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
+                        {
+                            data.map( (item, index) => (
+                                <ProductCard name={item.name} image_url={item.image_url} key={index} />
+                            ))
+                        }
+                    </Carousel>
+            }
         </div>
     );
 }

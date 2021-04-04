@@ -1,46 +1,89 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Blogs.scss';
 import Truncate from 'react-truncate';
-import pic from './Assets/about-us-3.jpg';
 import arrow from './Assets/arrow.png';
 import { Link } from 'react-router-dom';
-export default function Blogs({ articles }) {
+
+export default function Blogs({articles}) {
+    const [data, setData] = useState([]);
+
+    useEffect( () => {
+        let dataArr;
+        const lang = localStorage.getItem('lang');
+
+        if(lang === 'ar') {
+            dataArr = articles.map( item => {
+                const date = new Date(item.created_at);
+                return {
+                    id: item.id,
+                    title: item.title_ar,
+                    content: item.content_ar,
+                    date: date.toLocaleDateString('default', {month: 'short', day: 'numeric'}),
+                    image_url: item.image_url
+                }
+            })
+        } else {
+            dataArr = articles.map( item => {
+                const date = new Date(item.created_at);
+                return {
+                    id: item.id,
+                    title: item.title_ar,
+                    content: item.content_ar,
+                    date: date.toLocaleDateString('default', {month: 'short', day: 'numeric'}),
+                    image_url: item.image_url
+                }
+            })
+        }
+        console.log(dataArr);
+        setData(dataArr);
+    }, [articles])
 
     return (
         <div id={'blogs'}>
-            {articles.map(item => {
-                return (<div onClick={() => {
-                    localStorage.setItem("post_id", item.id)
-                
-                }} className={'blog-container'}>
-                    <div className={'row'}>
-                        <div className={'col-md-4'}>
-                            <img className={'blog-img'} src={item.image_url} alt="" />
-                        </div>
-                        <div className={'col-md-5'}>
-                            <h1>
-                                {item.title}
+            {
+                data.map( item => (
+                    <Article
+                        id={item.id}
+                        item={item.title}
+                        content={item.content}
+                        image_url={item.image_url}
+                        date={item.date}
+                    />
+                ))
+            }
 
-                            </h1>
-                            <p><Truncate lines={5}>
-                                {item.content}
+        </div>
+    );
+}
 
-                            </Truncate></p>
-                            <Link className={'read'}>
-                                Read More
-                                <img className={'arrow'} src={arrow} alt="" />
-                            </Link>
-                        </div>
-                        <div className={'col-md-3 '}>
-                            <div className={'pink'}>
-                                <h3 className="date-blog">{item.created_at}</h3>
-                            </div>
-                        </div>
+
+function Article({id, title, content, date, image_url}) {
+    return(
+        <div className={'blog-container'}>
+            <div className={'row'}>
+                <div className={'col-md-4'}>
+                    <img className={'blog-img'} src={image_url} alt="" />
+                </div>
+                <div className={'col-md-5'}>
+                    <h1>
+                        {title}
+                    </h1>
+                    <p><Truncate lines={5}>
+                        {content}
+                    </Truncate></p>
+                    <Link className={'read'} to={'/News/'+id}>
+                        Read More
+                        {/*TODO*/}
+                        <img className={'arrow'} src={arrow} alt="" />
+                    </Link>
+                </div>
+                <div className={'col-md-3 '}>
+                    <div className={'pink'}>
+                        <h3 className="date-blog">{date}</h3>
                     </div>
-                    <br />
-                </div>)
-            })}
-
+                </div>
+            </div>
+            <br/><br/>
         </div>
     );
 }

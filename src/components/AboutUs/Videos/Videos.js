@@ -40,8 +40,6 @@ export default function Videos({ videos, meta }) {
                 })
             })
         }
-
-
         setData(dataObj);
     }, [videos])
 

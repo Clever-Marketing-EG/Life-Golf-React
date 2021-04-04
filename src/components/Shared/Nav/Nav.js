@@ -1,6 +1,7 @@
 import React from 'react';
 import './Nav.scss';
 import logo from '../Assets/logo.png';
+import {Link} from "react-router-dom";
 
 export default function Nav() {
 
@@ -63,9 +64,9 @@ export default function Nav() {
                                 aria-labelledby="navbarDropdown"
                             >
                                 <li>
-                                    <a  className="nav-link" href={'#'}>
-                                        Ex
-                                    </a>
+                                    <Link  className="nav-link" to={'/products'}>
+                                        Catalogue
+                                    </Link>
                                 </li>
                                 <li>
                                     <a  className="nav-link" href={'#'}>
