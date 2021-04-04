@@ -45,6 +45,7 @@ export default function App() {
                 'electronics': {},
                 'customize': {}
             };
+            
             if (lang === 'ar') {
                 data.forEach((item) => {
                     dataObject[item.page][item.name] = item.content_ar;
