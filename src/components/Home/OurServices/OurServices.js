@@ -17,7 +17,20 @@ export default function OurServices({ meta }) {
     useEffect(()=> {
         axios.get(`${BASE_URL}/services`)
             .then( (response) => {
-                setServics(response.data.data)
+                const lang = localStorage.getItem('lang');
+                let dataArr;
+                if (lang === 'ar') {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name_ar,
+                    }))
+                } else {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                    }))
+                }
+                setServics(dataArr)
             })
     }, [])
 
@@ -36,7 +49,7 @@ export default function OurServices({ meta }) {
                     <div className={'tags-container justify-content-around flex-wrap'}>
                         <div className={'inner-container d-flex justify-content-around'}>
                             <a className={'tag left top-0 d-flex'} href={`/services/${services[0].id}`}>
-                                Competitive pricing
+                                {services[0].name}
                                 <span className={'ms-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
@@ -45,12 +58,12 @@ export default function OurServices({ meta }) {
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
-                                Customer Service
+                                {services[1].name}
                             </a>
                         </div>
                         <div className={'inner-container d-flex justify-content-around'}>
                             <a className={'tag left top-50 translate-middle-y d-flex'} href={`/services/${services[2].id}`}>
-                                Most Flexiable Payment Plan
+                                {services[2].name}
                                 <div className={'ms-3 logo-container'}>
                                     <i className="icon-electric-vehicle" />
                                 </div>
@@ -59,13 +72,13 @@ export default function OurServices({ meta }) {
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
-                                Rental Plans
+                                {services[3].name}
                             </a>
                         </div>
 
                         <div className={'inner-container d-flex justify-content-around'}>
                             <a className={'tag left bottom-0 d-flex'} href={`/services/${services[4].id}`}>
-                                Spare Parts
+                                {services[4].name}
                                 <span className={'ms-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
@@ -74,7 +87,7 @@ export default function OurServices({ meta }) {
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
-                                Products Variety
+                                {services[5].name}
                             </a>
                         </div>
                     </div>
