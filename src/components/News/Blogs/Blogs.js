@@ -66,7 +66,7 @@ function Article({id, title, content, date, image_url}) {
                 </div>
                 <div className={'col-md-5'}>
                     <h1>
-                        {title}
+                        <Truncate lines={1}>{title}</Truncate>
                     </h1>
                     <p><Truncate lines={5}>
                         {content}
@@ -83,7 +83,6 @@ function Article({id, title, content, date, image_url}) {
                     </div>
                 </div>
             </div>
-            <br/><br/>
         </div>
     );
 }
