@@ -61,10 +61,10 @@ export default function Footer({meta}) {
                             <h3>{t('nav.products')}</h3>
                             <ul className={'pages-link'}>
                                 <li>
-                                    <a href="#">Golf cart & utilities</a>
+                                    <a href="#">{t('categories.golf-carts-and-utilities')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Electric vehicles</a>
+                                    <a href="#">{t('categories.electric-vehicles')}</a>
                                 </li>
                                 <li>
                                     <a href="#">Electric cleaning equipment</a>
