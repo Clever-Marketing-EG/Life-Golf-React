@@ -18,11 +18,13 @@ import Product from './components/Products/Product/Product';
 import Services from './components/Services/Services';
 import Rental from './components/Services/Rental/Rental';
 import Loader from "./components/Shared/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const { BASE_URL } = require('./config');
 
 
 export default function App() {
+    const { i18n } = useTranslation();
     const [meta, setMeta] = useState({});
     const [loaded, setLoaded] = useState(false);
 
@@ -31,6 +33,8 @@ export default function App() {
             const data = response.data.data;
 
             const lang = localStorage.getItem('lang');
+
+            i18n.changeLanguage(lang);
 
             const dataObject = {
                 'home': {},

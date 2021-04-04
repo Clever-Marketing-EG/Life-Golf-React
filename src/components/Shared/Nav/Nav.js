@@ -2,17 +2,20 @@ import React from 'react';
 import './Nav.scss';
 import logo from '../Assets/logo.png';
 import {Link} from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Nav() {
 
+    const { t } = useTranslation();
+
     const changelang = (e) => {
         const language = e.target.lang;
-        localStorage.setItem('lang', language)
+        localStorage.setItem('lang', language);
         window.location.reload();
     }
 
     return (
-        <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'}>
+        <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'} dir={t('dir')}>
             <div className="container">
                 <a className="navbar-brand" href="#">
                     <img src={logo} className={'nav-logo'} alt={''} />
@@ -35,17 +38,17 @@ export default function Nav() {
                     <ul className="navbar-nav">
                         <li className="nav-item active">
                             <a className="nav-link active" aria-current="page" href="/">
-                                Home
+                                {t('nav.home')}
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/About">
-                                About
+                                {t('nav.about')}
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/Services">
-                                Services
+                                {t('nav.services')}
                             </a>
                         </li>
                         <li className="nav-item dropdown">
@@ -57,7 +60,7 @@ export default function Nav() {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                Products
+                                {t('nav.products')}
                             </a>
                             <ul
                                 className="dropdown-menu bg-dark"
@@ -65,19 +68,19 @@ export default function Nav() {
                             >
                                 <li>
                                     <Link  className="nav-link" to={'/products'}>
-                                        Catalogue
+                                        {t('nav.catalouge')}
                                     </Link>
                                 </li>
                                 <li>
                                     <a  className="nav-link" href={'#'}>
-                                        Ex
+                                        {t('nav.categories')}
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/News">
-                                News
+                                {t('nav.news')}
                             </a>
                         </li>
 
@@ -90,7 +93,7 @@ export default function Nav() {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                Support
+                                {t('nav.support')}
                             </a>
                             <ul
                                 className="dropdown-menu bg-dark"
@@ -98,19 +101,19 @@ export default function Nav() {
                             >
                                 <li>
                                     <a className="nav-link" href="/Terms">
-                                        Terms & conditions
+                                        {t('nav.terms-and-conditions')}
                                     </a>
                                 </li>
                                 <li>
                                     <a className="nav-link" href="Maintenance">
-                                        Maintenance
+                                        {t('nav.maintenance')}
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/Contact">
-                                Contact
+                                {t('nav.contact-us')}
                             </a>
                         </li>
                         <li className="nav-item dropdown">
@@ -122,7 +125,7 @@ export default function Nav() {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                <i className="icon-sphere" /> Language
+                                <i className="icon-sphere" /> {t('nav.language')}
                             </a>
                             <ul
                                 className="dropdown-menu bg-dark"

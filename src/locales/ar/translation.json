@@ -1,0 +1,20 @@
+{
+    "dir": "rtl",
+    "nav": {
+        "home": "الرئيسية",
+        "about": "من نحن",
+        "services": "الخدمات",
+        "products": "المعرض",
+        "catalouge": "الكتالوج",
+        "categories": "الفئات",
+        "news": "آخر الأخبار",
+        "support": "الدعم",
+        "terms-and-conditions": "الشروط والأحكام",
+        "maintenance": "الصيانة",
+        "contact-us": "تواصل معنا",
+        "language": "اللغة"
+    },
+    "categories": {
+        "golf-carts-and-utilities": "سيارات الجولف ومُستلزماتها"
+    }
+}
