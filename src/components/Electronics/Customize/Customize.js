@@ -13,7 +13,6 @@ export default function Customize({ meta }) {
     return (
         <div id={'custom'}>
             <Header className="header" title={t('utils.customize-your-Order')} />
-
             <div className={'container mt'}>
                 <div className={'row'}>
                     <div className={'col-md-5'}>

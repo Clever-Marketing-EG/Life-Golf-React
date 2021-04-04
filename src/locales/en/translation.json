@@ -32,6 +32,12 @@
         "name": "Name",
         "email": "Email",
         "subject": "Subject",
-        "message": "Message"
+        "message": "Message",
+        "personal-details":"Personal details",
+        "product-details":"Product details",
+        "first-name": "First name",
+        "last-name": "Last name",
+        "phone": "Phone"
+        
     }
 }

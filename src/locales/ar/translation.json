@@ -32,7 +32,12 @@
         "name": "الاسم",
         "email": "البريد الالكتروني",
         "subject":"الموضوع",
-        "message":"الرسالة"
+        "message":"الرسالة",
+        "personal-details":"تفاصيل شخصية",
+        "product-details":"تفاصيل المنتج",
+        "first-name": "الاسم الاول",
+        "last-name": "الاسم الاخير",
+        "phone": "الهاتف"
 
 
 

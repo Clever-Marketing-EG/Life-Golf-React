@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Form.scss';
+import {useTranslation} from "react-i18next";
 
 export default function Form() {
 
+    const {t} = useTranslation();
     const categories = {
         electricVehicle: [
             {
@@ -33,7 +35,6 @@ export default function Form() {
     const hadnleOption = () => {
         setOption(true);
         console.log(option);
-
     }
 
     return (
@@ -42,28 +43,28 @@ export default function Form() {
                 <br />
                 <div className={'container mt-5'}>
                     <div className={'row'}>
-                        <div className={'col-md-6'}>
-                            <h1>Personal details</h1>
+                        <div className={'col-md-6'} >
+                            <h1 >{t('utils.personal-details')}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" className="form-control" placeholder="First name" />
+                                    <input type="text" className="form-control" placeholder={t('utils.first-name')} />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" className="form-control" placeholder="Last name" />
+                                    <input type="text" className="form-control" placeholder={t('utils.last-name')}/>
 
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" className="form-control" placeholder="Phone" />
+                                    <input type="text" className="form-control" placeholder={t('utils.phone')}/>
 
                                 </div>
                             </div>
                             <br />
-                            <h1>Product details</h1>
+                            <h1>{t('utils.product-details')}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-12'}>
-                                    <select onChange={handleChange} defaultValue={'default'} className="form-select form-control">
+                                    <select onChange={handleChange} defaultValue={'default'} className="form-select form-control" >
                                         <option name={'default'} disabled value="default">Category</option>
                                         <option name="electricVehicle" value="electricVehicle">Electric Vehicle</option>
                                         <option name="two" value="two">Two</option>
