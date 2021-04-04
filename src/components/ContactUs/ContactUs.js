@@ -27,6 +27,9 @@ export default function ContactUs({ meta }) {
                 alert(response.data.data);
                 setData({});
             })
+            .catch( err => {
+                alert(err.response.data.message)
+            })
     }
 
     return (
@@ -39,13 +42,13 @@ export default function ContactUs({ meta }) {
                         <form className="p-2" onSubmit={handleSubmit}>
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" className="form-control p-3" placeholder={t('utils.name')} name={'name'} onChange={handleChange} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.name')} name={'from'} onChange={handleChange} value={data.from} />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')} name={'email'} onChange={handleChange} />
+                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')} name={'email'} onChange={handleChange} value={data.email} />
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')} name={'subject'} onChange={handleChange} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')} name={'subject'} onChange={handleChange} value={data.subject} />
                                 </div>
                             </div>
                             <div className="form-group">
@@ -54,8 +57,9 @@ export default function ContactUs({ meta }) {
                                     rows="6"
                                     id="comment"
                                     placeholder={t('utils.message')}
-                                    name={'message'}
+                                    name={'body'}
                                     onChange={handleChange}
+                                    value={data.body}
                                 />
                             </div>
                             <div className={"btn-container"}>
