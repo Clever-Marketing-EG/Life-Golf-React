@@ -60,7 +60,7 @@ export default function Terms() {
         <div id={'terms'} >
             <Header className="header" title={t('nav.terms-and-conditions')} />
 
-            <h1 class="terms-title">Get to know our terms</h1>
+            <h1 class="terms-title">{t('utils.get-to-know-our-terms')}</h1>
             <div className={'container mrg-top'}>
                 {items}
             </div>

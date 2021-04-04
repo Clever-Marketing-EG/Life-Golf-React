@@ -29,6 +29,12 @@
         "factory-videos": "Factory videos",
         "product-videos": "Product videos",
         "factory-images": "Factory images",
-        "product-images": "Product images"
+        "product-images": "Product images",
+        "get-to-know-our-terms": "Get to know our terms",
+        "we-want-to-hear-from-you": "We want to hear from you",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
     }
 }

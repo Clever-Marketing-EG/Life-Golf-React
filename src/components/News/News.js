@@ -8,14 +8,14 @@ import outline from './Assets/outline.png';
 import vehicle from './Assets/electric-vehicle.png';
 import Blogs from './Blogs/Blogs';
 import Header from '../Shared/Header/Header'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const { BASE_URL } = require('../../config');
 
 
 export default function News() {
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
 
     const [data, setData] = useState({
@@ -27,12 +27,12 @@ export default function News() {
             let dataObj = {
                 1: [], 2: [], 3: [], 4: [], 5: []
             };
-            response.data.data.forEach( item => {
+            response.data.data.forEach(item => {
                 dataObj[item.category_id].push(item);
             })
             setData(dataObj);
         });
-    },[])
+    }, [])
 
     return (
         <div>
@@ -46,7 +46,7 @@ export default function News() {
                             </div>
                             <p className={'filter-name'}>{t('categories.golf-carts-and-utilities')}</p>
                         </button >
-                        <button  name="electric" className="nav-link filters" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                        <button name="electric" className="nav-link filters" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                             <div className={'white-box'}>
                                 <img className={'filter-img'} src={vehicle} alt="" />
                             </div>
@@ -73,7 +73,7 @@ export default function News() {
                     </div>
 
                     <div className="tab-content" id="v-pills-tabContent">
-                        <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Blogs  articles={data[1]} /></div>
+                        <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Blogs articles={data[1]} /></div>
                         <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><Blogs articles={data[2]} /></div>
                         <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><Blogs articles={data[3]} /></div>
                         <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><Blogs articles={data[4]} /></div>
