@@ -30,22 +30,22 @@ export default function ContactUs({meta}) {
     }
 
     return (
-        <div id={'contact-us'}>
+        <div id={'contact-us'} dir={t('dir')}>
             <Header className="header" title={t('nav.contact-us')} />
-            <h1 className={'contact-title'}>We want to hear from you</h1>
+            <h1 className={'contact-title'}>{t('utils.we-want-to-hear-from-you')}</h1>
             <div className={'container  margin-top-value'}>
                 <div className={'row justify-content-around'}>
                     <div className={'col-md-5'}>
                         <form className="p-2" onSubmit={handleSubmit}>
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" className="form-control p-3" placeholder="Name" name={'name'} onChange={handleChange} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.name')} name={'name'} onChange={handleChange} />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="email" className="form-control p-3" placeholder="Email" name={'email'} onChange={handleChange} />
+                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')}  name={'email'} onChange={handleChange} />
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" className="form-control p-3" placeholder="Subject" name={'subject'} onChange={handleChange} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')}  name={'subject'} onChange={handleChange} />
                                 </div>
                             </div>
                             <div className="form-group">
@@ -53,7 +53,7 @@ export default function ContactUs({meta}) {
                                     className="form-control p-3"
                                     rows="6"
                                     id="comment"
-                                    placeholder="Message"
+                                    placeholder={t('utils.message')}
                                     name={'message'}
                                     onChange={handleChange}
                                 />

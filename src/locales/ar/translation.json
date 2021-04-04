@@ -26,7 +26,15 @@
         "factory-videos" : "فيديوات المصنع",
         "product-videos": "فيديوات المنتجات",
         "factory-images" : "صور المصنع",
-        "product-images": "صور المنتجات"
+        "product-images": "صور المنتجات",
+        "get-to-know-our-terms": "تعرف على شروطنا",
+        "we-want-to-hear-from-you": "نريد أن نسمع منك",
+        "name": "الاسم",
+        "email": "البريد الالكتروني",
+        "subject":"الموضوع",
+        "message":"الرسالة"
+
+
 
 
     }
