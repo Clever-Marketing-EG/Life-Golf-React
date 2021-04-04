@@ -1,0 +1,17 @@
+{
+    "dir": "ltr",
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "products": "Products",
+        "catalouge": "Catalouge",
+        "categories": "Categories",
+        "news": "News",
+        "support": "Support",
+        "terms-and-conditions": "Terms & Conditions",
+        "maintenance": "Maintenance",
+        "contact-us": "Contact Us",
+        "language": "Language"
+    }
+}
