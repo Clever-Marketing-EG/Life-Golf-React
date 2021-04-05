@@ -1,9 +1,10 @@
 import React from 'react';
 import './AboutUs.scss';
 
+
 export default function AboutUs({ meta }) {
     return (
-        <div id={'about-us'} className={'container d-flex flex-wrap-reverse justify-content-around'}>
+        <div id={'about-us'} className={'container d-flex flex-wrap-reverse justify-content-around'}  >
             <div className={'left-container d-flex flex-wrap justify-content-around'}>
                 <img src={meta.about_us_images_1} alt={''} className={'about-image image-1'} />
                 <img src={meta.about_us_images_2} alt={''} className={'about-image image-2'} />
@@ -16,9 +17,9 @@ export default function AboutUs({ meta }) {
                 <p className={'home-paragraph'}>
                     {meta.about_us_content}
                 </p>
-                <a className={'home-blue-button'} href={'#'}>
+                <a className={'home-blue-button'} href={'/About'}>
                     Show More
-                </a>
+                </a> 
             </div>
         </div>
     )
