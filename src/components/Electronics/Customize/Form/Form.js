@@ -69,7 +69,7 @@ export default function Form() {
 
                         <div className={'col-md-6'}>
                             {
-                                option ? <div className={'container'}>
+                                toggled ? <div className={'container'}>
                                     <h1>{t('utils.number-Of-seats')}</h1>
 
                                     <div className={'row my-3'}>
