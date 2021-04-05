@@ -29,9 +29,11 @@ export default function Form() {
         "data": []
     })
     const [option, setOption] = useState(false);
+
     const handleChange = (e) => {
         setData({ data: categories[e.target.value] });
     }
+
     const hadnleOption = () => {
         setOption(true);
         console.log(option);
@@ -149,14 +151,14 @@ export default function Form() {
                                         </label>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
+
+
                                     <h1>Number Of seats:</h1>
                                     <div className={'row my-3'}>
                                         <div className={'col-md-6 mb-2'}>
