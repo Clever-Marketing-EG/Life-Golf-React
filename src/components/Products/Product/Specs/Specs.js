@@ -2,16 +2,19 @@ import React from 'react';
 import './Specs.scss';
 import Features from './Features/Features';
 import Specifications from './Specifications/Specifications';
-import Configurations from './Configurations/Configurations';
+import { useTranslation } from "react-i18next";
+
 export default function Specs({data}) {
+    const { t } = useTranslation()
+
     return (
-        <div id={'specs'}>
-            <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
+        <div id={'specs'} >
+            <ul dir={t('dir')} className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
                 <li className="nav-item snd-list" role="presentation">
-                    <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Features</button>
+                    <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.features')}</button>
                 </li>
                 <li className="nav-item snd-list" role="presentation">
-                    <button className="nav-link list-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Specification</button>
+                    <button className="nav-link list-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.specification')}</button>
                 </li>
             </ul>
             <div className="tab-content" id="pills-tabContent">
