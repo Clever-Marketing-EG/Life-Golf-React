@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Nav.scss';
 import logo from '../Assets/logo.png';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from 'axios';
 import { useTranslation } from "react-i18next";
+const { BASE_URL } = require('../../../config');
 
 export default function Nav() {
 
     const { t } = useTranslation();
+    const [categories, setCategories] = useState([]);
+    const lang = localStorage.getItem('lang');
 
     const changelang = (e) => {
         const language = e.target.lang;
@@ -14,12 +18,32 @@ export default function Nav() {
         window.location.reload();
     }
 
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/categories`).then(response => {
+            let dataArr;
+            if (lang === 'ar') {
+                dataArr = response.data.data.map(item => ({
+                    id: item.id,
+                    name: item.name_ar
+                }))
+            } else {
+                dataArr = response.data.data.map(item => ({
+                    id: item.id,
+                    name: item.name
+                }))
+            }
+            setCategories(dataArr);
+        });
+    }, []);
+
+
     return (
         <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'} dir={t('dir')}>
             <div className="container">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/">
                     <img src={logo} className={'nav-logo'} alt={''} />
-                </a>
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -37,19 +61,19 @@ export default function Nav() {
                 >
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link active" aria-current="page" href="/">
+                            <Link className="nav-link active" aria-current="page" to="/">
                                 {t('nav.home')}
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/About">
+                            <Link className="nav-link" to="/About">
                                 {t('nav.about')}
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Services">
+                            <Link className="nav-link" to="/Services">
                                 {t('nav.services')}
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a
@@ -66,22 +90,23 @@ export default function Nav() {
                                 className="dropdown-menu bg-dark"
                                 aria-labelledby="navbarDropdown"
                             >
-                                <li>
-                                    <Link  className="nav-link" to={'/products'}>
-                                        {t('nav.catalouge')}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <a  className="nav-link" href={'#'}>
-                                        {t('nav.categories')}
-                                    </a>
-                                </li>
+
+                                {
+                                    categories.map((item, index) => (
+
+                                        <li key={index}>
+                                            <Link className="nav-link" to={`/categories/${item.id}/products`}>
+                                                {item.name}
+                                            </Link>
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/News">
+                            <Link className="nav-link" to="/news">
                                 {t('nav.news')}
-                            </a>
+                            </Link>
                         </li>
 
                         <li className="nav-item dropdown">
@@ -100,21 +125,21 @@ export default function Nav() {
                                 aria-labelledby="navbarDropdown"
                             >
                                 <li>
-                                    <a className="nav-link" href="/Terms">
+                                    <Link className="nav-link" to="/terms">
                                         {t('nav.terms-and-conditions')}
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="nav-link" href="Maintenance">
+                                    <Link className="nav-link" to="maintenance">
                                         {t('nav.maintenance')}
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Contact">
+                            <Link className="nav-link" to="/Contact">
                                 {t('nav.contact-us')}
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a

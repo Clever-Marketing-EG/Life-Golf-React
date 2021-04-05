@@ -9,9 +9,11 @@ import cart from '../../Home/Assets/cart1.png';
 import axios from "axios";
 import Loader from "../../Shared/Loader/Loader";
 import {Link} from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const {BASE_URL} = require('../../../config');
 export default function Similar( {id} ) {
+    const { t } = useTranslation();
 
     const [data, setData] = useState([]);
 
@@ -77,7 +79,7 @@ export default function Similar( {id} ) {
     else
         return (
             <div id={'similar-prod'}>
-                <h1>Similar Products</h1>
+                <h1>{t('utils.similar-products')}</h1>
                 <Carousel
                     className={'cr justify-content-center'}
                     breakPoints={breakPoints}
