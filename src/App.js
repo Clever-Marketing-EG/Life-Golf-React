@@ -24,7 +24,7 @@ const { BASE_URL } = require('./config');
 
 
 export default function App() {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [meta, setMeta] = useState({});
     const [loaded, setLoaded] = useState(false);
 
@@ -34,6 +34,9 @@ export default function App() {
 
             const lang = localStorage.getItem('lang');
 
+            const html = document.querySelector('html');
+            html.lang = lang;
+            
             i18n.changeLanguage(lang);
 
             const dataObject = {

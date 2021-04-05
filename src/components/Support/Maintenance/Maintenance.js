@@ -15,7 +15,7 @@ export default function Maintenance({meta}) {
         <div id={'maintenance'}>
             <Header className="header" title={t('nav.maintenance')} />
 
-            <div className={'container'}>
+            <div className={'container'} dir={t('dir')}>
                 <div className={'row justify-content-around mrg-btm'}>
                     <div className={'col-md-5 marg-bottom'}>
                         <h1 className={'title-one'}>{meta.maintenance_header_1}</h1>

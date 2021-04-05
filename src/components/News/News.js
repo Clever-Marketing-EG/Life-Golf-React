@@ -37,9 +37,9 @@ export default function News() {
     return (
         <div>
             <Header className="header" title={t('nav.news')} />
-            <div id={'news'} className={'container'} >
+            <div id={'news'} className={'container'} dir={t('dir')} >
                 <div className="d-flex flex-wrap align-items-start">
-                    <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div className="nav flex-column nav-pills mx-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <div className={'white-box'}>
                                 <img className={'filter-img'} src={cart} alt="" />
@@ -72,7 +72,7 @@ export default function News() {
                         </button>
                     </div>
 
-                    <div className="tab-content" id="v-pills-tabContent">
+                    <div className="tab-content" id="v-pills-tabContent" dir="ltr">
                         <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Blogs articles={data[1]} /></div>
                         <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><Blogs articles={data[2]} /></div>
                         <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><Blogs articles={data[3]} /></div>

@@ -4,7 +4,9 @@ import './Rental.scss';
 import Header from '../../Shared/Header/Header';
 import Truncate from 'react-truncate';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 const { BASE_URL } = require('../../../config');
 
 export default function Rental() {
@@ -13,6 +15,7 @@ export default function Rental() {
     const [list2, setList2] = useState([]);
     const [btn, setBtn] =useState([]);
     const params = useParams();
+    const { t } = useTranslation();
 
     useEffect(() => {
         const service_id = params.id;
@@ -90,7 +93,7 @@ export default function Rental() {
         <div id={'rental'}>
             <Header className="header" title={service.name} />
 
-            <div className={'container margin-t'}>
+            <div className={'container margin-t'} >
                 <div className={'row'}>
                     <div className={'col-md-6'}>
                         <img src={service.image_url1} className={'img-one'} alt="" />
