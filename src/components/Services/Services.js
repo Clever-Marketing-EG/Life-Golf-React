@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Services.scss';
 import Header from '../Shared/Header/Header';
-import pic from '../AboutUs/Assets/about-us-3.jpg';
 import Truncate from 'react-truncate';
 import arrow from '../News/Blogs/Assets/arrow.png';
 import axios from 'axios';
