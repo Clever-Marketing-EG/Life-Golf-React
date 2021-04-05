@@ -7,6 +7,7 @@ import {useTranslation} from "react-i18next";
 
 export default function Blogs({articles}) {
     const [data, setData] = useState([]);
+    const { t } = useTranslation();
 
     useEffect( () => {
         let dataArr;
@@ -68,10 +69,10 @@ function Article({id, title, content, date, image_url}) {
                     <img className={'blog-img'} src={image_url} alt="" />
                 </div>
                 <div className={'col-md-5'}>
-                    <h1>
+                    <h1 dir={t('dir')}>
                         <Truncate lines={1}>{title}</Truncate>
                     </h1>
-                    <p><Truncate lines={5}>
+                    <p dir={t('dir')}><Truncate lines={5}>
                         {content}
                     </Truncate></p>
                     <Link className={'read'} to={'/News/'+id}>
