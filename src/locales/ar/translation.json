@@ -23,6 +23,7 @@
         "electronics" :"إلكترونيات"
     },
     "utils": {
+        "additional-info": "معلومات إضافية",
         "customize-your-Order": "خصص طلبك",
         "electronics-order": "طلبات الكترونية",
         "factory-videos" : "فيديوات المصنع",
@@ -59,6 +60,6 @@
         "specification": "المواصفات",
         "similar-products": "منتجات مماثلة"
 
-        
+
     }
 }

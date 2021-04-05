@@ -21,9 +21,9 @@
         "electric-handling-equipments": "Electric Handling Equipments",
         "by-order" :"By Order",
         "electronics" :"Electronics"
-        
     },
     "utils": {
+        "additional-info": "Additional information",
         "customize-your-Order": "Customize your Order",
         "electronics-order": "Electronics order",
         "factory-videos": "Factory videos",
@@ -59,9 +59,5 @@
         "features": "Features",
         "specification": "Specification",
         "similar-products": "Similar Products"
-
-
-
-        
     }
 }
