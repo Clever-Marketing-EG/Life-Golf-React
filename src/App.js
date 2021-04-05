@@ -45,7 +45,7 @@ export default function App() {
                 'electronics': {},
                 'customize': {}
             };
-            
+
             if (lang === 'ar') {
                 data.forEach((item) => {
                     dataObject[item.page][item.name] = item.content_ar;
@@ -111,7 +111,7 @@ export default function App() {
                         <Route exact path="/Electronics">
                             <Electronics meta={meta['electronics']} />
                         </Route>
-                        <Route exact path="/Customize">
+                        <Route exact path="/customize">
                             <Customize meta={meta['customize']} />
                         </Route>
                         <Route exact path="/Services">

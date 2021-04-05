@@ -11,7 +11,7 @@ export default function Customize({ meta }) {
     const {t} = useTranslation();
 
     return (
-        <div id={'custom'}>
+        <div id={'custom'} dir={t('dir')}>
             <Header className="header" title={t('utils.customize-your-Order')} />
             <div className={'container mt'}>
                 <div className={'row'}>

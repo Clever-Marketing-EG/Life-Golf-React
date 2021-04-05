@@ -29,9 +29,11 @@ export default function Form() {
         "data": []
     })
     const [option, setOption] = useState(false);
+
     const handleChange = (e) => {
         setData({ data: categories[e.target.value] });
     }
+
     const hadnleOption = () => {
         setOption(true);
         console.log(option);
@@ -64,7 +66,7 @@ export default function Form() {
                             <hr/>
                             <div className={'row'}>
                                 <div className={'col-sm-12'}>
-                                    <select onChange={handleChange} defaultValue={'default'} className="form-select form-control" >
+                                    <select onChange={handleChange}  defaultValue={'default'} className="form-select form-control dropdown-toggle col-sm-12" >
                                         <option name="default" value="default">{t('categories.golf-carts-and-utilities')}</option>
                                         <option name="electricVehicle" value="electricVehicle">{t('categories.electric-vehicles')}</option>
                                         <option name="two" value="two">{t('categories.electric-cleaning-equipments')}</option>
@@ -149,14 +151,14 @@ export default function Form() {
                                         </label>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
+
+
                                     <h1>Number Of seats:</h1>
                                     <div className={'row my-3'}>
                                         <div className={'col-md-6 mb-2'}>
