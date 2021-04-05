@@ -66,7 +66,7 @@ export default function Form() {
                             <hr/>
                             <div className={'row'}>
                                 <div className={'col-sm-12'}>
-                                    <select onChange={handleChange} defaultValue={'default'} className="form-select form-control" >
+                                    <select onChange={handleChange}  defaultValue={'default'} className="form-select form-control dropdown-toggle col-sm-12" >
                                         <option name="default" value="default">{t('categories.golf-carts-and-utilities')}</option>
                                         <option name="electricVehicle" value="electricVehicle">{t('categories.electric-vehicles')}</option>
                                         <option name="two" value="two">{t('categories.electric-cleaning-equipments')}</option>
