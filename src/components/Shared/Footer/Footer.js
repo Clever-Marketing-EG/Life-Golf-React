@@ -45,7 +45,7 @@ export default function Footer({meta}) {
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>{t('nav.about')}</h3>
-                            <ul className={'pages-link'}>
+                            <ul className={'pages-link'} >
                                 <li>
                                     <a href={'/services'}>{t('nav.services')}</a>
                                 </li>
@@ -59,7 +59,7 @@ export default function Footer({meta}) {
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>{t('nav.products')}</h3>
-                            <ul className={'pages-link'}>
+                            <ul className={'pages-link'} >
                                 <li>
                                     <a href="#">{t('categories.golf-carts-and-utilities')}</a>
                                 </li>

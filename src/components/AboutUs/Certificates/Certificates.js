@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Certificates.scss';
 
 import Carousel, { consts } from 'react-elastic-carousel';
+import {useTranslation} from "react-i18next";
 
 import cert from './Assets/cert.png';
 
 export default function Certifiactes({ certificates, meta }) {
 
     const [data, setData] = useState([]);
+    const {t} = useTranslation();
 
     useEffect(() => {
         const lang = localStorage.getItem('lang');
@@ -53,7 +55,7 @@ export default function Certifiactes({ certificates, meta }) {
         <div id={'cert'}>
             <div className={'container'}>
                 <h1 className={'cert-title'}>{meta.certificates_header}</h1>
-                <div className={'navigator'}>
+                <div className={'navigator'} dir={t('dir')}>
                     {
                         data.length === 0 ? <div /> :
                             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>

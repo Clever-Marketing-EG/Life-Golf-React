@@ -41,7 +41,7 @@ export default function AboutUs({ meta }) {
     return (
         <div id={'about'}>
             <Header className="header" title={t('nav.about')} />
-            <div className={'container d-flex flex-wrap justify-content-around xs'}>
+            <div className={'container d-flex flex-wrap justify-content-around xs'} dir={t('dir')}>
                 <div className={'d-flex left-container'}>
                     <div className={'d-flex flex-column pic-col justify-content-between me-2'}>
                         <img src={meta.image_1} className={'pic top mb-2'} alt="" />

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import './OurProducts.scss';
 import Slider from './Slider';
+import { useTranslation } from "react-i18next";
 
 export default function OurProducts({ categories, products, meta }) {
-
+    const { t } = useTranslation();
     const [activeCategory, setActiveCategory] = useState(1);
     const [activeProducts, setActiveProducts] = useState([]);
 
@@ -35,6 +36,7 @@ export default function OurProducts({ categories, products, meta }) {
                 })
             )
             dataObj.products = products.map( item => ({
+                'id': item['id'],
                 'name': item['name_ar'],
                 'image_url': item['image_url'],
                 'category_id': item['category_id']
@@ -47,6 +49,7 @@ export default function OurProducts({ categories, products, meta }) {
                 })
             )
             dataObj.products = products.map( item => ({
+                'id': item['id'],
                 'name': item['name'],
                 'image_url': item['image_url'],
                 'category_id': item['category_id']
@@ -61,7 +64,7 @@ export default function OurProducts({ categories, products, meta }) {
     }
 
     return (
-        <div id={'our-products'} className={'container'}>
+        <div id={'our-products'} className={'container'} >
             <h1 className={'home-header'}>{meta.products_header}</h1>
             <hr className={'blue-line'} />
             <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
@@ -72,6 +75,7 @@ export default function OurProducts({ categories, products, meta }) {
                             id={item.id}
                             title={item.name}
                             handlClick={handlClick}
+                            dir={t('dir')}
                         />
                     ))
                 }
@@ -79,7 +83,7 @@ export default function OurProducts({ categories, products, meta }) {
             </ul>
             <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <Slider products={activeProducts} />
+                    <Slider products={activeProducts} dir={t('dir')}/>
                 </div>
             </div>
         </div>

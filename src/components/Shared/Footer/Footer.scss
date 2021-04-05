@@ -1,4 +1,7 @@
 #footer {
+    *{
+        text-align: initial;
+    }
     .footer-desc{
 
         font-family: 'Tajawal', sans-serif;
@@ -58,7 +61,8 @@
     }
     .pages-link{
         list-style: none;
-        padding-left: 0;
+        padding-left: 0; 
+        padding-right: 0;
 
         a{
 

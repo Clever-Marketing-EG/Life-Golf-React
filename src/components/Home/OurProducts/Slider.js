@@ -38,7 +38,7 @@ export default function Slider( {products} ) {
                     :<Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                         {
                             data.map( (item, index) => (
-                                <ProductCard name={item.name} image_url={item.image_url} key={index} />
+                                <ProductCard name={item.name} image_url={item.image_url} key={index} id={item.id} />
                             ))
                         }
                     </Carousel>
@@ -48,16 +48,16 @@ export default function Slider( {products} ) {
 }
 
 
-function ProductCard({name, image_url}) {
+function ProductCard({name, image_url, id}) {
     return(
         <div className={'big-container'}>
             <div className={'cart-container d-flex flex-column-reverse'}>
                 <img src={image_url} alt="" className={'cart-img'} />
                 <div className={'snd-cont'}>
                     <p className={'cart-name'}>{name}</p>
-                    <button className={'btn arrow-btn'}>
+                    <a className={'btn arrow-btn'} href={`/products/${id}`}>
                         <img src={rightArrow} className={'arrow-position'}  alt={'...'}/>
-                    </button>
+                    </a>
                 </div>
 
             </div>

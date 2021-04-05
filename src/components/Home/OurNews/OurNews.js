@@ -8,19 +8,17 @@ import Truncate from 'react-truncate';
 
 
 export default function OurNews({ articles, meta }) {
-
-
     const [Articles, setArticles] = useState([]);
 
     useEffect(() => {
         let lang = localStorage.getItem("lang");
         if (lang === "ar") {
             setArticles(articles.map((article, index) => (
-                <Article key={index} title={article.title_ar} content={article.content_ar} image={article.image_url} date={article.created_at} />
+                <Article id={article.id} key={index} title={article.title_ar} content={article.content_ar} image={article.image_url} date={article.created_at} />
             )))
         } else {
             setArticles(articles.map((article, index) => (
-                <Article key={index} title={article.title} content={article.content} image={article.image_url} date={article.created_at} />
+                <Article id={article.id} key={index} title={article.title} content={article.content} image={article.image_url} date={article.created_at} />
             )))
         }
 
@@ -46,17 +44,17 @@ export default function OurNews({ articles, meta }) {
     }
 
     return (
-        <div id={'our-news'} className={'container d-flex flex-wrap'}>
-            <div className={'left-container'}>
+        <div id={'our-news'} className={'container d-flex flex-wrap'} >
+            <div className={'left-container'} >
                 <h1 className={'home-header'}>
-                   {meta.news_header}
+                    {meta.news_header}
                 </h1>
                 <hr className={'blue-line'} />
                 <p className={'home-paragraph'}>
                     {meta.news_content}
                 </p>
             </div>
-            <div className={'right-container'}>
+            <div className={'right-container'} >
 
                 {
                     Articles.length === 0 ? <div /> : <Carousel
@@ -77,7 +75,7 @@ export default function OurNews({ articles, meta }) {
 }
 
 
-function Article({ title, content, image, date }) {
+function Article({ title, content, image, date, id }) {
     var fullDate = new Date(date);
     var day = fullDate.getDate();
     var month = fullDate.toLocaleString('default', { month: 'short' });
@@ -99,7 +97,7 @@ function Article({ title, content, image, date }) {
                     <Truncate lines={3}>{content}</Truncate>
 
                 </p>
-                <a href="#" className="cherry-link">Read More <i className="icon-arrow-right" /></a>
+                <a href={'/News/' + id} className="cherry-link">Read More <i className="icon-arrow-right" /></a>
             </div>
         </div>
     )
