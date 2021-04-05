@@ -84,128 +84,128 @@ export default function Form() {
                         </div>
 
                         <div className={'col-md-6'}>
-                            {/*{*/}
-                            {/*    option ? <div className={'container'}>*/}
-                            {/*        <h1>{t('utils.number-Of-seats')}</h1>*/}
+                            {
+                                option ? <div className={'container'}>
+                                    <h1>{t('utils.number-Of-seats')}</h1>
 
-                            {/*        <div className={'row my-3'}>*/}
-                            {/*            <div className={'col-md-6 mb-2'}>*/}
-                            {/*                <input className="form-check-input" type="radio" name="no4"*/}
-                            {/*                    id="one" />*/}
-                            {/*                <label className="form-check-label" htmlFor="one">*/}
-                            {/*                    4 {t('utils.seats')}*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*            <div className={'col-md-6'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="no4"*/}
-                            {/*                    id="two" />*/}
-                            {/*                <label className="form-check-label" htmlFor="two">*/}
-                            {/*                    6 {t('utils.seats')}*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <h1>{t('utils.color')}</h1>*/}
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" type="radio" name="no4"
+                                                id="one" />
+                                            <label className="form-check-label" htmlFor="one">
+                                                4 {t('utils.seats')}
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input"  type="radio" name="no4"
+                                                id="two" />
+                                            <label className="form-check-label" htmlFor="two">
+                                                6 {t('utils.seats')}
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>{t('utils.color')}</h1>
 
-                            {/*        <div className={'row my-3'}>*/}
-                            {/*            <div className={'col-md-6 mb-2'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="black"*/}
-                            {/*                    id="three" />*/}
-                            {/*                <label className="form-check-label" htmlFor="three">*/}
-                            {/*                {t('utils.black')}*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*            <div className={'col-md-6'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="black"*/}
-                            {/*                    id="four" />*/}
-                            {/*                <label className="form-check-label" htmlFor="four">*/}
-                            {/*                {t('utils.white')}*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <h1>{t('utils.brand')}</h1>*/}
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input"  type="radio" name="black"
+                                                id="three" />
+                                            <label className="form-check-label" htmlFor="three">
+                                            {t('utils.black')}
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input"  type="radio" name="black"
+                                                id="four" />
+                                            <label className="form-check-label" htmlFor="four">
+                                            {t('utils.white')}
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>{t('utils.brand')}</h1>
 
-                            {/*        <div className={'row my-3'}>*/}
-                            {/*            <div className={'col-md-6 mb-2'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="Brand"*/}
-                            {/*                    id="five" />*/}
-                            {/*                <label className="form-check-label" htmlFor="five">*/}
-                            {/*                    Brand1*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*            <div className={'col-md-6'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="Brand"*/}
-                            {/*                    id="six" />*/}
-                            {/*                <label className="form-check-label" htmlFor="six">*/}
-                            {/*                    Brand2*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-
-
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input"  type="radio" name="Brand"
+                                                id="five" />
+                                            <label className="form-check-label" htmlFor="five">
+                                                Brand1
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input"  type="radio" name="Brand"
+                                                id="six" />
+                                            <label className="form-check-label" htmlFor="six">
+                                                Brand2
+                                        </label>
+                                        </div>
+                                    </div>
 
 
 
 
 
 
-                            {/*        <h1>Number Of seats:</h1>*/}
-                            {/*        <div className={'row my-3'}>*/}
-                            {/*            <div className={'col-md-6 mb-2'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="no6"*/}
-                            {/*                    id="six" />*/}
-                            {/*                <label className="form-check-label" htmlFor="six">*/}
-                            {/*                    4 seats*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*            <div className={'col-md-6'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="no6"*/}
-                            {/*                    id="seven" />*/}
-                            {/*                <label className="form-check-label" htmlFor="seven">*/}
-                            {/*                    6 seats*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <h1>Color:</h1>*/}
-
-                            {/*        <div className={'row my-3'}>*/}
-                            {/*            <div className={'col-md-6 mb-2'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="white"*/}
-                            {/*                    id="eight" />*/}
-                            {/*                <label className="form-check-label" htmlFor="eight">*/}
-                            {/*                    Black*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*            <div className={'col-md-6'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="white"*/}
-                            {/*                    id="nine" />*/}
-                            {/*                <label className="form-check-label" htmlFor="nine">*/}
-                            {/*                    White*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*        <h1>Brand:</h1>*/}
-
-                            {/*        <div className={'row my-3 '}>*/}
-                            {/*            <div className={'col-md-6 mb-2'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="br"*/}
-                            {/*                    id="ten" />*/}
-                            {/*                <label className="form-check-label" htmlFor="ten">*/}
-                            {/*                    Brand1*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*            <div className={'col-md-6'}>*/}
-                            {/*                <input className="form-check-input"  type="radio" name="br"*/}
-                            {/*                    id="eleven" />*/}
-                            {/*                <label className="form-check-label" htmlFor="eleven">*/}
-                            {/*                    Brand2*/}
-                            {/*            </label>*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
 
 
-                            {/*        : <div/>*/}
-                            {/*}*/}
+                                    <h1>Number Of seats:</h1>
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input"  type="radio" name="no6"
+                                                id="six" />
+                                            <label className="form-check-label" htmlFor="six">
+                                                4 seats
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input"  type="radio" name="no6"
+                                                id="seven" />
+                                            <label className="form-check-label" htmlFor="seven">
+                                                6 seats
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Color:</h1>
+
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input"  type="radio" name="white"
+                                                id="eight" />
+                                            <label className="form-check-label" htmlFor="eight">
+                                                Black
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input"  type="radio" name="white"
+                                                id="nine" />
+                                            <label className="form-check-label" htmlFor="nine">
+                                                White
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <h1>Brand:</h1>
+
+                                    <div className={'row my-3 '}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input"  type="radio" name="br"
+                                                id="ten" />
+                                            <label className="form-check-label" htmlFor="ten">
+                                                Brand1
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input"  type="radio" name="br"
+                                                id="eleven" />
+                                            <label className="form-check-label" htmlFor="eleven">
+                                                Brand2
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                    : <div/>
+                            }
                         </div>
 
 
