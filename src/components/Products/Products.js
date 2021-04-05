@@ -6,6 +6,7 @@ import axios from 'axios'
 import Truncate from "react-truncate";
 import { useTranslation } from "react-i18next";
 import Loader from '../Shared/Loader/Loader';
+import { useParams } from 'react-router-dom';
 
 
 const { BASE_URL } = require('../../config');
@@ -15,9 +16,10 @@ export default function Products() {
 
     const { t } = useTranslation();
     const [products, setProducts] = useState([]);
+    let { id } = useParams();
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/products`).then(response => {
+        axios.get(`${BASE_URL}/categories/${id}/products`).then(response => {
             const lang = localStorage.getItem('lang');
             let dataArr;
             if (lang === 'ar') {
@@ -39,7 +41,7 @@ export default function Products() {
             }
             setProducts(dataArr);
         });
-    }, [])
+    }, [id])
 
     if (products.length === 0)
         return <Loader />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Intro.scss';
 import Nav from "../../Shared/Nav/Nav";
 import { useTranslation } from "react-i18next";
+import {Link} from 'react-router-dom';
 
 import PinkSquare from '../Assets/pink-square.png';
 
@@ -77,8 +78,8 @@ export default function Intro({ meta }) {
                         {data[activeCategory].content}
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
-                        <a className={'pink-button'} href={'/Customize'}>{t('utils.customize-your-vehicle')}</a>
-                        <a className={'pink-button'} href={'/products'}>{t('utils.our-products')}</a>
+                        <Link className={'pink-button'} to={'/customize'}>{t('utils.customize-your-vehicle')}</Link>
+                        <Link className={'pink-button'} to={'/categories/1/products'}>{t('utils.our-products')}</Link>
                     </div>
                 </div>
                 <div className={'right-container'}>
