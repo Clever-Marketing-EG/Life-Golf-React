@@ -3,6 +3,7 @@ import './Blogs.scss';
 import Truncate from 'react-truncate';
 import arrow from './Assets/arrow.png';
 import { Link } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 export default function Blogs({articles}) {
     const [data, setData] = useState([]);
@@ -58,6 +59,8 @@ export default function Blogs({articles}) {
 
 
 function Article({id, title, content, date, image_url}) {
+    
+    const {t} = useTranslation();
     return(
         <div className={'blog-container'}>
             <div className={'row'}>
@@ -72,7 +75,7 @@ function Article({id, title, content, date, image_url}) {
                         {content}
                     </Truncate></p>
                     <Link className={'read'} to={'/News/'+id}>
-                        Read More
+                        {t('utils.read-more')}
                         {/*TODO*/}
                         <img className={'arrow'} src={arrow} alt="" />
                     </Link>

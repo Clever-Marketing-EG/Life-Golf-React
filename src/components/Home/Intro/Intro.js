@@ -77,8 +77,8 @@ export default function Intro({ meta }) {
                         {data[activeCategory].content}
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
-                        <a className={'pink-button'} href={'/Customize'}>Customize your vehicle</a>
-                        <a className={'pink-button'} href={'#'}>Our Products</a>
+                        <a className={'pink-button'} href={'/Customize'}>{t('utils.customize-your-vehicle')}</a>
+                        <a className={'pink-button'} href={'#'}>{t('utils.our-products')}</a>
                     </div>
                 </div>
                 <div className={'right-container'}>

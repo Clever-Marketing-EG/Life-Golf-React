@@ -73,6 +73,7 @@ export default function Services({ changelang }) {
 
 
 function Service({name, description, id, image_url}) {
+    const {t} = useTranslation();
     return (
         <div className={'col-md-4'}>
             <div className={'service-container'}>
@@ -81,7 +82,7 @@ function Service({name, description, id, image_url}) {
                     <h1><Truncate lines={1}>{name}</Truncate></h1>
                     <p><Truncate lines={3}>{description}</Truncate></p>
                     <Link className={'read'} to={'/Services/'+id}>
-                        Read More
+                        {t('utils.read-more')}
                         <img className={'arrow'} src={arrow} alt="" />
                     </Link>
                 </div>
