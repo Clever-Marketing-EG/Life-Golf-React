@@ -19,8 +19,8 @@
         "electric-vehicles": "Electric Vehicles",
         "electric-cleaning-equipments": "Electric Cleaning Equipments",
         "electric-handling-equipments": "Electric Handling Equipments",
-        "by-order" :"By Order",
-        "electronics" :"Electronics"
+        "by-order": "By Order",
+        "electronics": "Electronics"
     },
     "utils": {
         "additional-info": "Additional information",
@@ -36,8 +36,8 @@
         "email": "Email",
         "subject": "Subject",
         "message": "Message",
-        "personal-details":"Personal details",
-        "product-details":"Product details",
+        "personal-details": "Personal details",
+        "product-details": "Product details",
         "first-name": "First name",
         "last-name": "Last name",
         "phone": "Phone",
@@ -48,16 +48,17 @@
         "black": "Black",
         "white": "White",
         "see-more": "See more",
-        "customize-your-vehicle":"Customize your vehicle",
+        "customize-your-vehicle": "Customize your vehicle",
         "our-products": "Our products",
         "read-more": "Read more",
         "send": "Send",
         "popular-posts": "Popular posts",
         "search": "  Search..",
         "order-now": "Order now",
-        "one-of-our-employee-will-get-in-touch-with-you-soon":"One of our employee will get in touch with you soon",
+        "one-of-our-employee-will-get-in-touch-with-you-soon": "One of our employee will get in touch with you soon",
         "features": "Features",
         "specification": "Specification",
-        "similar-products": "Similar Products"
+        "similar-products": "Similar Products",
+        "golf": "Golf Carts"
     }
 }

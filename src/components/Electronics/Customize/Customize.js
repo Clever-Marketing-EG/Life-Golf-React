@@ -16,7 +16,7 @@ export default function Customize({ meta }) {
             <div className={'container mt'}>
                 <div className={'row'}>
                     <div className={'col-md-5'}>
-                        <img className={'custom-img'} src={pic} alt="" />
+                        <img className={'custom-img'} src={meta.image_1} alt="" />
                     </div>
                     <div className={'col-md-6'}>
                         <h1 className={'custom-title'}>{meta.customize_title}</h1>

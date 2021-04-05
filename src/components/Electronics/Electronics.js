@@ -16,7 +16,7 @@ export default function Electronics({meta}) {
             <div className={'container mt'}>
                 <div className={'row'}>
                     <div className={'col-md-5'}>
-                        <img className={'electronic-img'} src={pic} alt="" />
+                        <img className={'electronic-img'} src={meta.image_1} alt="" />
                     </div>
                     <div className={'col-md-6'}>
                         <h1 className={'electronic-title'}>{meta.electronic_title}</h1>
