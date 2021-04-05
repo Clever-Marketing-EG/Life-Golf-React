@@ -64,7 +64,7 @@ export default function ContactUs({ meta }) {
                             </div>
                             <div className={"btn-container"}>
                                 <button className="btn send-btn" type="submit">
-                                    Send
+                                  {t('utils.send')}
                                 </button>
                             </div>
                         </form>

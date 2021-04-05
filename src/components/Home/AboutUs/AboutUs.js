@@ -1,8 +1,11 @@
 import React from 'react';
 import './AboutUs.scss';
+import { useTranslation } from 'react-i18next';
 
 
 export default function AboutUs({ meta }) {
+    const { t } = useTranslation();
+
     return (
         <div id={'about-us'} className={'container d-flex flex-wrap-reverse justify-content-around'}  >
             <div className={'left-container d-flex flex-wrap justify-content-around'}>
@@ -18,8 +21,8 @@ export default function AboutUs({ meta }) {
                     {meta.about_us_content}
                 </p>
                 <a className={'home-blue-button'} href={'/About'}>
-                    Show More
-                </a> 
+                   {t('utils.see-more')} 
+                </a>
             </div>
         </div>
     )
