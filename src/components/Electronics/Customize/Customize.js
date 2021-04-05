@@ -20,7 +20,7 @@ export default function Customize({ meta }) {
                     </div>
                     <div className={'col-md-6'}>
                         <h1 className={'custom-title'}>{meta.customize_title}</h1>
-                        <hr />
+                        <hr/>
                         <p className={'custom-p'}>
                             <Truncate lines={6}>
                                 {meta.customize_content}

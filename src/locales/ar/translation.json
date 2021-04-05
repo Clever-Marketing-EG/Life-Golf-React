@@ -39,10 +39,13 @@
         "product-details":"تفاصيل المنتج",
         "first-name": "الاسم الاول",
         "last-name": "الاسم الاخير",
-        "phone": "الهاتف"
-
-
-
-
+        "phone": "الهاتف",
+        "number-Of-seats": ":عدد المقاعد",
+        "color": ":اللون",
+        "brand": ":الماركة",
+        "seats": "مقاعد",
+        "black": "أسود",
+        "white": "أبيض"
+        
     }
 }

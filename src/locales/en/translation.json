@@ -40,7 +40,13 @@
         "product-details":"Product details",
         "first-name": "First name",
         "last-name": "Last name",
-        "phone": "Phone"
+        "phone": "Phone",
+        "number-Of-seats": "Number Of seats:",
+        "color": "Color:",
+        "brand": "Brand:",
+        "seats": "Seats",
+        "black": "Black",
+        "white": "White"
         
     }
 }
