@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import "./Products.scss";
 import Header from "../Shared/Header/Header";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Truncate from "react-truncate";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import Loader from '../Shared/Loader/Loader';
 
 
 const { BASE_URL } = require('../../config');
 
 
 export default function Products() {
-    
-    const {t} = useTranslation();
+
+    const { t } = useTranslation();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -20,7 +21,7 @@ export default function Products() {
             const lang = localStorage.getItem('lang');
             let dataArr;
             if (lang === 'ar') {
-                dataArr = response.data.data.map( item => ({
+                dataArr = response.data.data.map(item => ({
                     id: item.id,
                     name: item.name_ar,
                     description: item.description_ar,
@@ -28,7 +29,7 @@ export default function Products() {
                     image_url: item.images[0] ? item.images[0].url : ''
                 }))
             } else {
-                dataArr = response.data.data.map( item => ({
+                dataArr = response.data.data.map(item => ({
                     id: item.id,
                     name: item.name,
                     description: item.description,
@@ -38,29 +39,33 @@ export default function Products() {
             }
             setProducts(dataArr);
         });
-    },[])
+    }, [])
 
-
-    return (
-        <div>
-            <Header title={t('nav.products')} />
+    if (products.length === 0)
+        return <Loader />
+    else
+        return (
             <div>
-                <div id={"products"} className="container">
-                    <div className="d-flex flex-wrap justify-content-around align-items-center">
-                        {
-                            products.map( (item, index) => (
-                                <ProductCard item={item} key={index} />
-                            ))
-                        }
+                <Header title={t('nav.products')} />
+                <div>
+                    <div id={"products"} className="container">
+                        <div className="d-flex flex-wrap justify-content-around align-items-center">
+                            {
+                                products.map((item, index) => (
+                                    <ProductCard item={item} key={index} />
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
 }
 
 
-function ProductCard( {item} ) {
+function ProductCard({ item }) {
+    const { t } = useTranslation();
+
     return (
         <div>
             <div className="card col-card">
@@ -79,7 +84,7 @@ function ProductCard( {item} ) {
                     <br />
                     <div className="mrow">
                         <Link to={`/products/${item.id}`} className={'btn primarybtn block w-100'}>
-                            See More
+                            {t('utils.see-more')}
                         </Link>
                     </div>
                 </div>

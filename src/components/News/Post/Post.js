@@ -9,8 +9,12 @@ import { Link } from 'react-router-dom';
 import Header from '../../Shared/Header/Header';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
+
 const { BASE_URL } = require('../../../config');
 export default function Posts() {
+    const {t} = useTranslation();
+
     const [post, setArticle] = useState([]);
     const [time, setTime] = useState([]);
     let { id } = useParams();
@@ -47,18 +51,18 @@ export default function Posts() {
         <div id={'post'}>
             <Header className="header" title={'Article'} />
 
-            <div className={'container x'}>
+            <div  className={'container x'}>
                 <div className={'row'}>
-                    <div className={'col-md-4 left-container'}>
+                    <div  className={'col-md-4 left-container'}>
                         <div class="search-container">
-                            <form action="/action_page.php" class="search-form">
-                                <input type="text" placeholder="   Search.." name="search" />
+                            <form dir={t('dir')}  action="/action_page.php" class="search-form">
+                                <input type="text" placeholder={t('utils.search')} name="search" />
                                 <button type="submit" className={"pink-circle btn"}></button>
                                 <img src={search} className={"path"} alt="" />
                             </form>
                         </div>
-                        <h1>Popular posts</h1>
-                        <div className={'row'}>
+                        <h1  dir={t('dir')}>{t('utils.popular-posts')}</h1>
+                        <div dir={t('dir')} className={'row'}>
                             <div className={'col-md-4'}>
                                 <img className={'pic-1'} src={pic} alt="" />
 
@@ -67,35 +71,6 @@ export default function Posts() {
                                 <h2>News Title</h2>
                                 <p className={'news-date'}>19 augs,2020 - by Bassem</p>
                             </div>
-                        </div>
-                        <div className={'row'}>
-                            <div className={'col-md-4'}>
-                                <img className={'pic-1'} src={pic} alt="" />
-
-                            </div>
-                            <div className={'col-md-8'}>
-                                <h2>News Title</h2>
-                                <p className={'news-date'}>19 augs,2020 - by Bassem</p>
-                            </div>
-                        </div>
-                        <div className={'row'}>
-                            <div className={'col-md-4'}>
-                                <img className={'pic-1'} src={pic} alt="" />
-
-                            </div>
-                            <div className={'col-md-8'}>
-                                <h2>News Title</h2>
-                                <p className={'news-date'}>19 augs,2020 - by Bassem</p>
-                            </div>
-                        </div>
-                        <h1 className={"tags"}>Tags</h1>
-                        <div className={"row m-left"}>
-                            <Link className={"col-md-3 tag-container"}>tag</Link>
-                            <Link className={"col-md-3 tag-container"}>tag</Link>
-                            <Link className={"col-md-3 tag-container"}>tag</Link>
-                            <Link className={"col-md-3 tag-container"}>tag</Link>
-                            <Link className={"col-md-3 tag-container"}>tag</Link>
-
                         </div>
                     </div>
                     <div className={"col-md-7 order-first order-md-last"}>

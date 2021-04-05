@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import PinkSquare from '../Assets/pink-square.png';
 
-
+ 
 export default function Intro({ meta }) {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
     const { t } = useTranslation();
@@ -69,7 +69,7 @@ export default function Intro({ meta }) {
     return (
         <div id={'intro'}>
             <Nav />
-            <div className={'container intro-container d-flex flex-xxl-nowrap flex-xl-nowrap flex-lg-nowrap flex-wrap justify-content-around'}>
+            <div className={'container intro-container d-flex flex-xxl-nowrap flex-xl-nowrap flex-lg-nowrap flex-wrap justify-content-around'} dir={t('dir')}>
                 <div className={'left-container'}>
                     <h1 className={'intro-header'}>{data[activeCategory].header}</h1>
                     <hr className={'white-line'} />
@@ -77,8 +77,8 @@ export default function Intro({ meta }) {
                         {data[activeCategory].content}
                     </p>
                     <div className={'buttons-container d-flex justify-content-between'}>
-                        <a className={'pink-button'} href={'/Customize'}>Customize your vehicle</a>
-                        <a className={'pink-button'} href={'#'}>Our Products</a>
+                        <a className={'pink-button'} href={'/Customize'}>{t('utils.customize-your-vehicle')}</a>
+                        <a className={'pink-button'} href={'/products'}>{t('utils.our-products')}</a>
                     </div>
                 </div>
                 <div className={'right-container'}>

@@ -8,12 +8,16 @@ import Similar from '../Similar/Similar';
 import Left from './Left/Left';
 import Specs from './Specs/Specs';
 import axios from 'axios';
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Loader from "../../Shared/Loader/Loader";
+import { useTranslation } from "react-i18next";
+
 const { BASE_URL } = require('../../../config');
 
 
 export default function Product() {
+
+    const { t } = useTranslation();
     const { id } = useParams();
 
     const [data, setData] = useState({
@@ -24,7 +28,7 @@ export default function Product() {
     useEffect(() => {
         let lang = localStorage.getItem('lang')
 
-        axios.get(`${BASE_URL}/products/${id}`).then( response => {
+        axios.get(`${BASE_URL}/products/${id}`).then(response => {
 
             let dataObj = {
                 id: response.data.data.id,
@@ -33,32 +37,36 @@ export default function Product() {
                 images: response.data.data.images,
             }
 
-            if(lang === 'ar') {
-                dataObj = {...{
+            if (lang === 'ar') {
+                dataObj = {
+                    ...{
                         name: response.data.data.name_ar,
                         points: response.data.data.points_ar.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
                         description: response.data.data.description_ar,
                         features: response.data.data.features_ar
-                    }, ...dataObj}
+                    }, ...dataObj
+                }
             } else {
-                dataObj = {...{
+                dataObj = {
+                    ...{
                         name: response.data.data.name,
                         points: response.data.data.points.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
                         description: response.data.data.description,
                         features: response.data.data.features
-                    }, ...dataObj}
+                    }, ...dataObj
+                }
             }
             setData(dataObj);
         });
-    },[])
+    }, [])
 
-    if(!data.id)
+    if (!data.id)
         return <Loader />;
     else
         return (
             <div id={'single'}>
                 <Header title={data.name} />
-                <div  className={'container cars-position'}>
+                <div className={'container cars-position'}>
                 </div>
                 <div className={'container'}>
                     <div>
@@ -71,15 +79,15 @@ export default function Product() {
                                 <hr />
                                 <ul className={'about-list'}>
                                     {
-                                        data.points.map( (item, index) => (
+                                        data.points.map((item, index) => (
                                             <li className={'list-item'} key={index}>
-                                                <img className={'circle'} src={circle}  alt={'...'}/>{item}
+                                                <img className={'circle'} src={circle} alt={'...'} />{item}
                                             </li>
                                         ))
                                     }
                                 </ul>
                                 <p><Truncate lines={6}>{data.description}</Truncate></p>
-                                <button className="btn order-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Order Now</button>
+                                <button className="btn order-button" data-bs-toggle="modal" data-bs-target="#exampleModal">{t('utils.order-now')}</button>
                             </div>
                         </div>
                         <Specs data={data} />
@@ -89,41 +97,41 @@ export default function Product() {
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header justify-content-center">
-                                    <h5 className="modal-title" id="exampleModalLabel">Order now</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                                    <h5 className="modal-title" id="exampleModalLabel">{t('utils.order-now')}</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                                 </div>
                                 <div className="modal-body">
-                                    <form >
+                                    <form dir={t('dir')}>
                                         <div className={'row'}>
                                             <div className={'col-sm-6'}>
-                                                <input type="text" className="form-control" placeholder="Name" />
+                                                <input type="text" className="form-control" placeholder={t('utils.name')} />
                                             </div>
                                             <div className={'col-sm-6'}>
-                                                <input type="email" className="form-control" placeholder="Email" />
+                                                <input type="email" className="form-control" placeholder={t('utils.email')} />
 
                                             </div>
                                             <div className={'col-sm-12'}>
-                                                <input type="text" className="form-control" placeholder="Subject" />
+                                                <input type="text" className="form-control" placeholder={t('utils.subject')} />
 
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                        <textarea
-                                            className="form-control"
-                                            rows="6"
-                                            id="comment"
-                                            placeholder="Message"
-                                        />
+                                            <textarea
+                                                className="form-control"
+                                                rows="6"
+                                                id="comment"
+                                                placeholder={t('utils.message')}
+                                            />
                                         </div>
                                         <div className={"btn-container"}>
                                             <button className="btn send-btn" type="submit">
-                                                Send
+                                                {t('utils.send')}
                                             </button>
                                         </div>
-                                        <br />
-                                        <div className={'pink'}>
-                                            <img src={warning} alt="" className={'warn mb-3'}/>
-                                            <span>One of our employee will get in touch with you soon</span>
+                                        <br/>
+                                        <div className={'pink d-flex align-items-center'} dir={t('dir')} >
+                                            <img src={warning} alt="" className={'warn mb-3 block'}  />
+                                            <span className="block">{t('utils.one-of-our-employee-will-get-in-touch-with-you-soon')}</span>
                                         </div>
                                     </form>
 

@@ -46,7 +46,20 @@
         "brand": "Brand:",
         "seats": "Seats",
         "black": "Black",
-        "white": "White"
+        "white": "White",
+        "see-more": "See more",
+        "customize-your-vehicle":"Customize your vehicle",
+        "our-products": "Our products",
+        "read-more": "Read more",
+        "send": "Send",
+        "popular-posts": "Popular posts",
+        "search": "  Search..",
+        "order-now": "Order now",
+        "one-of-our-employee-will-get-in-touch-with-you-soon":"One of our employee will get in touch with you soon",
+        "features": "Features",
+        "specification": "Specification"
+
+
         
     }
 }

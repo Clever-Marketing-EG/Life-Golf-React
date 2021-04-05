@@ -45,7 +45,19 @@
         "brand": ":الماركة",
         "seats": "مقاعد",
         "black": "أسود",
-        "white": "أبيض"
+        "white": "أبيض",
+        "see-more": "عرض المزيد",
+        "customize-your-vehicle":" تخصيص سيارتك",
+        "our-products": "المعرض",
+        "read-more": "اقرأ المزيد",
+        "send": "ارسل",
+        "popular-posts": "منشورات شائعة",
+        "search": "   بحث",
+        "order-now": "اطلب الان",
+        "one-of-our-employee-will-get-in-touch-with-you-soon":"سيتواصل معك أحد موظفينا قريبًا",
+        "features": "الميزات",
+        "specification": "المواصفات"
+
         
     }
 }

@@ -55,7 +55,7 @@ export default function Videos({ videos, meta }) {
         <div id={'videos'}>
             <div className={'container'}>
                 <h1 className={'vid-title '}>{meta.video_header}</h1>
-                <div className={'navigator'}>
+                <div className={'navigator'} dir={t('dir')}>
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">
                             <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.factory-videos')}</button>

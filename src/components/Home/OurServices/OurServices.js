@@ -5,13 +5,13 @@ import cart from '../Assets/our-services.png';
 import GreySquare from '../Assets/grey-square.jpg';
 import axios from "axios";
 import Loader from "../../Shared/Loader/Loader";
-
+import { useTranslation } from "react-i18next";
 const {BASE_URL} = require('../../../config');
 
 
 export default function OurServices({ meta }) {
     
-
+    const { t } = useTranslation();
     const [services, setServics] = useState([]);
 
     useEffect(()=> {
