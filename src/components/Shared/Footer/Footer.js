@@ -20,11 +20,12 @@ export default function Footer({meta}) {
                             <div className="social-icons-container">
                                 <ul className="social-icons">
                                     <li>
-                                        <a className="facebook" href="https://www.facebook.com/lifegolfcar/">
+                                        <a className="facebook" href="https://www.facebook.com/397530136960047/">
                                             <i className="icon-facebook"/>
                                         </a>
                                     </li>
-                                    <li>
+                                    
+                                    {/* <li>
                                         <a className="twitter" href="#">
                                             <i className="icon-twitter" />
                                         </a>
@@ -33,9 +34,9 @@ export default function Footer({meta}) {
                                         <a className="linkedin" href="#">
                                             <i className="icon-linkedin"/>
                                         </a>
-                                    </li>
+                                    </li> */}
                                     <li>
-                                        <a className="instagram" href="">
+                                        <a className="instagram" href="https://instagram.com/life_golf_car?igshid=1sw4foiskfzkk">
                                             <i className="icon-instagram" />
                                         </a>
                                     </li>
@@ -68,6 +69,9 @@ export default function Footer({meta}) {
                                 </li>
                                 <li>
                                     <a href="/categories/4/products">{t('categories.electric-handling-equipments')}</a>
+                                </li>
+                                <li>
+                                    <a href="/categories/5/products">{t('categories.electronics')}</a>
                                 </li>
                             </ul>
                         </div>
