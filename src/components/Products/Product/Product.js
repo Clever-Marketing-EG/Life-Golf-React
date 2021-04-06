@@ -26,7 +26,9 @@ export default function Product() {
     });
 
 
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        product: '',
+    });
 
 
     useEffect(() => {
@@ -60,25 +62,27 @@ export default function Product() {
                     }, ...dataObj
                 }
             }
+            setFormData({product: dataObj.name});
             setData(dataObj);
         });
     }, [])
 
 
     const handleChange = (e) => {
-        setFormData({...data,
+        setFormData({...formData,
             ...{[e.target.name]: e.target.value}
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${BASE_URL}/forms/order`, formData)
+        console.log(formData);
+        axios.post(`${BASE_URL}/mail/order`, formData)
             .then( (response) => {
-                console.log(response.data.data);
+                console.log(response.data);
             })
             .catch( (err) => {
-                console.log(err.response.data);
+                console.log(err.response);
             })
     }
 
@@ -127,7 +131,7 @@ export default function Product() {
                                 </div>
                                 <div className="modal-body">
                                     <form dir={t('dir')} onSubmit={handleSubmit}>
-                                        <input type={'hidden'} value={data.name} />
+                                        <input type={'hidden'} name={'product'} value={data.name} />
                                         <div className={'row'}>
                                             <div className={'col-sm-6'}>
                                                 <input type="text" className="form-control" name={'name'} placeholder={t('utils.name')} onChange={handleChange} required />
