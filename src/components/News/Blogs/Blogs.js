@@ -8,7 +8,7 @@ import {useTranslation} from "react-i18next";
 export default function Blogs({articles}) {
     const [data, setData] = useState([]);
     const { t } = useTranslation();
-
+    
     useEffect( () => {
         let dataArr;
         const lang = localStorage.getItem('lang');
