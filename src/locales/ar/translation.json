@@ -43,10 +43,17 @@
         "phone": "الهاتف",
         "number-Of-seats": ":عدد المقاعد",
         "color": ":اللون",
-        "brand": ":الماركة",
+        "brand": ":السرعة",
+        "type": "النوع",
+        "lift" : "مرفوع",
+        "reg" : "عادي",
         "seats": "مقاعد",
         "black": "أسود",
         "white": "أبيض",
+        "green":"أخضر",
+        "dblue": "كحلي",
+        "lblue": "لبني",
+        "pattern" : "نمط",
         "see-more": "عرض المزيد",
         "customize-your-vehicle":" تخصيص سيارتك",
         "our-products": "المعرض",
@@ -59,8 +66,8 @@
         "features": "الميزات",
         "specification": "المواصفات",
         "similar-products": "منتجات مماثلة",
-        "golf": "سيارات الجولف"
-
+        "golf": "سيارات الجولف",
+        "cont" : ".جميع الحقوق محفوظة"
 
 
     }

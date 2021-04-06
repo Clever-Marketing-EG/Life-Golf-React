@@ -22,17 +22,39 @@ export default function News() {
         1: [], 2: [], 3: [], 4: [], 5: []
     });
 
+    const [pagination, setPagination] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
     useEffect(() => {
-        axios.get(`${BASE_URL}/articles`).then(response => {
+        axios.get(`${BASE_URL}/articles?page=${currentPage}`).then(response => {
             let dataObj = {
                 1: [], 2: [], 3: [], 4: [], 5: []
             };
+
             response.data.data.forEach(item => {
                 dataObj[item.category_id].push(item);
             })
             setData(dataObj);
+
+
+            let dataArr = [];
+            console.log(response.data.last_page)
+            for(let i=0; i<response.data.last_page;i++) {
+                dataArr.push(
+                    <li class="page-item"><a class="page-link" href="#" id={i+1} onClick={changePage}>{i+1}</a></li>
+                )
+            }
+            console.log(dataArr);
+            setPagination(dataArr);
         });
-    }, [])
+    }, [currentPage])
+
+
+    const changePage = (e) => {
+        setCurrentPage(e.target.id);
+    }
+
+
 
     return (
         <div>
@@ -81,6 +103,13 @@ export default function News() {
                     </div>
 
                 </div>
+
+                <nav className={'d-flex justify-content-center'} aria-label="Page navigation example">
+                    <ul class="pagination">
+                        {pagination}
+                    </ul>
+                </nav>
+
             </div>
         </div>
     );

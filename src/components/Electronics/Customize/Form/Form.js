@@ -77,14 +77,28 @@ export default function Form() {
                                             <input className="form-check-input" type="radio" name="no4"
                                                 id="one" />
                                             <label className="form-check-label" htmlFor="one">
-                                                4 {t('utils.seats')}
+                                                2 {t('utils.seats')}
                                             </label>
                                         </div>
                                         <div className={'col-md-6'}>
                                             <input className="form-check-input" type="radio" name="no4"
                                                 id="two" />
                                             <label className="form-check-label" htmlFor="two">
+                                                4 {t('utils.seats')}
+                                            </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" type="radio" name="no4"
+                                                id="three" />
+                                            <label className="form-check-label" htmlFor="three">
                                                 6 {t('utils.seats')}
+                                            </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" type="radio" name="no4"
+                                                id="four" />
+                                            <label className="form-check-label" htmlFor="four">
+                                                8 {t('utils.seats')}
                                             </label>
                                         </div>
                                     </div>
@@ -93,16 +107,44 @@ export default function Form() {
                                     <div className={'row my-3'}>
                                         <div className={'col-md-6 mb-2'}>
                                             <input className="form-check-input" type="radio" name="black"
-                                                id="three" />
-                                            <label className="form-check-label" htmlFor="three">
+                                                id="five" />
+                                            <label className="form-check-label" htmlFor="five">
                                                 {t('utils.black')}
+                                            </label>
+                                        </div>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" type="radio" name="black"
+                                                id="six" />
+                                            <label className="form-check-label" htmlFor="six">
+                                                {t('utils.white')}
+                                            </label>
+                                        </div>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" type="radio" name="black"
+                                                id="seven" />
+                                            <label className="form-check-label" htmlFor="seven">
+                                                {t('utils.green')}
                                             </label>
                                         </div>
                                         <div className={'col-md-6'}>
                                             <input className="form-check-input" type="radio" name="black"
-                                                id="four" />
-                                            <label className="form-check-label" htmlFor="four">
-                                                {t('utils.white')}
+                                                id="eight" />
+                                            <label className="form-check-label" htmlFor="eight">
+                                                {t('utils.dblue')}
+                                            </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" type="radio" name="black"
+                                                id="nine" />
+                                            <label className="form-check-label" htmlFor="nine">
+                                                {t('utils.lblue')}
+                                            </label>
+                                        </div>
+                                        <div className={'col-md-6'}>
+                                            <input className="form-check-input" type="radio" name="black"
+                                                id="ten" />
+                                            <label className="form-check-label" htmlFor="ten">
+                                                {t('utils.pattern')}
                                             </label>
                                         </div>
                                     </div>
@@ -111,80 +153,46 @@ export default function Form() {
                                     <div className={'row my-3'}>
                                         <div className={'col-md-6 mb-2'}>
                                             <input className="form-check-input" type="radio" name="Brand"
-                                                id="five" />
-                                            <label className="form-check-label" htmlFor="five">
-                                                Brand1
-                                        </label>
-                                        </div>
-                                        <div className={'col-md-6'}>
-                                            <input className="form-check-input" type="radio" name="Brand"
-                                                id="six" />
-                                            <label className="form-check-label" htmlFor="six">
-                                                Brand2
-                                        </label>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-
-                                    <h1>Number Of seats:</h1>
-                                    <div className={'row my-3'}>
-                                        <div className={'col-md-6 mb-2'}>
-                                            <input className="form-check-input" type="radio" name="no6"
-                                                id="six" />
-                                            <label className="form-check-label" htmlFor="six">
-                                                4 seats
-                                        </label>
-                                        </div>
-                                        <div className={'col-md-6'}>
-                                            <input className="form-check-input" type="radio" name="no6"
-                                                id="seven" />
-                                            <label className="form-check-label" htmlFor="seven">
-                                                6 seats
-                                        </label>
-                                        </div>
-                                    </div>
-                                    <h1>Color:</h1>
-
-                                    <div className={'row my-3'}>
-                                        <div className={'col-md-6 mb-2'}>
-                                            <input className="form-check-input" type="radio" name="white"
-                                                id="eight" />
-                                            <label className="form-check-label" htmlFor="eight">
-                                                Black
-                                        </label>
-                                        </div>
-                                        <div className={'col-md-6'}>
-                                            <input className="form-check-input" type="radio" name="white"
-                                                id="nine" />
-                                            <label className="form-check-label" htmlFor="nine">
-                                                White
-                                        </label>
-                                        </div>
-                                    </div>
-                                    <h1>Brand:</h1>
-
-                                    <div className={'row my-3 '}>
-                                        <div className={'col-md-6 mb-2'}>
-                                            <input className="form-check-input" type="radio" name="br"
-                                                id="ten" />
-                                            <label className="form-check-label" htmlFor="ten">
-                                                Brand1
-                                        </label>
-                                        </div>
-                                        <div className={'col-md-6'}>
-                                            <input className="form-check-input" type="radio" name="br"
                                                 id="eleven" />
                                             <label className="form-check-label" htmlFor="eleven">
-                                                Brand2
+                                                20
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" type="radio" name="Brand"
+                                                id="twelve" />
+                                            <label className="form-check-label" htmlFor="twelve">
+                                                25
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6 '}>
+                                            <input className="form-check-input" type="radio" name="Brand"
+                                                id="thirteen" />
+                                            <label className="form-check-label" htmlFor="thirteen">
+                                                30
                                         </label>
                                         </div>
                                     </div>
+                                    <h1>{t('utils.type')}</h1>
+
+                                    <div className={'row my-3'}>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" type="radio" name="Type"
+                                                id="fourteen" />
+                                            <label className="form-check-label" htmlFor="fourteen">
+                                            {t('utils.lift')}
+                                        </label>
+                                        </div>
+                                        <div className={'col-md-6 mb-2'}>
+                                            <input className="form-check-input" type="radio" name="Type"
+                                                id="fifteen" />
+                                            <label className="form-check-label" htmlFor="fifteen">
+                                            {t('utils.reg')}
+                                              </label>
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
 

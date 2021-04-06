@@ -20,7 +20,7 @@ export default function Footer({meta}) {
                             <div className="social-icons-container">
                                 <ul className="social-icons">
                                     <li>
-                                        <a className="facebook" href="#">
+                                        <a className="facebook" href="https://www.facebook.com/lifegolfcar/">
                                             <i className="icon-facebook"/>
                                         </a>
                                     </li>
@@ -35,7 +35,7 @@ export default function Footer({meta}) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="instagram" href="#">
+                                        <a className="instagram" href="">
                                             <i className="icon-instagram" />
                                         </a>
                                     </li>
@@ -50,9 +50,6 @@ export default function Footer({meta}) {
                                     <a href={'/services'}>{t('nav.services')}</a>
                                 </li>
                                 <li>
-                                    <a href={'/products'}>{t('nav.categories')}</a>
-                                </li>
-                                <li>
                                     <a href="/news">{t('nav.news')}</a>
                                 </li>
                             </ul>
@@ -61,16 +58,16 @@ export default function Footer({meta}) {
                             <h3>{t('nav.products')}</h3>
                             <ul className={'pages-link'} >
                                 <li>
-                                    <a href="#">{t('categories.golf-carts-and-utilities')}</a>
+                                    <a href="/categories/1/products">{t('categories.golf-carts-and-utilities')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{t('categories.electric-vehicles')}</a>
+                                    <a href="/categories/2/products">{t('categories.electric-vehicles')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{t('categories.electric-cleaning-equipments')}</a>
+                                    <a href="/categories/3/products">{t('categories.electric-cleaning-equipments')}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{t('categories.electric-handling-equipments')}</a>
+                                    <a href="/categories/4/products">{t('categories.electric-handling-equipments')}</a>
                                 </li>
                             </ul>
                         </div>
@@ -96,7 +93,7 @@ export default function Footer({meta}) {
 
                             </ul>
                         </div>
-                        <p className="text-center mb-3"> &copy; 2021 All Rights Reserved. Life Golf Car. | Designed by <a className={'clever'} href="https://www.clevermarketing-eg.com/"> Clever marketing</a></p>
+                        <p  className="text-center mb-3"> &copy; 2021 All Rights Reserved. Life Golf Cart. | Designed by <a className={'clever'} href="https://www.clevermarketing-eg.com/"> Clever marketing</a></p>
                     </div>
 
                 </div>
