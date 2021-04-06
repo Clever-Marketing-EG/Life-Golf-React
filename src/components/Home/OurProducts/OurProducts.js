@@ -38,7 +38,7 @@ export default function OurProducts({ categories, products, meta }) {
             dataObj.products = products.map( item => ({
                 'id': item['id'],
                 'name': item['name_ar'],
-                'image_url': item['image_url'],
+                'image_url': item.images[0].url,
                 'category_id': item['category_id']
             }))
         } else {
@@ -51,7 +51,7 @@ export default function OurProducts({ categories, products, meta }) {
             dataObj.products = products.map( item => ({
                 'id': item['id'],
                 'name': item['name'],
-                'image_url': item['image_url'],
+                'image_url': item.images[0].url,
                 'category_id': item['category_id']
             }))
         }
