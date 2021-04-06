@@ -23,13 +23,13 @@ export default function Similar( {id} ) {
             .then( response => {
                 let dataArr;
                 if(lang === 'ar') {
-                    dataArr = response.data.data.map( item => ({
+                    dataArr = response.data.data.slice(0, 6).map( item => ({
                         id: item.id,
                         image_url: item.images[0].url,
                         name: item.name_ar
                     }))
                 } else {
-                    dataArr = response.data.data.map( item => ({
+                    dataArr = response.data.data.slice(0, 6).map( item => ({
                         id: item.id,
                         image_url: item.images[0].url,
                         name: item.name

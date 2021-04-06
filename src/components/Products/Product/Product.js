@@ -25,6 +25,10 @@ export default function Product() {
         images: []
     });
 
+
+    const [formData, setFormData] = useState({});
+
+
     useEffect(() => {
         let lang = localStorage.getItem('lang')
 
@@ -60,6 +64,25 @@ export default function Product() {
         });
     }, [])
 
+
+    const handleChange = (e) => {
+        setData({...data,
+            ...{[e.target.name]: e.target.value}
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post(`${BASE_URL}/forms/order`)
+            .then( (response) => {
+                console.log(response.data.data);
+            })
+            .catch( (err) => {
+                console.log(err.response.data);
+            })
+    }
+
+
     if (!data.id)
         return <Loader />;
     else
@@ -93,6 +116,8 @@ export default function Product() {
                         <Specs data={data} />
                         <Similar id={data.category_id} />
                     </div>
+
+                    {/* Dropdown banner*/}
                     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog">
                             <div className="modal-content">
@@ -101,18 +126,17 @@ export default function Product() {
                                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                                 </div>
                                 <div className="modal-body">
-                                    <form dir={t('dir')}>
+                                    <form dir={t('dir')} onSubmit={handleSubmit}>
                                         <div className={'row'}>
                                             <div className={'col-sm-6'}>
-                                                <input type="text" className="form-control" placeholder={t('utils.name')} />
+                                                <input type="text" className="form-control" name={'name'} placeholder={t('utils.name')} onChange={handleChange} required />
                                             </div>
                                             <div className={'col-sm-6'}>
-                                                <input type="email" className="form-control" placeholder={t('utils.email')} />
+                                                <input type="email" className="form-control" name={'email'} placeholder={t('utils.email')} onChange={handleChange} required />
 
                                             </div>
                                             <div className={'col-sm-12'}>
-                                                <input type="text" className="form-control" placeholder={t('utils.subject')} />
-
+                                                <input type="tel" className="form-control" name={'phone'} placeholder={t('utils.phone')} onChange={handleChange} required pattern="[0-9]+"/>
                                             </div>
                                         </div>
                                         <div className="form-group">
@@ -120,7 +144,9 @@ export default function Product() {
                                                 className="form-control"
                                                 rows="6"
                                                 id="comment"
-                                                placeholder={t('utils.message')}
+                                                name={'additional_information'}
+                                                onChange={handleChange}
+                                                placeholder={t('utils.additional-info')}
                                             />
                                         </div>
                                         <div className={"btn-container"}>

@@ -87,6 +87,10 @@ export default function App() {
                                 meta={meta['contact']}
                             />
                         </Route>
+                        <Route exact path="/categories/:id/products">
+                            <Products
+                            />
+                        </Route>
                         <Route exact path="/products">
                             <Products
                             />
