@@ -7,6 +7,7 @@ import Header from '../../Shared/Header/Header';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import Truncate from 'react-truncate';
 
 const { BASE_URL } = require('../../../config');
 export default function Posts() {
@@ -94,7 +95,7 @@ export default function Posts() {
                                     <img className={'pic-1'} src={item.image_url} alt="" />
                                 </div>
                                 <div dir={t('dir')} className={'col-md-8 news-title'}>
-                                    <Link className={''} to={`/news/${item.id}`}>{item.title}</Link>
+                                    <Link className={'news'} to={`/news/${item.id}`}><Truncate lines={1}>{item.title}</Truncate></Link>
                                     <p className={'news-date'}>{item.time}</p>
                                 </div>
                             </div>
