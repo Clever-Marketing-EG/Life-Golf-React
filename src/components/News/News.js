@@ -9,6 +9,7 @@ import vehicle from './Assets/electric-vehicle.png';
 import Blogs from './Blogs/Blogs';
 import Header from '../Shared/Header/Header'
 import { useTranslation } from "react-i18next";
+import search from './Assets/search.png';
 
 const { BASE_URL } = require('../../config');
 
@@ -39,9 +40,9 @@ export default function News() {
 
             let dataArr = [];
             console.log(response.data.last_page)
-            for(let i=0; i<response.data.last_page;i++) {
+            for (let i = 0; i < response.data.last_page; i++) {
                 dataArr.push(
-                    <li class="page-item"><a class="page-link" href="#" id={i+1} onClick={changePage}>{i+1}</a></li>
+                    <li class="page-item"><a class="page-link" href="#" id={i + 1} onClick={changePage}>{i + 1}</a></li>
                 )
             }
             console.log(dataArr);
@@ -60,8 +61,16 @@ export default function News() {
         <div>
             <Header className="header" title={t('nav.news')} />
             <div id={'news'} className={'container'} dir={t('dir')} >
-                <div className="d-flex flex-wrap align-items-start">
+                <div className="d-flex justify-content-around flex-wrap align-items-start">
                     <div className="nav flex-column nav-pills mx-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    
+                    {/* <div class="search-container">
+                        <form dir={t('dir')} action="/action_page.php" class="search-form">
+                            <input type="text" placeholder={t('utils.search')} name="search" />
+                            <button type="submit" dir={t('dir')} className={"pink-circle btn"}></button>
+                            <img src={search} dir={t('dir')} className={"path"} alt="" />
+                        </form>
+                    </div> */}
                         <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <div className={'white-box'}>
                                 <img className={'filter-img'} src={cart} alt="" />

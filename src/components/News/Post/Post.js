@@ -79,21 +79,22 @@ export default function Posts() {
             <div className={'container x'}>
                 <div className={'row'}>
                     <div className={'col-md-4 left-container'}>
-                        <div class="search-container">
+                        
+                        {/* <div class="search-container">
                             <form dir={t('dir')} action="/action_page.php" class="search-form">
                                 <input type="text" placeholder={t('utils.search')} name="search" />
                                 <button type="submit" className={"pink-circle btn"}></button>
                                 <img src={search} className={"path"} alt="" />
                             </form>
-                        </div>
-                        <h1 dir={t('dir')}>{t('utils.popular-posts')}</h1>
+                        </div> */}
+                        <h1 className={'mt-5'} dir={t('dir')}>{t('utils.latest-articles')}</h1>
                         {data.map((item, index) =>
                             <div key={index} dir={t('dir')} className={'row'}>
                                 <div className={'col-md-4'}>
                                     <img className={'pic-1'} src={item.image_url} alt="" />
                                 </div>
-                                <div className={'col-md-8'}>
-                                    <Link to={`/news/${item.id}`}>{item.title}</Link>
+                                <div dir={t('dir')} className={'col-md-8 news-title'}>
+                                    <Link className={''} to={`/news/${item.id}`}>{item.title}</Link>
                                     <p className={'news-date'}>{item.time}</p>
                                 </div>
                             </div>
