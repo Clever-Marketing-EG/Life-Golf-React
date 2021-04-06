@@ -39,13 +39,11 @@ export default function News() {
 
 
             let dataArr = [];
-            console.log(response.data.last_page)
             for (let i = 0; i < response.data.last_page; i++) {
                 dataArr.push(
                     <li class="page-item"><a class="page-link" href="#" id={i + 1} onClick={changePage}>{i + 1}</a></li>
                 )
             }
-            console.log(dataArr);
             setPagination(dataArr);
         });
     }, [currentPage])
