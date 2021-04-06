@@ -42,13 +42,13 @@ export default function ContactUs({ meta }) {
                         <form className="p-2" onSubmit={handleSubmit}>
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" className="form-control p-3" placeholder={t('utils.name')} name={'from'} onChange={handleChange} value={data.from} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.name')} name={'from'} onChange={handleChange} />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')} name={'email'} onChange={handleChange} value={data.email} />
+                                    <input type="email" className="form-control p-3" placeholder={t('utils.email')} name={'email'} onChange={handleChange} />
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')} name={'subject'} onChange={handleChange} value={data.subject} />
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.subject')} name={'subject'} onChange={handleChange} />
                                 </div>
                             </div>
                             <div className="form-group">
