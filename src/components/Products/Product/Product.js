@@ -66,14 +66,14 @@ export default function Product() {
 
 
     const handleChange = (e) => {
-        setData({...data,
+        setFormData({...data,
             ...{[e.target.name]: e.target.value}
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${BASE_URL}/forms/order`)
+        axios.post(`${BASE_URL}/forms/order`, formData)
             .then( (response) => {
                 console.log(response.data.data);
             })
@@ -127,6 +127,7 @@ export default function Product() {
                                 </div>
                                 <div className="modal-body">
                                     <form dir={t('dir')} onSubmit={handleSubmit}>
+                                        <input type={'hidden'} value={data.name} />
                                         <div className={'row'}>
                                             <div className={'col-sm-6'}>
                                                 <input type="text" className="form-control" name={'name'} placeholder={t('utils.name')} onChange={handleChange} required />
