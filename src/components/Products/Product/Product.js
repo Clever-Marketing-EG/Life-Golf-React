@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import Loader from "../../Shared/Loader/Loader";
 import { useTranslation } from "react-i18next";
+import Swal from 'sweetalert2';
 
 const { BASE_URL } = require('../../../config');
 
@@ -76,13 +77,12 @@ export default function Product() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
         axios.post(`${BASE_URL}/mail/order`, formData)
-            .then( (response) => {
-                console.log(response.data);
+            .then( async (response) => {
+                await Swal.fire('Thank You!', response.data.data, 'success')
             })
-            .catch( (err) => {
-                console.log(err.response);
+            .catch( async (err) => {
+                await Swal.fire('An error occured!', err.response.data.message, 'error')
             })
     }
 
