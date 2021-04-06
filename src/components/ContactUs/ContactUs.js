@@ -6,6 +6,7 @@ import map from './Assets/icon_feather-map-pin.png';
 import Header from '../Shared/Header/Header';
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 const { BASE_URL } = require('../../config');
 
@@ -23,12 +24,11 @@ export default function ContactUs({ meta }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios.post(`${BASE_URL}/mail/contact-us`, data)
-            .then((response) => {
-                alert(response.data.data);
-                setData({});
+            .then( async (response) => {
+                await Swal.fire('Thank You!', response.data.data, 'success')
             })
-            .catch( err => {
-                alert(err.response.data.message)
+            .catch( async (err) => {
+                await Swal.fire('An error occured!', err.response.data.message, 'error')
             })
     }
 

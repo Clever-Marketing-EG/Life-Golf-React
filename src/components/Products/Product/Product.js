@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import Loader from "../../Shared/Loader/Loader";
 import { useTranslation } from "react-i18next";
+import Swal from 'sweetalert2';
 
 const { BASE_URL } = require('../../../config');
 
@@ -26,7 +27,9 @@ export default function Product() {
     });
 
 
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        product: '',
+    });
 
 
     useEffect(() => {
@@ -60,25 +63,26 @@ export default function Product() {
                     }, ...dataObj
                 }
             }
+            setFormData({product: dataObj.name});
             setData(dataObj);
         });
     }, [])
 
 
     const handleChange = (e) => {
-        setData({...data,
+        setFormData({...formData,
             ...{[e.target.name]: e.target.value}
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${BASE_URL}/forms/order`)
-            .then( (response) => {
-                console.log(response.data.data);
+        axios.post(`${BASE_URL}/mail/order`, formData)
+            .then( async (response) => {
+                await Swal.fire('Thank You!', response.data.data, 'success')
             })
-            .catch( (err) => {
-                console.log(err.response.data);
+            .catch( async (err) => {
+                await Swal.fire('An error occured!', err.response.data.message, 'error')
             })
     }
 
@@ -127,6 +131,7 @@ export default function Product() {
                                 </div>
                                 <div className="modal-body">
                                     <form dir={t('dir')} onSubmit={handleSubmit}>
+                                        <input type={'hidden'} name={'product'} value={data.name} />
                                         <div className={'row'}>
                                             <div className={'col-sm-6'}>
                                                 <input type="text" className="form-control" name={'name'} placeholder={t('utils.name')} onChange={handleChange} required />
