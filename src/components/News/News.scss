@@ -1,5 +1,5 @@
 #news {
-    margin-top: 108px;
+    margin-top: 7vw;
 
     .filters {
         height: 61px;
@@ -40,11 +40,55 @@
     .filter-img {
         margin-top: 10px;
     }
-    @media only screen and(max-width:790px){
-        .nav{
+    @media only screen and(max-width:790px) {
+        .nav {
             display: flex;
             flex-direction: row;
         }
     }
-
+    .search-container {
+        text-align: center;
+        position: relative;
+        margin-bottom: 54px;
+        margin-top: 46px;
+    }
+    .search-container input {
+        border: 0px;
+        height: 48px;
+        width: 255px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 24px;
+        box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    }
+    .path {
+        position: absolute;
+        z-index: 1;
+        top: 18px;
+        margin-left: -28px;
+    }
+    .path[dir=rtl] {
+        position: absolute;
+        z-index: 1;
+        top: 18px;
+        right: 221px;
+    }
+    .pink-circle {
+        height: 30px;
+        width: 30px;
+        background-color: rgba(223, 54, 105, 1);
+        border-radius: 50%;
+        margin-left: -36px;
+        position: absolute;
+        top: 10px;
+    }
+    .pink-circle[dir=rtl] {
+        height: 30px;
+        width: 30px;
+        background-color: rgba(223, 54, 105, 1);
+        border-radius: 50%;
+        margin-left: -36px;
+        position: absolute;
+        top: 10px;
+        right: 215px;
+    }
 }

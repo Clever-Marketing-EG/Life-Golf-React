@@ -18,7 +18,7 @@
         "golf-carts-and-utilities": "Golf Carts and Utilities",
         "electric-vehicles": "Electric Vehicles",
         "electric-cleaning-equipments": "Cleaning Equipments",
-        "electric-handling-equipments": "Electric Handling Equipments",
+        "electric-handling-equipments": "Handling Equipments",
         "by-order": "By Order",
         "electronics": "Electronics"
     },
@@ -59,13 +59,14 @@
         "our-products": "Our products",
         "read-more": "Read more",
         "send": "Send",
-        "popular-posts": "Popular posts",
+        "latest-articles": "Latest articles",
         "search": "  Search..",
         "order-now": "Order now",
         "one-of-our-employee-will-get-in-touch-with-you-soon": "One of our employee will get in touch with you soon",
         "features": "Features",
         "specification": "Specification",
         "similar-products": "Similar Products",
-        "golf": "Golf Carts"
+        "golf": "Golf Carts",
+        "cont": "All Rights Reserved. Life Golf Cart. | Designed by"
     }
 }
