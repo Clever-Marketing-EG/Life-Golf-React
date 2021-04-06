@@ -22,17 +22,39 @@ export default function News() {
         1: [], 2: [], 3: [], 4: [], 5: []
     });
 
+    const [pagination, setPagination] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
     useEffect(() => {
-        axios.get(`${BASE_URL}/articles`).then(response => {
+        axios.get(`${BASE_URL}/articles?page=${currentPage}`).then(response => {
             let dataObj = {
                 1: [], 2: [], 3: [], 4: [], 5: []
             };
+
             response.data.data.forEach(item => {
                 dataObj[item.category_id].push(item);
             })
             setData(dataObj);
+
+
+            let dataArr = [];
+            console.log(response.data.last_page)
+            for(let i=0; i<response.data.last_page;i++) {
+                dataArr.push(
+                    <li class="page-item"><a class="page-link" href="#" id={i+1} onClick={changePage}>{i+1}</a></li>
+                )
+            }
+            console.log(dataArr);
+            setPagination(dataArr);
         });
-    }, [])
+    }, [currentPage])
+
+
+    const changePage = (e) => {
+        setCurrentPage(e.target.id);
+    }
+
+
 
     return (
         <div>
@@ -81,6 +103,26 @@ export default function News() {
                     </div>
 
                 </div>
+
+                {/* Here */}
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {pagination}
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                {/* Ends Here */}
+
             </div>
         </div>
     );
