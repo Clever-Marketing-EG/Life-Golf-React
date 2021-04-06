@@ -93,7 +93,7 @@ export default function Footer({meta}) {
 
                             </ul>
                         </div>
-                        <p className="text-center mb-3"> &copy; 2021 All Rights Reserved. Life Golf Car. | Designed by <a className={'clever'} href="https://www.clevermarketing-eg.com/"> Clever marketing</a></p>
+                        <p  className="text-center mb-3"> &copy; 2021 All Rights Reserved. Life Golf Cart. | Designed by <a className={'clever'} href="https://www.clevermarketing-eg.com/"> Clever marketing</a></p>
                     </div>
 
                 </div>
