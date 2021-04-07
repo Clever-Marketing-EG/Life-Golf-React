@@ -25,7 +25,7 @@ export default function Posts() {
         axios.get(`${BASE_URL}/articles`).then(response => {
 
             let dataArr;
-            
+
             if (lang === 'ar') {
                 dataArr = response.data.data.slice(0, 4).map(item => ({
                     id: item.id,
@@ -46,7 +46,7 @@ export default function Posts() {
             setData(dataArr);
         });
     }, [id])
-    
+
     useEffect(() => {
         const lang = localStorage.getItem('lang');
         axios.get(`${BASE_URL}/articles/${id}`).then(response => {
@@ -80,7 +80,7 @@ export default function Posts() {
             <div className={'container x'}>
                 <div className={'row'}>
                     <div className={'col-md-4 left-container'}>
-                        
+
                         {/* <div class="search-container">
                             <form dir={t('dir')} action="/action_page.php" class="search-form">
                                 <input type="text" placeholder={t('utils.search')} name="search" />
