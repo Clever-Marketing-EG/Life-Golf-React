@@ -67,7 +67,14 @@
         "specification": "المواصفات",
         "similar-products": "منتجات مماثلة",
         "golf": "سيارات الجولف",
-        "cont" : "كل الحقوق محفوظة Life Golf  | صمم بواسطة"
+        "cont" : "كل الحقوق محفوظة Life Golf  | صمم بواسطة",
+        "address": "العنوان",
+        "street": "شارع",
+        "house": "بيت",
+        "flat": "شقه",
+        "postal-code": "الرمز البريدي"
+
+
 
 
     }

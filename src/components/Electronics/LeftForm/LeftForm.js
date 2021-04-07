@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './LeftForm.scss';
+import {useTranslation} from "react-i18next";
+
 export default function LeftForm({meta}) {
+    const {t} = useTranslation();
+
     // window.onload = function () {
     //     let btnAdd = document.querySelector('#add');
     //     let btnSubtract = document.querySelector('#subtract');
@@ -20,20 +24,21 @@ export default function LeftForm({meta}) {
 
             <form>
                 <div className={'container'}>
-                    <div className={'row'}>
+                    <div className={'row'} dir={t('dir')}>
                         <div className={'col-md-6'}>
                             <h1>{meta.electronic_personal}</h1>
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" class="form-control" placeholder="First name" />
+                                    <input type="text" class="form-control" placeholder={t('utils.first-name')} />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" class="form-control" placeholder="Last name" />
+                                    <input type="text" class="form-control" placeholder={t('utils.last-name')}/>
 
                                 </div>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" class="form-control" placeholder="Phone" />
+                                    <input type="text" class="form-control" placeholder={t('utils.phone')}/>
+
 
                                 </div>
                             </div>
@@ -42,24 +47,22 @@ export default function LeftForm({meta}) {
                             <hr />
                             <div className={'row'}>
                                 <div className={'col-sm-12'}>
-                                    <input type="text" class="form-control" placeholder="Address" />
-
+                                    <input type="text" class="form-control" placeholder={t('utils.address')}/>
                                 </div>
                                 <div className={'col-sm-6'}>
                                     <input type="text" class="form-control" placeholder="Block" />
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" class="form-control" placeholder="Street" />
-
+                                    <input type="text" class="form-control" placeholder={t('utils.street')}/>
                                 </div>
                                 <div className={'col-sm-4'}>
                                     <input type="text" class="form-control" placeholder="Avenue" />
                                 </div>
                                 <div className={'col-sm-4'}>
-                                    <input type="text" class="form-control" placeholder="house" />
+                                    <input type="text" class="form-control" placeholder={t('utils.house')} />
                                 </div>
                                 <div className={'col-sm-4'}>
-                                    <input type="text" class="form-control" placeholder="Flat" />
+                                    <input type="text" class="form-control" placeholder={t('utils.flat')} />
                                 </div>
                                 <div className={'col-sm-6'}>
                                     <select class="form-select form-control">
@@ -70,7 +73,7 @@ export default function LeftForm({meta}) {
                                     </select>
                                 </div>
                                 <div className={'col-sm-6'}>
-                                    <input type="text" class="form-control" placeholder="Postal code" />
+                                    <input type="text" class="form-control" placeholder={t('utils.postal-code')} />
 
                                 </div>
 
