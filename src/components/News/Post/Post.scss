@@ -48,6 +48,12 @@
         margin-left: 23px;
         margin-bottom: 35px;
     }
+    .news{
+        font-family: "Poppins";
+        font-size: 14px;
+        color: rgba(5, 59, 108, 1);
+        margin-bottom: 35px;   
+    }
     h2 {
         font-family: "Poppins";
         font-size: 16px;
@@ -67,7 +73,7 @@
         font-family: "Open Sans";
         font-size: 12px;
         color: rgba(5, 59, 108, 1);
-        margin-left: 24px;
+        margin-left: 0px;
     }
     .tags {
         font-family: "Poppins";
@@ -121,6 +127,10 @@
     }
     .new-width {
         width: 8px;
+    }
+    .news-title{
+        text-align: initial;
+        padding-left: 30px;
     }
     .test-margin {
         margin-left: 6px;
