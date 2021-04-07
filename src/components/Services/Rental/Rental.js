@@ -19,7 +19,6 @@ export default function Rental() {
 
     useEffect(() => {
         const service_id = params.id;
-        const service_name = params.name;
         const lang = localStorage.getItem('lang');
 
         axios.get(`${BASE_URL}/services/${service_id}`).then(response => {

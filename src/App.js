@@ -18,6 +18,7 @@ import Product from './components/Products/Product/Product';
 import Services from './components/Services/Services';
 import Rental from './components/Services/Rental/Rental';
 import Loader from "./components/Shared/Loader/Loader";
+import NotFound from "./components/Shared/NotFound/NotFound";
 import { useTranslation } from "react-i18next";
 
 const { BASE_URL } = require('./config');
@@ -36,7 +37,7 @@ export default function App() {
 
             const html = document.querySelector('html');
             html.lang = lang;
-            
+
             i18n.changeLanguage(lang);
 
             const dataObject = {
@@ -77,70 +78,64 @@ export default function App() {
                                 meta={meta['home']}
                             />
                         </Route>
-                        <Route exact path="/About">
+                        <Route path="/about">
                             <AboutUs
                                 meta={meta['about-us']}
                             />
                         </Route>
-                        <Route exact path="/Contact">
+                        <Route path="/contact">
                             <ContactUs
                                 meta={meta['contact']}
                             />
                         </Route>
-                        <Route exact path="/categories/:id/products">
+                        <Route path="/categories/:id/products">
                             <Products
                             />
                         </Route>
-                        <Route exact path="/products">
-                            <Products
-                            />
+                        <Route path="/products">
+                            <Products />
                         </Route>
-                        <Route exact path="/products/:id">
+                        <Route path="/products/:id">
                             <Product />
                         </Route>
-                        <Route exact path="/Terms">
+                        <Route path="/terms">
                             <Terms />
                         </Route>
-                        <Route exact path="/Maintenance">
+                        <Route path="/maintenance">
                             <Maintenance
                                 meta={meta['maintenance']}
                             />
                         </Route>
-                        <Route exact path="/News" >
+                        <Route path="/news" >
                             <News />
                         </Route>
-                        <Route exact path="/News/:id" >
+                        <Route path="/news/:id" >
                             <Post />
                         </Route>
-                        <Route exact path="/Post">
+                        <Route path="/post">
                             <Post />
                         </Route>
-                        <Route exact path="/Electronics">
-                            <Electronics meta={meta['electronics']} />
-                        </Route>
-                        <Route exact path="/customize">
+                        {/*<Route path="/electronics">*/}
+                        {/*    <Electronics meta={meta['electronics']} />*/}
+                        {/*</Route>*/}
+                        <Route path="/customize">
                             <Customize meta={meta['customize']} />
                         </Route>
-                        <Route exact path="/Services">
+                        <Route path="/services">
                             <Services
                                 meta={meta}
                             />
                         </Route>
-                        <Route exact path="/Services/:id">
+                        <Route path="/Services/:id">
                             <Rental
                                 meta={meta}
                             />
                         </Route>
-                        <Route exact path="/Services/:name">
-                            <Rental
-                                meta={meta}
-                            />
-                        </Route>
-
-
+                        <Route component={NotFound} />
                     </Switch>
                     <Footer meta={meta['footer']} />
                 </Router>
+
             </div>
         );
     }
