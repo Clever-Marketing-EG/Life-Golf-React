@@ -17,7 +17,7 @@ export default function LeftForm({meta}) {
     //     });
     // };
     const [count, setCount] = useState(0);
-
+   
 
     return (
         <div id={'left'} className={'mt-5'}>
@@ -83,6 +83,8 @@ export default function LeftForm({meta}) {
                         <div className={'col-md-6'}>
                             <h1>{meta.electronic_payment}</h1>
                             <hr />
+                            <p className={'name'}>Pay for your order upon delivery.</p>
+
                             <div className={'row'}>
                                 {/* <div className={'col-sm-12'}>
                                     <input type="text" class="form-control" placeholder="Card number" />
