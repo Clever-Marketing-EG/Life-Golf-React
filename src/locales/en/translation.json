@@ -67,6 +67,12 @@
         "specification": "Specification",
         "similar-products": "Similar Products",
         "golf": "Golf Carts",
-        "cont": "All Rights Reserved. Life Golf Cart. | Designed by"
+        "cont": "All Rights Reserved. Life Golf Cart. | Designed by",
+        "address": "Address",
+        "street": "Street",
+        "house": "House",
+        "flat": "Flat",
+        "postal-code": "Postal code"
+
     }
 }
