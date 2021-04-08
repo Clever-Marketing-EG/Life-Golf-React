@@ -19,7 +19,6 @@ i18n
             useSuspense: false
         },
         fallbackLng: 'en',
-        debug: true,
         interpolation: {
             escapeValue: false
         }
