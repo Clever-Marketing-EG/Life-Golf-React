@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const {BASE_URL} = require('../../../config');
 export default function Similar( {id} ) {
     const { t } = useTranslation();
-
+    console.log(id);
     const [data, setData] = useState([]);
 
     useEffect(()=>{
@@ -25,13 +25,13 @@ export default function Similar( {id} ) {
                 if(lang === 'ar') {
                     dataArr = response.data.data.slice(0, 6).map( item => ({
                         id: item.id,
-                        image_url: item.images[0].url,
+                        image_url: item.images[0] ? item.images[0].url : 'https://i.stack.imgur.com/y9DpT.jpg',
                         name: item.name_ar
                     }))
                 } else {
                     dataArr = response.data.data.slice(0, 6).map( item => ({
                         id: item.id,
-                        image_url: item.images[0].url,
+                        image_url: item.images[0] ? item.images[0].url : 'https://i.stack.imgur.com/y9DpT.jpg',
                         name: item.name
                     }))
                 }

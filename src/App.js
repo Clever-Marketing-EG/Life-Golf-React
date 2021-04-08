@@ -92,9 +92,6 @@ export default function App() {
                             <Products
                             />
                         </Route>
-                        <Route path="/products">
-                            <Products />
-                        </Route>
                         <Route path="/products/:id">
                             <Product />
                         </Route>

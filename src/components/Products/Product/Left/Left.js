@@ -32,7 +32,11 @@ export default function Left( {images} ) {
     return (
         <div id={'left-prod'}>
             <div className={'product-container'}>
-                <img src={images[activeImage].url} className={'prod-img'} alt={'...'}/>
+                {
+                    images[activeImage] ?
+                        <img src={images[activeImage].url} className={'prod-img'} alt={'...'}/>
+                        : <div />
+                }
                 <div className={'pink-container'}/>
             </div>
             <Carousel
