@@ -1,4 +1,5 @@
 #rental {
+    text-align: initial;
     .send-btn {
         background-color: rgba(5, 59, 108, 1);
         border-radius: 5px;
@@ -42,7 +43,7 @@
         border-radius: 50%;
         margin-right: 8px;
         display: inline-block;
-        margin-left: -32px;
+        // margin-left: -32px;
     }
     .list {
         list-style: none;

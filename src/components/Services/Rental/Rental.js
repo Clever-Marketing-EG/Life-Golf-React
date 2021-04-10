@@ -89,7 +89,7 @@ export default function Rental() {
     }, [])
 
     return (
-        <div id={'rental'}>
+        <div id={'rental'} dir={t('dir')}>
             <Header className="header" title={service.name} />
 
             <div className={'container margin-t'} >
