@@ -123,7 +123,7 @@ export default function App() {
                                 meta={meta}
                             />
                         </Route>
-                        <Route path="/Services/:id">
+                        <Route path="/service/:id">
                             <Rental
                                 meta={meta}
                             />

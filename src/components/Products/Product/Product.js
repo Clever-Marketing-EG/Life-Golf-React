@@ -96,12 +96,12 @@ export default function Product() {
                 <div className={'container cars-position'}>
                 </div>
                 <div className={'container'}>
-                    <div>
-                        <div className={'row mg-top'}>
+                    <div dir={t('dir')}> 
+                        <div className={'row mg-top'} >
                             <div className={'col-md-6'}>
                                 <Left images={data.images} />
                             </div>
-                            <div className={'col-md-6'}>
+                            <div className={'col-md-6'} >
                                 <h1>{data.name}</h1>
                                 <hr />
                                 <ul className={'about-list'}>
