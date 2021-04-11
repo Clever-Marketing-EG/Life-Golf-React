@@ -106,7 +106,7 @@ export default function App() {
                         <Route path="/news" >
                             <News />
                         </Route>
-                        <Route path="/news/:id" >
+                        <Route path="/post/:id" >
                             <Post />
                         </Route>
                         <Route path="/post">

@@ -75,7 +75,7 @@ function Article({id, title, content, date, image_url}) {
                     <p dir={t('dir')}><Truncate lines={5}>
                         {content}
                     </Truncate></p>
-                    <Link className={'read'} to={'/News/'+id}>
+                    <Link className={'read'} to={'/post/'+id}>
                         {t('utils.read-more')}
                         {/*TODO*/}
                         <img className={'arrow'} src={arrow} alt="" />
