@@ -113,8 +113,8 @@ export default function Product() {
                                         ))
                                     }
                                 </ul>
-                                <p><Truncate lines={6}>{data.description}</Truncate></p>
-                                <button className="btn order-button" data-bs-toggle="modal" data-bs-target="#exampleModal">{t('utils.order-now')}</button>
+                                {/* <p><Truncate lines={6}>{data.description}</Truncate></p> */}
+                                <button className="btn order-button mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">{t('utils.order-now')}</button>
                             </div>
                         </div>
                         <Specs data={data} />
