@@ -10,13 +10,13 @@ import Videos from './Videos/Videos';
 import Gallery from './Gallery/Gallery';
 import Header from '../Shared/Header/Header';
 import axios from "axios";
-import {useTranslation} from "react-i18next";
-
+import { useTranslation } from "react-i18next";
+import vision from './Assets/vision.jpeg';
 const { BASE_URL } = require('../../config');
 
 export default function AboutUs({ meta }) {
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [certificates, setCertificates] = useState([]);
     const [videos, setVideos] = useState([]);
     const [galleries, setGalleries] = useState([]);
@@ -82,6 +82,31 @@ export default function AboutUs({ meta }) {
                     </div>
                 </div>
             </div>
+            <div className={'container marg'} dir={t('dir')}>
+                <div className={'row justify-content-around height'}>
+                    <div className={'col-md-4 mb-3'}>
+                        <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
+                            <li className="nav-item snd-list" role="presentation">
+                                <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.mission')}</button>
+                            </li>
+                            <li className="nav-item snd-list" role="presentation">
+                                <button className="nav-link list-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.vision')}</button>
+                            </li>
+                        </ul>
+                        <div className="tab-content" id="pills-tabContent">
+                            <div className="tab-pane fade show active content" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                {t('utils.mission-content')}
+                            </div>
+                            <div className="tab-pane fade content" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                {t('utils.vision-content')}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={'col-md-5 img-container '}>
+                        <img src={vision} alt={'..'} className={'mission-img'} />
+                    </div>
+                </div>
+            </div>
             <div className={'container'}>
                 <Certifiactes
                     meta={meta}
@@ -95,6 +120,9 @@ export default function AboutUs({ meta }) {
                     meta={meta}
                     galleries={galleries}
                 />
+
+
+
             </div>
 
         </div >
