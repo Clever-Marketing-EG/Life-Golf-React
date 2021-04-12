@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
+import Loader from './components/Shared/Loader/Loader';
 
+const App = React.lazy(() => import('./App'));
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Suspense fallback={<Loader/>} >
     <App />
-  </React.StrictMode>,
+  </React.Suspense >,
   document.getElementById('root')
 );
 
