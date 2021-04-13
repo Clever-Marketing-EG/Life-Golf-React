@@ -4,7 +4,7 @@ import './Rental.scss';
 import Header from '../../Shared/Header/Header';
 import Truncate from 'react-truncate';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const { BASE_URL } = require('../../../config');
@@ -13,7 +13,7 @@ export default function Rental() {
     const [service, setService] = useState([]);
     const [list, setList] = useState([]);
     const [list2, setList2] = useState([]);
-    const [btn, setBtn] =useState([]);
+    const [btn, setBtn] = useState([]);
     const params = useParams();
     const { t } = useTranslation();
 
@@ -48,14 +48,14 @@ export default function Rental() {
             }
 
             setService(dataObject);
-            const buttonRender = [];
+            // const buttonRender = [];
 
-            if (response.data.data.name === 'Spare Parts') {
-                buttonRender.push(
-                    <Link to="/Electronics" class="btn send-btn" type="submit">Order</Link>
-                )
-            }
-            setBtn(buttonRender);
+            // if (response.data.data.name === 'Spare Parts') {
+            //     buttonRender.push(
+            //         <Link to="/Electronics" class="btn send-btn" type="submit">Order</Link>
+            //     )
+            // }
+            // setBtn(buttonRender);
             const x = JSON.parse(test);
             const listItem = [];
             console.log(x);
@@ -120,9 +120,9 @@ export default function Rental() {
                 </div>
 
             </div>
-            <div class="row justify-content-center mt-5">
+            {/* <div class="row justify-content-center mt-5">
                 {btn}
-            </div>
+            </div> */}
         </div>
     );
 }
