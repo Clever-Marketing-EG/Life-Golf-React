@@ -16,11 +16,12 @@ export default function Products() {
 
     const { t } = useTranslation();
     const [products, setProducts] = useState([]);
+    const [activeCategory, setActiveCategory] = useState();
     let { id } = useParams();
 
     useEffect(() => {
+        const lang = localStorage.getItem('lang');
         axios.get(`${BASE_URL}/categories/${id}/products`).then(response => {
-            const lang = localStorage.getItem('lang');
             let dataArr;
             if (lang === 'ar') {
                 dataArr = response.data.data.map(item => ({
@@ -41,6 +42,14 @@ export default function Products() {
             }
             setProducts(dataArr);
         });
+        axios.get(`${BASE_URL}/categories/${id}`)
+            .then( response => {
+                if(lang==='ar') {
+                    setActiveCategory(response.data.data.name_ar);
+                } else {
+                    setActiveCategory(response.data.data.name);
+                }
+            })
     }, [id])
 
     if (products.length === 0)
@@ -48,7 +57,7 @@ export default function Products() {
     else
         return (
             <div>
-                <Header title={t('nav.products')} />
+                <Header title={activeCategory} />
                 <div>
                     <div id={"products"} className="container">
                         <div className="d-flex flex-wrap justify-content-around align-items-center">
