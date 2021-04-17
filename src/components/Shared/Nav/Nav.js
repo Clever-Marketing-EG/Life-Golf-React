@@ -163,7 +163,7 @@ export default function Nav() {
                                 </li>
                                 <li>
                                     <a lang="ar" onClick={changelang} className="nav-link" href={'#'}>
-                                        العربيه
+                                        العربية
                                     </a>
                                 </li>
                             </ul>
