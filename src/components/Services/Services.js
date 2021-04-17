@@ -11,7 +11,7 @@ const { BASE_URL } = require('../../config');
 
 
 export default function Services({ changelang }) {
-    
+
     const {t} = useTranslation();
     const [services, setServices] = useState([]);
 
@@ -19,7 +19,6 @@ export default function Services({ changelang }) {
 
         axios.get(`${BASE_URL}/services`).then(response => {
             const lang = localStorage.getItem('lang');
-            console.log(response);
             let dataArr = [];
             if(lang === 'ar') {
                 dataArr = response.data.data.map( item => (
