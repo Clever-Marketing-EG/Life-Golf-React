@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Nav.scss';
 import logo from '../Assets/logo.png';
-import { Link } from "react-router-dom";
+import { Link,  NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
+
 const { BASE_URL } = require('../../../config');
 
 export default function Nav() {
@@ -37,13 +38,12 @@ export default function Nav() {
         });
     }, []);
 
-
     return (
         <nav className="navbar navbar-dark navbar-expand-lg " id={'nav'} dir={t('dir')}>
             <div className="container">
-                <Link className="navbar-brand" to="/">
+                <NavLink className="navbar-brand" to="/">
                     <img src={logo} className={'nav-logo'} alt={''} />
-                </Link>
+                </NavLink>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -60,20 +60,20 @@ export default function Nav() {
                     id="navbarSupportedContent"
                 >
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <Link className="nav-link active" aria-current="page" to="/">
+                        <li className="nav-item">
+                            <NavLink exact to="/" className="nav-link" activeClassName={'active'}>
                                 {t('nav.home')}
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/About">
+                            <NavLink className="nav-link" to="/About" activeClassName={'active'}>
                                 {t('nav.about')}
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/Services">
+                            <NavLink activeClassName={'active'} className="nav-link" to="/Services">
                                 {t('nav.services')}
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item dropdown">
                             <a
@@ -95,18 +95,18 @@ export default function Nav() {
                                     categories.map((item, index) => (
 
                                         <li key={index}>
-                                            <Link className="nav-link" to={`/categories/${item.id}/products`}>
+                                            <NavLink activeClassName={'active'} className="nav-link" to={`/categories/${item.id}/products`}>
                                                 {item.name}
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                     ))
                                 }
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/news">
+                            <NavLink activeClassName={'active'} className="nav-link" to="/news">
                                 {t('nav.news')}
-                            </Link>
+                            </NavLink>
                         </li>
 
                         <li className="nav-item dropdown">
@@ -125,21 +125,21 @@ export default function Nav() {
                                 aria-labelledby="navbarDropdown"
                             >
                                 <li>
-                                    <Link className="nav-link" to="/terms">
+                                    <NavLink activeClassName={'active'} className="nav-link" to="/terms">
                                         {t('nav.terms-and-conditions')}
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link className="nav-link" to="maintenance">
+                                    <NavLink activeClassName={'active'} className="nav-link" to="maintenance">
                                         {t('nav.maintenance')}
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/Contact">
+                            <NavLink activeClassName={'active'} className="nav-link" to="/Contact">
                                 {t('nav.contact-us')}
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item dropdown">
                             <a
@@ -163,7 +163,7 @@ export default function Nav() {
                                 </li>
                                 <li>
                                     <a lang="ar" onClick={changelang} className="nav-link" href={'#'}>
-                                        العربيه
+                                        العربية
                                     </a>
                                 </li>
                             </ul>
