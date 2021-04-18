@@ -4,7 +4,7 @@ export default function Specifications({data}) {
     return (
         <div id={'specifications'} className={'specs-table'}>
             <div>
-                <img src={data.image_url}  alt={'...'}/>
+                <img src={data}  alt={'...'}/>
             </div>
         </div>
     );

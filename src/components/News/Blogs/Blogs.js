@@ -10,6 +10,7 @@ export default function Blogs({articles}) {
     const { t } = useTranslation();
     
     useEffect( () => {
+        window.scrollTo(0, 0);
         let dataArr;
         const lang = localStorage.getItem('lang');
 

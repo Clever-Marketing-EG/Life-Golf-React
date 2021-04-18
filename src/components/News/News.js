@@ -27,6 +27,7 @@ export default function News() {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get(`${BASE_URL}/articles?page=${currentPage}`).then(response => {
             let dataObj = {
                 1: [], 2: [], 3: [], 4: [], 5: []
@@ -41,7 +42,7 @@ export default function News() {
             let dataArr = [];
             for (let i = 0; i < response.data.last_page; i++) {
                 dataArr.push(
-                    <li class="page-item"><a class="page-link" href="#" id={i + 1} onClick={changePage}>{i + 1}</a></li>
+                    <li class="page-item"><a class="page-link" href="#page" id={i + 1} onClick={changePage}>{i + 1}</a></li>
                 )
             }
             setPagination(dataArr);
@@ -56,7 +57,7 @@ export default function News() {
 
 
     return (
-        <div>
+        <div id={'page'}>
             <Header className="header" title={t('nav.news')} />
             <div id={'news'} className={'container'} dir={t('dir')} >
                 <div className="d-flex justify-content-around flex-wrap align-items-start">

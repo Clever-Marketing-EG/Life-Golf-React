@@ -5,12 +5,10 @@ import './Similar.scss';
 import arrow1 from '../../Home/Assets/arrow1.png';
 import arrow2 from '../../Home/Assets/arrow2.png';
 import rightArrow from '../../Home/Assets/arrow-right.png';
-import cart from '../../Home/Assets/cart1.png';
 import axios from "axios";
 import Loader from "../../Shared/Loader/Loader";
-import {Link} from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import Truncate from 'react-truncate'
 const {BASE_URL} = require('../../../config');
 export default function Similar( {id} ) {
     const { t } = useTranslation();
@@ -44,7 +42,7 @@ export default function Similar( {id} ) {
             <div className={'cart-container'}>
                 <img src={item.image_url} alt="" className={'cart-img'} />
                 <div className={'snd-cont start-50 translate-middle'}>
-                    <p className={'cart-name'}>{item.name}</p>
+                    <p className={'cart-name'}><Truncate lines={3}>{item.name}</Truncate></p>
                     <a className={'btn arrow-btn'} href={`/products/${item.id}`} >
                         <img src={rightArrow} className={'arrow-position'}  alt={'...'}/>
                     </a>

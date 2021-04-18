@@ -42,6 +42,7 @@ export default function Product() {
                 category_id: response.data.data.category_id,
                 image_url: response.data.data.image_url,
                 images: response.data.data.images,
+                configuration_image_url: response.data.data.configuration_image_url,
             }
 
             if (lang === 'ar') {
@@ -50,7 +51,7 @@ export default function Product() {
                         name: response.data.data.name_ar,
                         points: response.data.data.points_ar.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
                         description: response.data.data.description_ar,
-                        features: response.data.data.features_ar
+                        features: response.data.data.features_ar,
                     }, ...dataObj
                 }
             } else {
