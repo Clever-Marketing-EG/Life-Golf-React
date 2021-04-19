@@ -33,7 +33,7 @@ export default function GalleryCarousel( { gallery }) {
                     : <Carousel itemsToShow={1} showArrows={false} isRTL={false}>
                         {
                             data.map( (item, index) => (
-                                <div className={'row'} key={index}>
+                                <div className={'row test'} key={index}>
                                     {item}
                                 </div>
                             ))
