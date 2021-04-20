@@ -4,16 +4,16 @@ import './GalleryCarousel.scss';
 import Carousel from 'react-elastic-carousel';
 
 
-export default function GalleryCarousel( { gallery }) {
+export default function GalleryCarousel({ gallery }) {
 
     const [data, setData] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
 
         const arr = [];
-        for(let i=0; i<gallery.length; i+=8) {
+        for (let i = 0; i < gallery.length; i += 8) {
             arr.push(
-                gallery.slice(i, i + 8).map( (item, index) => (
+                gallery.slice(i, i + 8).map((item, index) => (
                     <ImageCard
                         image_url={item.image_url}
                         description={item.description}
@@ -32,7 +32,7 @@ export default function GalleryCarousel( { gallery }) {
                 data.length === 0 ? <div />
                     : <Carousel itemsToShow={1} showArrows={false} isRTL={false}>
                         {
-                            data.map( (item, index) => (
+                            data.map((item, index) => (
                                 <div className={'row test'} key={index}>
                                     {item}
                                 </div>
@@ -45,9 +45,9 @@ export default function GalleryCarousel( { gallery }) {
 }
 
 
-function ImageCard( {image_url, description }) {
+function ImageCard({ image_url, description }) {
     return (
-        <div className={'col-md-3 justify-content-center image-container'}><img alt={'...'} src={image_url} className={'photo'}/>
+        <div className={'col-md-3 justify-content-center image-container'}><img alt={'...'} src={image_url} className={'photo'} />
             <div className="after">{description}</div>
         </div>
     );
