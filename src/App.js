@@ -88,17 +88,17 @@ export default function App() {
                                 meta={meta['contact']}
                             />
                         </Route>
-                        <Route path="/categories/:id/products">
+                        <Route  path="/categories/:id">
                             <Products
                             />
                         </Route>
-                        <Route path="/products/:id">
+                        <Route  path="/products/:id">
                             <Product />
                         </Route>
-                        <Route path="/terms">
+                        <Route  path="/terms">
                             <Terms />
                         </Route>
-                        <Route path="/maintenance">
+                        <Route  path="/maintenance">
                             <Maintenance
                                 meta={meta['maintenance']}
                             />

@@ -18,7 +18,7 @@ export default function VideoCarousel( {videos, handleClick} ) {
         )
     }
 
-
+console.log(videos);
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
         { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },

@@ -95,7 +95,7 @@ export default function Nav() {
                                     categories.map((item, index) => (
 
                                         <li key={index}>
-                                            <NavLink activeClassName={'active'} className="nav-link" to={`/categories/${item.id}/products`}>
+                                            <NavLink activeClassName={'active'} className="nav-link" to={`/categories/${item.id}`}>
                                                 {item.name}
                                             </NavLink>
                                         </li>
@@ -130,7 +130,7 @@ export default function Nav() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink activeClassName={'active'} className="nav-link" to="maintenance">
+                                    <NavLink activeClassName={'active'} className="nav-link" to="/maintenance">
                                         {t('nav.maintenance')}
                                     </NavLink>
                                 </li>

@@ -47,6 +47,7 @@ export default function Videos({ videos, meta }) {
     }, [videos])
 
     const handleClick = (e) => {
+        console.log(e);
         setActiveVideo(e.target.id);
     }
 
@@ -63,7 +64,6 @@ export default function Videos({ videos, meta }) {
                         <li className="nav-item" role="presentation">
                             <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.product-videos')}</button>
                         </li>
-
                     </ul>
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-factory" role="tabpanel" aria-labelledby="pills-home-tab">
