@@ -33,7 +33,7 @@ export default function Maintenance({meta}) {
 
                     <div className={'col-md-5  order-last order-md-first'}>
                         <div className={'img-container'}>
-                            <img className={'img-one'} src={meta.image_1} alt="" />
+                            <img className={'img-one'} src={meta.image_2} alt="" />
                             <img className={'img-x'} src={two} alt="" />
                         </div>
                     </div>
@@ -51,7 +51,7 @@ export default function Maintenance({meta}) {
                     </div>
                     <div className={'col-md-5'}>
                         <div className={'img-container'}>
-                            <img className={'img-one'} src={meta.image_1} alt="" />
+                            <img className={'img-one'} src={meta.image_3} alt="" />
                             <img className={'img-three'} src={three} alt="" />
                         </div>
                     </div>

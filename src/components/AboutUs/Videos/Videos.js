@@ -4,7 +4,7 @@ import VideoCarousel from './VideoCarousel/VideoCarousel';
 import {useTranslation} from "react-i18next";
 
 export default function Videos({ videos, meta }) {
-
+    
     const {t} = useTranslation();
     const [data, setData] = useState({
         product: [],

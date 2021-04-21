@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Nav.scss';
 import logo from '../Assets/logo.png';
-import { Link,  NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
 
