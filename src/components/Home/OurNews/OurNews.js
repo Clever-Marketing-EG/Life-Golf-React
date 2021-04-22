@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './OurNews.scss';
 import Carousel, { consts } from "react-elastic-carousel";
-import ArticleImg1 from '../Assets/about-us-1.jpg'
-import ArticleImg2 from '../Assets/about-us-2.jpg'
-import ArticleImg3 from '../Assets/about-us-3.jpg'
 import Truncate from 'react-truncate';
 
 
@@ -97,7 +94,7 @@ function Article({ title, content, image, date, id }) {
                     <Truncate lines={3}>{content}</Truncate>
 
                 </p>
-                <a href={'/News/' + id} className="cherry-link">Read More <i className="icon-arrow-right" /></a>
+                <a href={'/post/' + id} className="cherry-link">Read More <i className="icon-arrow-right" /></a>
             </div>
         </div>
     )
