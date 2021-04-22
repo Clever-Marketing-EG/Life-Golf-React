@@ -48,13 +48,13 @@ export default function OurServices({ meta }) {
                     </div>
                     <div className={'tags-container justify-content-around flex-wrap'}>
                         <div className={'inner-container d-flex justify-content-around'}>
-                            <a className={'tag left top-0 d-flex'} href={`/services/${services[0].id}`}>
+                            <a className={'tag left top-0 d-flex'} href={`/service/${services[0].id}`}>
                                 {services[0].name}
                                 <span className={'ms-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
                             </a>
-                            <a className={'tag right top-0 d-flex'} href={`/services/${services[1].id}`}>
+                            <a className={'tag right top-0 d-flex'} href={`/service/${services[1].id}`}>
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
@@ -62,13 +62,13 @@ export default function OurServices({ meta }) {
                             </a>
                         </div>
                         <div className={'inner-container d-flex justify-content-around'}>
-                            <a className={'tag left top-50 translate-middle-y d-flex'} href={`/services/${services[2].id}`}>
+                            <a className={'tag left top-50 translate-middle-y d-flex'} href={`/service/${services[2].id}`}>
                                 {services[2].name}
                                 <div className={'ms-3 logo-container'}>
                                     <i className="icon-electric-vehicle" />
                                 </div>
                             </a>
-                            <a className={'tag right top-50 translate-middle-y d-flex'} href={`/services/${services[3].id}`}>
+                            <a className={'tag right top-50 translate-middle-y d-flex'} href={`/service/${services[3].id}`}>
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
@@ -77,13 +77,13 @@ export default function OurServices({ meta }) {
                         </div>
 
                         <div className={'inner-container d-flex justify-content-around'}>
-                            <a className={'tag left bottom-0 d-flex'} href={`/services/${services[4].id}`}>
+                            <a className={'tag left bottom-0 d-flex'} href={`/service/${services[4].id}`}>
                                 {services[4].name}
                                 <span className={'ms-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
                             </a>
-                            <a className={'tag right bottom-0 d-flex'} href={`/services/${services[5].id}`}>
+                            <a className={'tag right bottom-0 d-flex'} href={`/service/${services[5].id}`}>
                             <span className={'me-3 logo-container'}>
                                 <i className="icon-electric-vehicle" />
                             </span>
