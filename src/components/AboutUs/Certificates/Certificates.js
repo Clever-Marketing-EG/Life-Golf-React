@@ -9,7 +9,7 @@ export default function Certifiactes({ certificates, meta }) {
 
     const [data, setData] = useState([]);
     const { t } = useTranslation();
-    const [id, setImage] = useState('');
+    const [image, setImage] = useState(0);
 
 
     useEffect(() => {
@@ -33,7 +33,6 @@ export default function Certifiactes({ certificates, meta }) {
         setData(dataArr);
     }, [certificates])
     const handle = (e) => {
-        setImage(e.target.value);
         console.log(e.target.value);
 
     }
@@ -68,7 +67,10 @@ export default function Certifiactes({ certificates, meta }) {
                             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                                 {
                                     data.map((item, index) => (
-                                        <div className={'cert-container'} key={index} data-bs-toggle="modal" data-bs-target={'#test'} value={index} onClick={handle}>
+                                        <div className={'cert-container'} data-bs-toggle="modal" data-bs-target={'#test'} value={index} onClick={async () => {
+                                           await setImage(index);
+
+                                        }}>
                                             <img src={item['image_url']} className="cert-img" alt="" />
                                             <p className={'cert-name'}>{item['name']}</p>
                                         </div>
@@ -78,16 +80,8 @@ export default function Certifiactes({ certificates, meta }) {
                             </Carousel>
                     }
                 </div>
-                <div className="modal fade" id={'test'} tabIndex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="true" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-body">
-                                <img src={data['image_url']}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+
+                <Image data={data[image]} />
 
 
 
@@ -95,4 +89,18 @@ export default function Certifiactes({ certificates, meta }) {
 
         </div>
     )
+}
+function Image({ data }) {
+    return (
+
+        <div className="modal fade" id={'test'} tabIndex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="true" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className="modal-body">
+                        <img src={data?.image_url} alt="" className={'img-pop'}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import './Footer.scss';
 import logo from './Assets/olio-02.a0d26e46-1.png';
 import { useTranslation } from "react-i18next";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function Footer({meta}) {
-    const {t} = useTranslation();
+export default function Footer({ meta }) {
+    const { t } = useTranslation();
 
     return (
         <div id={'footer'} dir={t('dir')}>
@@ -20,11 +20,11 @@ export default function Footer({meta}) {
                             <div className="social-icons-container">
                                 <ul className="social-icons">
                                     <li>
-                                        <a className="facebook" href="https://www.facebook.com/397530136960047/">
-                                            <i className="icon-facebook"/>
+                                        <a className="facebook" href="https://www.facebook.com/397530136960047/" target="_blank">
+                                            <i className="icon-facebook" />
                                         </a>
                                     </li>
-                                    
+
                                     {/* <li>
                                         <a className="twitter" href="#">
                                             <i className="icon-twitter" />
@@ -36,7 +36,7 @@ export default function Footer({meta}) {
                                         </a>
                                     </li> */}
                                     <li>
-                                        <a className="instagram" href="https://instagram.com/life_golf_car?igshid=1sw4foiskfzkk">
+                                        <a className="instagram" href="https://instagram.com/life_golf_car?igshid=1sw4foiskfzkk" target="_blank">
                                             <i className="icon-instagram" />
                                         </a>
                                     </li>
@@ -97,7 +97,7 @@ export default function Footer({meta}) {
 
                             </ul>
                         </div>
-                        <p className="text-center mb-3"> &copy; {t('utils.cont')}<a className={'clever'} href="https://www.clevermarketing-eg.com/"> Clever marketing</a></p>
+                        <p className="text-center mb-3"> &copy; {t('utils.cont')}<a className={'clever'} href="https://www.clevermarketing-eg.com/" target="_blank"> Clever marketing</a></p>
                     </div>
 
                 </div>
