@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './Certificates.scss';
 
 import Carousel, { consts } from 'react-elastic-carousel';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
-import cert from './Assets/cert.png';
 
 export default function Certifiactes({ certificates, meta }) {
 
     const [data, setData] = useState([]);
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+    const [image, setImage] = useState('');
+
 
     useEffect(() => {
         const lang = localStorage.getItem('lang');
@@ -31,6 +32,12 @@ export default function Certifiactes({ certificates, meta }) {
         }
         setData(dataArr);
     }, [certificates])
+    const handle = (e) => {
+        setImage(e.target.value);
+        console.log(e.target.value);
+
+    }
+
 
     function myArrow({ type, onClick, isEdge }) {
         const pointer = type === consts.PREV ? <i className="icon-icon_ionic-ios-arrow-forward-4" /> :
@@ -61,16 +68,41 @@ export default function Certifiactes({ certificates, meta }) {
                             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                                 {
                                     data.map((item, index) => (
-                                        <div className={'cert-container'} key={index}><img src={item['image_url']} className="cert-img" alt="" />
+                                        <div className={'cert-container'} key={index} data-bs-toggle="modal" data-bs-target={'#test'} value={item.image_url} onClick={handle}>
+                                            <img src={item['image_url']} className="cert-img" alt="" />
                                             <p className={'cert-name'}>{item['name']}</p>
                                         </div>
+
                                     ))
                                 }
                             </Carousel>
                     }
                 </div>
+                <div className="modal fade" id={'test'} tabIndex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="true" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                {image ?
+                                    <img src={image} />
+                                    : null}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <Image data={image} /> */}
+
+
+
             </div>
 
         </div>
     )
 }
+// function Image({ image }) {
+//     console.log(image);
+
+//     return (
+
+
+//     );
+// }
