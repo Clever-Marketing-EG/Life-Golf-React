@@ -29,10 +29,9 @@
         border-radius: 50%;
     }
 
-
     .form-check-label {
         color: #053b6c;
-        padding: 15px;
+        padding: 15px 40px 15px 40px;
         background-color: rgba(3, 49, 112, 0.05);
         border-radius: 10px;
         border: none;
@@ -48,7 +47,7 @@
         margin-top: 14px;
     }
     .form-check-input:checked[type="radio"] {
-        background-image: url('check.png');
+        background-image: url("check.png");
     }
 
     .form-check-input:checked {
@@ -59,19 +58,15 @@
         color: #fff;
         background-color: #053b6c;
     }
-    .send-btn{
+    .send-btn {
         background-color: rgba(5, 59, 108, 1);
         border-radius: 5px;
         font-size: 16px;
         color: #fff;
-        font-family: 'Source Sans Pro';
+        font-family: "Source Sans Pro";
         width: 162px;
-
-
-
     }
-    .btn-container{
+    .btn-container {
         float: right;
-    
     }
 }
