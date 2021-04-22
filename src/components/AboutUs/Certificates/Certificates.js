@@ -9,7 +9,7 @@ export default function Certifiactes({ certificates, meta }) {
 
     const [data, setData] = useState([]);
     const { t } = useTranslation();
-    const [image, setImage] = useState('');
+    const [id, setImage] = useState('');
 
 
     useEffect(() => {
@@ -68,7 +68,7 @@ export default function Certifiactes({ certificates, meta }) {
                             <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                                 {
                                     data.map((item, index) => (
-                                        <div className={'cert-container'} key={index} data-bs-toggle="modal" data-bs-target={'#test'} value={item.image_url} onClick={handle}>
+                                        <div className={'cert-container'} key={index} data-bs-toggle="modal" data-bs-target={'#test'} value={index} onClick={handle}>
                                             <img src={item['image_url']} className="cert-img" alt="" />
                                             <p className={'cert-name'}>{item['name']}</p>
                                         </div>
@@ -82,14 +82,12 @@ export default function Certifiactes({ certificates, meta }) {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-body">
-                                {image ?
-                                    <img src={image} />
-                                    : null}
+                                <img src={data['image_url']}/>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <Image data={image} /> */}
+                
 
 
 
@@ -98,11 +96,3 @@ export default function Certifiactes({ certificates, meta }) {
         </div>
     )
 }
-// function Image({ image }) {
-//     console.log(image);
-
-//     return (
-
-
-//     );
-// }
