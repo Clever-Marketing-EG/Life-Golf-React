@@ -26,6 +26,9 @@
         font-weight: bold;
     }
     .specs-table{
-        overflow-x:auto;
+        //overflow-x:auto;
+        max-width: 70rem;
+        width: 100%;
+        object-fit: cover;
     }    
 }

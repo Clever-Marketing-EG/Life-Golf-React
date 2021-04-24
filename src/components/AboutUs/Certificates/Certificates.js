@@ -34,7 +34,6 @@ export default function Certifiactes({ certificates, meta }) {
     }, [certificates])
     const handle = (e) => {
         console.log(e.target.value);
-
     }
 
 

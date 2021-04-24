@@ -27,7 +27,7 @@ export default function Terms() {
                         <span>{item.name_ar}</span>
                     </button>
                 </h2>
-                <div id={"collapseOne"+index} class="collapse" >
+                <div id={"collapseOne"+index} className={"collapse"} >
                     <div class="accordion-body">
                         {item.desc_ar}
                     </div>
