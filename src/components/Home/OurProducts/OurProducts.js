@@ -25,7 +25,6 @@ export default function OurProducts({ categories, meta }) {
         // setActiveProducts(newProductsData);
         axios.get(`${BASE_URL}/categories/${activeCategory}/products`).then(response => {
             setProducts(response.data.data);
-            console.log(response.data.data)
         });
     }, [activeCategory])
     useEffect( () => {
