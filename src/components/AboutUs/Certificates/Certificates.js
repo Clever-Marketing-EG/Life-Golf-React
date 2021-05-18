@@ -92,7 +92,7 @@ export default function Certifiactes({ certificates, meta }) {
 function Image({ data }) {
     return (
 
-        <div className="modal fade" id={'test'} tabIndex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="true" aria-hidden="true">
+        <div className="modal fade" id={'test'} aria-labelledby="exampleModalLabel" tabIndex="-1" role="dialog"  data-bs-keyboard="true" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-body">

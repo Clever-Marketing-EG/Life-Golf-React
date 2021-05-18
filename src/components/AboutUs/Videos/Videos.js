@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Videos.scss';
 import VideoCarousel from './VideoCarousel/VideoCarousel';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import $ from 'jquery';
+
+
+
 
 export default function Videos({ videos, meta }) {
-    
-    const {t} = useTranslation();
+
+    const { t } = useTranslation();
     const [data, setData] = useState({
         product: [],
         factory: []
@@ -52,6 +56,18 @@ export default function Videos({ videos, meta }) {
     }
 
 
+    $(function () {
+        
+        $('#exampleModalCenter').click('hide.bs.modal', function (e) {
+            $("iframe").each(function () {
+                var src = $(this).attr('src');
+                $(this).attr('src', src);
+            });
+        })
+    });
+
+
+
     return (
         <div id={'videos'}>
             <div className={'container'}>
@@ -72,9 +88,13 @@ export default function Videos({ videos, meta }) {
                         <div className="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <VideoCarousel videos={data['product']} handleClick={handleClick} />
                         </div>
+
                         <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div className="modal-dialog modal-dialog-centered" role="document">
+
                                 <div className="modal-content">
+
+
                                     <iframe className={'video'} src={activeVideo} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen />
                                 </div>
