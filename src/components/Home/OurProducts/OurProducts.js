@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import './OurProducts.scss';
 import Slider from './Slider';
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+const { BASE_URL } = require('../../../config');
 
-export default function OurProducts({ categories, products, meta }) {
+export default function OurProducts({ categories, meta }) {
     const { t } = useTranslation();
     const [activeCategory, setActiveCategory] = useState(1);
     const [activeProducts, setActiveProducts] = useState([]);
+    const [products, setProducts] = useState([]);
 
     const [data, setData] = useState({
         categories: [],
@@ -16,12 +19,14 @@ export default function OurProducts({ categories, products, meta }) {
     const lang = localStorage.getItem("lang")
 
     useEffect( () => {
-        const newProductsData = data['products'].filter( item =>
-            item['category_id'] === activeCategory
-        )
-        setActiveProducts(newProductsData);
+        // const newProductsData = data['products'].filter( item =>
+        //     item['category_id'] === activeCategory
+        // )
+        // setActiveProducts(newProductsData);
+        axios.get(`${BASE_URL}/categories/${activeCategory}/products`).then(response => {
+            setProducts(response.data.data);
+        });
     }, [activeCategory])
-
     useEffect( () => {
         const dataObj = {
             categories: [],
@@ -62,6 +67,8 @@ export default function OurProducts({ categories, products, meta }) {
     function handlClick(id) {
         setActiveCategory(id);
     }
+    console.log(activeCategory)
+
 
     return (
         <div id={'our-products'} className={'container'} >
