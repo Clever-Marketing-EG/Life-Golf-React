@@ -10,6 +10,7 @@ export default function GalleryCarousel({ gallery }) {
 
     useEffect(() => {
 
+        
         const arr = [];
         for (let i = 0; i < gallery.length; i += 8) {
             arr.push(
