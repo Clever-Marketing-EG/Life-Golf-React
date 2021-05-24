@@ -39,7 +39,7 @@ export default function AboutUs({ meta }) {
     }, [])
 
     return (
-        <div id={'about'}>
+        <div id={'about'} dir={t('dir')}>
             <Header className="header" title={t('nav.about')} />
             <div className={'container d-flex flex-wrap justify-content-around xs'} >
                 <div className={'d-flex left-container'}>
@@ -85,7 +85,7 @@ export default function AboutUs({ meta }) {
             <div className={'container marg'} dir={t('dir')}>
                 <div className={'row justify-content-around height'}>
                     <div className={'col-md-4 mb-3'}>
-                        <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
+                        <ul className="nav nav-pills mb-3 snd-ul padding-0" id="pills-tab" role="tablist">
                             <li className="nav-item snd-list" role="presentation">
                                 <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.mission')}</button>
                             </li>

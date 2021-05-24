@@ -75,9 +75,9 @@ export default function Posts() {
 
     return (
         <div id={'post'}>
-            <Header className="header" title={'Article'} />
+            <Header className="header" title={post.title} />
 
-            <div className={'container x'}>
+            <div className={'container x'} dir={t('dir')}>
                 <div className={'row'}>
                     <div className={'col-md-4 left-container'}>
 

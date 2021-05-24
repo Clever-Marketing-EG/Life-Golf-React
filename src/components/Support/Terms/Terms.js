@@ -39,7 +39,7 @@ export default function Terms() {
             return (
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" data-toggle="collapse"  data-target={"#collapseOne"+index}>
+                        <button class="accordion-button" data-toggle="collapse"  data-target={"#collapseOne"+index} dir={t('dir')}>
                             <div className={'small-circle'}/>
                             <span>{item.name}</span>
                         </button>

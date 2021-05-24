@@ -45,7 +45,7 @@ export default function Gallery({ galleries, meta }) {
             <div className={'container'}>
                 <h1 className={'vid-title'}>{meta.gallery_header}</h1>
                 <div className={'navigator'} dir={t('dir')}>
-                    <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                    <ul className="nav nav-pills mb-3 justify-content-center padding-0" id="pills-tab" role="tablist">
                         <li className="nav-item" role="presentation">
                             <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory-img" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.factory-images')}</button>
                         </li>

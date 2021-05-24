@@ -49,7 +49,7 @@ export default function GalleryCarousel({ gallery }) {
 function ImageCard({ image_url, description }) {
     return (
         <div className={'col-md-3 justify-content-center image-container'}><img alt={'...'} src={image_url} className={'photo'} />
-            <div className="after">{description}</div>
+            {/* <div className="after">{description}</div> */}
         </div>
     );
 }
