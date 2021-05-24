@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import './OurNews.scss';
 import Carousel, { consts } from "react-elastic-carousel";
 import Truncate from 'react-truncate';
+import { useTranslation } from "react-i18next";
 
 
 export default function OurNews({ articles, meta }) {
     const [Articles, setArticles] = useState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         let lang = localStorage.getItem("lang");
@@ -42,7 +44,7 @@ export default function OurNews({ articles, meta }) {
 
     return (
         <div id={'our-news'} className={'container d-flex flex-wrap'} >
-            <div className={'left-container'} >
+            <div className={'left-container'}  dir={t('dir')}>
                 <h1 className={'home-header'}>
                     {meta.news_header}
                 </h1>
@@ -88,11 +90,9 @@ function Article({ title, content, image, date, id }) {
             <div className="card-body">
                 <h5 className="card-title">
                     <Truncate lines={1}>{title}</Truncate>
-
                 </h5>
                 <p className="card-text">
                     <Truncate lines={3}>{content}</Truncate>
-
                 </p>
                 <a href={'/post/' + id} className="cherry-link">Read More <i className="icon-arrow-right" /></a>
             </div>
