@@ -3,13 +3,13 @@ import './Terms.scss';
 import Truncate from 'react-truncate';
 import Header from '../../Shared/Header/Header';
 import axios from 'axios';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const { BASE_URL } = require('../../../config');
 
 export default function Terms() {
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [terms, setTerms] = useState([]);
     useEffect(() => {
         axios.get(`${BASE_URL}/term`).then(response => {
@@ -20,31 +20,31 @@ export default function Terms() {
         var lang = localStorage.getItem('lang');
         if (lang == 'ar') {
             return (
-                <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" data-toggle="collapse"  data-target={"#collapseOne"+index}>
-                        <div className={'small-circle'}/>
-                        <span>{item.name_ar}</span>
+                <div class="accordion-item" dir={'rtl'}>
+
+                    <button class="accordion-button" data-toggle="collapse" data-target={"#collapseOne" + index} dir={'rtl'}>
+                        <div className={'small-circle ml-2'} />
+                        <span >{item.name_ar}</span>
                     </button>
-                </h2>
-                <div id={"collapseOne"+index} className={"collapse"} >
-                    <div class="accordion-body">
-                        {item.desc_ar}
+
+                    <div id={"collapseOne" + index} className={"collapse"}  >
+                        <div class="accordion-body" dir={'rtl'}>
+                            {item.desc_ar}
+                        </div>
                     </div>
                 </div>
-            </div>
 
             );
         } else {
             return (
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" data-toggle="collapse"  data-target={"#collapseOne"+index} dir={t('dir')}>
-                            <div className={'small-circle'}/>
+                        <button class="accordion-button" data-toggle="collapse" data-target={"#collapseOne" + index} >
+                            <div className={'small-circle'} />
                             <span>{item.name}</span>
                         </button>
                     </h2>
-                    <div id={"collapseOne"+index} class="collapse" >
+                    <div id={"collapseOne" + index} class="collapse" >
                         <div class="accordion-body">
                             {item.desc}
                         </div>
