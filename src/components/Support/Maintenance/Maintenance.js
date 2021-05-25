@@ -3,7 +3,6 @@ import './Maintenance.scss';
 import one from './Assets/path_146.png';
 import two from './Assets/path_148.png';
 import three from './Assets/path_150.png';
-import pic from './Assets/about-us-3.jpg';
 import Truncate from 'react-truncate';
 import Header from '../../Shared/Header/Header';
 import {useTranslation} from "react-i18next";

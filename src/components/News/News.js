@@ -9,7 +9,6 @@ import vehicle from './Assets/electric-vehicle.png';
 import Blogs from './Blogs/Blogs';
 import Header from '../Shared/Header/Header'
 import { useTranslation } from "react-i18next";
-import search from './Assets/search.png';
 
 const { BASE_URL } = require('../../config');
 

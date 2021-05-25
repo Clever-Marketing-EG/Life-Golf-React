@@ -3,7 +3,7 @@ import Carousel, { consts } from "react-elastic-carousel";
 import single from "../../assets/Products/single.png";
 import arrow2 from '../../assets/Products/right.svg';
 import arrow1 from '../../assets/Products/left.svg';
-// import rightArrow from '../Assets/arrow-right.png';
+
 export default function images() {
 
     const breakPoints = [

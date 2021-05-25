@@ -1,7 +1,6 @@
 import React from 'react';
 import Truncate from 'react-truncate';
 import './Customize.scss';
-import pic from '../../AboutUs/Assets/about-us-3.jpg';
 import Form from './Form/Form';
 import Header from '../../Shared/Header/Header';
 import {useTranslation} from "react-i18next";

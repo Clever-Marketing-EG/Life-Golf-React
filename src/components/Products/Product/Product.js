@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Product.scss';
 import Header from '../../Shared/Header/Header';
 import circle from './Assets/circle.png';
-import Truncate from 'react-truncate';
 import warning from './Assets/warning.png';
 import Similar from '../Similar/Similar';
 import Left from './Left/Left';

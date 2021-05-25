@@ -4,7 +4,6 @@ import './Rental.scss';
 import Header from '../../Shared/Header/Header';
 import Truncate from 'react-truncate';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const { BASE_URL } = require('../../../config');

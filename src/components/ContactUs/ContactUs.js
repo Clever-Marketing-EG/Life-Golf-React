@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ContactUs.scss';
 import phone from './Assets/icon_feather-phone.png';
 import mail from './Assets/icon_feather-mail.png';

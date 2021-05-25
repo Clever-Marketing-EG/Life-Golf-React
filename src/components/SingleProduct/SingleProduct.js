@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Config from "./Configurations/Configurations";
 import Features from "./Features/Features";
 import Specs from "./Specifications/Specifications";

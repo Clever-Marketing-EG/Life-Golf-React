@@ -12,7 +12,7 @@ export default function Footer({ meta }) {
             <footer className={'footer-background'}>
                 <div className={'container'}>
                     <div className={'row '}>
-                        <div className={'col-md-3 margin-top-footer margin-right'}>
+                        <div className={'col-md-3 margin-top-footer margin-right'} dir={t('dir')}>
                             <img src={logo} className={'logo-img'} alt="" />
                             <p className={'footer-desc'}>
                                 {meta.content}
