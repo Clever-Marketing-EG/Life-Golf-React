@@ -78,11 +78,11 @@ function Service({name, description, id, image_url}) {
                 <img src={image_url} className={'service-img'} alt="" />
                 <div className={'service-body'}>
                     <h1><Truncate lines={1}>{name}</Truncate></h1>
-                    <p><Truncate lines={3}>{description}</Truncate></p>
-                    <Link className={'read'} to={'/Service/'+id} dir={'ltr'}>
+                    <p><Truncate lines={6}>{description}</Truncate></p>
+                    {/* <Link className={'read'} to={'/Service/'+id} dir={'ltr'}>
                         {t('utils.read-more')}
                         <img className={'arrow'} src={arrow} alt="" />
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
 

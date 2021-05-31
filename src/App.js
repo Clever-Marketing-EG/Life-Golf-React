@@ -123,11 +123,11 @@ export default function App() {
                                 meta={meta}
                             />
                         </Route>
-                        <Route path="/service/:id">
+                        {/* <Route path="/service/:id">
                             <Rental
                                 meta={meta}
                             />
-                        </Route>
+                        </Route> */}
                         <Route component={NotFound} />
                     </Switch>
                     <Footer meta={meta['footer']} />
