@@ -7,8 +7,12 @@ import Truncate from "react-truncate";
 import { useTranslation } from "react-i18next";
 import Loader from '../Shared/Loader/Loader';
 import { useParams } from 'react-router-dom';
-
-
+import cart from '../News/Assets/golf-cart.png';
+import plug from '../News/Assets/electric_plug.png';
+import fork from '../News/Assets/forklift.png';
+import outline from '../News/Assets/outline.png';
+import vehicle from '../News/Assets/electric-vehicle.png';
+import testImg from './Product/Assets/test.jpg'
 const { BASE_URL } = require('../../config');
 
 
@@ -21,7 +25,18 @@ export default function Products() {
 
     useEffect(() => {
         const lang = localStorage.getItem('lang');
-        axios.get(`${BASE_URL}/categories/${id}/products`).then(response => {
+        axios.get(`${BASE_URL}/products`).then(response => {
+            // let dataObj = {
+            //     1: [], 2: [], 3: [], 4: [], 5: []
+            // };
+
+            // response.data.data.forEach(item => {
+            //     dataObj[item.category_id].push(item);
+            // })
+            // setData(dataObj);
+
+
+
             let dataArr;
             if (lang === 'ar') {
                 dataArr = response.data.data.map(item => ({
@@ -29,43 +44,103 @@ export default function Products() {
                     name: item.name_ar,
                     description: item.description_ar,
                     year: new Date(item.created_at).getFullYear(),
-                    image_url: item.images[0] ? item.images[0].url : ''
+                    image_url: item.image_url,
+                    images: item.images[0] ? item.images[0].url : ''
                 }))
             } else {
                 dataArr = response.data.data.map(item => ({
                     id: item.id,
                     name: item.name,
                     description: item.description,
+                    image_url: item.image_url,
                     year: new Date(item.created_at).getFullYear(),
-                    image_url: item.images[0] ? item.images[0].url : ''
+                    images: item.images[0] ? item.images[0].url : ''
                 }))
             }
             setProducts(dataArr);
         });
-        axios.get(`${BASE_URL}/categories/${id}`)
-            .then( response => {
-                if(lang==='ar') {
-                    setActiveCategory(response.data.data.name_ar);
-                } else {
-                    setActiveCategory(response.data.data.name);
-                }
-            })
+        //     axios.get(`${BASE_URL}/categories/${id}`)
+        //         .then( response => {
+        //             if(lang==='ar') {
+        //                 setActiveCategory(response.data.data.name_ar);
+        //             } else {
+        //                 setActiveCategory(response.data.data.name);
+        //             }
+        //         })
     }, [id])
+    console.log(products);
 
     if (products.length === 0)
         return <Loader />
     else
         return (
             <div>
-                <Header title={activeCategory} />
+                <Header title={"Products"} />
                 <div>
                     <div id={"products"} className="container">
-                        <div className="d-flex flex-wrap justify-content-around align-items-center">
-                            {
-                                products.map((item, index) => (
-                                    <ProductCard item={item} key={index} />
-                                ))
-                            }
+                        <div className={'row'} dir={t('dir')}>
+                            <div className=" col-md-4 nav nav-pills flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
+                                <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                    <div className={'white-box'}>
+                                        <img className={'filter-img'} src={cart} alt="" />
+                                    </div>
+                                    <p className={'filter-name'}>{t('categories.golf-carts-and-utilities')}</p>
+                                </button >
+                                <button name="electric" className="nav-link filters" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                    <div className={'white-box'}>
+                                        <img className={'filter-img'} src={vehicle} alt="" />
+                                    </div>
+                                    <p className={'filter-name'}>{t('categories.electric-vehicles')}</p>
+                                </button>
+                                <button name="golf-car" className="nav-link filters" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                    <div className={'white-box'}>
+                                        <img className={'filter-img'} src={outline} alt="" />
+                                    </div>
+                                    <p className={'filter-name'}>{t('categories.electric-cleaning-equipments')}</p>
+                                </button>
+                                <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                    <div className={'white-box'}>
+                                        <img className={'filter-img'} src={fork} alt="" />
+                                    </div>
+                                    <p className={'filter-name'}>{t('categories.electric-handling-equipments')}</p>
+                                </button>
+                                <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-setting" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                    <div className={'white-box'}>
+                                        <img className={'filter-img'} src={plug} alt="" />
+                                    </div>
+                                    <p className={'filter-name'}>{t('categories.electronics')}</p>
+                                </button>
+                            </div>
+                            <div className={"col-md-8"}>
+                                <div className={'row'}>
+                                    <div className={'row mb-5 justify-content-around'}>
+                                        <button className={'filter-btn'}>
+                                            <div className={'row'}>
+                                                <img className={'sub-filter-img'} src={testImg} alt={'...'} />
+                                                <div>On road</div>
+                                            </div>
+                                        </button>
+                                        <button className={' filter-btn'}>
+                                            <div className={'row'}>
+                                                <div className={''}>
+                                                    <img className={'sub-filter-img'}  src={testImg} alt={'...'} />
+                                                </div>
+                                                <div className={''}>
+                                                    <div>Off road</div>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    {
+                                        products.map((item, index) => (
+                                            <ProductCard item={item} key={index} />
+                                        ))
+                                    }
+                                </div>
+
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -76,30 +151,31 @@ export default function Products() {
 
 function ProductCard({ item }) {
     const { t } = useTranslation();
-
+    console.log(item);
     return (
-        <div>
-            <div className="card col-card">
-                <div className="head-div position-relative">
-                    <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p>
-                    <img src={item.image_url} className="card-img-top product-img" alt="..." />
-                </div>
-                <div className="card-body">
-                    <h5 className="title">{item.name}</h5>
-                    <p>
-                        <Truncate lines={3}>
-                            {item.description}
-                        </Truncate>
-                    </p>
-                    <br />
-                    <br />
-                    <div className="mrow">
+        <div className="card col-card">
+<Link to={`/products/${item.id}`}>
+            <div className="head-div position-relative">
+                {/* <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p> */}
+                <img src={item.image_url} className="card-img-top product-img" alt="..." />
+            </div>
+            <div className="card-body">
+                <h5 className="title">{item.name}</h5>
+                <p>
+                    <Truncate lines={4}>
+                        {item.description}
+                    </Truncate>
+                </p>
+                <br />
+                <br />
+                {/* <div className="mrow">
                         <Link to={`/products/${item.id}`} className={'btn primarybtn block w-100'}>
                             {t('utils.see-more')}
                         </Link>
-                    </div>
-                </div>
+                    </div> */}
             </div>
+        </Link>
         </div>
+
     )
 }
