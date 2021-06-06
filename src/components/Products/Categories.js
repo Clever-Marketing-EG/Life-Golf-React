@@ -2,8 +2,8 @@ import React from 'react'
 import Header from "../Shared/Header/Header";
 import {Link} from 'react-router-dom'
 import './Products.scss'
-export default function Categories({categories , changelang}) {
 
+export default function Categories({categories , changelang}) {
     const setCategory = (item) => {
         localStorage.setItem("category_id",item.id)
     }

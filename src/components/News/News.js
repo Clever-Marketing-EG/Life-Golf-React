@@ -18,26 +18,26 @@ export default function News() {
     const { t } = useTranslation();
 
 
-    const [data, setData] = useState({
-        1: [], 2: [], 3: [], 4: [], 5: []
-    });
+    const [data, setData] = useState([]
+        // 1: [], 2: [], 3: [], 4: [], 5: []
+    );
 
     const [pagination, setPagination] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
-    useEffect(() => {
+    useEffect( async () => {
         window.scrollTo(0, 0);
-        axios.get(`${BASE_URL}/articles?page=${currentPage}`).then(response => {
-            let dataObj = {
-                1: [], 2: [], 3: [], 4: [], 5: []
-            };
+        await axios.get(`${BASE_URL}/articles?page=${currentPage}`).then(response => {
+            // let dataObj = {
+            //     1: [], 2: [], 3: [], 4: [], 5: []
+            // };
 
-            response.data.data.forEach(item => {
-                dataObj[item.category_id].push(item);
-            })
-            setData(dataObj);
-
-
+            // response.data.data.forEach(item => {
+            //     dataObj[item.category_id].push(item);
+            // })
+            // setData(dataObj);
+            setData(response.data.data);
+            
             let dataArr = [];
             for (let i = 0; i < response.data.last_page; i++) {
                 dataArr.push(
@@ -47,7 +47,6 @@ export default function News() {
             setPagination(dataArr);
         });
     }, [currentPage])
-
 
     const changePage = (e) => {
         setCurrentPage(e.target.id);
@@ -60,16 +59,16 @@ export default function News() {
             <Header className="header" title={t('nav.news')} />
             <div id={'news'} className={'container'} dir={t('dir')} >
                 <div className="d-flex justify-content-around flex-wrap align-items-start">
-                    <div className="nav flex-column nav-pills mx-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    
-                    {/* <div class="search-container">
+                    {/* <div className="nav flex-column nav-pills mx-2" id="v-pills-tab" role="tablist" aria-orientation="vertical"> */}
+
+                        {/* <div class="search-container">
                         <form dir={t('dir')} action="/action_page.php" class="search-form">
                             <input type="text" placeholder={t('utils.search')} name="search" />
                             <button type="submit" dir={t('dir')} className={"pink-circle btn"}></button>
                             <img src={search} dir={t('dir')} className={"path"} alt="" />
                         </form>
                     </div> */}
-                        <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                        {/* <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <div className={'white-box'}>
                                 <img className={'filter-img'} src={cart} alt="" />
                             </div>
@@ -99,14 +98,14 @@ export default function News() {
                             </div>
                             <p className={'filter-name'}>{t('categories.electronics')}</p>
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="tab-content" id="v-pills-tabContent" dir="ltr">
-                        <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Blogs articles={data[1]} /></div>
-                        <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><Blogs articles={data[2]} /></div>
+                        <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><Blogs articles={data} /></div>
+                        {/* <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><Blogs articles={data[2]} /></div>
                         <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><Blogs articles={data[3]} /></div>
                         <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><Blogs articles={data[4]} /></div>
-                        <div className="tab-pane fade" id="v-pills-setting" role="tabpanel" aria-labelledby="v-pills-setting-tab"><Blogs articles={data[5]} /></div>
+                        <div className="tab-pane fade" id="v-pills-setting" role="tabpanel" aria-labelledby="v-pills-setting-tab"><Blogs articles={data[5]} /></div> */}
                     </div>
 
                 </div>

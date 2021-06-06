@@ -32,7 +32,7 @@ export default function App() {
     useEffect(() => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             const data = response.data.data;
-            console.log(data);
+            console.log(response);
             const lang = localStorage.getItem('lang');
 
             const html = document.querySelector('html');
@@ -66,6 +66,7 @@ export default function App() {
 
 
     if (!loaded) {
+        
         return <Loader />;
     }
     else {
