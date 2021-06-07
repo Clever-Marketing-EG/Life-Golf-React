@@ -101,7 +101,7 @@ export default function Products() {
                                     </option>
                                 </select>
                                 :
-                                <div className="col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
+                                <div className="col-md-3 sidebar" >
                                     <button name="golf-car" className="filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
                                         <div className={'white-box'}>
                                             <img className={'filter-img'} src={cart} alt="" />
@@ -136,7 +136,13 @@ export default function Products() {
                             }
                             <div className={"col-md-9"}>
                                 <div className={'row justify-content-center'}>
-                                    <div className={'row mb-5 justify-content-around'}>
+                                    <div className={'row mb-2 justify-content-around'}>
+                                        <button className={'filter-btn'}>
+                                            <div className={'row'}>
+                                                <img className={'sub-filter-img'} src={testImg} alt={'...'} />
+                                                <div>On road</div>
+                                            </div>
+                                        </button>
                                         <button className={'filter-btn'}>
                                             <div className={'row'}>
                                                 <img className={'sub-filter-img'} src={testImg} alt={'...'} />
@@ -154,6 +160,10 @@ export default function Products() {
                                             </div>
                                         </button>
                                     </div>
+                                    <div className={'mb-3 d-flex justify-content-center'}>
+                                        <hr/>
+                                    </div>
+
                                     <div className={'row justify-content-around'} >
                                         {
                                             products.map((item, index) => (

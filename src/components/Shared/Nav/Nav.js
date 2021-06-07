@@ -75,7 +75,7 @@ export default function Nav() {
                                 {t('nav.services')}
                             </NavLink>
                         </li>
-                        <li className="nav-item dropdown">
+                        {/* <li className="nav-item dropdown">
                             <a
                                 className="nav-link dropdown-toggle"
                                 href="#"
@@ -102,6 +102,11 @@ export default function Nav() {
                                     ))
                                 }
                             </ul>
+                        </li> */}
+                        <li className="nav-item">
+                            <NavLink activeClassName={'active'} className="nav-link" to="/products">
+                                {t('nav.products')}
+                            </NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink activeClassName={'active'} className="nav-link" to="/news">
