@@ -19,6 +19,7 @@ const { BASE_URL } = require('../../config');
 export default function Products() {
 
     const { t } = useTranslation();
+    const [subCategory, setSubCategory] = useState([0, 0, 0, 0]);
     const [products, setProducts] = useState([]);
     // const [activeCategory, setActiveCategory] = useState();
     const [isMobile, setIsMobile] = useState(Boolean);
@@ -137,19 +138,16 @@ export default function Products() {
                             <div className={"col-md-9"}>
                                 <div className={'row justify-content-center'}>
                                     <div className={'row mb-2 justify-content-around'}>
-                                        <button className={'filter-btn'}>
-                                            <div className={'row'}>
-                                                <img className={'sub-filter-img'} src={testImg} alt={'...'} />
-                                                <div>On road</div>
-                                            </div>
-                                        </button>
-                                        <button className={'filter-btn'}>
-                                            <div className={'row'}>
-                                                <img className={'sub-filter-img'} src={testImg} alt={'...'} />
-                                                <div>On road</div>
-                                            </div>
-                                        </button>
-                                        <button className={' filter-btn'}>
+                                        {
+                                            subCategory.map((item, index) => (
+                                                <button className={'filter-btn'}>
+                                                    <div className={'row'}>
+                                                        <img className={'sub-filter-img'} src={testImg} alt={'...'} />
+                                                        <div>On road</div>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        {/* <button className={' filter-btn'}>
                                             <div className={'row'}>
                                                 <div className={''}>
                                                     <img className={'sub-filter-img'} src={testImg} alt={'...'} />
@@ -158,10 +156,10 @@ export default function Products() {
                                                     <div>Off road</div>
                                                 </div>
                                             </div>
-                                        </button>
+                                        </button> */}
                                     </div>
                                     <div className={'mb-3 d-flex justify-content-center'}>
-                                        <hr/>
+                                        <hr />
                                     </div>
 
                                     <div className={'row justify-content-around'} >
