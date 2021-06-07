@@ -82,7 +82,7 @@ export default function AboutUs({ meta }) {
                     </div>
                 </div>
             </div>
-            <div className={'container marg'} dir={t('dir')}>
+            {/* <div className={'container marg'} dir={t('dir')}>
                 <div className={'row justify-content-around height'}>
                     <div className={'col-md-4 mb-3'}>
                         <ul className="nav nav-pills mb-3 snd-ul padding-0" id="pills-tab" role="tablist">
@@ -106,7 +106,7 @@ export default function AboutUs({ meta }) {
                         <img src={vision} alt={'..'} className={'mission-img'} />
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className={'container'}>
                 <Certifiactes
                     meta={meta}

@@ -20,8 +20,26 @@ export default function Products() {
 
     const { t } = useTranslation();
     const [products, setProducts] = useState([]);
-    const [activeCategory, setActiveCategory] = useState();
+    // const [activeCategory, setActiveCategory] = useState();
+    const [isMobile, setIsMobile] = useState(Boolean);
+    const [size, setSize] = React.useState(window.innerWidth)
+
     let { id } = useParams();
+
+    useEffect(() => {
+        window.addEventListener("resize", updateWidth);
+        if (size <= 800) {
+            setIsMobile(true);
+        }
+        else {
+            setIsMobile(false);
+        }
+        return () => window.removeEventListener("resize", updateWidth);
+    }, [size])
+
+    const updateWidth = () => {
+        setSize(window.innerWidth)
+    }
 
     useEffect(() => {
         const lang = localStorage.getItem('lang');
@@ -34,8 +52,6 @@ export default function Products() {
             //     dataObj[item.category_id].push(item);
             // })
             // setData(dataObj);
-
-
 
             let dataArr;
             if (lang === 'ar') {
@@ -68,7 +84,6 @@ export default function Products() {
         //             }
         //         })
     }, [id])
-    console.log(products);
 
     if (products.length === 0)
         return <Loader />
@@ -78,41 +93,49 @@ export default function Products() {
                 <Header title={"Products"} />
                 <div>
                     <div id={"products"} className="container">
-                        <div className={'row'} dir={t('dir')}>
-                            <div className=" col-md-4 nav nav-pills flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
-                                <button name="golf-car" className="nav-link filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                    <div className={'white-box'}>
-                                        <img className={'filter-img'} src={cart} alt="" />
-                                    </div>
-                                    <p className={'filter-name'}>{t('categories.golf-carts-and-utilities')}</p>
-                                </button >
-                                <button name="electric" className="nav-link filters" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                                    <div className={'white-box'}>
-                                        <img className={'filter-img'} src={vehicle} alt="" />
-                                    </div>
-                                    <p className={'filter-name'}>{t('categories.electric-vehicles')}</p>
-                                </button>
-                                <button name="golf-car" className="nav-link filters" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                    <div className={'white-box'}>
-                                        <img className={'filter-img'} src={outline} alt="" />
-                                    </div>
-                                    <p className={'filter-name'}>{t('categories.electric-cleaning-equipments')}</p>
-                                </button>
-                                <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                    <div className={'white-box'}>
-                                        <img className={'filter-img'} src={fork} alt="" />
-                                    </div>
-                                    <p className={'filter-name'}>{t('categories.electric-handling-equipments')}</p>
-                                </button>
-                                <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-setting" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                    <div className={'white-box'}>
-                                        <img className={'filter-img'} src={plug} alt="" />
-                                    </div>
-                                    <p className={'filter-name'}>{t('categories.electronics')}</p>
-                                </button>
-                            </div>
-                            <div className={"col-md-8"}>
-                                <div className={'row'}>
+                        <div className={'row justify-content-center'} dir={t('dir')}>
+                            {isMobile ?
+                                <select className={'mb-5'} name="cars" id="cars">
+                                    <option className={'option'} value={``}>
+                                        {t('categories.golf-carts-and-utilities')}
+                                    </option>
+                                </select>
+                                :
+                                <div className="col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
+                                    <button name="golf-car" className="filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                        <div className={'white-box'}>
+                                            <img className={'filter-img'} src={cart} alt="" />
+                                        </div>
+                                        <p className={'filter-name'}>{t('categories.golf-carts-and-utilities')}</p>
+                                    </button >
+                                    <button name="electric" className="nav-link filters" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                        <div className={'white-box'}>
+                                            <img className={'filter-img'} src={vehicle} alt="" />
+                                        </div>
+                                        <p className={'filter-name'}>{t('categories.electric-vehicles')}</p>
+                                    </button>
+                                    <button name="golf-car" className="nav-link filters" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                        <div className={'white-box'}>
+                                            <img className={'filter-img'} src={outline} alt="" />
+                                        </div>
+                                        <p className={'filter-name'}>{t('categories.electric-cleaning-equipments')}</p>
+                                    </button>
+                                    <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                        <div className={'white-box'}>
+                                            <img className={'filter-img'} src={fork} alt="" />
+                                        </div>
+                                        <p className={'filter-name'}>{t('categories.electric-handling-equipments')}</p>
+                                    </button>
+                                    <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-setting" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                        <div className={'white-box'}>
+                                            <img className={'filter-img'} src={plug} alt="" />
+                                        </div>
+                                        <p className={'filter-name'}>{t('categories.electronics')}</p>
+                                    </button>
+                                </div>
+                            }
+                            <div className={"col-md-9"}>
+                                <div className={'row justify-content-center'}>
                                     <div className={'row mb-5 justify-content-around'}>
                                         <button className={'filter-btn'}>
                                             <div className={'row'}>
@@ -123,7 +146,7 @@ export default function Products() {
                                         <button className={' filter-btn'}>
                                             <div className={'row'}>
                                                 <div className={''}>
-                                                    <img className={'sub-filter-img'}  src={testImg} alt={'...'} />
+                                                    <img className={'sub-filter-img'} src={testImg} alt={'...'} />
                                                 </div>
                                                 <div className={''}>
                                                     <div>Off road</div>
@@ -131,11 +154,14 @@ export default function Products() {
                                             </div>
                                         </button>
                                     </div>
-                                    {
-                                        products.map((item, index) => (
-                                            <ProductCard item={item} key={index} />
-                                        ))
-                                    }
+                                    <div className={'row justify-content-around'} >
+                                        {
+                                            products.map((item, index) => (
+                                                <ProductCard item={item} key={index} />
+                                            ))
+                                        }
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -151,30 +177,25 @@ export default function Products() {
 
 function ProductCard({ item }) {
     const { t } = useTranslation();
-    console.log(item);
     return (
         <div className="card col-card">
-<Link to={`/products/${item.id}`}>
-            <div className="head-div position-relative">
-                {/* <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p> */}
-                <img src={item.image_url} className="card-img-top product-img" alt="..." />
-            </div>
-            <div className="card-body">
-                <h5 className="title">{item.name}</h5>
-                <p>
-                    <Truncate lines={4}>
-                        {item.description}
-                    </Truncate>
-                </p>
-                <br />
-                <br />
-                {/* <div className="mrow">
-                        <Link to={`/products/${item.id}`} className={'btn primarybtn block w-100'}>
-                            {t('utils.see-more')}
-                        </Link>
-                    </div> */}
-            </div>
-        </Link>
+            <Link to={`/products/${item.id}`}>
+                <div className="head-div position-relative">
+                    {/* <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p> */}
+                    <img src={item.image_url} className="card-img-top product-img" alt="..." />
+                </div>
+                <div className="card-body">
+                    <h5 className="title">{item.name}</h5>
+                    <p>
+                        <Truncate lines={4}>
+                            {item.description}
+                        </Truncate>
+                    </p>
+                    <br />
+                    <br />
+
+                </div>
+            </Link>
         </div>
 
     )

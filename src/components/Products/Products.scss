@@ -31,9 +31,9 @@
     object-fit: fill;
     overflow: hidden;
   }
-  
+
   .col-card {
-    transition: transform .2s;
+    transition: transform 0.2s;
     max-width: 359px;
     height: 455px;
     // text-align: center;
@@ -41,10 +41,10 @@
     padding: 10px 15px 8px 15px;
     box-shadow: 0 3px 35px 0 rgba(0, 0, 0, 0.1);
     // margin-top: 30px;
-    margin-right: 10px;
+    // margin-right: 10px;
     margin-bottom: 20px;
   }
-  
+
   .col-card:hover {
     transform: scale(1.01);
     box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.2);
@@ -118,56 +118,54 @@
   a {
     text-decoration: none;
   }
-
-
-.filter-btn{
-
-  width: 140px;
-  height: 140px;
-  background-color: transparent;
-  border: rgb(5, 0, 0);
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.438);
-  transition: transform .2s;
-}
-.filter-btn:hover{
-  transform: scale(1.1);
-  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.438);
-}
-.sub-filter-img{
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  border-radius: 10px;
-  text-align: left;
-}
-
+  .filter-btn {
+    width: 140px;
+    height: 140px;
+    background-color: transparent;
+    border: rgb(5, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.438);
+    transition: transform 0.2s;
+  }
+  .filter-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.438);
+  }
+  .sub-filter-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 10px;
+    text-align: left;
+  }
   .filters {
     height: 61px;
-    width: 253px;
-    border-radius: 15px;
+    width: 100%;
+    border-radius: 20px;
+    border: rgb(0, 0, 0);
     position: relative;
     margin-bottom: 30px;
-}
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-    color: #fff;
+  }
+
+  .filters:hover {
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.438);
     background-color: rgba(5, 59, 108, 1);
-}
-.nav-pills .nav-link {
-    color: rgba(5, 59, 108, 1);
-    font-family: "Roboto";
-    font-size: 12px;
-    background-color: rgba(3, 49, 112, 0.05);
-}
-.filter-name {
+    .filter-name {
+      color: #fff;
+    }
+  }
+  .filters .active {
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.438);
+    background-color: rgba(5, 59, 108, 1);
+  }
+  .filter-name {
     font-family: "Roboto";
     font-size: 13px;
     text-align: center;
     margin-left: 45px;
     margin-top: 16px;
-}
-.white-box {
+  }
+  .white-box {
     height: 43px;
     width: 43px;
     background-color: rgba(255, 255, 255, 1);
@@ -177,8 +175,26 @@
     top: 9px;
     left: 10px;
     text-align: center;
-}
-.filter-img {
+  }
+  .filter-img {
     margin-top: 10px;
-}
+  }
+  select {
+    max-width: 300px;
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    // .option {
+    //   max-width: 200px;
+    //   width: 100%;
+    //   padding: 16px 20px;
+    //   border: none;
+    //   border-radius: 4px;
+    //   background-color: #f1f1f1;
+    // }
+  }
+  @media screen and (max-width: 780px) {
+  }
 }
