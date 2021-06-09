@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-import logo from './Assets/olio-02.a0d26e46-1.png';
+import logo from '../Assets/logo.png';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -87,7 +87,7 @@ export default function Footer({ meta }) {
                             </ul>
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
-                            <h3>{t('nav.contact-us')}</h3>
+                            <h3>{t('utils.be-in-touch')}</h3>
                             <ul className={'pages-link'}>
                                 <li>
                                     <a href="/contact">{t('nav.contact-us')}</a>

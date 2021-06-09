@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./App.css";
+import tawkTo from "tawkto-react";
 
 import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
@@ -29,6 +30,13 @@ export default function App() {
     const [meta, setMeta] = useState({});
     const [loaded, setLoaded] = useState(false);
 
+    const tawkToPropertyId = '60bf6a52dd60a20abbe53bae';
+    const tawkToKey = '1cb395fc348c388719f352bbce40345b138cefb7'
+
+    useEffect(() => {
+        tawkTo(tawkToPropertyId, tawkToKey)
+    }, [])
+    
     useEffect(() => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             const data = response.data.data;
@@ -66,7 +74,7 @@ export default function App() {
 
 
     if (!loaded) {
-        
+
         return <Loader />;
     }
     else {
@@ -89,17 +97,17 @@ export default function App() {
                                 meta={meta['contact']}
                             />
                         </Route>
-                        <Route  path="/products">
+                        <Route path="/products">
                             <Products
                             />
                         </Route>
-                        <Route  path="/products/:id">
+                        <Route path="/product/:id">
                             <Product />
                         </Route>
-                        <Route  path="/terms">
+                        <Route path="/terms">
                             <Terms />
                         </Route>
-                        <Route  path="/maintenance">
+                        <Route path="/maintenance">
                             <Maintenance
                                 meta={meta['maintenance']}
                             />

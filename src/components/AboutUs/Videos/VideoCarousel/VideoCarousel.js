@@ -7,7 +7,6 @@ import './VideoCarousel.scss';
 
 export default function VideoCarousel( {videos, handleClick} ) {
 
-
     function myArrow({ type, onClick, isEdge }) {
         const pointer = type === consts.PREV ?<i className="icon-icon_ionic-ios-arrow-forward-4"/> :
             <i className="icon-icon_ionic-ios-arrow-forward-5"/>
@@ -18,7 +17,6 @@ export default function VideoCarousel( {videos, handleClick} ) {
         )
     }
 
-console.log(videos);
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
         { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -31,24 +29,19 @@ console.log(videos);
     return(
 
         <div id={'video-carousel'}>
-            {
-                videos.length === 0 ? <div />
-                    : <Carousel breakPoints={breakPoints} renderArrow={myArrow}  itemsToShow={4} pagination={false} isRTL={false}>
+                     <Carousel breakPoints={breakPoints} renderArrow={myArrow} itemsToShow={4} pagination={false} isRTL={false}>
                         {
-                            videos.map( (item, index) => (
+                            videos?.map( (item, index) => (
                                 <div className={'fact-container'} key={index}>
-
                                     <img src={item.image_url} className={'img-vid'} alt="" />
                                     <img src={play} className={'play play-btn'} id={item.video_url} data-toggle="modal" data-target="#exampleModalCenter" alt="" onClick={handleClick} />
-
                                     <p className={'vid-name'}><Truncate lines={1}>{item.title}</Truncate></p>
                                     <p className={'vid-body'}><Truncate lines={2}>{item.description}</Truncate> </p>
                                     <p className={'vid-date'}>{item.created_at}</p>
                                 </div>
                             ))
                         }
-                    </Carousel>
-            }
+                    </Carousel>            
         </div>
     );
 }

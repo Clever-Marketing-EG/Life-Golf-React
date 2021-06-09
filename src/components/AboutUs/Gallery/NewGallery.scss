@@ -1,4 +1,4 @@
-#videos{
+#gallery{
     .vid-title{
         font-family: 'Poppins';
         font-weight: bold;
@@ -113,11 +113,11 @@
         transition: 0.5s;
     }
     .img-vid {
-        height: 133px;
+        height: 243px;
         width: 243px;
-        border-top-left-radius: 25px;
-        border-top-right-radius: 25px;
-        object-fit: cover;
+        border-radius: 25px;
+        // border-top-right-radius: 25px;
+        object-fit: fill;
     }
 
 }

@@ -20,6 +20,7 @@ export default function ContactUs({ meta }) {
         }
         setData({ ...data, ...newData });
     }
+    console.log(data);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -49,6 +50,9 @@ export default function ContactUs({ meta }) {
                                 </div>
                                 <div className={'col-sm-12'}>
                                     <input type="text" className="form-control p-3" placeholder={t('utils.subject')} name={'subject'} onChange={handleChange} />
+                                </div>
+                                <div className={'col-sm-12'}>
+                                    <input type="text" className="form-control p-3" placeholder={t('utils.phone')} name={'phone'} onChange={handleChange} />
                                 </div>
                             </div>
                             <div className="form-group">

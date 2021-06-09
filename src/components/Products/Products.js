@@ -187,7 +187,7 @@ function ProductCard({ item }) {
     const { t } = useTranslation();
     return (
         <div className="card col-card">
-            <Link to={`/products/${item.id}`}>
+            <Link to={`/product/${item.id}`}>
                 <div className="head-div position-relative">
                     {/* <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p> */}
                     <img src={item.image_url} className="card-img-top product-img" alt="..." />

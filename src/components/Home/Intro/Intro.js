@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import {Link} from 'react-router-dom';
 
 import PinkSquare from '../Assets/pink-square.png';
-
+ 
  
 export default function Intro({ meta }) {
     const [activeCategory, setActiveCategory] = useState('golf-carts');
@@ -46,7 +46,7 @@ export default function Intro({ meta }) {
             content: meta.orders_content,
             images: [
                 meta.orders_images_1, meta.orders_images_2, meta.orders_images_3
-            ]
+            ]  
         },
         'electronics': {
             header: meta.electronics_header,
@@ -77,10 +77,10 @@ export default function Intro({ meta }) {
                     <p className={'intro-paragraph'}>
                         {data[activeCategory].content}
                     </p>
-                    <div className={'buttons-container d-flex justify-content-between'}>
+                    {/* <div className={'buttons-container d-flex justify-content-between'}>
                         <Link className={'pink-button'} to={'/customize'}>{t('utils.customize-your-vehicle')}</Link>
                         <Link className={'pink-button'} to={'/categories/1/products'}>{t('utils.our-products')}</Link>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={'right-container'}>
                     <div className={'pink-square-container'}>

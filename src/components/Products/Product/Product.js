@@ -32,8 +32,8 @@ export default function Product() {
 
 
     useEffect(() => {
+        window.scrollTo(0,0)
         let lang = localStorage.getItem('lang')
-
         axios.get(`${BASE_URL}/products/${id}`).then(response => {
 
             let dataObj = {

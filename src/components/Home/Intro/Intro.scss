@@ -1,19 +1,18 @@
 #intro {
-    background: url('../Assets/Intro-background.png');
+    background: url("../Assets/Intro-background.png");
     width: 100%;
     background-size: cover;
     position: relative;
-    min-height: 808px;
+    min-height: 708px;
 
     .intro-header {
         min-height: 89px;
         max-width: 530px;
         width: 100%;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 60px;
         color: rgba(255, 255, 255, 1);
     }
-
 
     .white-line {
         height: 3px;
@@ -28,17 +27,17 @@
         height: 131px;
         max-width: 372px;
         width: 100%;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         font-size: 16px;
         color: rgba(255, 255, 255, 1);
         line-height: 30px;
     }
 
     .intro-container {
-        margin-top: 4vw;
-        padding-bottom: 18vh;
+        margin-top: 1vw;
+        padding-bottom: 11vh;
 
-        @media only screen and(max-width:790px)  {
+        @media only screen and(max-width:790px) {
             padding-bottom: 40vh;
         }
     }
@@ -47,9 +46,8 @@
         max-width: 530px;
         width: 100%;
         margin-top: 5rem;
-        min-height: 510px;
+        min-height: 430px;
         position: relative;
-
 
         .home-header {
             margin-bottom: 26px;
@@ -63,15 +61,15 @@
             position: absolute;
             bottom: 5rem;
 
-            a{
+            a {
                 text-decoration: none;
-                font-family: 'Roboto', sans-serif;
+                font-family: "Roboto", sans-serif;
                 font-size: 16px;
                 color: rgba(255, 255, 255, 1);
             }
 
             .pink-button {
-                background-color: rgba(223, 54, 105, 1);
+                background-color: rgb(228, 22, 83);
                 border-radius: 5px;
                 padding: 0.9rem 2vw;
                 transition: 0.5s;
@@ -102,15 +100,12 @@
             overflow: hidden;
         }
         .pink-square {
-            max-height: 574px;
-            max-width: 574px;
+            max-height: 481px;
+            max-width: 570px;
             height: 100%;
             width: 100%;
         }
-
-
     }
-
 
     .category-nav {
         position: absolute;
@@ -138,7 +133,6 @@
                 display: block;
                 margin-bottom: 6px;
             }
-
         }
 
         .category-button.active {

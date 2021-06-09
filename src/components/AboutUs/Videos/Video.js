@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './Videos.scss';
-import VideoCarousel from './VideoCarousel/VideoCarousel';
+import './video.scss';
 import { useTranslation } from "react-i18next";
 import $ from 'jquery';
-
+import Carousel, { consts } from "react-elastic-carousel";
+import play from "./play.png";
+import Truncate from "react-truncate";
 
 
 
@@ -45,9 +46,29 @@ export default function Videos({ videos, meta }) {
     }, [videos])
 
     const handleClick = (e) => {
-        console.log(e);
         setActiveVideo(e.target.id);
     }
+
+
+
+    function myArrow({ type, onClick, isEdge }) {
+        const pointer = type === consts.PREV ? <i className="icon-icon_ionic-ios-arrow-forward-4" /> :
+            <i className="icon-icon_ionic-ios-arrow-forward-5" />
+        return (
+            <button className={'arrows btn'} onClick={onClick} disabled={isEdge}>
+                {pointer}
+            </button>
+        )
+    }
+
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
+        { width: 850, itemsToShow: 3 },
+        { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
+        { width: 1450, itemsToShow: 5 },
+        { width: 1750, itemsToShow: 6 },
+    ]
 
 
     $(function () {
@@ -61,32 +82,35 @@ export default function Videos({ videos, meta }) {
     });
 
 
-
     return (
         <div id={'videos'}>
             <div className={'container'}>
-                <h1 className={'vid-title '}>{meta.video_header}</h1>
+                <h1 className={'vid-title'}>{meta.video_header}</h1>
                 <div className={'navigator'} dir={t('dir')}>
-                    {/* <ul className="nav nav-pills mb-3 justify-content-center padding-0" id="pills-tab" role="tablist">
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-factory" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.factory-videos')}</button>
-                        </li>
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.product-videos')}</button>
-                        </li>
-                    </ul> */}
-                    {/* <div className="tab-content" id="pills-tabContent"> */}
-                    {/* <div className="tab-pane fade show active" id="pills-factory" role="tabpanel" aria-labelledby="pills-home-tab"> */}
-                    <div>
-                        <VideoCarousel videos={data} handleClick={handleClick} />
-
-                    </div>
-                    {/* </div> */}
-                    {/* <div className="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <VideoCarousel videos={data['product']} handleClick={handleClick} />
-                        </div> */}
-
-
+                    {
+                        data.length === 0 ? <div /> : <Carousel
+                            isRTL={false}
+                            pagination={false}
+                            itemsToShow={4}
+                            renderArrow={myArrow}
+                            breakPoints={breakPoints}
+                            itemPadding={[25, 24]}
+                        >
+                            {
+                                data.map((item, index) => (
+                                    <div>
+                                        <div className={'fact-container'} key={index}>
+                                            <img src={item.image_url} className={'img-vid'} alt="" />
+                                            <img src={play} className={'play play-btn'} id={item.video_url} data-toggle="modal" data-target="#exampleModalCenter" alt="" onClick={handleClick} />
+                                            <p className={'vid-name'}><Truncate lines={1}>{item.title}</Truncate></p>
+                                            <p className={'vid-body'}><Truncate lines={2}>{item.description}</Truncate> </p>
+                                            <p className={'vid-date'}>{item.created_at}</p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </Carousel>
+                    }
                     <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered" role="document">
                             <div className="modal-content">
@@ -95,8 +119,6 @@ export default function Videos({ videos, meta }) {
                             </div>
                         </div>
                     </div>
-
-                    {/* </div> */}
                 </div>
             </div>
 
