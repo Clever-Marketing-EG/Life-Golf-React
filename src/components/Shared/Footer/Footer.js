@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Footer.scss';
 import logo from '../Assets/logo.png';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+const { BASE_URL } = require('../../../config');
 
 export default function Footer({ meta }) {
+    const lang = localStorage.getItem("lang");
+    const [category, setCategory] = useState();
     const { t } = useTranslation();
 
+    useEffect(() => {
+        axios.get(`${BASE_URL}/categories`)
+            .then(response => {
+                let dataArr;
+                if (lang === 'ar') {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name_ar,
+                        image_url: item.image_url,
+                    }))
+                } else {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        image_url: item.image_url,
+                    }))
+                }
+                setCategory(dataArr);
+            })
+    }, [])
     return (
         <div id={'footer'} dir={t('dir')}>
             <footer className={'footer-background'}>
@@ -58,7 +83,14 @@ export default function Footer({ meta }) {
                         <div className={'col-6 col-md-2 margin-top-footer'}>
                             <h3>{t('nav.products')}</h3>
                             <ul className={'pages-link'} >
-                                <li>
+                                {
+                                    category?.map((item, index) => (
+                                        <li>
+                                            <Link to={`/products/category/${item.id}`}>{item.name}</Link>
+                                        </li>
+                                    ))
+                                }
+                                {/* <li>
                                     <a href="/categories/1/products">{t('categories.golf-carts-and-utilities')}</a>
                                 </li>
                                 <li>
@@ -72,7 +104,7 @@ export default function Footer({ meta }) {
                                 </li>
                                 <li>
                                     <a href="/categories/5/products">{t('categories.electronics')}</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         <div className={'col-6 col-md-2 margin-top-footer'}>
@@ -98,7 +130,7 @@ export default function Footer({ meta }) {
                                     <a href="https://www.google.com/maps/place/Life+Golf/@30.1025934,31.3409571,14z/data=!4m5!3m4!1s0x0:0x766fc31e19db272f!8m2!3d30.102029!4d31.3398301?hl=en" target={'_blank'} rel="noreferrer">{t('utils.head-office')}</a>
                                 </li>
                                 <li>
-                                <span style={{ color: "white" }}>{t('utils.email')}: </span>
+                                    <span style={{ color: "white" }}>{t('utils.email')}: </span>
                                     <a href="mailto: info@lifegolf.net">info@lifegolf.net</a>
                                 </li>
                                 <li>

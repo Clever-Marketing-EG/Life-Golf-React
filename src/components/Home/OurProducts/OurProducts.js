@@ -10,6 +10,8 @@ export default function OurProducts({ categories, meta }) {
     const [activeCategory, setActiveCategory] = useState(1);
     const [activeProducts, setActiveProducts] = useState([]);
     const [products, setProducts] = useState([]);
+    const [isMobile, setIsMobile] = useState(Boolean);
+    const [size, setSize] = React.useState(window.innerWidth)
 
     const [data, setData] = useState({
         categories: [],
@@ -18,12 +20,29 @@ export default function OurProducts({ categories, meta }) {
 
     const lang = localStorage.getItem("lang")
 
+
+    // mobile section change
+    useEffect(() => {
+        window.addEventListener("resize", updateWidth);
+        if (size <= 800) {
+            setIsMobile(true);
+        }
+        else {
+            setIsMobile(false);
+        }
+        return () => window.removeEventListener("resize", updateWidth);
+    }, [size])
+
+    const updateWidth = () => {
+        setSize(window.innerWidth)
+    }
+
     useEffect(() => {
         // const newProductsData = data['products'].filter( item =>
         //     item['category_id'] === activeCategory
         // )
         // setActiveProducts(newProductsData);
-        axios.get(`${BASE_URL}/categories/${activeCategory}/products`).then(response => {
+        axios.get(`${BASE_URL}/subcategories/${activeCategory}/products`).then(response => {
             setProducts(response.data.data);
         });
     }, [activeCategory])
@@ -67,27 +86,38 @@ export default function OurProducts({ categories, meta }) {
     function handlClick(id) {
         setActiveCategory(id);
     }
-    console.log(activeCategory)
-
-
+    console.log(activeCategory);
     return (
         <div id={'our-products'} className={'container'} >
             <h1 className={'home-header'}>{meta.products_header}</h1>
             <hr className={'blue-line'} />
-            <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-                {
-                    data['categories'].map((item, index) => (
-                        <CategoryButton
-                            key={index}
-                            id={item.id}
-                            title={item.name}
-                            handlClick={handlClick}
-                            dir={t('dir')}
-                        />
-                    ))
+            <div className={'row justify-content-center'} dir={t('dir')}>
+                {isMobile ?
+                    <select id={'test'} className={'mb-5 mt-5'} onChange={(e) => setActiveCategory(e.target.value)}>
+                        {data['categories'].map((item, index) => (
+                            <option className={'option'} value={item.id}>
+                                {item.name}
+                            </option>
+                        ))
+                        }
+                    </select>
+                    :
+                    <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                        {
+                            data['categories'].map((item, index) => (
+                                <CategoryButton
+                                    key={index}
+                                    id={item.id}
+                                    title={item.name}
+                                    handlClick={handlClick}
+                                    dir={t('dir')}
+                                />
+                            ))
+                        }
+                    </ul>
                 }
+            </div>
 
-            </ul>
             <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <Slider products={activeProducts} dir={t('dir')} />

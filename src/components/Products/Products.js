@@ -7,22 +7,16 @@ import Truncate from "react-truncate";
 import { useTranslation } from "react-i18next";
 import Loader from '../Shared/Loader/Loader';
 import { useParams } from 'react-router-dom';
-import cart from '../News/Assets/golf-cart.png';
-import plug from '../News/Assets/electric_plug.png';
-import fork from '../News/Assets/forklift.png';
-import outline from '../News/Assets/outline.png';
-import vehicle from '../News/Assets/electric-vehicle.png';
-import testImg from './Product/Assets/test.jpg'
 const { BASE_URL } = require('../../config');
 
 
 export default function Products() {
 
+    const { id } = useParams();
     const { t } = useTranslation();
     const [subCategory, setSubCategory] = useState([]);
     const [category, setCategory] = useState();
     const [products, setProducts] = useState([]);
-    const [activeCategory, setactiveCategory] = useState();
     const [activeSubCategory, setactiveSubCategory] = useState();
     const [isMobile, setIsMobile] = useState(Boolean);
     const [size, setSize] = React.useState(window.innerWidth)
@@ -33,7 +27,6 @@ export default function Products() {
     useEffect(() => {
         axios.get(`${BASE_URL}/categories`)
             .then(response => {
-                setactiveCategory(response.data.data[0].id);
                 window.scrollTo(0, 0);
                 let dataArr;
                 if (lang === 'ar') {
@@ -69,9 +62,9 @@ export default function Products() {
     const updateWidth = () => {
         setSize(window.innerWidth)
     }
-
+    //get all subcategories of category 
     useEffect(() => {
-        axios.get(`${BASE_URL}/categories/${activeCategory}/subcategories`)
+        axios.get(`${BASE_URL}/categories/${id}/subcategories`)
             .then(response => {
                 setactiveSubCategory(response.data.data[0].id);
                 window.scrollTo(0, 0);
@@ -91,9 +84,9 @@ export default function Products() {
                 }
                 setSubCategory(dataArr);
             })
-    }, [activeCategory])
+    }, [id])
 
-    //get all subcategories of category & get products of subcategory 
+    // get products of subcategory 
     useEffect(() => {
         axios.get(`${BASE_URL}/subcategories/${activeSubCategory}/products`).then(response => {
             let dataArr;
@@ -122,81 +115,73 @@ export default function Products() {
     }, [activeSubCategory])
 
     if (products.length === 0)
-        return <Loader />   
+        return <Loader />
     else
-    return (
-        <div>
-            <Header title={"Products"} />
+        return (
             <div>
-                <div id={"products"} className="container">
-                    <div className={'row justify-content-center'} dir={t('dir')}>
-                        {isMobile ?
-                            <select className={'mb-5'} name="cars" id="cars">
-                                <option className={'option'} value={``}>
-                                    {t('categories.golf-carts-and-utilities')}
-                                </option>
-                            </select>
-                            :
-                            <div className="col-md-3 sidebar" >
-                                {category?.map((item, index) => (
-                                    <button
-                                        name="activeCategory"
-                                        id={item.id}
-                                        className="filters active"
-                                        onClick={() => { setactiveCategory(item.id) }}
-                                    >
-                                        <div className={'white-box'}>
-                                            <img className={'filter-img'} src={item.image_url} alt="" />
-                                        </div>
-                                        <p className={'filter-name'}>{item.name}</p>
-                                    </button >
-                                ))}
-                            </div>
-                        }
-                        <div className={"col-md-9"}>
-                            <div className={'row justify-content-center'}>
-                                <div className={'row mb-2 justify-content-around'}>
-                                    {
-                                        subCategory.map((item, index) => (
+                <Header title={"Products"} />
+                <div>
+                    <div id={"products"} className="container">
+                        <div className={'row justify-content-center'} dir={t('dir')}>
+                            {isMobile ?
+                                <select className={'mb-5'} name="cars" id="cars">
+                                    <option className={'option'} value={``}>
+                                        {t('categories.golf-carts-and-utilities')}
+                                    </option>
+                                </select>
+                                :
+                                <div className="col-md-3 sidebar" >
+                                    {category?.map((item, index) => (
+                                        <Link to={`/products/category/${item.id}`}>
                                             <button
-                                                className={'filter-btn'}
-                                                onClick={() => { setactiveSubCategory(item.id) }}
+                                                name="activeCategory"
+                                                id={item.id}
+                                                className="filters active"
                                             >
-                                                <div className={'row'}>
-                                                    <img className={'sub-filter-img'} src={item.image_url} alt={'...'} />
-                                                    <div>{item.name}</div>
+                                                <div className={'white-box'}>
+                                                    <img className={'filter-img'} src={item.image_url} alt="" />
                                                 </div>
-                                            </button>
-                                        ))}
-                                    {/* <button className={' filter-btn'}>
-                                            <div className={'row'}>
-                                                <div className={''}>
-                                                    <img className={'sub-filter-img'} src={testImg} alt={'...'} />
-                                                </div>
-                                                <div className={''}>
-                                                    <div>Off road</div>
-                                                </div>
-                                            </div>
-                                        </button> */}
-                                </div>
-                                <div className={'mb-3 d-flex justify-content-center'}>
-                                    <hr />
-                                </div>
+                                                <p className={'filter-name'}>{item.name}</p>
 
-                                <div className={'row justify-content-around'} >
-                                    {
-                                        products.map((item, index) => (
-                                            <ProductCard item={item} key={index} />
-                                        ))
-                                    }
+                                            </button >
+                                        </Link>
+                                    ))}
+                                </div>
+                            }
+                            <div className={"col-md-9"}>
+                                <div className={'row justify-content-center'}>
+                                    <div className={'row mb-2 justify-content-around'}>
+                                        {
+                                            subCategory.map((item, index) => (
+                                                <button
+                                                    className={'filter-btn'}
+                                                    onClick={() => { setactiveSubCategory(item.id) }}
+                                                >
+                                                    <div className={'row'}>
+                                                        <img className={'sub-filter-img'} src={item.image_url} alt={'...'} />
+                                                        <div>{item.name}</div>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                    </div>
+                                    <div className={'mb-3 d-flex justify-content-center'}>
+                                        <hr />
+                                    </div>
+
+                                    <div className={'row justify-content-around'} >
+                                        {
+                                            products.map((item, index) => (
+                                                <ProductCard item={item} key={index} />
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
 }
 
 

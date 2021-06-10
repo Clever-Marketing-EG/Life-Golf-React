@@ -104,7 +104,7 @@ export default function Nav() {
                             </ul>
                         </li> */}
                         <li className="nav-item">
-                            <NavLink activeClassName={'active'} className="nav-link" to="/products">
+                            <NavLink activeClassName={'active'} className="nav-link" to={`/products/category/${categories[0]?.id}`}>
                                 {t('nav.products')}
                             </NavLink>
                         </li>

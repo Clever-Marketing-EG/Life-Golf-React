@@ -97,7 +97,7 @@ export default function App() {
                                 meta={meta['contact']}
                             />
                         </Route>
-                        <Route path="/products">
+                        <Route path="/products/category/:id">
                             <Products
                             />
                         </Route>
