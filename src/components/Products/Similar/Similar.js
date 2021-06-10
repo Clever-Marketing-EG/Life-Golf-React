@@ -12,12 +12,11 @@ import Truncate from 'react-truncate'
 const {BASE_URL} = require('../../../config');
 export default function Similar( {id} ) {
     const { t } = useTranslation();
-    console.log(id);
     const [data, setData] = useState([]);
 
     useEffect(()=>{
         const lang = localStorage.getItem('lang');
-        axios.get(`${BASE_URL}/categories/${id}/products`)
+        axios.get(`${BASE_URL}/subcategories/${id}/products`)
             .then( response => {
                 let dataArr;
                 if(lang === 'ar') {
@@ -43,7 +42,7 @@ export default function Similar( {id} ) {
                 <img src={item.image_url} alt="" className={'cart-img'} />
                 <div className={'snd-cont start-50 translate-middle'}>
                     <p className={'cart-name'}><Truncate lines={3}>{item.name}</Truncate></p>
-                    <a className={'btn arrow-btn'} href={`/products/${item.id}`} >
+                    <a className={'btn arrow-btn'} href={`/product/${item.id}`} >
                         <img src={rightArrow} className={'arrow-position'}  alt={'...'}/>
                     </a>
                 </div>
@@ -51,8 +50,6 @@ export default function Similar( {id} ) {
             </div>
         </div>
     ))
-
-
 
     function myArrow({ type, onClick, isEdge }) {
         const pointer = type === consts.PREV ? <img src={arrow1} className={'img-position1'} /> : <img src={arrow2} className={'img-position'} />

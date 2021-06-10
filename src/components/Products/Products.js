@@ -19,14 +19,42 @@ const { BASE_URL } = require('../../config');
 export default function Products() {
 
     const { t } = useTranslation();
-    const [subCategory, setSubCategory] = useState([0, 0, 0, 0]);
+    const [subCategory, setSubCategory] = useState([]);
+    const [category, setCategory] = useState();
     const [products, setProducts] = useState([]);
-    // const [activeCategory, setActiveCategory] = useState();
+    const [activeCategory, setactiveCategory] = useState();
+    const [activeSubCategory, setactiveSubCategory] = useState();
     const [isMobile, setIsMobile] = useState(Boolean);
     const [size, setSize] = React.useState(window.innerWidth)
+    const lang = localStorage.getItem('lang');
 
-    let { id } = useParams();
 
+    //get all categories
+    useEffect(() => {
+        axios.get(`${BASE_URL}/categories`)
+            .then(response => {
+                setactiveCategory(response.data.data[0].id);
+                window.scrollTo(0, 0);
+                let dataArr;
+                if (lang === 'ar') {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name_ar,
+                        image_url: item.image_url,
+                    }))
+                } else {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        image_url: item.image_url,
+                    }))
+                }
+                setCategory(dataArr);
+            })
+    }, [])
+
+
+    // mobile section change
     useEffect(() => {
         window.addEventListener("resize", updateWidth);
         if (size <= 800) {
@@ -43,17 +71,31 @@ export default function Products() {
     }
 
     useEffect(() => {
-        const lang = localStorage.getItem('lang');
-        axios.get(`${BASE_URL}/products`).then(response => {
-            // let dataObj = {
-            //     1: [], 2: [], 3: [], 4: [], 5: []
-            // };
+        axios.get(`${BASE_URL}/categories/${activeCategory}/subcategories`)
+            .then(response => {
+                setactiveSubCategory(response.data.data[0].id);
+                window.scrollTo(0, 0);
+                let dataArr;
+                if (lang === 'ar') {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name_ar,
+                        image_url: item.image_url,
+                    }))
+                } else {
+                    dataArr = response.data.data.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        image_url: item.image_url,
+                    }))
+                }
+                setSubCategory(dataArr);
+            })
+    }, [activeCategory])
 
-            // response.data.data.forEach(item => {
-            //     dataObj[item.category_id].push(item);
-            // })
-            // setData(dataObj);
-
+    //get all subcategories of category & get products of subcategory 
+    useEffect(() => {
+        axios.get(`${BASE_URL}/subcategories/${activeSubCategory}/products`).then(response => {
             let dataArr;
             if (lang === 'ar') {
                 dataArr = response.data.data.map(item => ({
@@ -76,78 +118,57 @@ export default function Products() {
             }
             setProducts(dataArr);
         });
-        //     axios.get(`${BASE_URL}/categories/${id}`)
-        //         .then( response => {
-        //             if(lang==='ar') {
-        //                 setActiveCategory(response.data.data.name_ar);
-        //             } else {
-        //                 setActiveCategory(response.data.data.name);
-        //             }
-        //         })
-    }, [id])
+
+    }, [activeSubCategory])
 
     if (products.length === 0)
-        return <Loader />
+        return <Loader />   
     else
-        return (
+    return (
+        <div>
+            <Header title={"Products"} />
             <div>
-                <Header title={"Products"} />
-                <div>
-                    <div id={"products"} className="container">
-                        <div className={'row justify-content-center'} dir={t('dir')}>
-                            {isMobile ?
-                                <select className={'mb-5'} name="cars" id="cars">
-                                    <option className={'option'} value={``}>
-                                        {t('categories.golf-carts-and-utilities')}
-                                    </option>
-                                </select>
-                                :
-                                <div className="col-md-3 sidebar" >
-                                    <button name="golf-car" className="filters active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                <div id={"products"} className="container">
+                    <div className={'row justify-content-center'} dir={t('dir')}>
+                        {isMobile ?
+                            <select className={'mb-5'} name="cars" id="cars">
+                                <option className={'option'} value={``}>
+                                    {t('categories.golf-carts-and-utilities')}
+                                </option>
+                            </select>
+                            :
+                            <div className="col-md-3 sidebar" >
+                                {category?.map((item, index) => (
+                                    <button
+                                        name="activeCategory"
+                                        id={item.id}
+                                        className="filters active"
+                                        onClick={() => { setactiveCategory(item.id) }}
+                                    >
                                         <div className={'white-box'}>
-                                            <img className={'filter-img'} src={cart} alt="" />
+                                            <img className={'filter-img'} src={item.image_url} alt="" />
                                         </div>
-                                        <p className={'filter-name'}>{t('categories.golf-carts-and-utilities')}</p>
+                                        <p className={'filter-name'}>{item.name}</p>
                                     </button >
-                                    <button name="electric" className="nav-link filters" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                                        <div className={'white-box'}>
-                                            <img className={'filter-img'} src={vehicle} alt="" />
-                                        </div>
-                                        <p className={'filter-name'}>{t('categories.electric-vehicles')}</p>
-                                    </button>
-                                    <button name="golf-car" className="nav-link filters" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                        <div className={'white-box'}>
-                                            <img className={'filter-img'} src={outline} alt="" />
-                                        </div>
-                                        <p className={'filter-name'}>{t('categories.electric-cleaning-equipments')}</p>
-                                    </button>
-                                    <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                        <div className={'white-box'}>
-                                            <img className={'filter-img'} src={fork} alt="" />
-                                        </div>
-                                        <p className={'filter-name'}>{t('categories.electric-handling-equipments')}</p>
-                                    </button>
-                                    <button name="golf-car" className="nav-link filters" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-setting" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                                        <div className={'white-box'}>
-                                            <img className={'filter-img'} src={plug} alt="" />
-                                        </div>
-                                        <p className={'filter-name'}>{t('categories.electronics')}</p>
-                                    </button>
-                                </div>
-                            }
-                            <div className={"col-md-9"}>
-                                <div className={'row justify-content-center'}>
-                                    <div className={'row mb-2 justify-content-around'}>
-                                        {
-                                            subCategory.map((item, index) => (
-                                                <button className={'filter-btn'}>
-                                                    <div className={'row'}>
-                                                        <img className={'sub-filter-img'} src={testImg} alt={'...'} />
-                                                        <div>On road</div>
-                                                    </div>
-                                                </button>
-                                            ))}
-                                        {/* <button className={' filter-btn'}>
+                                ))}
+                            </div>
+                        }
+                        <div className={"col-md-9"}>
+                            <div className={'row justify-content-center'}>
+                                <div className={'row mb-2 justify-content-around'}>
+                                    {
+                                        subCategory.map((item, index) => (
+                                            <button
+                                                className={'filter-btn'}
+                                                onClick={() => { setactiveSubCategory(item.id) }}
+                                            >
+                                                <div className={'row'}>
+                                                    <img className={'sub-filter-img'} src={item.image_url} alt={'...'} />
+                                                    <div>{item.name}</div>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    {/* <button className={' filter-btn'}>
                                             <div className={'row'}>
                                                 <div className={''}>
                                                     <img className={'sub-filter-img'} src={testImg} alt={'...'} />
@@ -157,29 +178,25 @@ export default function Products() {
                                                 </div>
                                             </div>
                                         </button> */}
-                                    </div>
-                                    <div className={'mb-3 d-flex justify-content-center'}>
-                                        <hr />
-                                    </div>
-
-                                    <div className={'row justify-content-around'} >
-                                        {
-                                            products.map((item, index) => (
-                                                <ProductCard item={item} key={index} />
-                                            ))
-                                        }
-                                    </div>
-
+                                </div>
+                                <div className={'mb-3 d-flex justify-content-center'}>
+                                    <hr />
                                 </div>
 
+                                <div className={'row justify-content-around'} >
+                                    {
+                                        products.map((item, index) => (
+                                            <ProductCard item={item} key={index} />
+                                        ))
+                                    }
+                                </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
-        );
+        </div>
+    );
 }
 
 

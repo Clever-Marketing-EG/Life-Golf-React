@@ -35,10 +35,9 @@ export default function Product() {
         window.scrollTo(0,0)
         let lang = localStorage.getItem('lang')
         axios.get(`${BASE_URL}/products/${id}`).then(response => {
-
             let dataObj = {
                 id: response.data.data.id,
-                category_id: response.data.data.category_id,
+                sub_category_id: response.data.data.sub_category_id,
                 image_url: response.data.data.image_url,
                 images: response.data.data.images,
                 configuration_image_url: response.data.data.configuration_image_url,
@@ -48,7 +47,8 @@ export default function Product() {
                 dataObj = {
                     ...{
                         name: response.data.data.name_ar,
-                        points: response.data.data.points_ar.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
+                        // points: response.data.data.points_ar.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
+                        points: response.data.data.points_ar,
                         description: response.data.data.description_ar,
                         features: response.data.data.features_ar,
                     }, ...dataObj
@@ -57,7 +57,8 @@ export default function Product() {
                 dataObj = {
                     ...{
                         name: response.data.data.name,
-                        points: response.data.data.points.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
+                        // points: response.data.data.points.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
+                        points: response.data.data.points,
                         description: response.data.data.description,
                         features: response.data.data.features
                     }, ...dataObj
@@ -67,7 +68,6 @@ export default function Product() {
             setData(dataObj);
         });
     }, [])
-
 
     const handleChange = (e) => {
         setFormData({...formData,
@@ -108,7 +108,8 @@ export default function Product() {
                                     {
                                         data.points.map((item, index) => (
                                             <li className={'list-item'} key={index}>
-                                                <img className={'circle'} src={circle} alt={'...'} />{item}
+                                                <img className={'circle'} src={circle} alt={'...'} />
+                                                {item}
                                             </li>
                                         ))
                                     }
@@ -118,7 +119,7 @@ export default function Product() {
                             </div>
                         </div>
                         <Specs data={data} />
-                        <Similar id={data.category_id} />
+                        <Similar id={data.sub_category_id} />
                     </div>
 
                     {/* Dropdown banner*/}
