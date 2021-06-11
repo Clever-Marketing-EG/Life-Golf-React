@@ -8,6 +8,8 @@ import AboutUs from "./AboutUs/AboutUs";
 import OurProducts from "./OurProducts/OurProducts";
 import OurServices from "./OurServices/OurServices";
 import OurNews from "./OurNews/OurNews";
+import OurPartners from "./OurPartners/OurPartners";
+
 
 
 const { BASE_URL } = require('../../config');
@@ -42,6 +44,7 @@ export default function Home({ meta }) {
                 products={products}
             />
             <OurServices meta={meta}/>
+            <OurPartners meta={meta}/>
             <OurNews
                 meta={meta}
                 articles={articles}
