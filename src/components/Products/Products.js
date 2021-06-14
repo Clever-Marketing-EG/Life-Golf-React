@@ -85,7 +85,7 @@ export default function Products() {
                 setSubCategory(dataArr);
             })
     }, [id])
-
+    
     // get products of subcategory 
     useEffect(() => {
         axios.get(`${BASE_URL}/subcategories/${activeSubCategory}/products`).then(response => {
@@ -114,9 +114,9 @@ export default function Products() {
 
     }, [activeSubCategory])
 
-    if (products.length === 0)
-        return <Loader />
-    else
+    // if (products.length === 0)
+    //     return <Loader />
+    // else
         return (
             <div>
                 <Header title={"Products"} />

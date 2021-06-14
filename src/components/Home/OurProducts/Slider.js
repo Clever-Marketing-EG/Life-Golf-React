@@ -55,11 +55,10 @@ function ProductCard({name, image_url, id}) {
                 <img src={image_url} alt="" className={'cart-img'} />
                 <div className={'snd-cont'}>
                     <p className={'cart-name'}>{name}</p>
-                    <a className={'btn arrow-btn'} href={`/products/${id}`}>
+                    <a className={'btn arrow-btn'} href={`/product/${id}`}>
                         <img src={rightArrow} className={'arrow-position'}  alt={'...'}/>
                     </a>
                 </div>
-
             </div>
         </div>
     );
