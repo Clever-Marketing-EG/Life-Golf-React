@@ -38,11 +38,7 @@ export default function OurProducts({ categories, meta }) {
     }
 
     useEffect(() => {
-        // const newProductsData = data['products'].filter( item =>
-        //     item['category_id'] === activeCategory
-        // )
-        // setActiveProducts(newProductsData);
-        axios.get(`${BASE_URL}/categories/${activeCategory}/products`).then(response => {
+        axios.get(`${BASE_URL}/categories/${activeCategory}/products?items=6`).then(response => {
             setProducts(response.data.data);
         });
     }, [activeCategory])
@@ -62,7 +58,7 @@ export default function OurProducts({ categories, meta }) {
             dataObj.products = products.map(item => ({
                 'id': item['id'],
                 'name': item['name_ar'],
-                'image_url': item.images[0] ? item.images[0].url : '',
+                'image_url': item.images[0] ? item.images[0] : '',
                 'category_id': item['category_id']
             }))
         } else {
@@ -75,7 +71,7 @@ export default function OurProducts({ categories, meta }) {
             dataObj.products = products.map(item => ({
                 'id': item['id'],
                 'name': item['name'],
-                'image_url': item.images[0] ? item.images[0].url : '',
+                'image_url': item.images[0] ? item.images[0] : '',
                 'category_id': item['category_id']
             }))
         }
@@ -134,7 +130,7 @@ function CategoryButton({ id, title, handlClick }) {
                 <div className={'row'}>
                     <div className={'col-2'}>
                         <span className={'logo-container me-3'}>
-                            <i className="icon-golf-cart" />
+                            <i className="icon-golf-cart"/>
                         </span>
                     </div>
                     <div className={'col-10 category-name'}>

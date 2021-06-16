@@ -1,6 +1,6 @@
 #post {
     .left-container {
-        min-height: 824px;
+        min-height: 624px;
         width: 346px;
         background-color: rgba(3, 49, 112, 0.05);
         border-radius: 25px;
@@ -62,12 +62,12 @@
         margin-bottom: 7px;
     }
     .pic-1 {
-        margin-left: 23px;
+        margin-left: 10px;
         height: 80px;
         width: 100px;
         border-radius: 15px;
         object-fit: cover;
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
     }
     .news-date {
         font-family: "Open Sans";
@@ -163,5 +163,8 @@
     }
     .x{
         margin-top: 100px;
+    }
+    hr{
+        height: 0.01px;
     }
 }

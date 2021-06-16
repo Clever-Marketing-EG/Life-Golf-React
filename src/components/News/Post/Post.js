@@ -90,16 +90,20 @@ export default function Posts() {
                         <h1 className={'mt-5'} dir={t('dir')}>{t('utils.latest-articles')}</h1>
                         {data.map((item, index) =>
                             <Link className={'news'} to={`/post/${item.id}`}>
-                                <div key={index} dir={t('dir')} className={'row'}>
-                                    <div className={'col-md-4'}>
-                                        <img className={'pic-1'} src={item.image_url} alt="" />
-                                    </div>
-                                    <div dir={t('dir')} className={'col-md-8 news-title'}>
-                                        <Truncate lines={1}>{item.title}</Truncate>
-                                        <p className={'news-date'}>{item.time}</p>
+                                <div className={'mb-4'}>
+                                    <div key={index} dir={t('dir')} className={'row'}>
+                                        <div className={'col-md-4 '}>
+                                            <img className={'pic-1'} src={item.image_url} alt="" />
+                                        </div>
+                                        <div dir={t('dir')} className={'col-md-8 news-title'}>
+                                            <Truncate lines={1}>{item.title}</Truncate>
+                                            <p className={'news-date'}>{item.time}</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <hr/>
                             </Link>
+                            
                         )}
                     </div>
                     <div className={"col-md-7 order-first order-md-last"}>

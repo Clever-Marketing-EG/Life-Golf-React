@@ -26,7 +26,7 @@ export default function Services({ changelang }) {
                         id: item.id,
                         name: item.name_ar,
                         description: item.description_ar,
-                        image_url: item.image_url_1
+                        image_url: item.image_url
                     }
                 ))
             } else {
@@ -35,7 +35,7 @@ export default function Services({ changelang }) {
                         id: item.id,
                         name: item.name,
                         description: item.description,
-                        image_url: item.image_url_1
+                        image_url: item.image_url
                     }
                 ))
             }

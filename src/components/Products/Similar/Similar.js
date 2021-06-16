@@ -22,13 +22,13 @@ export default function Similar( {id} ) {
                 if(lang === 'ar') {
                     dataArr = response.data.data.slice(0, 6).map( item => ({
                         id: item.id,
-                        image_url: item.images[0] ? item.images[0].url : 'https://i.stack.imgur.com/y9DpT.jpg',
+                        image_url: item.images[0] ? item.images[0] : 'https://i.stack.imgur.com/y9DpT.jpg',
                         name: item.name_ar
                     }))
                 } else {
                     dataArr = response.data.data.slice(0, 6).map( item => ({
                         id: item.id,
-                        image_url: item.images[0] ? item.images[0].url : 'https://i.stack.imgur.com/y9DpT.jpg',
+                        image_url: item.images[0] ? item.images[0] : 'https://i.stack.imgur.com/y9DpT.jpg',
                         name: item.name
                     }))
                 }
