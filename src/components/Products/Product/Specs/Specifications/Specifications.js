@@ -1,6 +1,7 @@
 import React from 'react';
 import './Specifications.scss';
 export default function Specifications({data}) {
+    console.log(data);
     return (
         <div id={'specifications'} className={'specs-table'}>
             <div>

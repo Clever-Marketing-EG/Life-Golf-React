@@ -32,7 +32,7 @@ export default function Product() {
 
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
         let lang = localStorage.getItem('lang')
         axios.get(`${BASE_URL}/products/${id}`).then(response => {
             let dataObj = {
@@ -41,13 +41,13 @@ export default function Product() {
                 image_url: response.data.data.image_url,
                 images: response.data.data.images,
                 configuration_image_url: response.data.data.configuration_image_url,
+                specifications_image_url: response.data.data.specifications_image_url
             }
 
             if (lang === 'ar') {
                 dataObj = {
                     ...{
                         name: response.data.data.name_ar,
-                        // points: response.data.data.points_ar.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
                         points: response.data.data.points_ar,
                         description: response.data.data.description_ar,
                         features: response.data.data.features_ar,
@@ -57,31 +57,31 @@ export default function Product() {
                 dataObj = {
                     ...{
                         name: response.data.data.name,
-                        // points: response.data.data.points.replace("[", "").replace("]", "").replace(/["']/g, "").split(','),
                         points: response.data.data.points,
                         description: response.data.data.description,
                         features: response.data.data.features
                     }, ...dataObj
                 }
             }
-            setFormData({product: dataObj.name});
+            setFormData({ product: dataObj.name });
             setData(dataObj);
         });
     }, [])
 
     const handleChange = (e) => {
-        setFormData({...formData,
-            ...{[e.target.name]: e.target.value}
+        setFormData({
+            ...formData,
+            ...{ [e.target.name]: e.target.value }
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(`${BASE_URL}/mail/order`, formData)
-            .then( async (response) => {
+            .then(async (response) => {
                 await Swal.fire('Thank You!', response.data.data, 'success')
             })
-            .catch( async (err) => {
+            .catch(async (err) => {
                 await Swal.fire('An error occured!', err.response.data.message, 'error')
             })
     }
@@ -96,7 +96,7 @@ export default function Product() {
                 <div className={'container cars-position'}>
                 </div>
                 <div className={'container'}>
-                    <div dir={t('dir')}> 
+                    <div dir={t('dir')}>
                         <div className={'row mg-top'} >
                             <div className={'col-md-6'}>
                                 <Left images={data.images} />
@@ -142,7 +142,7 @@ export default function Product() {
 
                                             </div>
                                             <div className={'col-sm-12'}>
-                                                <input type="tel" className="form-control" name={'phone'} placeholder={t('utils.phone')} onChange={handleChange} required pattern="[0-9]+"/>
+                                                <input type="tel" className="form-control" name={'phone'} placeholder={t('utils.phone')} onChange={handleChange} required pattern="[0-9]+" />
                                             </div>
                                         </div>
                                         <div className="form-group">
@@ -160,9 +160,9 @@ export default function Product() {
                                                 {t('utils.send')}
                                             </button>
                                         </div>
-                                        <br/>
+                                        <br />
                                         <div className={'pink d-flex align-items-center'} dir={t('dir')} >
-                                            <img src={warning} alt="" className={'warn mb-3 block'}  />
+                                            <img src={warning} alt="" className={'warn mb-3 block'} />
                                             <span className="block">{t('utils.one-of-our-employee-will-get-in-touch-with-you-soon')}</span>
                                         </div>
                                     </form>

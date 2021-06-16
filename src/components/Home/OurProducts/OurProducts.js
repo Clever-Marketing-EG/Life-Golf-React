@@ -42,7 +42,7 @@ export default function OurProducts({ categories, meta }) {
         //     item['category_id'] === activeCategory
         // )
         // setActiveProducts(newProductsData);
-        axios.get(`${BASE_URL}/subcategories/${activeCategory}/products`).then(response => {
+        axios.get(`${BASE_URL}/categories/${activeCategory}/products`).then(response => {
             setProducts(response.data.data);
         });
     }, [activeCategory])

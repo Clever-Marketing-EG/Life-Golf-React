@@ -25,7 +25,7 @@ export default function Left( {images} ) {
 
     const items = images.map( (item, index) => (
         <button className='btn' key={index} onClick={handleClick} >
-            <img className={'car-im'} src={item.url} key={index}  alt={'...'} id={index}/>
+            <img className={'car-im'} src={item} key={index}  alt={'...'} id={index}/>
         </button>
     ))
 
@@ -34,7 +34,7 @@ export default function Left( {images} ) {
             <div className={'product-container'}>
                 {
                     images[activeImage] ?
-                        <img src={images[activeImage].url} className={'prod-img'} alt={'...'}/>
+                        <img src={images[activeImage]} className={'prod-img'} alt={'...'}/>
                         : <div />
                 }
                 <div className={'pink-container'}/>

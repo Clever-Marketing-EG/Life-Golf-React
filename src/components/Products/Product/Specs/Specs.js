@@ -23,7 +23,7 @@ export default function Specs({data}) {
             </ul>
             <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><Features data={data} /></div>
-                <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Specifications data={data.image_url} /></div>
+                <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Specifications data={data.specifications_image_url} /></div>
                 <div className="tab-pane fade" id="pills-config" role="tabpanel" aria-labelledby="pills-config-tab"><Specifications data={data.configuration_image_url}  /></div>
             </div>
         </div>

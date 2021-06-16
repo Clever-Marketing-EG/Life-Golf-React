@@ -96,7 +96,7 @@ export default function Products() {
                     name: item.name_ar,
                     description: item.description_ar,
                     year: new Date(item.created_at).getFullYear(),
-                    image_url: item.image_url,
+                    // image_url: item.image_url,
                     images: item.images[0] ? item.images[0].url : ''
                 }))
             } else {
@@ -104,9 +104,9 @@ export default function Products() {
                     id: item.id,
                     name: item.name,
                     description: item.description,
-                    image_url: item.image_url,
+                    // image_url: item.image_url,
                     year: new Date(item.created_at).getFullYear(),
-                    images: item.images[0] ? item.images[0].url : ''
+                    images: item.images[0] ? item.images[0] : ''
                 }))
             }
             setProducts(dataArr);
@@ -157,10 +157,12 @@ export default function Products() {
                                                     className={'filter-btn'}
                                                     onClick={() => { setactiveSubCategory(item.id) }}
                                                 >
-                                                    <div className={'row'}>
+                                                    {/* <div className={'row'}> */}
+                                                        <div>
                                                         <img className={'sub-filter-img'} src={item.image_url} alt={'...'} />
-                                                        <div>{item.name}</div>
-                                                    </div>
+                                                        <p>{item.name}</p>
+                                                        </div>
+                                                    {/* </div> */}
                                                 </button>
                                             ))}
                                     </div>
@@ -192,7 +194,7 @@ function ProductCard({ item }) {
             <Link to={`/product/${item.id}`}>
                 <div className="head-div position-relative">
                     {/* <p className="tag position-absolute top-10 end-0 bg-white">{item.year}</p> */}
-                    <img src={item.image_url} className="card-img-top product-img" alt="..." />
+                    <img src={item.images} className="card-img-top product-img" alt="..." />
                 </div>
                 <div className="card-body">
                     <h5 className="title">{item.name}</h5>
