@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Carousel from 'react-elastic-carousel';
 import axios from 'axios';
 const { BASE_URL } = require('../../../config');
-export default function OurPartner(meta) {
+export default function OurPartner({ meta }) {
 
     const inputEl = useRef(null);
 
