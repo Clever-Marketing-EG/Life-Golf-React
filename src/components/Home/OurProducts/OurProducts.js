@@ -21,8 +21,6 @@ export default function OurProducts({ categories, meta }) {
     const currentCategory = [];
 
 
-    
-
     const [data, setData] = useState({
         categories: [],
         products: []
@@ -37,7 +35,6 @@ export default function OurProducts({ categories, meta }) {
 
     const handleChangeCategory = (e) => {
         setActiveCategory(e.value);
-        // history.push(`/products/category/${e.value}`);
     }
 
     // mobile section change
@@ -61,7 +58,6 @@ export default function OurProducts({ categories, meta }) {
         axios.get(`${BASE_URL}/categories/${activeCategory}/products?items=6`).then(response => {
             setProducts(response.data.data);
         });
-
 
     }, [activeCategory])
 
