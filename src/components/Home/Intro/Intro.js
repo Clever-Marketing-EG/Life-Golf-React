@@ -4,7 +4,7 @@ import Nav from "../../Shared/Nav/Nav";
 import { useTranslation } from "react-i18next";
 import {Link} from 'react-router-dom';
 
-import PinkSquare from '../Assets/pink-square.png';
+import PinkSquare from '../Assets/square.png';
  
  
 export default function Intro({ meta }) {
