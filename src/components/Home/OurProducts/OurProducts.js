@@ -3,23 +3,42 @@ import './OurProducts.scss';
 import Slider from './Slider';
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import Select from 'react-select';
+import { useHistory } from 'react-router-dom';
+
 const { BASE_URL } = require('../../../config');
 
 export default function OurProducts({ categories, meta }) {
     const { t } = useTranslation();
+    let history = useHistory();
+    const [category, setCategory] = useState();
     const [activeCategory, setActiveCategory] = useState(1);
     const [activeProducts, setActiveProducts] = useState([]);
     const [products, setProducts] = useState([]);
     const [isMobile, setIsMobile] = useState(Boolean);
     const [size, setSize] = React.useState(window.innerWidth)
+    const options = [];
+    const currentCategory = [];
+
+
+    
 
     const [data, setData] = useState({
         categories: [],
         products: []
     });
 
-    const lang = localStorage.getItem("lang")
+    const lang = localStorage.getItem("lang");
 
+    const SelectStyle = {
+        control: styles => ({ ...styles, backgroundColor: 'white' }),
+        option: styles => ({ ...styles, textAlign: "initial", backgroundColor: "rgba(3, 48, 112, 0.035)", color: "black" }),
+    }
+
+    const handleChangeCategory = (e) => {
+        setActiveCategory(e.value);
+        // history.push(`/products/category/${e.value}`);
+    }
 
     // mobile section change
     useEffect(() => {
@@ -37,24 +56,39 @@ export default function OurProducts({ categories, meta }) {
         setSize(window.innerWidth)
     }
 
+
     useEffect(() => {
         axios.get(`${BASE_URL}/categories/${activeCategory}/products?items=6`).then(response => {
             setProducts(response.data.data);
         });
+
+
     }, [activeCategory])
+
     useEffect(() => {
         const dataObj = {
             categories: [],
             products: [],
         };
 
+        axios.get(`${BASE_URL}/categories`).then(response=> {
+            
         if (lang === 'ar') {
-            dataObj.categories = categories.map(item => ({
-                'id': item['id'],
-                'name': item['name_ar'],
-                'image_url': item['image_url']
-            })
-            )
+            if (isMobile) {
+                response.data.data.map(item => {
+                    options.push({ value: item.id, label: `${item.name_ar}` })
+                });
+                currentCategory.push({ value: response.data.data[activeCategory - 1].id, label: response.data.data[activeCategory - 1].name_ar });
+                setCategory(options);
+            }
+            else {
+                dataObj.categories = categories.map(item => ({
+                    'id': item['id'],
+                    'name': item['name_ar'],
+                    'image_url': item['image_url']
+                })
+                )
+            }
             dataObj.products = products.map(item => ({
                 'id': item['id'],
                 'name': item['name_ar'],
@@ -62,12 +96,21 @@ export default function OurProducts({ categories, meta }) {
                 'category_id': item['category_id']
             }))
         } else {
+            if (isMobile) {
+                response.data.data.map(item => {
+                    options.push({ value: item.id, label: `${item.name}` })
+                });
+                currentCategory.push({ value: response.data.data[activeCategory - 1].id, label: response.data.data[activeCategory - 1].name });
+                setCategory(options);
+            }
+            else {
             dataObj.categories = categories.map(item => ({
                 'id': item['id'],
                 'name': item['name'],
                 'image_url': item['image_url']
             })
             )
+        }
             dataObj.products = products.map(item => ({
                 'id': item['id'],
                 'name': item['name'],
@@ -77,26 +120,28 @@ export default function OurProducts({ categories, meta }) {
         }
         setActiveProducts(dataObj.products);
         setData(dataObj);
-    }, [categories, products])
+    })
+
+    }, [categories, products, isMobile])
 
     function handlClick(id) {
         setActiveCategory(id);
     }
-    console.log(activeCategory);
     return (
         <div id={'our-products'} className={'container'} >
             <h1 className={'home-header'}>{meta.products_header}</h1>
             <hr className={'blue-line'} />
             <div className={'row justify-content-center'} dir={t('dir')}>
                 {isMobile ?
-                    <select id={'test'} className={'mb-5 mt-5'} onChange={(e) => setActiveCategory(e.target.value)}>
-                        {data['categories'].map((item, index) => (
-                            <option className={'option'} value={item.id}>
-                                {item.name}
-                            </option>
-                        ))
-                        }
-                    </select>
+                    <div>
+                        <Select
+                            className="mb-3 mt-5 test basic-single"
+                            defaultValue={currentCategory}
+                            options={category}
+                            styles={SelectStyle}
+                            onChange={handleChangeCategory}
+                        />
+                    </div>
                     :
                     <ul className="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         {
@@ -130,7 +175,7 @@ function CategoryButton({ id, title, handlClick }) {
                 <div className={'row'}>
                     <div className={'col-2'}>
                         <span className={'logo-container me-3'}>
-                            <i className="icon-golf-cart"/>
+                            <i className="icon-golf-cart" />
                         </span>
                     </div>
                     <div className={'col-10 category-name'}>

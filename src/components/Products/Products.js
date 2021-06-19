@@ -8,9 +8,8 @@ import { useTranslation } from "react-i18next";
 import Loader from '../Shared/Loader/Loader';
 import { useParams, useHistory } from 'react-router-dom';
 import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 
-const animatedComponents = makeAnimated();
+
 const { BASE_URL } = require('../../config');
 
 
@@ -26,7 +25,7 @@ export default function Products() {
     const [size, setSize] = React.useState(window.innerWidth)
     const lang = localStorage.getItem('lang');
     const options = [];
-    const currentCategory = [];
+    let currentCategory = [];
     let history = useHistory();
 
 
@@ -37,7 +36,8 @@ export default function Products() {
     }
 
     const handleChangeCategory = (e) => {
-        history.push(`/products/category/${e.value}`);
+        console.log(e)
+        // history.push(`/products/category/${e.value}`);
     }
 
     //get all categories
@@ -51,7 +51,8 @@ export default function Products() {
                         response.data.data.map(item => {
                             options.push({ value: item.id, label: `${item.name_ar}` })
                         });
-                        currentCategory.push({ value: response.data.data[id - 1].id, label: response.data.data[id - 1].name_ar });
+                        currentCategory.push( { value: response.data.data[id - 1].id, label: response.data.data[id - 1].name_ar });
+
                         setCategory(options);
                     }
                     else {
@@ -63,13 +64,12 @@ export default function Products() {
                         setCategory(dataArr);
                     }
 
-
                 } else {
                     if (isMobile) {
                         response.data.data.map(item => {
                             options.push({ value: item.id, label: `${item.name}` })
                         });
-                        currentCategory.push({ value: response.data.data[id - 1].id, label: response.data.data[id - 1].name });
+                        currentCategory.push( { value: response.data.data[id - 1].id, label: response.data.data[id - 1].name });
                         setCategory(options);
                     }
                     else {
