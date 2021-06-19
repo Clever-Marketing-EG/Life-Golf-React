@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './OurServices.scss';
 
-import cart from '../Assets/our-services.png';
+import cart from '../Assets/car.png';
 import GreySquare from '../Assets/grey-square.jpg';
 import axios from "axios";
 import Loader from "../../Shared/Loader/Loader";
