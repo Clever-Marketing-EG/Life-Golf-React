@@ -36,8 +36,8 @@ export default function Products() {
     }
 
     const handleChangeCategory = (e) => {
-        console.log(e)
-        // history.push(`/products/category/${e.value}`);
+        // console.log(e)
+        history.push(`/products/category/${e.value}`);
     }
 
     //get all categories
@@ -104,8 +104,8 @@ export default function Products() {
     //get all subcategories of category 
     useEffect(() => {
         axios.get(`${BASE_URL}/categories/${id}/subcategories`)
-            .then(response => {
-                setactiveSubCategory(response.data.data[0].id);
+            .then(async response => {
+                await setactiveSubCategory(response.data.data[0].id);
                 window.scrollTo(0, 0);
                 let dataArr;
                 if (lang === 'ar') {
@@ -135,7 +135,6 @@ export default function Products() {
                     name: item.name_ar,
                     description: item.description_ar,
                     year: new Date(item.created_at).getFullYear(),
-                    // image_url: item.image_url,
                     images: item.images[0] ? item.images[0] : ''
                 }))
             } else {
@@ -143,7 +142,6 @@ export default function Products() {
                     id: item.id,
                     name: item.name,
                     description: item.description,
-                    // image_url: item.image_url,
                     year: new Date(item.created_at).getFullYear(),
                     images: item.images[0] ? item.images[0] : ''
                 }))
@@ -195,7 +193,7 @@ export default function Products() {
                             <div className={'row justify-content-center'}>
                                 <div className={'row mb-2 justify-content-around'}>
                                     {
-                                        subCategory.map((item, index) => (
+                                        subCategory?.map((item, index) => (
                                             <button
                                                 className={'filter-btn'}
                                                 onClick={() => { setactiveSubCategory(item.id) }}
