@@ -1,0 +1,41 @@
+#nav-bar {
+    .nav-logo {
+        height: 75px;
+        width: 90px;
+    }
+    .nav-a {
+        color: #173d76;
+        text-decoration: #fff;
+        margin: 6px;
+        padding: 4px;
+        font-weight: bold;
+        font-family: OpenSans;
+    }
+    
+    .active {
+        border-bottom: 2px solid rgba(35, 166, 0, 1);
+    }
+    .test {
+        // background-image: linear-gradient(107deg, #0db5fb, #596aecce 55%, #5f64ebc4 101%) !important;
+    }
+    .dropdown-menu {
+        background-color: rgba(255, 255, 255, 0.733);
+        border-color: rgba(33, 34, 34, 0.26);
+    }
+    .dropdown-menu.show {
+        min-width: 3rem;
+        max-width: 3rem;
+        text-align: center;
+    }
+    .dropdown-menu.show[dir="rtl"] {
+        min-width: 5rem;
+        max-width: 5rem;
+        text-align: center;
+    }
+    // .navbar {
+    //     background-color: rgba(255, 255, 255, 0.877);
+    //     position: fixed;
+    //     top: 0;
+    //     width: 100%;
+    // }
+}

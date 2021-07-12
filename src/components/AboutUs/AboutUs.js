@@ -121,8 +121,6 @@ export default function AboutUs({ meta }) {
                     galleries={galleries}
                 />
 
-
-
             </div>
 
         </div >

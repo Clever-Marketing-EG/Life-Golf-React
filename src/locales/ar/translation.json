@@ -12,7 +12,9 @@
         "terms-and-conditions": "الشروط والأحكام",
         "maintenance": "الصيانة",
         "contact-us": "تواصل معنا",
-        "language": "اللغة"
+        "language": "اللغة",
+        "en":"الإنجليزية",
+        "ar":"العربية"
     },
     "categories": {
         "golf-carts-and-utilities": "سيارات الجولف",
@@ -81,6 +83,8 @@
         "head-office":"النزهة، قسم النزهة، محافظة القاهرة‬ 11843",
         "article":"مقالة",
         "be-in-touch":"كُن على تواصل",
-        "partners": "شركائنا"
+        "partners": "شركائنا",
+        "desc":"Description",
+        "highlight":"Highlights"
     }
 }

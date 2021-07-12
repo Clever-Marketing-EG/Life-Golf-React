@@ -13,15 +13,14 @@ import Maintenance from './components/Support/Maintenance/Maintenance';
 import Terms from './components/Support/Terms/Terms';
 import News from './components/News/News';
 import Post from './components/News/Post/Post';
-import Electronics from './components/Electronics/Electronics';
 import Customize from './components/Electronics/Customize/Customize';
 import Product from './components/Products/Product/Product';
 import Services from './components/Services/Services';
-import Rental from './components/Services/Rental/Rental';
 import Loader from "./components/Shared/Loader/Loader";
+import Lavida from "./components/Lavida/Lavida";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import { useTranslation } from "react-i18next";
-
+import 'react-slideshow-image/dist/styles.css'
 const { BASE_URL } = require('./config');
 
 
@@ -36,7 +35,7 @@ export default function App() {
     useEffect(() => {
         tawkTo(tawkToPropertyId, tawkToKey)
     }, [])
-    
+
     useEffect(() => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             const data = response.data.data;
@@ -86,62 +85,68 @@ export default function App() {
                             <Home
                                 meta={meta['home']}
                             />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/about">
                             <AboutUs
                                 meta={meta['about-us']}
                             />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/contact">
                             <ContactUs
                                 meta={meta['contact']}
                             />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/products/category/:id">
-                            <Products
-                            />
+                            <Products/>
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/product/:id">
                             <Product />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/terms">
                             <Terms />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/maintenance">
                             <Maintenance
                                 meta={meta['maintenance']}
                             />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/news" >
                             <News />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/post/:id" >
                             <Post />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/post">
                             <Post />
+                            <Footer meta={meta['footer']} />
                         </Route>
-                        {/*<Route path="/electronics">*/}
-                        {/*    <Electronics meta={meta['electronics']} />*/}
-                        {/*</Route>*/}
                         <Route path="/customize">
                             <Customize meta={meta['customize']} />
+                            <Footer meta={meta['footer']} />
                         </Route>
                         <Route path="/services">
                             <Services
                                 meta={meta}
                             />
+                            <Footer meta={meta['footer']} />
                         </Route>
-                        {/* <Route path="/service/:id">
-                            <Rental
+                        <Route path="/lavida">
+                            <Lavida
                                 meta={meta}
                             />
-                        </Route> */}
+                        </Route>
                         <Route component={NotFound} />
                     </Switch>
-                    <Footer meta={meta['footer']} />
                 </Router>
-
             </div>
         );
     }

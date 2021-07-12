@@ -143,9 +143,7 @@ export default function Footer({ meta }) {
                         </div>
                         <p className="text-center mb-3"> &copy; {t('utils.cont')}<a className={'clever'} href="https://www.clevermarketing-eg.com/" target="_blank"> Clever marketing</a></p>
                     </div>
-
                 </div>
-
             </footer>
         </div >
     )

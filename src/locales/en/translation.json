@@ -12,7 +12,9 @@
         "terms-and-conditions": "Terms & Conditions",
         "maintenance": "Maintenance",
         "contact-us": "Contact Us",
-        "language": "Language"
+        "language": "Language",
+        "en":"EN",
+        "ar":"AR"
     },
     "categories": {
         "golf-carts-and-utilities": "Golf Carts",
@@ -81,6 +83,8 @@
         "head-office":"El-Nozha, El Nozha, Cairo Governorate 11843",
         "article":"Article",
         "be-in-touch":"Be in touch",
-        "partners" : "Our Partners"
+        "partners" : "Our Partners",
+        "desc":"Description",
+        "highlight":"Highlights"
     }
 }
