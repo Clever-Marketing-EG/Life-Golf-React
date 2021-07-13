@@ -3,7 +3,6 @@ import './Lavida.scss';
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import Nav from './Nav/Nav';
-import Carousel from 'react-elastic-carousel'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faLinkedin, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import logo from './Assets/logo.png';
@@ -57,12 +56,13 @@ export default function Lavida({ meta }) {
             <div className={'main container-fluid'} >
 
                 {/* Main */}
-                <div id={'home'} className={'main-container position-relative'}>
+                <div id={'home'} className={'main-container mb-4 position-relative'}>
                     <img className={'img-container'} src={img} />
                 </div>
 
                 {/* Services */}
                 <div id={'service'} className={'row justify-content-center'}>
+                    <div className={'mb-5'} />
                     <div className={'col-md-3 service-container justify-content-center'}>
                         <img className={'img-service mt-4 mb-4'} src={logo} />
                         <h1>Best price guarantee</h1>
@@ -87,9 +87,8 @@ export default function Lavida({ meta }) {
 
 
                 {/* About Us */}
-                <div id={'about-us'} className={'about-us-container'}>
-                    {/* <div /> */}
-                    {/* <img className={'img-container'} src={img} /> */}
+                <div id={'aboutus'} className={'about-us-container'}>
+                    <div className={'mb-5'} />
                     <div style={{ backgroundImage: "linear-gradient(100deg, #71c96cdc, #379676dc , #4089e2de ), url( " + img + ")" }} className={'row img-container position-relative'}>
                         <div className={'col-md-7 d-flex justify-content-center'}>
                             <div className={'frame'}>
@@ -108,7 +107,7 @@ export default function Lavida({ meta }) {
 
                 {/* Products */}
                 <div id={'product'} className={'product'}>
-                    <div className={'container'}>
+                    <div className={'container '}>
                         <div className={'row'}>
                             <div className={'col-md-6'}>
                                 <div className="slide-container">
@@ -173,7 +172,7 @@ export default function Lavida({ meta }) {
                                     </Slide>
                                 </div>
                                 <div className={'content'}>
-                                <div className={''}>
+                                    <div className={''}>
                                         <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
                                             <li className="nav-item snd-list" role="presentation">
                                                 <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.desc')}</button>
@@ -251,10 +250,12 @@ export default function Lavida({ meta }) {
 
                             <div className={'col-md-4 mt-5 contact-us d-flex justify-content-center'}>
                                 <div>
-                                    <h1>Contact us</h1>
+                                    <h1>{t('nav.contact-us')}</h1>
                                     <hr />
-                                    <p>Phone:0123456789</p>
-                                    <p>Email:mina@gmail.com</p>
+                                    <p>Phone: 0123456789</p>
+                                    <p>Email: mina@gmail.com</p>
+                                    <p>Addres: 8asji uhasd u</p>
+
                                 </div>
                             </div>
 

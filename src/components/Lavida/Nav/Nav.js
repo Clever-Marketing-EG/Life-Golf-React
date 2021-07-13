@@ -16,7 +16,7 @@ export default function Nav() {
 
     return (
         <div id={'nav-bar'}>
-            <nav style={{ zIndex: 10, backgroundColor: 'rgba(255, 255, 255, 0.877)' }} className="navbar-expand-md fixed-top navbar navbar-light" >
+            <nav style={{ zIndex: 15, backgroundColor: 'rgba(255, 255, 255, 0.877)' }} className="navbar-expand-md fixed-top navbar navbar-light" >
                 <div className="container">
                     <a className="navbar-brand" href="/">
                         <img src={logo} className={'nav-logo'} alt={''} />
@@ -43,7 +43,7 @@ export default function Nav() {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-a" href="#about-us" activeClassName={'active'}>
+                                <a className="nav-a" href="#aboutus" activeClassName={'active'}>
                                     {t('nav.about')}
                                 </a>
                             </li>
