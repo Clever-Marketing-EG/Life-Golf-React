@@ -6,6 +6,8 @@ import Nav from './Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faLinkedin, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import logo from './Assets/logo.png';
+import logoFooter from './Assets/logo-footer.png';
+
 import img from './Assets/home.jpg';
 
 
@@ -207,7 +209,7 @@ export default function Lavida({ meta }) {
                         <div className={'row'}>
                             <div className={'col-md-4 mt-5 d-flex justify-content-center'}>
                                 <div className={'main-footer'}>
-                                    <img className={'footer-logo'} src={logo} />
+                                    <img className={'footer-logo'} src={logoFooter} />
                                     <div className="social-icons-container mt-5">
                                         <ul className="social-icons d-flex ">
                                             <li>

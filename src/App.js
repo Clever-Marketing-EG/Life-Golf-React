@@ -71,11 +71,11 @@ export default function App() {
             setLoaded(true);
         });
     }, [])
-    if (!loaded) {
+    // if (!loaded) {
 
-        return <Loader />;
-    }
-    else {
+        // return <Loader />;
+    // }
+    // else {
         return (
             <div>
                 <Router>
@@ -149,5 +149,5 @@ export default function App() {
             </div>
         );
     }
-}
+// }
 
