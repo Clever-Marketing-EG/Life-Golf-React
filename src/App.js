@@ -39,7 +39,7 @@ export default function App() {
     useEffect(() => {
         axios.get(`${BASE_URL}/meta`).then(response => {
             const data = response.data.data;
-            console.log(response);
+            console.log(response.data.data);
             const lang = localStorage.getItem('lang');
 
             const html = document.querySelector('html');
@@ -54,7 +54,8 @@ export default function App() {
                 'maintenance': {},
                 'contact': {},
                 'electronics': {},
-                'customize': {}
+                'customize': {},
+                'ElectricVichale': {}
             };
 
             if (lang === 'ar') {
@@ -70,8 +71,6 @@ export default function App() {
             setLoaded(true);
         });
     }, [])
-
-
     if (!loaded) {
 
         return <Loader />;
@@ -141,7 +140,7 @@ export default function App() {
                         </Route>
                         <Route path="/lavida">
                             <Lavida
-                                meta={meta}
+                                meta={meta['ElectricVichale']}
                             />
                         </Route>
                         <Route component={NotFound} />

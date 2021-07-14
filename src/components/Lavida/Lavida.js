@@ -8,6 +8,7 @@ import { faYoutube, faLinkedin, faFacebook, faInstagram } from '@fortawesome/fre
 import logo from './Assets/logo.png';
 import img from './Assets/home.jpg';
 
+
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 
@@ -15,41 +16,46 @@ const { BASE_URL } = require('../../config');
 
 export default function Lavida({ meta }) {
 
-
-    const slideImages = [
-        logo,
-        logo,
-        logo
-    ];
-
-
-    const carouselRef = useRef(null);
-    const carouselRef1 = useRef(null);
-    const totalPages = Math.ceil(2 / 1)
-    let resetTimeout;
-
-    const onNext = ({ index }) => {
-        clearTimeout(resetTimeout)
-        if (index + 1 === totalPages) {
-            resetTimeout = setTimeout(() => {
-                carouselRef.current.goTo(0)
-                // carouselRef1.current.goTo(0)
-            }, 3500) // same time
-        }
-    }
-
-
     const { t } = useTranslation();
 
     const [scrollChange, setScrollChange] = useState(0);
     const ShowUp = () => {
-        if (window.scrollY >= 800) {
+        if (window.scrollY >= 700) {
             setScrollChange(1);
         }
     };
 
-    window.addEventListener('scroll', ShowUp);
+    const [services, setServices] = useState([]);
 
+    useEffect(() => {
+        axios.get(`${BASE_URL}/evservice`).then(response => {
+            const lang = localStorage.getItem('lang');
+            let dataArr = [];
+            if (lang === 'ar') {
+                dataArr = response.data.data.map(item => (
+                    {
+                        id: item.id,
+                        title: item.title_ar,
+                        content: item.content_ar,
+                        image_url: item.image_url
+                    }
+                ))
+            } else {
+                dataArr = response.data.data.map(item => (
+                    {
+                        id: item.id,
+                        title: item.title,
+                        content: item.content,
+                        image_url: item.image_url
+                    }
+                ))
+            }
+            setServices(dataArr);
+        });
+
+    }, [])
+
+    window.addEventListener('scroll', ShowUp);
     return (
         <div id={'lavida'} dir={t('dir')}>
             <Nav />
@@ -57,48 +63,34 @@ export default function Lavida({ meta }) {
 
                 {/* Main */}
                 <div id={'home'} className={'main-container mb-4 position-relative'}>
-                    <img className={'img-container'} src={img} />
+                    <img className={'img-container'} src={meta?.intro_image} />
                 </div>
 
                 {/* Services */}
                 <div id={'service'} className={'row justify-content-center'}>
                     <div className={'mb-5'} />
-                    <div className={'col-md-3 service-container justify-content-center'}>
-                        <img className={'img-service mt-4 mb-4'} src={logo} />
-                        <h1>Best price guarantee</h1>
-                        <p>You always know your carrier, all carriers are carefully selected</p>
-                    </div>
-                    <div className={'col-md-3 service-container justify-content-center'}>
-                        <img className={'img-service mt-4 mb-4'} src={logo} />
-                        <h1>Best price guarantee</h1>
-                        <p>You always know your carrier, all carriers are carefully selected</p>
-                    </div>
-                    <div className={'col-md-3 service-container justify-content-center'}>
-                        <img className={'img-service mt-4 mb-4'} src={logo} />
-                        <h1>Best price guarantee</h1>
-                        <p>You always know your carrier, all carriers are carefully selected</p>
-                    </div>
-                    <div className={'col-md-3 service-container justify-content-center'}>
-                        <img className={'img-service mt-4 mb-4'} src={logo} />
-                        <h1>Best price guarantee</h1>
-                        <p>You always know your carrier, all carriers are carefully selected</p>
-                    </div>
+                    {services?.slice(0, 10).map((item, index) =>
+                        <div className={'col-md-3 service-container justify-content-center'}>
+                            <img className={'img-service mt-4 mb-4'} src={item.image_url} />
+                            <h1>{item.title}</h1>
+                            <p>{item.content}</p>
+                        </div>
+                    )}
                 </div>
-
 
                 {/* About Us */}
                 <div id={'aboutus'} className={'about-us-container'}>
                     <div className={'mb-5'} />
-                    <div style={{ backgroundImage: "linear-gradient(100deg, #71c96cdc, #379676dc , #4089e2de ), url( " + img + ")" }} className={'row img-container position-relative'}>
+                    <div style={{ backgroundImage: "linear-gradient(100deg, #71c96cdc, #379676dc , #4089e2de ), url( " + meta?.about_image + ")" }} className={'row img-container position-relative'}>
                         <div className={'col-md-7 d-flex justify-content-center'}>
                             <div className={'frame'}>
-                                <iframe width="660" height="415" src={`https://www.youtube.com/embed/DDpXdljhstg?controls=0&autoplay=${scrollChange}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="660" height="415" src={`${meta?.about_video}?controls=0&autoplay=${scrollChange}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div className={'col-md-5'}>
                             <div className={'content'}>
-                                <h1>You always know</h1>
-                                <p>You always know your carrier, all carriers are carefully selected</p>
+                                <h1>{meta?.about_title}</h1>
+                                <p>{meta?.about_content}</p>
                             </div>
                         </div>
                     </div>
@@ -107,19 +99,19 @@ export default function Lavida({ meta }) {
 
                 {/* Products */}
                 <div id={'product'} className={'product'}>
-                    <div className={'container '}>
+                    <div className={'container'}>
                         <div className={'row'}>
                             <div className={'col-md-6'}>
                                 <div className="slide-container">
                                     <Slide>
                                         <div className={'carousel-img'}>
-                                            <img src={logo} />
+                                            <img className={'img'} src={img} />
                                         </div>
                                         <div className={'carousel-img'}>
-                                            <img src={logo} />
+                                            <img className={'img'} src={logo} />
                                         </div>
                                         <div className={'carousel-img'}>
-                                            <img src={logo} />
+                                            <img className={'img'} src={img} />
                                         </div>
                                     </Slide>
                                 </div>
@@ -252,9 +244,9 @@ export default function Lavida({ meta }) {
                                 <div>
                                     <h1>{t('nav.contact-us')}</h1>
                                     <hr />
-                                    <p>Phone: 0123456789</p>
-                                    <p>Email: mina@gmail.com</p>
-                                    <p>Addres: 8asji uhasd u</p>
+                                    <p>{meta?.contact_phone}</p>
+                                    <p>{meta?.contact_email}</p>
+                                    <p>{meta?.contact_address}</p>
 
                                 </div>
                             </div>
