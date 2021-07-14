@@ -28,6 +28,7 @@ export default function Lavida({ meta }) {
     };
 
     const [services, setServices] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/evservice`).then(response => {
@@ -54,6 +55,35 @@ export default function Lavida({ meta }) {
             }
             setServices(dataArr);
         });
+        axios.get(`${BASE_URL}/evproducts`).then(response => {
+            const lang = localStorage.getItem('lang');
+            setProducts(response.data.data);
+
+            let dataArr = [];
+            if (lang === 'ar') {
+                dataArr = response.data.data.map(item => (
+                    {
+                        id: item.id,
+                        name: item.name_ar,
+                      
+                    }
+                ))
+                setProducts(dataArr);
+
+            } else {
+                dataArr = response.data.data.map(item => (
+                    {
+                        id: item.id,
+                        name: item.name,
+                       
+                    }
+                ))
+                setProducts(dataArr);
+
+            }
+            console.log(products);
+        });
+
 
     }, [])
 
