@@ -26,7 +26,6 @@ export default function Lavida({ meta }) {
             setScrollChange(1);
         }
     };
-
     const [services, setServices] = useState([]);
     const [products, setProducts] = useState([]);
 
@@ -58,14 +57,17 @@ export default function Lavida({ meta }) {
         axios.get(`${BASE_URL}/evproducts`).then(response => {
             const lang = localStorage.getItem('lang');
             setProducts(response.data.data);
-
+            console.log(response.data.data);
             let dataArr = [];
             if (lang === 'ar') {
                 dataArr = response.data.data.map(item => (
                     {
                         id: item.id,
                         name: item.name_ar,
-                      
+                        description: item.description_ar,
+                        highlights: item.highlights_ar,
+                        points: item.points,
+                        images: item.images
                     }
                 ))
                 setProducts(dataArr);
@@ -75,11 +77,13 @@ export default function Lavida({ meta }) {
                     {
                         id: item.id,
                         name: item.name,
-                       
+                        description: item.description,
+                        highlights: item.highlights,
+                        points: item.points,
+                        images: item.images
                     }
                 ))
                 setProducts(dataArr);
-
             }
             console.log(products);
         });
@@ -133,101 +137,57 @@ export default function Lavida({ meta }) {
                 <div id={'product'} className={'product'}>
                     <div className={'container'}>
                         <div className={'row'}>
-                            <div className={'col-md-6'}>
-                                <div className="slide-container">
-                                    <Slide>
-                                        <div className={'carousel-img'}>
-                                            <img className={'img'} src={img} />
-                                        </div>
-                                        <div className={'carousel-img'}>
-                                            <img className={'img'} src={logo} />
-                                        </div>
-                                        <div className={'carousel-img'}>
-                                            <img className={'img'} src={img} />
-                                        </div>
-                                    </Slide>
-                                </div>
-                                <div className={'content'}>
-
-                                    <div className={''}>
-                                        <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
-                                            <li className="nav-item snd-list" role="presentation">
-                                                <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.desc')}</button>
-                                            </li>
-                                            <li className="nav-item snd-list" role="presentation">
-                                                <button className="nav-link list-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.highlight')}</button>
-                                            </li>
-                                        </ul>
-                                        <div className="tab-content" id="pills-tabContent">
-                                            <div className="tab-pane fade show active content" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                                <p>In terms of power, e-Lavida is equipped with a permanent magnet synchronous motor with maximum power of 100kW (134hp), maximum torque of 290Nm, and an acceleration time of 3.4s from 0-50Km/h, but the top speed is only 150km/h. The e-Lavida is equipped with a ternary lithium battery, its battery capacity is 38.1kWh, which can support multiple charging modes such as DC fast charging, AC slow charging, and portable charging. It takes 5.5 hours to fully charge in the slow charge mode, and 40 mins charge from 0-80% in the fast charge mode. It consumes 13.2kWh of energy in 100-kilometer comprehensive condition. In the interior design, e-Lavida and the Lavida fuel version are almost identical in terms of overall layout, materials, configuration, and room. Specifically, e-Lavida uses a smaller LCD screen, most of which are manually controlled, and the dashboard style remains old-fashioned. e-Lavida features 6 airbags, AEB brake assist system, intelligent collision safety system, electronic handbrake, electronic parking, MIB in-vehicle infotainment system, intelligent recognition collision strength, Apple CarPlay and Baidu CarLife mobile phone interconnection system.</p>
-
-                                            </div>
-                                            <div className="tab-pane fade content" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                                <p>
-                                                    In the interior design, e-Lavida and the Lavida fuel version are almost identical in terms of overall layout, materials, configuration, and room. Specifically, e-Lavida uses a smaller LCD screen, most of which are manually controlled, and the dashboard style remains old-fashioned. e-Lavida features 6 airbags, AEB brake assist system, intelligent collision safety system, electronic handbrake, electronic parking, MIB in-vehicle infotainment system, intelligent recognition collision strength, Apple CarPlay and Baidu CarLife mobile phone interconnection system.
-                                                </p>
-                                            </div>
-                                        </div>
+                            {products.map((item, index) => (
+                                <div className={'col-md-6'}>
+                                    <div className="slide-container">
+                                        <Slide>
+                                            {item.images.map((item, index) => (
+                                                <div className={'carousel-img'}>
+                                                    <img className={'img'} src={item} />
+                                                </div>
+                                            ))}
+                                        </Slide>
                                     </div>
+                                    <div className={'content'}>
 
-                                    <ul>
-                                        <li>
-                                            {/* <img src={logo}/> */}
-                                            <FontAwesomeIcon className={'logo'} icon={faInstagram} />
-                                            asamm
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                                        <div className={''}>
+                                            <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
+                                                <li className="nav-item snd-list" role="presentation">
+                                                    <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target={`#pills-desc${index}`} type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.desc')}</button>
+                                                </li>
+                                                <li className="nav-item snd-list" role="presentation">
+                                                    <button className="nav-link list-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target={`#pills-high${index}`} type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.highlight')}</button>
+                                                </li>
+                                            </ul>
+                                            <div className="tab-content" id="pills-tabContent">
+                                                <div className="tab-pane fade show active content" id={`pills-desc${index}`} role="tabpanel" aria-labelledby="pills-home-tab">
+                                                    <p>{item.description}</p>
 
-                            <div className={'col-md-6'}>
-                                <div className="slide-container">
-                                    <Slide>
-                                        <div className={'carousel-img'}>
-                                            <img src={logo} />
+                                                </div>
+                                                <div className="tab-pane fade content" id={`pills-high${index}`} role="tabpanel" aria-labelledby="pills-profile-tab">
+                                                    <p>
+                                                        {item.highlights}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className={'carousel-img'}>
-                                            <img src={logo} />
-                                        </div>
-                                        <div className={'carousel-img'}>
-                                            <img src={logo} />
-                                        </div>
-                                    </Slide>
-                                </div>
-                                <div className={'content'}>
-                                    <div className={''}>
-                                        <ul className="nav nav-pills mb-3 snd-ul" id="pills-tab" role="tablist">
-                                            <li className="nav-item snd-list" role="presentation">
-                                                <button className="nav-link active list-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{t('utils.desc')}</button>
-                                            </li>
-                                            <li className="nav-item snd-list" role="presentation">
-                                                <button className="nav-link list-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile1" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{t('utils.highlight')}</button>
-                                            </li>
+
+                                        <ul>
+                                            {item.points.map((item, index) => (
+                                                <li>
+                                                    {/* <FontAwesomeIcon className={'logo'} icon={faAngellist} /> */}
+                                                    <i class="fas fa-dot-circle"></i>
+                                                    {/* <i class="fas fa-circle"></i>    */}
+                                                    {item}
+                                                </li>
+                                            ))}
+
                                         </ul>
-                                        <div className="tab-content" id="pills-tabContent">
-                                            <div className="tab-pane fade show active content" id="pills-home1" role="tabpanel" aria-labelledby="pills-home-tab">
-                                                <p>In terms of power, e-Lavida is equipped with a permanent magnet synchronous motor with maximum power of 100kW (134hp), maximum torque of 290Nm, and an acceleration time of 3.4s from 0-50Km/h, but the top speed is only 150km/h. The e-Lavida is equipped with a ternary lithium battery, its battery capacity is 38.1kWh, which can support multiple charging modes such as DC fast charging, AC slow charging, and portable charging. It takes 5.5 hours to fully charge in the slow charge mode, and 40 mins charge from 0-80% in the fast charge mode. It consumes 13.2kWh of energy in 100-kilometer comprehensive condition. In the interior design, e-Lavida and the Lavida fuel version are almost identical in terms of overall layout, materials, configuration, and room. Specifically, e-Lavida uses a smaller LCD screen, most of which are manually controlled, and the dashboard style remains old-fashioned. e-Lavida features 6 airbags, AEB brake assist system, intelligent collision safety system, electronic handbrake, electronic parking, MIB in-vehicle infotainment system, intelligent recognition collision strength, Apple CarPlay and Baidu CarLife mobile phone interconnection system.</p>
-
-                                            </div>
-                                            <div className="tab-pane fade content" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                                <p>
-                                                    In the interior design, e-Lavida and the Lavida fuel version are almost identical in terms of overall layout, materials, configuration, and room. Specifically, e-Lavida uses a smaller LCD screen, most of which are manually controlled, and the dashboard style remains old-fashioned. e-Lavida features 6 airbags, AEB brake assist system, intelligent collision safety system, electronic handbrake, electronic parking, MIB in-vehicle infotainment system, intelligent recognition collision strength, Apple CarPlay and Baidu CarLife mobile phone interconnection system.
-                                                </p>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <ul>
-                                        <li>
-                                            {/* <img src={logo}/> */}
-                                            <FontAwesomeIcon className={'logo'} icon={faInstagram} />
-                                            asamm
-                                        </li>
-                                    </ul>
                                 </div>
 
-                            </div>
+                            ))}
+
                         </div>
                     </div>
                 </div>

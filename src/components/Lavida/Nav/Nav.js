@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Nav.scss';
 import logo from '../Assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
@@ -14,9 +14,22 @@ export default function Nav() {
         window.location.reload();
     }
 
+    const [colorChange, setColorchange] = useState(false);
+    const changeNavbarColor = () => {
+        if (window.scrollY >= 50 || window.innerWidth <= 1000) {
+            setColorchange(true);
+        }
+        else {
+            setColorchange(false);
+        }
+    };
+
+    window.addEventListener('scroll', changeNavbarColor);
+
+
     return (
         <div id={'nav-bar'}>
-            <nav style={{ zIndex: 15, backgroundColor: 'rgba(255, 255, 255, 0.877)' }} className="navbar-expand-md fixed-top navbar navbar-light" >
+            <nav style={{ zIndex: 15 }} className={`${colorChange ? 'nav-color' : 'nav-Trans'} fixed-top navbar navbar-dark navbar-expand-lg`} >
                 <div className="container">
                     <a className="navbar-brand" href="/">
                         <img src={logo} className={'nav-logo'} alt={''} />
