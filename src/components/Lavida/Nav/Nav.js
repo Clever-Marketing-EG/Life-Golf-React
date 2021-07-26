@@ -23,7 +23,6 @@ export default function Nav() {
             setColorchange(false);
         }
     };
-
     window.addEventListener('scroll', changeNavbarColor);
 
 

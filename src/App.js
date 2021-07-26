@@ -72,7 +72,6 @@ export default function App() {
         });
     }, [])
     if (!loaded) {
-
         return <Loader />;
     }
     else {
@@ -138,7 +137,7 @@ export default function App() {
                             />
                             <Footer meta={meta['footer']} />
                         </Route>
-                        <Route path="/lavida">
+                        <Route path="/electricvichale">
                             <Lavida
                                 meta={meta['ElectricVichale']}
                             />

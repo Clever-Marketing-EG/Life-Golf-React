@@ -120,7 +120,7 @@ export default function Lavida({ meta }) {
                     <div style={{ backgroundImage: "linear-gradient(100deg, #71c96cdc, #379676dc , #4089e2de ), url( " + meta?.about_image + ")" }} className={'row img-container position-relative'}>
                         <div className={'col-md-7 d-flex justify-content-center'}>
                             <div className={'frame'}>
-                                <iframe width="660" height="415" src={`${meta?.about_video}?controls=0&autoplay=${scrollChange}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src={`${meta?.about_video}?controls=0&autoplay=${scrollChange}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div className={'col-md-5'}>

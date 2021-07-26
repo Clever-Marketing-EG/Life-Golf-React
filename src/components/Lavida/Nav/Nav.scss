@@ -14,7 +14,9 @@
         font-weight: bold;
         font-family: OpenSans;
     }
-    
+    .navbar-toggler{
+        background-color: #173d76;
+    }
     .active {
         border-bottom: 2px solid rgba(35, 166, 0, 1);
     }
