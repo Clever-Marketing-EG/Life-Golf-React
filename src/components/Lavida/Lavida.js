@@ -203,27 +203,23 @@ export default function Lavida({ meta }) {
                                     <div className="social-icons-container mt-5">
                                         <ul className="social-icons d-flex ">
                                             <li>
-                                                <a href="https://facebook.com/Halite-Egypt-107590011497121/posts/?ref=page_internal&mt_nav=0" target="_blank">
+                                                <a href="https://www.facebook.com/evehicleeg/" target="_blank">
                                                     {/* <i className="icon-facebook" /> */}
                                                     <FontAwesomeIcon icon={faFacebook} />
-
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.linkedin.com/company/halite-egypt/about/" target="_blank">
-                                                    {/* <i className="icon-instagram" /> */}
+                                                <a href="https://www.instagram.com/evehicleeg/?utm_medium=copy_link" target="_blank">
                                                     <FontAwesomeIcon icon={faInstagram} />
-
                                                 </a>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <a href="https://www.linkedin.com/company/halite-egypt/about/" target="_blank">
-                                                    {/* <i className="icon-linkedin" /> */}
                                                     <FontAwesomeIcon icon={faLinkedin} />
                                                 </a>
-                                            </li>
+                                            </li> */}
                                             <li>
-                                                <a href="https://www.linkedin.com/company/halite-egypt/about/" target="_blank">
+                                                <a href="https://www.youtube.com/channel/UCU4t3RFeI4ZTYcCkVE0oqpg" target="_blank">
                                                     <FontAwesomeIcon icon={faYoutube} />
                                                 </a>
                                             </li>
